@@ -15,7 +15,7 @@
       "@type": "LocalBusiness",
       "name": "VacantFind Kenya",
       "description": "Helps you find verified rental properties in Roysambu, Githurai, Embakasi, and Ruiru.",
-      "telephone": "+254793527836",
+      "telephone": "+254793517836",
       "url": "https://www.vacantfindkenya.com",
       "address": {
         "@type": "PostalAddress",
@@ -43,7 +43,7 @@
       line-height: 1.6;
     }
     header {
-      background: linear-gradient(to bottom, #1E3A8A, #10B981), url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      background: linear-gradient(to bottom, #1E3A8A, #10B981), url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1350') no-repeat center center/cover;
       height: 60vh;
       color: white;
       display: flex;
@@ -103,6 +103,28 @@
     }
     nav ul li a:hover {
       color: #FBBF24;
+    }
+    /* Hamburger Menu */
+    #menuToggle {
+      display: none;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #FBBF24;
+      color: #1E3A8A;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+      z-index: 101;
+    }
+    #navMenu {
+      display: flex;
+      flex-direction: row;
+    }
+    #navMenu.active {
+      transform: translateX(0);
     }
     /* Non-critical CSS */
     .section {
@@ -210,15 +232,32 @@
       flex-direction: column;
       gap: 15px;
     }
-    .blog-links a {
-      color: #1E3A8A;
-      text-decoration: none;
-      font-size: 1.1em;
-      font-weight: 500;
-      transition: color 0.3s;
+    .blog-links .blog-post {
+      border-bottom: 1px solid #D1D5DB;
+      padding-bottom: 15px;
     }
-    .blog-links a:hover {
+    .blog-links .blog-post h3 {
+      color: #1E3A8A;
+      font-size: 1.3em;
+      margin: 0 0 10px;
+    }
+    .blog-links .blog-post p {
+      margin: 0 0 10px;
+    }
+    .blog-links .blog-post .full-content {
+      display: none;
+    }
+    .blog-links .blog-post .full-content.active {
+      display: block;
+    }
+    .blog-links a.read-more {
       color: #FBBF24;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .blog-links a.read-more:hover {
+      text-decoration: underline;
     }
     .cta {
       text-align: center;
@@ -330,7 +369,7 @@
     #langToggle {
       position: absolute;
       top: 20px;
-      right: 20px;
+      right: 80px;
       z-index: 2;
       padding: 10px 20px;
       background: #FBBF24;
@@ -392,9 +431,31 @@
       .section h2 {
         font-size: 1.8em;
       }
-      nav ul {
+      #menuToggle {
+        display: block;
+      }
+      #navMenu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100%;
+        background: #1E3A8A;
         flex-direction: column;
-        gap: 10px;
+        padding: 60px 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+      #navMenu.active {
+        display: flex;
+        transform: translateX(0);
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      nav ul li a {
+        font-size: 1.2em;
       }
       .gallery {
         grid-template-columns: 1fr;
@@ -404,7 +465,8 @@
 </head>
 <body>
   <nav>
-    <ul>
+    <button id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+    <ul id="navMenu">
       <li><a href="#why-choose-us">Why Choose Us</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
@@ -496,10 +558,10 @@
   <section class="section" id="gallery">
     <h2 id="galleryTitle">Explore Our Listings</h2>
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
-      <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
-      <img src="https://images.unsplash.com/photo-1576941089067-2de3c901ea7e?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
-      <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
+      <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Modern bedsitter in Nairobi" />
+      <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=500" alt="1-bedroom apartment in Nairobi" />
+      <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=500" alt="2-bedroom house in Nairobi" />
+      <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Spacious rental property in Nairobi" />
     </div>
   </section>
 
@@ -532,11 +594,11 @@
   <section class="section" id="how-it-works">
     <h2 id="howItWorksTitle">How It Works</h2>
     <p>1. Contact us via WhatsApp with your house needs (location, budget, size).<br>
-       2. Pay via M-PESA to 0793527836.<br>
+       2. Pay via M-PESA to 0793517836.<br>
        3. We start hunting and send you real photos, prices, and caretaker contacts.<br>
        4. Optionally, we connect you with trusted movers.</p>
     <div class="cta">
-      <a href="https://wa.me/254793527836?utm_source=website&utm_medium=cta" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'click', { 'event_category': 'CTA', 'event_label': 'WhatsApp Contact' });">Contact Us on WhatsApp</a>
+      <a href="https://wa.me/254793517836?utm_source=website&utm_medium=cta" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'click', { 'event_category': 'CTA', 'event_label': 'WhatsApp Contact' });">Contact Us on WhatsApp</a>
     </div>
   </section>
 
@@ -575,15 +637,48 @@
   <section class="section" id="blog">
     <h2 id="blogTitle">Blog</h2>
     <div class="blog-links">
-      <a href="/blog/tips-for-renting-in-nairobi">Top 5 Tips for Renting in Nairobi</a>
-      <a href="/blog/how-to-choose-the-right-area">How to Choose the Right Area for Your Home</a>
-      <a href="/blog/moving-checklist">Ultimate Moving Checklist for Kenyans</a>
+      <div class="blog-post">
+        <h3>Top 5 Tips for Renting in Nairobi</h3>
+        <p>Renting in Nairobi can be daunting, but with the right approach, you can find a great home. Here are our top tips to make your search easier...</p>
+        <div class="full-content">
+          <p>1. <strong>Set a Realistic Budget</strong>: Factor in rent, utilities, and transport costs. Nairobi’s rental prices vary widely, from Ksh 7,000 for a bedsitter to Ksh 80,000 for a spacious 3-bedroom.<br>
+             2. <strong>Research Neighborhoods</strong>: Areas like Roysambu and Githurai offer affordable options, while Embakasi and Ruiru are great for families.<br>
+             3. <strong>Work with Professionals</strong>: Services like VacantFind Kenya ensure verified listings, saving you time and avoiding scams.<br>
+             4. <strong>Inspect Properties</strong>: Always visit properties in person to confirm details like water supply and security.<br>
+             5. <strong>Negotiate Terms</strong>: Many landlords are open to negotiation, especially for longer leases.</p>
+        </div>
+        <a class="read-more" onclick="toggleBlogContent(this)">Read More</a>
+      </div>
+      <div class="blog-post">
+        <h3>How to Choose the Right Area for Your Home</h3>
+        <p>Choosing the right neighborhood is key to a happy home. Consider proximity to work, amenities, and safety when deciding...</p>
+        <div class="full-content">
+          <p><strong>Proximity to Work</strong>: Living near your workplace, like in Roysambu for Thika Road commuters, saves time and money.<br>
+             <strong>Amenities</strong>: Look for areas with access to schools, markets, and hospitals, such as Embakasi.<br>
+             <strong>Safety</strong>: Research crime rates and opt for gated communities in areas like Ruiru for added security.<br>
+             <strong>Transport</strong>: Githurai’s proximity to matatu routes makes it ideal for those relying on public transport.<br>
+             <strong>Lifestyle</strong>: Choose a vibrant area like Roysambu for urban living or a quieter one like Ruiru for families.</p>
+        </div>
+        <a class="read-more" onclick="toggleBlogContent(this)">Read More</a>
+      </div>
+      <div class="blog-post">
+        <h3>Ultimate Moving Checklist for Kenyans</h3>
+        <p>Moving can be stressful, but our checklist ensures a smooth transition to your new home...</p>
+        <div class="full-content">
+          <p><strong>1 Month Before</strong>: Book movers (VacantFind Kenya can connect you with trusted options) and notify your landlord.<br>
+             <strong>2 Weeks Before</strong>: Pack non-essentials and arrange utilities for your new home.<br>
+             <strong>1 Week Before</strong>: Confirm moving details and pack essentials in a labeled box.<br>
+             <strong>Moving Day</strong>: Supervise movers, check inventory, and ensure your new home is clean.<br>
+             <strong>After Moving</strong>: Update your address, settle utilities, and explore your new neighborhood.</p>
+        </div>
+        <a class="read-more" onclick="toggleBlogContent(this)">Read More</a>
+      </div>
     </div>
   </section>
 
   <section class="section" id="payment">
     <h2 id="paymentTitle">Payment Info</h2>
-    <p><strong>M-PESA:</strong> 0793527836 (Name: VacantFind Kenya)<br>
+    <p><strong>M-PESA:</strong> 0793517836 (Name: VacantFind Kenya)<br>
        After payment, send a WhatsApp message with proof + your house request.</p>
   </section>
 
@@ -601,11 +696,11 @@
     </p>
   </footer>
 
-  <a id="whatsappChat" href="https://wa.me/254793527836?text=Hi, I need help with finding a home!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">📱</a>
+  <a id="whatsappChat" href="https://wa.me/254793517836?text=Hi, I need help with finding a home!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">📱</a>
   <button id="backToTop" aria-label="Back to top">↑</button>
 
   <script>
-    const whatsappNumber = '254793527836';
+    const whatsappNumber = '254793517836';
     const translations = {
       en: {
         headerTitle: 'VacantFind Kenya',
@@ -654,16 +749,15 @@
       const houseType = sanitizeInput(document.getElementById('houseType').value);
       const notes = sanitizeInput(document.getElementById('notes').value);
 
+      formStatus.style.display = 'block';
       if (!name || !area || !houseType || isNaN(budget) || budget < 7000) {
-        formStatus.style.display = 'block';
         formStatus.style.color = '#DC2626';
-        formStatus.textContent = document.documentElement.lang === 'sw' ? 'Tafadhali jaza sehemu zote zinazohitajika na chagua aina ya nyumba sahihi.' : 'Please fill all required fields and select a valid house type.';
+        formStatus.textContent = document.documentElement.lang === 'sw' ? 'Tafadhali jaza jina, eneo, na aina ya nyumba.' : 'Please fill in your name, area, and house type.';
         return;
       }
 
       submitBtn.disabled = true;
       submitBtn.classList.add('loading');
-      formStatus.style.display = 'block';
       formStatus.style.color = '#10B981';
       formStatus.textContent = document.documentElement.lang === 'sw' ? 'Inatayarisha ombi lako...' : 'Preparing your request...';
 
@@ -675,15 +769,13 @@
       gtag('event', 'submit', { 'event_category': 'Form', 'event_label': 'WhatsApp Submission' });
 
       setTimeout(() => {
-        // Attempt to open WhatsApp with the encoded message
         try {
-          window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}&utm_source=website&utm_medium=form`, '_blank', 'noopener,noreferrer');
+          window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMsg}&utm_source=website&utm_medium=form`;
           formStatus.style.color = '#10B981';
           formStatus.textContent = document.documentElement.lang === 'sw' ? 'Ombi limeshatumwa! Angalia WhatsApp.' : 'Request sent! Check WhatsApp.';
-          alert(document.documentElement.lang === 'sw' ? 'Ombi lako limetumwa! Angalia WhatsApp kwa maelezo zaidi.' : 'Your request has been sent! Check WhatsApp for further details.');
         } catch (error) {
           formStatus.style.color = '#DC2626';
-          formStatus.textContent = document.documentElement.lang === 'sw' ? 'Hitilafu katika kufungua WhatsApp. Tafadhali wasiliana nasi kwa +254793527836.' : 'Error opening WhatsApp. Please contact us at +254793527836.';
+          formStatus.textContent = document.documentElement.lang === 'sw' ? 'Hitilafu katika kufungua WhatsApp. Tafadhali wasiliana nasi kwa +254793517836.' : 'Error opening WhatsApp. Please contact us at +254793517836.';
         }
         submitBtn.disabled = false;
         submitBtn.classList.remove('loading');
@@ -712,7 +804,15 @@
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
         }
+        if (window.innerWidth <= 768) {
+          document.getElementById('navMenu').classList.remove('active');
+        }
       });
+    });
+
+    // Hamburger menu toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('active');
     });
 
     // Back-to-top button
@@ -781,6 +881,22 @@
         currentIndex = (currentIndex + 1) % items.length;
         updateCarousel();
       }, 5000);
+    }
+
+    // Blog content toggle
+    function toggleBlogContent(link) {
+      const fullContent = link.previousElementSibling;
+      const isActive = fullContent.classList.contains('active');
+      document.querySelectorAll('.full-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.read-more').forEach(otherLink => {
+        otherLink.textContent = document.documentElement.lang === 'sw' ? 'Soma Zaidi' : 'Read More';
+      });
+      if (!isActive) {
+        fullContent.classList.add('active');
+        link.textContent = document.documentElement.lang === 'sw' ? 'Ficha' : 'Hide';
+      }
     }
   </script>
 </body>
