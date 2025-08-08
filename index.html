@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VacantFind Kenya helps you find verified rental properties in Roysambu, Githurai, Embakasi, and Ruiru. Contact us for fast, affordable house hunting and moving services." />
+  <meta name="keywords" content="house hunting Kenya, rental properties Nairobi, movers Kenya, VacantFind Kenya" />
+  <title>VacantFind Kenya – We Find, You Move</title>
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Schema.org for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "VacantFind Kenya",
+      "description": "Helps you find verified rental properties in Roysambu, Githurai, Embakasi, and Ruiru.",
+      "telephone": "+254793527836",
+      "url": "https://www.vacantfindkenya.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      }
+    }
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <style>
+    /* Critical CSS */
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F7FAFC;
+      color: #1E3A8A;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to bottom, #1E3A8A, #10B981), url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      height: 60vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    header h1, header p, header .cta {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin: 0;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    /* Navigation Bar */
+    nav {
+      background: #1E3A8A;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 15px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #FBBF24;
+    }
+    /* Non-critical CSS */
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section h2 {
+      color: #1E3A8A;
+      font-size: 2.2em;
+      font-weight: 700;
+      border-bottom: 3px solid #FBBF24;
+      padding-bottom: 12px;
+      margin-bottom: 30px;
+    }
+    .section hr {
+      border: 0;
+      border-top: 1px solid #D1D5DB;
+      margin: 40px 0;
+    }
+    .services, .testimonials, .faq, .why-choose-us {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .service-item, .testimonial-item, .faq-item {
+      padding: 20px 0;
+    }
+    .service-item h3, .faq-item h3 {
+      color: #1E3A8A;
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .social-proof {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.2em;
+      color: #1E3A8A;
+      font-weight: 500;
+    }
+    /* Testimonial Carousel */
+    .testimonials {
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-container {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-item {
+      flex: 0 0 100%;
+      font-style: italic;
+      color: #1E3A8A;
+      margin: 0;
+      padding: 20px;
+    }
+    .testimonial-item p {
+      margin: 0;
+    }
+    .testimonial-item cite {
+      display: block;
+      font-style: normal;
+      color: #4B5EAA;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+    .carousel-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .carousel-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #D1D5DB;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active {
+      background: #FBBF24;
+    }
+    /* Image Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    /* Blog Section */
+    .blog-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .blog-links a {
+      color: #1E3A8A;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .blog-links a:hover {
+      color: #FBBF24;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta a, .cta button {
+      background: #FBBF24;
+      color: #1E3A8A;
+      padding: 14px 32px;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 500;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .cta a:hover, .cta button:hover {
+      background: #F59E0B;
+      transform: scale(1.05);
+    }
+    footer {
+      background: #1E3A8A;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #FBBF24;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer .area-links {
+      margin-top: 15px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      font-weight: 500;
+      color: #1E3A8A;
+      font-size: 1em;
+    }
+    input, select, textarea {
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid #D1D5DB;
+      border-radius: 8px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #FBBF24;
+      box-shadow: 0 0 6px rgba(251, 191, 36, 0.3);
+    }
+    output {
+      font-size: 1em;
+      color: #1E3A8A;
+      margin-top: 8px;
+    }
+    #formStatus {
+      font-size: 1em;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 3px solid #1E3A8A;
+      border-top: 3px solid #FBBF24;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 12px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #FBBF24;
+      color: #1E3A8A;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      display: none;
+      font-size: 1.5em;
+      font-weight: 700;
+      transition: opacity 0.3s, transform 0.2s;
+    }
+    #backToTop:hover {
+      transform: scale(1.1);
+      background: #F59E0B;
+    }
+    #langToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
+      padding: 10px 20px;
+      background: #FBBF24;
+      color: #1E3A8A;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    #langToggle:hover {
+      background: #F59E0B;
+    }
+    #langNotification {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #10B981;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      z-index: 3;
+      font-size: 0.9em;
+    }
+    /* WhatsApp Chat Widget */
+    #whatsappChat {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.8em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      z-index: 10;
+    }
+    #whatsappChat:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      .section {
+        padding: 40px 15px;
+      }
+      .section h2 {
+        font-size: 1.8em;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#why-choose-us">Why Choose Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#form">Request a Home</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#payment">Payment Info</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <button id="langToggle" aria-label="Toggle language between English and Swahili">Swahili</button>
+    <div id="langNotification"></div>
+    <h1 id="headerTitle">VacantFind Kenya</h1>
+    <p id="headerSubtitle">We Find, You Move. Let us do the walking for you.</p>
+    <div class="cta">
+      <a href="#form" onclick="gtag('event', 'click', { 'event_category': 'CTA', 'event_label': 'Header Get Started' });">Get Started</a>
+    </div>
+  </header>
+
+  <section class="section" id="why-choose-us">
+    <h2 id="whyChooseUsTitle">Why Choose VacantFind Kenya?</h2>
+    <div class="why-choose-us">
+      <p>At VacantFind Kenya, we’re more than just a house hunting service—we’re your trusted partner in finding the perfect home. Serving thousands of Kenyans with pride, our team combines deep expertise in Nairobi’s rental market with a commitment to transparency and affordability. From verified listings to seamless moving solutions, we deliver results tailored to your needs, starting at just Ksh 500. Choose us for a stress-free, reliable experience that puts your dream home within reach in Roysambu, Githurai, Embakasi, and Ruiru.</p>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <h2 id="servicesTitle">Our Services</h2>
+    <div class="services">
+      <div class="service-item">
+        <h3>House Hunting</h3>
+        <p>Find your ideal rental property with VacantFind Kenya’s expert house hunting services. We specialize in verified listings for bedsitters, 1-bedroom, 2-bedroom, and larger homes in Roysambu, Githurai, Embakasi, and Ruiru, with budgets ranging from Ksh 7,000 to 80,000. Our fast, affordable searches start at just Ksh 500, delivering real photos, prices, and caretaker contacts to make your move effortless.</p>
+        <ul>
+          <li>Basic Search – Ksh 500</li>
+          <li>Fast Search (3+ options) – Ksh 800</li>
+          <li>Full-Day Scout – Ksh 1200+</li>
+        </ul>
+      </div>
+      <hr>
+      <div class="service-item">
+        <h3>Moving Assistance</h3>
+        <p>Make your relocation smooth and stress-free with our trusted moving assistance. We connect you with reliable, affordable movers in Nairobi to ensure a seamless transition to your new home.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <h2 id="testimonialsTitle">What Our Clients Say</h2>
+    <div class="social-proof">Helped 5,000+ Kenyans find their perfect home</div>
+    <div class="testimonials">
+      <div class="testimonial-container">
+        <div class="testimonial-item">
+          <p>“VacantFind found me a perfect bedsitter in Roysambu within hours. Professional and affordable!”</p>
+          <cite>– Jane W., Roysambu</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>“The movers they recommended were fast and careful. My move to Githurai was stress-free.”</p>
+          <cite>– Peter M., Githurai</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>“I got three great options in Embakasi on a tight budget. Highly recommend!”</p>
+          <cite>– Sarah K., Embakasi</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>“Their team went above and beyond to find a 2-bedroom in Ruiru that fit my needs.”</p>
+          <cite>– David N., Ruiru</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>“No hidden fees, just honest service. Found my home in a day!”</p>
+          <cite>– Mercy A., Githurai</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>“The process was so smooth, and the listings were verified. Saved me so much time.”</p>
+          <cite>– John O., Roysambu</cite>
+        </div>
+        <div class="testimonial-item">
+          <p>“Affordable and reliable. The movers they connected me with were top-notch.”</p>
+          <cite>– Esther W., Embakasi</cite>
+        </div>
+      </div>
+      <div class="carousel-dots"></div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2 id="galleryTitle">Explore Our Listings</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
+      <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
+      <img src="https://images.unsplash.com/photo-1576941089067-2de3c901ea7e?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
+      <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=500&q=80" alt="Sample rental property in Nairobi" />
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <h2 id="faqTitle">Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>How quickly can you find a house?</h3>
+        <p>Our Basic Search delivers options within hours, while our Full-Day Scout provides comprehensive listings within a day, depending on your needs.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Which areas do you serve?</h3>
+        <p>We specialize in Roysambu, Githurai, Embakasi, and Ruiru, with plans to expand across Nairobi.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is payment required upfront?</h3>
+        <p>Yes, payment via M-PESA is required to start the search, ensuring we deliver verified listings promptly.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can you help with urgent moves?</h3>
+        <p>Absolutely! Our Fast Search and moving assistance services are designed for quick, efficient relocations.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What makes your listings verified?</h3>
+        <p>We physically inspect properties to ensure they meet your requirements, providing real photos and accurate details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works">
+    <h2 id="howItWorksTitle">How It Works</h2>
+    <p>1. Contact us via WhatsApp with your house needs (location, budget, size).<br>
+       2. Pay via M-PESA to 0793527836.<br>
+       3. We start hunting and send you real photos, prices, and caretaker contacts.<br>
+       4. Optionally, we connect you with trusted movers.</p>
+    <div class="cta">
+      <a href="https://wa.me/254793527836?utm_source=website&utm_medium=cta" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'click', { 'event_category': 'CTA', 'event_label': 'WhatsApp Contact' });">Contact Us on WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="section" id="form">
+    <h2 id="formTitle">Find Your Perfect Home Today</h2>
+    <form id="requestForm" onsubmit="event.preventDefault(); sendToWhatsApp();">
+      <label for="name" id="name-label">Your Name</label>
+      <input type="text" id="name" placeholder="Your Name" required aria-labelledby="name-label" />
+      <label for="area" id="area-label">Preferred Area</label>
+      <input type="text" id="area" placeholder="e.g., Ruiru, Githurai" required aria-labelledby="area-label" />
+      <label for="budget" id="budget-label">Budget (Ksh)</label>
+      <input type="range" id="budget" min="7000" max="80000" step="500" value="8000" required aria-labelledby="budget-label" oninput="document.getElementById('budgetValue').textContent = this.value" />
+      <output id="budgetValue">8000</output>
+      <label for="houseType" id="houseType-label">House Type</label>
+      <select id="houseType" required aria-labelledby="houseType-label">
+        <option value="" disabled selected>Select House Type</option>
+        <option value="Bedsitter">Bedsitter</option>
+        <option value="1 Bedroom">1 Bedroom</option>
+        <option value="2 Bedroom">2 Bedroom</option>
+        <option value="3+ Bedroom">3+ Bedroom</option>
+      </select>
+      <label for="notes" id="notes-label">Other Details (optional)</label>
+      <textarea id="notes" placeholder="e.g., Need a balcony or near a bus stop" aria-labelledby="notes-label"></textarea>
+      <div class="cta">
+        <button type="submit" id="submitBtn" aria-label="Send house request to WhatsApp">Send to WhatsApp</button>
+        <p id="formStatus" role="status" style="display: none;"></p>
+      </div>
+    </form>
+  </section>
+
+  <section class="section" id="about-us">
+    <h2 id="aboutUsTitle">About Us</h2>
+    <p>At VacantFind Kenya, we’re passionate about simplifying your journey to a new home. With deep roots in Nairobi’s property market, we’ve helped thousands of Kenyans find verified rental properties in Roysambu, Githurai, Embakasi, and Ruiru. Our mission is to deliver fast, affordable, and transparent house hunting and moving solutions, backed by a team dedicated to your satisfaction. Choose VacantFind Kenya for a seamless, trusted experience.</p>
+  </section>
+
+  <section class="section" id="blog">
+    <h2 id="blogTitle">Blog</h2>
+    <div class="blog-links">
+      <a href="/blog/tips-for-renting-in-nairobi">Top 5 Tips for Renting in Nairobi</a>
+      <a href="/blog/how-to-choose-the-right-area">How to Choose the Right Area for Your Home</a>
+      <a href="/blog/moving-checklist">Ultimate Moving Checklist for Kenyans</a>
+    </div>
+  </section>
+
+  <section class="section" id="payment">
+    <h2 id="paymentTitle">Payment Info</h2>
+    <p><strong>M-PESA:</strong> 0793527836 (Name: VacantFind Kenya)<br>
+       After payment, send a WhatsApp message with proof + your house request.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 VacantFind Kenya. Built for hustle. Powered by vision.</p>
+    <p>
+      <a href="https://x.com/vacantfindkenya" target="_blank" rel="noopener noreferrer">X</a> |
+      <a href="https://instagram.com/vacantfindkenya" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </p>
+    <p class="area-links">
+      <a href="/areas/roysambu">Roysambu</a> |
+      <a href="/areas/githurai">Githurai</a> |
+      <a href="/areas/embakasi">Embakasi</a> |
+      <a href="/areas/ruiru">Ruiru</a>
+    </p>
+  </footer>
+
+  <a id="whatsappChat" href="https://wa.me/254793527836?text=Hi, I need help with finding a home!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">📱</a>
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    const whatsappNumber = '254793527836';
+    const translations = {
+      en: {
+        headerTitle: 'VacantFind Kenya',
+        headerSubtitle: 'We Find, You Move. Let us do the walking for you.',
+        whyChooseUsTitle: 'Why Choose VacantFind Kenya?',
+        servicesTitle: 'Our Services',
+        howItWorksTitle: 'How It Works',
+        formTitle: 'Find Your Perfect Home Today',
+        testimonialsTitle: 'What Our Clients Say',
+        galleryTitle: 'Explore Our Listings',
+        faqTitle: 'Frequently Asked Questions',
+        aboutUsTitle: 'About Us',
+        blogTitle: 'Blog',
+        paymentTitle: 'Payment Info',
+        langToggle: 'Swahili',
+        langNotification: 'Language changed to English'
+      },
+      sw: {
+        headerTitle: 'VacantFind Kenya',
+        headerSubtitle: 'Tunapata, Unahama. Acha tufanye kutembea kwako.',
+        whyChooseUsTitle: 'Kwa Nini Uchague VacantFind Kenya?',
+        servicesTitle: 'Huduma Zetu',
+        howItWorksTitle: 'Jinsi Inavyofanya Kazi',
+        formTitle: 'Pata Nyumba Yako ya Ndoto Leo',
+        testimonialsTitle: 'Wateja Wetu Wanasema Nini',
+        galleryTitle: 'Chunguza Orodha Zetu',
+        faqTitle: 'Maswali Yanayoulizwa Mara kwa Mara',
+        aboutUsTitle: 'Kuhusu Sisi',
+        blogTitle: 'Blogu',
+        paymentTitle: 'Maelezo ya Malipo',
+        langToggle: 'English',
+        langNotification: 'Lugha imebadilishwa kuwa Kiswahili'
+      }
+    };
+
+    function sanitizeInput(input) {
+      return input.replace(/[<>"'&]/g, '');
+    }
+
+    function sendToWhatsApp() {
+      const submitBtn = document.getElementById('submitBtn');
+      const formStatus = document.getElementById('formStatus');
+      const name = sanitizeInput(document.getElementById('name').value);
+      const area = sanitizeInput(document.getElementById('area').value);
+      const budget = parseInt(document.getElementById('budget').value);
+      const houseType = sanitizeInput(document.getElementById('houseType').value);
+      const notes = sanitizeInput(document.getElementById('notes').value);
+
+      if (!name || !area || !houseType || isNaN(budget) || budget < 7000) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#DC2626';
+        formStatus.textContent = document.documentElement.lang === 'sw' ? 'Tafadhali jaza sehemu zote zinazohitajika na chagua aina ya nyumba sahihi.' : 'Please fill all required fields and select a valid house type.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      formStatus.style.display = 'block';
+      formStatus.style.color = '#10B981';
+      formStatus.textContent = document.documentElement.lang === 'sw' ? 'Inatayarisha ombi lako...' : 'Preparing your request...';
+
+      localStorage.setItem('formData', JSON.stringify({ name, area, budget, houseType, notes }));
+
+      const message = `Hi, my name is ${name}. I'm looking for a ${houseType} in ${area} with a budget of Ksh ${budget}. ${notes ? '\nNotes: ' + notes : ''}`;
+      const encodedMsg = encodeURIComponent(message);
+
+      gtag('event', 'submit', { 'event_category': 'Form', 'event_label': 'WhatsApp Submission' });
+
+      setTimeout(() => {
+        // Attempt to open WhatsApp with the encoded message
+        try {
+          window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}&utm_source=website&utm_medium=form`, '_blank', 'noopener,noreferrer');
+          formStatus.style.color = '#10B981';
+          formStatus.textContent = document.documentElement.lang === 'sw' ? 'Ombi limeshatumwa! Angalia WhatsApp.' : 'Request sent! Check WhatsApp.';
+          alert(document.documentElement.lang === 'sw' ? 'Ombi lako limetumwa! Angalia WhatsApp kwa maelezo zaidi.' : 'Your request has been sent! Check WhatsApp for further details.');
+        } catch (error) {
+          formStatus.style.color = '#DC2626';
+          formStatus.textContent = document.documentElement.lang === 'sw' ? 'Hitilafu katika kufungua WhatsApp. Tafadhali wasiliana nasi kwa +254793527836.' : 'Error opening WhatsApp. Please contact us at +254793527836.';
+        }
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+      }, 1000);
+    }
+
+    // Restore form data
+    window.onload = () => {
+      const savedData = JSON.parse(localStorage.getItem('formData'));
+      if (savedData) {
+        document.getElementById('name').value = savedData.name || '';
+        document.getElementById('area').value = savedData.area || '';
+        document.getElementById('budget').value = savedData.budget || 8000;
+        document.getElementById('budgetValue').textContent = savedData.budget || 8000;
+        document.getElementById('houseType').value = savedData.houseType || '';
+        document.getElementById('notes').value = savedData.notes || '';
+      }
+      initCarousel();
+    };
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Back-to-top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Language toggle with notification
+    document.getElementById('langToggle').addEventListener('click', () => {
+      const currentLang = document.documentElement.lang === 'en' ? 'sw' : 'en';
+      document.documentElement.lang = currentLang;
+      const trans = translations[currentLang];
+      document.getElementById('headerTitle').textContent = trans.headerTitle;
+      document.getElementById('headerSubtitle').textContent = trans.headerSubtitle;
+      document.getElementById('whyChooseUsTitle').textContent = trans.whyChooseUsTitle;
+      document.getElementById('servicesTitle').textContent = trans.servicesTitle;
+      document.getElementById('howItWorksTitle').textContent = trans.howItWorksTitle;
+      document.getElementById('formTitle').textContent = trans.formTitle;
+      document.getElementById('testimonialsTitle').textContent = trans.testimonialsTitle;
+      document.getElementById('galleryTitle').textContent = trans.galleryTitle;
+      document.getElementById('faqTitle').textContent = trans.faqTitle;
+      document.getElementById('aboutUsTitle').textContent = trans.aboutUsTitle;
+      document.getElementById('blogTitle').textContent = trans.blogTitle;
+      document.getElementById('paymentTitle').textContent = trans.paymentTitle;
+      document.getElementById('langToggle').textContent = trans.langToggle;
+      const langNotification = document.getElementById('langNotification');
+      langNotification.textContent = trans.langNotification;
+      langNotification.style.display = 'block';
+      setTimeout(() => {
+        langNotification.style.display = 'none';
+      }, 3000);
+    });
+
+    // Testimonial carousel
+    function initCarousel() {
+      const container = document.querySelector('.testimonial-container');
+      const dotsContainer = document.querySelector('.carousel-dots');
+      const items = document.querySelectorAll('.testimonial-item');
+      let currentIndex = 0;
+
+      // Create dots
+      items.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      function updateCarousel() {
+        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+        document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      // Auto-slide every 5 seconds
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
