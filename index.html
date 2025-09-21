@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cambridge connects families with specialized support services for children with autism and other developmental needs in Nairobi, Kenya.">
+    <meta name="description" content="CareBridge connects families with specialized support services for children with autism and other developmental needs in Nairobi, Kenya.">
     <meta name="keywords" content="autism support, developmental therapy, Nairobi, Kenya, child services, speech therapy, behavioral therapy, ADHD support">
-    <meta name="author" content="Cambridge">
+    <meta name="author" content="CareBridge">
+    <meta name="robots" content="index, follow">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Cambridge - Child Development Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>CareBridge - Empowering Child Development</title>
 
     <!-- MAIN STYLES -->
     <style>
         :root {
-            --primary-color: #0055a5;   /* Dark Blue */
-            --secondary-color: #00a3e0; /* Light Blue */
-            --accent-color: #f9a825;    /* Yellow/Highlight */
-            --background-color: #f9f9f9;/* Light Gray Background */
-            --text-color: #333333;      /* Dark Text */
+            --primary-color: #0055a5;   /* Deep Blue for Trust */
+            --secondary-color: #00a3e0; /* Vibrant Blue for Energy */
+            --accent-color: #f9a825;    /* Warm Yellow for Positivity */
+            --background-color: #f9f9f9;/* Soft Gray for Calm */
+            --text-color: #333333;      /* Dark Text for Readability */
             --white: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -27,293 +32,316 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        a { color: var(--primary-color); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        h1, h2, h3 { color: var(--primary-color); }
+        a { color: var(--primary-color); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--secondary-color); }
+        h1, h2, h3 { color: var(--primary-color); font-weight: 700; }
         .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px 0; }
 
         /* HERO BANNER */
         .hero {
-            background: linear-gradient(rgba(0, 85, 165, 0.8), rgba(0, 85, 165, 0.8)), url('https://source.unsplash.com/1600x900/?children,support');
+            background: linear-gradient(rgba(0, 85, 165, 0.85), rgba(0, 85, 165, 0.85)), url('https://source.unsplash.com/1600x900/?children,support,happy');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--white);
             text-align: center;
-            padding: 120px 20px;
-            animation: fadeIn 2s ease-in;
+            padding: 150px 20px;
+            animation: fadeIn 1.5s ease-in;
+            position: relative;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.3rem; margin-bottom: 25px; }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: var(--background-color);
+            clip-path: polygon(0 0, 100% 100%, 100% 0, 0 100%);
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.4rem; margin-bottom: 30px; max-width: 800px; margin: 0 auto 30px; }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background-color: var(--accent-color);
             color: var(--white);
             padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
         .cta-button:hover {
             background-color: var(--secondary-color);
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px var(--shadow-color);
             text-decoration: none;
+        }
+        .cta-button i {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
         /* HEADER */
         header {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 20px 0;
+            padding: 15px 0;
             text-align: center;
+            box-shadow: 0 2px 4px var(--shadow-color);
         }
-        header img { height: 60px; margin-bottom: 10px; }
+        header img { height: 50px; margin-bottom: 10px; }
 
         /* NAVIGATION */
         nav {
-            background-color: var(--secondary-color);
+            background-color: var(--white);
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 4px var(--shadow-color);
         }
         nav a {
-            margin: 0 15px;
-            color: var(--white);
-            font-weight: bold;
-            padding: 10px;
-            transition: background-color 0.3s;
+            margin: 0 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 10px 15px;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
         }
         nav a:hover, nav a:focus {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            text-decoration: none;
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
+            color: var(--secondary-color);
+            background-color: rgba(0, 163, 224, 0.1);
+            outline: none;
         }
 
-        section { padding: 60px 0; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2.5rem; }
-        .section-title p { font-size: 1.1rem; color: #666; }
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.8rem; margin-bottom: 15px; }
+        .section-title p { font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto; }
 
         /* SERVICES GRID */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
         .service-card {
             background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
             transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
         .service-card img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            loading: lazy;
-        }
-
-        /* TEAM GRID */
-        .team {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .team-card {
-            background-color: var(--white);
-            padding: 20px;
             border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .team-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             loading: lazy;
+        }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 10px; }
+        .service-card p { color: #666; }
+
+        /* RESOURCES SECTION */
+        .resources {
+            background-color: #e8f4f8;
+            padding: 80px 0;
+        }
+        .resource-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        .resource-card h3 { font-size: 1.6rem; margin-bottom: 10px; }
+        .resource-card a {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         /* TESTIMONIALS */
         .testimonials {
             background-color: #f5f5f5;
-            padding: 60px 0;
+            padding: 80px 0;
         }
         .testimonial {
             background-color: var(--white);
-            padding: 20px;
-            border-left: 5px solid var(--accent-color);
-            margin-bottom: 20px;
-            border-radius: 5px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            margin-bottom: 30px;
             font-style: italic;
+            position: relative;
+        }
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+        }
+        .testimonial p:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
         }
 
         /* FAQ */
         .faq-item {
             background-color: var(--white);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px var(--shadow-color);
             cursor: pointer;
+            transition: box-shadow 0.3s;
         }
-        .faq-item h3 { margin-bottom: 10px; }
-        .faq-answer { display: none; }
+        .faq-item:hover {
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        .faq-item h3 { margin-bottom: 10px; font-size: 1.4rem; }
+        .faq-answer { display: none; color: #666; }
         .faq-answer.active { display: block; animation: slideDown 0.3s ease; }
 
         /* CONTACT FORM */
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
             background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
-        .contact-form label { font-weight: bold; }
+        .contact-form label { font-weight: 600; }
         .contact-form input, .contact-form textarea {
-            padding: 12px;
+            padding: 15px;
             border: 1px solid var(--primary-color);
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
         }
-        .contact-form textarea { resize: vertical; }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
         .contact-form button {
             background-color: var(--accent-color);
             color: var(--white);
-            padding: 12px;
+            padding: 15px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .contact-form button:hover {
             background-color: var(--secondary-color);
-        }
-
-        /* RESOURCES SECTION */
-        .resources {
-            background-color: #e8f4f8;
-            padding: 60px 0;
-        }
-        .resource-card {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .resource-card a {
-            color: var(--primary-color);
-            font-weight: bold;
+            transform: translateY(-3px);
         }
 
         /* APPLICATION SECTION */
         .applications {
-            background-color: #f5f5f5;
-            padding: 60px 0;
+            background: linear-gradient(to bottom, #f5f5f5, var(--background-color));
+            padding: 80px 0;
         }
         .application-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
         .application-card {
             background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px var(--shadow-color);
             text-align: center;
-            transition: transform 0.3s;
+            max-width: 400px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .application-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px var(--shadow-color);
         }
         .application-card h3 {
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
         .application-card p {
-            margin-bottom: 20px;
             color: #666;
+            margin-bottom: 25px;
         }
         .application-card .cta-button {
-            padding: 10px 20px;
-        }
-
-        /* PRICING SECTION */
-        .pricing {
-            padding: 60px 0;
-            background-color: #fff;
-        }
-        .pricing-card {
-            background-color: var(--background-color);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .pricing-card h3 {
-            margin-bottom: 10px;
-        }
-        .pricing-card p {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
+            padding: 15px 40px;
+            border-radius: 50px;
         }
 
         /* NEWSLETTER */
         .newsletter {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 40px 0;
+            padding: 60px 0;
             text-align: center;
         }
+        .newsletter h2 { color: var(--white); }
         .newsletter form {
             display: flex;
-            gap: 10px;
-            max-width: 500px;
-            margin: 20px auto;
+            gap: 15px;
+            max-width: 600px;
+            margin: 25px auto;
         }
         .newsletter input {
             flex: 1;
-            padding: 10px;
+            padding: 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 1rem;
         }
         .newsletter button {
             background-color: var(--accent-color);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         .newsletter button:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--white);
+            color: var(--primary-color);
         }
 
         /* FOOTER */
@@ -321,18 +349,26 @@
             background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
-            padding: 20px 0;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        .social-links {
+            margin-top: 10px;
         }
         .social-links a {
             color: var(--white);
-            margin: 0 10px;
-            font-size: 1.2rem;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
         }
 
         /* ANIMATIONS */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-10px); }
@@ -341,27 +377,35 @@
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
+            .hero { padding: 100px 20px; }
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            nav { flex-wrap: wrap; }
-            nav a { margin: 5px; }
+            .hero p { font-size: 1.2rem; }
+            .cta-buttons { flex-direction: column; gap: 15px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            nav a { margin: 10px; }
+            .application-options { gap: 30px; }
         }
     </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <!-- HERO BANNER -->
     <section class="hero" role="banner">
-        <h1>Welcome to Cambridge</h1>
-        <p>Providing specialized support for children with autism and other developmental needs, connecting families with vetted experts.</p>
-        <a href="#applications" class="cta-button">Get Started</a>
+        <h1>Welcome to CareBridge</h1>
+        <p>Bridging families and experts for compassionate, specialized support in autism and child development.</p>
+        <div class="cta-buttons">
+            <a href="parent-application.html" class="cta-button"><i class="fas fa-user"></i> Are You a Parent?</a>
+            <a href="provider-application.html" class="cta-button"><i class="fas fa-stethoscope"></i> Are You a Provider?</a>
+        </div>
     </section>
 
     <!-- HEADER -->
     <header>
-        <img src="https://via.placeholder.com/150x60?text=Logo" alt="Cambridge Logo">
-        <h1>Cambridge</h1>
-        <p>Empowering Children and Families Through Specialized Support</p>
+        <img src="https://via.placeholder.com/150x60?text=Logo" alt="CareBridge Logo">
+        <h1>CareBridge</h1>
+        <p>Connecting Care, Building Futures</p>
     </header>
 
     <!-- NAVIGATION -->
@@ -369,9 +413,7 @@
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
-        <a href="#team">Team</a>
         <a href="#resources">Resources</a>
-        <a href="#pricing">Pricing</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
         <a href="#applications">Applications</a>
@@ -381,17 +423,16 @@
     <!-- HOME -->
     <section id="home" class="container" role="main">
         <div class="section-title">
-            <h2>Welcome to Cambridge</h2>
-            <p>We specialize in supporting children with autism, ADHD, learning disabilities, and other developmental areas through tailored therapies and community programs.</p>
-            <a href="#applications" class="cta-button">Apply Now</a>
+            <h2>Discover CareBridge</h2>
+            <p>We provide expert-led support for children with autism and developmental needs, ensuring every family finds the right path forward.</p>
         </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="container">
         <div class="section-title">
-            <h2>About Us</h2>
-            <p>Cambridge is dedicated to bridging families with vetted service providers for comprehensive child development support in Nairobi, Kenya, and beyond. Our rigorous vetting process ensures high-quality care.</p>
+            <h2>About CareBridge</h2>
+            <p>Founded with a mission to empower families, CareBridge connects you with vetted professionals in Nairobi, Kenya, offering tailored therapies and resources for holistic child development.</p>
         </div>
     </section>
 
@@ -399,58 +440,23 @@
     <section id="services" class="container">
         <div class="section-title">
             <h2>Our Services</h2>
-            <p>Explore our expanded range of therapies for autism and other developmental needs.</p>
+            <p>Comprehensive, evidence-based therapies designed to nurture growth and independence.</p>
         </div>
         <div class="services">
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy" loading="lazy">
                 <h3>Speech Therapy</h3>
-                <p>Enhance communication skills for children with autism and speech delays.</p>
+                <p>Unlock communication potential with personalized sessions.</p>
             </div>
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy" loading="lazy">
                 <h3>Behavioral Therapy</h3>
-                <p>Support for behavioral development, including ABA for autism and ADHD.</p>
+                <p>Build positive behaviors through structured support.</p>
             </div>
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy" loading="lazy">
                 <h3>Occupational Therapy</h3>
-                <p>Develop daily life skills for various developmental challenges.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?adhd" alt="ADHD Support" loading="lazy">
-                <h3>ADHD Support</h3>
-                <p>Strategies and therapies to manage attention and hyperactivity.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?learning" alt="Learning Disability Aid" loading="lazy">
-                <h3>Learning Disability Aid</h3>
-                <p>Tailored educational support for dyslexia and other learning needs.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team" class="container">
-        <div class="section-title">
-            <h2>Our Vetted Team</h2>
-            <p>Meet our experts who have undergone rigorous vetting for quality assurance.</p>
-        </div>
-        <div class="team">
-            <div class="team-card">
-                <img src="https://source.unsplash.com/120x120/?woman,portrait" alt="Jane Doe" loading="lazy">
-                <h3>Jane Doe</h3>
-                <p>Lead Speech Therapist</p>
-            </div>
-            <div class="team-card">
-                <img src="https://source.unsplash.com/120x120/?man,portrait" alt="John Smith" loading="lazy">
-                <h3>John Smith</h3>
-                <p>Behavioral Specialist</p>
-            </div>
-            <div class="team-card">
-                <img src="https://source.unsplash.com/120x120/?woman,portrait,smile" alt="Mary Johnson" loading="lazy">
-                <h3>Mary Johnson</h3>
-                <p>Occupational Therapist</p>
+                <p>Enhance daily skills for greater independence.</p>
             </div>
         </div>
     </section>
@@ -460,64 +466,23 @@
         <div class="container">
             <div class="section-title">
                 <h2>Resources</h2>
-                <p>Access guides, articles, and tools for child development support.</p>
+                <p>Empower yourself with knowledge and tools for your journey.</p>
             </div>
             <div class="services">
                 <div class="resource-card">
-                    <h3>Parent Guide to Autism</h3>
-                    <p>Comprehensive tips for navigating autism support.</p>
-                    <a href="#">Download Now</a>
+                    <h3>Parent Guide</h3>
+                    <p>Essential tips for navigating autism support.</p>
+                    <a href="#">Download</a>
                 </div>
                 <div class="resource-card">
-                    <h3>ADHD Management Blog</h3>
-                    <p>Latest strategies for ADHD in children.</p>
+                    <h3>Blog Insights</h3>
+                    <p>Latest articles on child development.</p>
                     <a href="#">Read More</a>
                 </div>
                 <div class="resource-card">
-                    <h3>Community Workshops</h3>
-                    <p>Join events for families and providers.</p>
-                    <a href="#">View Events</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Pricing Plans</h2>
-                <p>Affordable options for families and providers to access our network.</p>
-            </div>
-            <div class="services">
-                <div class="pricing-card">
-                    <h3>Basic Family Plan</h3>
-                    <p>$50/month</p>
-                    <ul>
-                        <li>Access to vetted providers</li>
-                        <li>Basic resources</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Sign Up</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Premium Family Plan</h3>
-                    <p>$100/month</p>
-                    <ul>
-                        <li>Priority matching</li>
-                        <li>Exclusive workshops</li>
-                        <li>Personalized consultations</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Sign Up</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Provider Membership</h3>
-                    <p>$20/month</p>
-                    <ul>
-                        <li>Client referrals</li>
-                        <li>Training resources</li>
-                        <li>Networking events</li>
-                    </ul>
-                    <a href="#applications" class="cta-button">Join Now</a>
+                    <h3>Events</h3>
+                    <p>Upcoming workshops and webinars.</p>
+                    <a href="#">View Calendar</a>
                 </div>
             </div>
         </div>
@@ -527,16 +492,16 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Testimonials</h2>
-                <p>Hear from families and providers in our network.</p>
+                <h2>What Families Say</h2>
+                <p>Real stories from our community.</p>
             </div>
             <div class="testimonial">
-                <p>"Cambridge connected us with amazing therapists for our child's autism needs!"</p>
-                <p>- Parent A</p>
+                <p>CareBridge transformed our child's communication skills. The support is unparalleled!</p>
+                <p>- Grateful Parent</p>
             </div>
             <div class="testimonial">
-                <p>"As a provider, the vetting process was thorough, and the referrals are top-notch."</p>
-                <p>- Provider B</p>
+                <p>As a provider, joining CareBridge has been rewarding—great network and impactful work.</p>
+                <p>- Dedicated Therapist</p>
             </div>
         </div>
     </section>
@@ -544,20 +509,16 @@
     <!-- FAQ -->
     <section id="faq" class="container">
         <div class="section-title">
-            <h2>FAQ</h2>
-            <p>Answers to common questions about our services and applications.</p>
+            <h2>Frequently Asked Questions</h2>
+            <p>Find quick answers to common queries.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">What areas do you support?</h3>
-            <p class="faq-answer">We support autism, ADHD, learning disabilities, and more.</p>
+            <h3 onclick="toggleFAQ(this)">How do I get started?</h3>
+            <p class="faq-answer">Click 'Are You a Parent?' or 'Are You a Provider?' to apply.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">How are providers vetted?</h3>
-            <p class="faq-answer">Through background checks, credential verification, and interviews.</p>
-        </div>
-        <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">What is the cost?</h3>
-            <p class="faq-answer">See our pricing section for details on plans.</p>
+            <h3 onclick="toggleFAQ(this)">What services do you offer?</h3>
+            <p class="faq-answer">Speech, behavioral, and occupational therapies, among others.</p>
         </div>
     </section>
 
@@ -565,19 +526,19 @@
     <section id="applications" class="applications">
         <div class="container">
             <div class="section-title">
-                <h2>Apply Now</h2>
-                <p>Join as a family or provider to access our vetted network.</p>
+                <h2>Join Our Community</h2>
+                <p>Whether you're seeking support or offering expertise, start here.</p>
             </div>
             <div class="application-options">
                 <div class="application-card">
-                    <h3>Family Application</h3>
-                    <p>Apply for support services for your child with autism or other needs. We'll match you with vetted providers.</p>
-                    <a href="family-application.html" class="cta-button">Apply as Family</a>
+                    <h3>Are You a Parent?</h3>
+                    <p>Apply to connect with tailored support for your child(ren)'s needs, including age, condition, and more.</p>
+                    <a href="parent-application.html" class="cta-button">Apply Now</a>
                 </div>
                 <div class="application-card">
-                    <h3>Provider Application</h3>
-                    <p>Submit your CV and credentials to join our vetted network and receive referrals.</p>
-                    <a href="provider-application.html" class="cta-button">Apply as Provider</a>
+                    <h3>Are You a Provider?</h3>
+                    <p>Join our vetted network by submitting your credentials and expertise.</p>
+                    <a href="provider-application.html" class="cta-button">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -587,7 +548,7 @@
     <section id="contact" class="container">
         <div class="section-title">
             <h2>Contact Us</h2>
-            <p>Get in touch for more information or partnerships.</p>
+            <p>We're here to help—reach out today.</p>
         </div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
             <label for="name">Name:</label>
@@ -598,15 +559,15 @@
             <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p>Email: <a href="mailto:contact@cambridge.com">contact@cambridge.com</a></p>
+        <p>Email: <a href="mailto:contact@carebridge.com">contact@carebridge.com</a></p>
         <p>Phone: <a href="tel:+254700000000">+254 700 000 000</a></p>
         <p>Address: Nairobi, Kenya</p>
     </section>
 
     <!-- NEWSLETTER -->
     <section class="newsletter">
-        <h2>Stay Informed</h2>
-        <p>Subscribe for updates on child development resources and events.</p>
+        <h2>Stay Connected</h2>
+        <p>Subscribe for updates, tips, and exclusive resources.</p>
         <form onsubmit="handleNewsletterSubmit(event)">
             <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
             <button type="submit">Subscribe</button>
@@ -615,33 +576,30 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 Cambridge. All rights reserved.</p>
+        <p>&copy; 2025 CareBridge. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://facebook.com" aria-label="Facebook">Facebook</a>
-            <a href="https://twitter.com" aria-label="Twitter">Twitter</a>
-            <a href="https://instagram.com" aria-label="Instagram">Instagram</a>
+            <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 
     <!-- JAVASCRIPT -->
     <script>
-        // FAQ Toggle
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             answer.classList.toggle('active');
         }
 
-        // Contact Form Submission
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your message! We will respond soon.');
+            alert('Message sent! We'll respond soon.');
             event.target.reset();
         }
 
-        // Newsletter Submission
         function handleNewsletterSubmit(event) {
             event.preventDefault();
-            alert('Thank you for subscribing!');
+            alert('Subscribed! Thank you.');
             event.target.reset();
         }
     </script>
