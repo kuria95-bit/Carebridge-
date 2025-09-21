@@ -188,6 +188,35 @@
             margin-top: 10px;
         }
 
+        /* COMMUNITY EMPOWERMENT SECTION */
+        .community {
+            background: linear-gradient(to bottom, #f5f5f5, var(--background-color));
+            padding: 80px 0;
+        }
+        .community-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .community-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .community-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+        .community-card h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .community-card p { color: #666; margin-bottom: 20px; }
+        .community-card .cta-button {
+            padding: 12px 25px;
+            border-radius: 50px;
+        }
+
         /* TESTIMONIALS */
         .testimonials {
             background-color: #f5f5f5;
@@ -414,6 +443,7 @@
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#resources">Resources</a>
+        <a href="#community">Community</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
         <a href="#applications">Applications</a>
@@ -432,7 +462,7 @@
     <section id="about" class="container">
         <div class="section-title">
             <h2>About CareBridge</h2>
-            <p>Founded with a mission to empower families, CareBridge connects you with vetted professionals in Nairobi, Kenya, offering tailored therapies and resources for holistic child development.</p>
+            <p>Founded with a mission to empower families, CareBridge connects you with vetted professionals for comprehensive child development support in Nairobi, Kenya, and beyond.</p>
         </div>
     </section>
 
@@ -483,6 +513,28 @@
                     <h3>Events</h3>
                     <p>Upcoming workshops and webinars.</p>
                     <a href="#">View Calendar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY EMPOWERMENT -->
+    <section id="community" class="community">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Empowerment</h2>
+                <p>At CareBridge, we are committed to a community-based approach that empowers families, children, and local organizations. By fostering collaborations and partnerships, we build a stronger, more inclusive support network for autism and developmental needs.</p>
+            </div>
+            <div class="community-options">
+                <div class="community-card">
+                    <h3>Empowerment Initiatives</h3>
+                    <p>We organize community workshops, support groups, and awareness campaigns to empower families and promote understanding. Our programs equip communities with tools to support children with autism and other needs, creating lasting positive change.</p>
+                    <a href="#contact" class="cta-button">Join an Initiative</a>
+                </div>
+                <div class="community-card">
+                    <h3>Partnerships & Collaborations</h3>
+                    <p>We partner with NGOs, businesses, schools, and healthcare providers to expand our reach. Whether through sponsorships, joint events, or resource sharing, collaborations help us deliver better support. Let's work together to empower more communities.</p>
+                    <a href="#contact" class="cta-button">Become a Partner</a>
                 </div>
             </div>
         </div>
