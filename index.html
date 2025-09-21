@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autism Support Website</title>
+    <meta name="description" content="Autism Support Network connects families with autism support services, including speech, behavioral, and occupational therapy in Nairobi, Kenya.">
+    <meta name="keywords" content="autism support, therapy, Nairobi, Kenya, autism resources, speech therapy, behavioral therapy">
+    <meta name="author" content="Autism Support Network">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Autism Support Network</title>
 
     <!-- MAIN STYLES -->
     <style>
@@ -13,160 +17,504 @@
             --accent-color: #f9a825;    /* Yellow/Highlight */
             --background-color: #f9f9f9;/* Light Gray Background */
             --text-color: #333333;      /* Dark Text */
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         a { color: var(--primary-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         h1, h2, h3 { color: var(--primary-color); }
         .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px 0; }
 
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(0, 85, 165, 0.8), rgba(0, 85, 165, 0.8)), url('https://source.unsplash.com/1600x900/?children,support');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            text-decoration: none;
+        }
+
         /* HEADER */
-        header { background-color: var(--primary-color); color: white; padding: 20px 0; text-align: center; }
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+        }
         header img { height: 60px; margin-bottom: 10px; }
 
         /* NAVIGATION */
-        nav { background-color: var(--secondary-color); display: flex; justify-content: center; padding: 10px 0; }
-        nav a { margin: 0 15px; color: white; font-weight: bold; }
+        nav {
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            margin: 0 15px;
+            color: var(--white);
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover, nav a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            text-decoration: none;
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
 
-        section { padding: 40px 0; }
-        .section-title { text-align: center; margin-bottom: 30px; }
+        section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.5rem; }
+        .section-title p { font-size: 1.1rem; color: #666; }
 
         /* SERVICES GRID */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .service-card { background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        .service-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            loading: lazy;
+        }
 
         /* TEAM GRID */
-        .team { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .team-card { background-color: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .team-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .team-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            loading: lazy;
+        }
 
         /* TESTIMONIALS */
-        .testimonial { background-color: white; padding: 20px; border-left: 5px solid var(--accent-color); margin-bottom: 20px; border-radius: 5px; }
+        .testimonials {
+            background-color: #f5f5f5;
+            padding: 60px 0;
+        }
+        .testimonial {
+            background-color: var(--white);
+            padding: 20px;
+            border-left: 5px solid var(--accent-color);
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-style: italic;
+        }
 
         /* FAQ */
-        .faq-item { background-color: white; padding: 15px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 1px 5px rgba(0,0,0,0.1); }
+        .faq-item {
+            background-color: var(--white);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .faq-item h3 { margin-bottom: 10px; }
+        .faq-answer { display: none; }
+        .faq-answer.active { display: block; animation: slideDown 0.3s ease; }
+
+        /* CONTACT FORM */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .contact-form label { font-weight: bold; }
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-form textarea { resize: vertical; }
+        .contact-form button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* RESOURCES SECTION */
+        .resources {
+            background-color: #e8f4f8;
+            padding: 60px 0;
+        }
+        .resource-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .resource-card a {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .newsletter input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: var(--secondary-color);
+        }
 
         /* FOOTER */
-        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 20px 0; }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+        }
+        .social-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            nav { flex-wrap: wrap; }
+            nav a { margin: 5px; }
+        }
     </style>
 </head>
 
 <body>
+    <!-- HERO BANNER -->
+    <section class="hero" role="banner">
+        <h1>Welcome to Autism Support Network</h1>
+        <p>Empowering families and children with autism through expert therapy and community support.</p>
+        <a href="#contact" class="cta-button">Get Started Today</a>
+    </section>
 
-<header>
-    <img src="https://via.placeholder.com/150x60?text=Logo" alt="Autism Support Logo">
-    <h1>Autism Support Network</h1>
-    <p>Connecting Families, Children, and Experts</p>
-</header>
+    <!-- HEADER -->
+    <header>
+        <img src="https://via.placeholder.com/150x60?text=Logo" alt="Autism Support Network Logo">
+        <h1>Autism Support Network</h1>
+        <p>Connecting Families, Children, and Experts</p>
+    </header>
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#team">Team</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <!-- NAVIGATION -->
+    <nav role="navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#resources">Resources</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<section id="home" class="container">
-    <div class="section-title">
-        <h2>Welcome</h2>
-        <p>We help parents and children with autism find the right support and resources.</p>
-    </div>
-</section>
-
-<section id="about" class="container">
-    <div class="section-title">
-        <h2>About Us</h2>
-        <p>Our mission is to connect families with experienced autism support providers for therapy, guidance, and community programs.</p>
-    </div>
-</section>
-
-<section id="services" class="container">
-    <div class="section-title"><h2>Our Services</h2></div>
-    <div class="services">
-        <div class="service-card">
-            <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy">
-            <h3>Speech Therapy</h3>
-            <p>Professional speech therapy sessions for children aged 3-12.</p>
+    <!-- HOME -->
+    <section id="home" class="container" role="main">
+        <div class="section-title">
+            <h2>Welcome</h2>
+            <p>We provide comprehensive support for children with autism and their families through tailored therapy and community programs.</p>
+            <a href="#contact" class="cta-button">Connect with Us</a>
         </div>
-        <div class="service-card">
-            <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy">
-            <h3>Behavioral Therapy</h3>
-            <p>Structured programs to support behavioral development in children.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Our mission is to empower families by connecting them with experienced autism support providers in Nairobi, Kenya, and beyond.</p>
         </div>
-        <div class="service-card">
-            <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy">
-            <h3>Occupational Therapy</h3>
-            <p>Helps children develop daily life skills in a structured way.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Discover our range of professional therapy services designed for children with autism.</p>
         </div>
-    </div>
-</section>
-
-<section id="team" class="container">
-    <div class="section-title"><h2>Our Team</h2></div>
-    <div class="team">
-        <div class="team-card">
-            <img src="https://source.unsplash.com/120x120/?woman,portrait" alt="Trainer 1">
-            <h3>Jane Doe</h3>
-            <p>Lead Speech Therapist</p>
+        <div class="services">
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy" loading="lazy">
+                <h3>Speech Therapy</h3>
+                <p>Personalized sessions to enhance communication skills for children aged 3-12.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy" loading="lazy">
+                <h3>Behavioral Therapy</h3>
+                <p>Structured programs to support behavioral development and social skills.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy" loading="lazy">
+                <h3>Occupational Therapy</h3>
+                <p>Helps children develop daily life skills in a supportive environment.</p>
+            </div>
         </div>
-        <div class="team-card">
-            <img src="https://source.unsplash.com/120x120/?man,portrait" alt="Trainer 2">
-            <h3>John Smith</h3>
-            <p>Behavioral Specialist</p>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="container">
+        <div class="section-title">
+            <h2>Our Team</h2>
+            <p>Meet our dedicated professionals committed to supporting your family.</p>
         </div>
-        <div class="team-card">
-            <img src="https://source.unsplash.com/120x120/?woman,portrait,smile" alt="Trainer 3">
-            <h3>Mary Johnson</h3>
-            <p>Occupational Therapist</p>
+        <div class="team">
+            <div class="team-card">
+                <img src="https://source.unsplash.com/120x120/?woman,portrait" alt="Jane Doe" loading="lazy">
+                <h3>Jane Doe</h3>
+                <p>Lead Speech Therapist</p>
+            </div>
+            <div class="team-card">
+                <img src="https://source.unsplash.com/120x120/?man,portrait" alt="John Smith" loading="lazy">
+                <h3>John Smith</h3>
+                <p>Behavioral Specialist</p>
+            </div>
+            <div class="team-card">
+                <img src="https://source.unsplash.com/120x120/?woman,portrait,smile" alt="Mary Johnson" loading="lazy">
+                <h3>Mary Johnson</h3>
+                <p>Occupational Therapist</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="testimonials" class="container">
-    <div class="section-title"><h2>Testimonials</h2></div>
-    <div class="testimonial">
-        <p>"This network has helped my child improve communication and social skills immensely!"</p>
-        <p>- Parent A</p>
-    </div>
-    <div class="testimonial">
-        <p>"The team is professional and caring. Highly recommended for parents seeking support."</p>
-        <p>- Parent B</p>
-    </div>
-</section>
+    <!-- RESOURCES -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resources</h2>
+                <p>Explore our guides and articles to support your journey with autism.</p>
+            </div>
+            <div class="services">
+                <div class="resource-card">
+                    <h3>Parent Guide</h3>
+                    <p>A comprehensive guide for parents navigating autism support.</p>
+                    <a href="#">Download Now</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Blog: Understanding Autism</h3>
+                    <p>Read our latest article on autism awareness and support strategies.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Community Events</h3>
+                    <p>Join our upcoming workshops and support groups in Nairobi.</p>
+                    <a href="#">View Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="faq" class="container">
-    <div class="section-title"><h2>FAQ</h2></div>
-    <div class="faq-item">
-        <h3>Who can join the program?</h3>
-        <p>Children diagnosed with autism and their parents/caregivers.</p>
-    </div>
-    <div class="faq-item">
-        <h3>How do I contact a trainer?</h3>
-        <p>You can use the contact form or email us directly at contact@autismsupport.com.</p>
-    </div>
-</section>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <p>Hear from families who have benefited from our services.</p>
+            </div>
+            <div class="testimonial">
+                <p>"The speech therapy sessions transformed my child's ability to communicate!"</p>
+                <p>- Parent A</p>
+            </div>
+            <div class="testimonial">
+                <p>"The team’s dedication and professionalism gave us hope and support."</p>
+                <p>- Parent B</p>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" class="container">
-    <div class="section-title"><h2>Contact Us</h2></div>
-    <p>Email: contact@autismsupport.com</p>
-    <p>Phone: +254 700 000 000</p>
-    <p>Address: Nairobi, Kenya</p>
-</section>
+    <!-- FAQ -->
+    <section id="faq" class="container">
+        <div class="section-title">
+            <h2>FAQ</h2>
+            <p>Find answers to common questions about our programs and services.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">Who can join the program?</h3>
+            <p class="faq-answer">Children diagnosed with autism and their parents/caregivers are welcome to join our programs.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">How do I contact a therapist?</h3>
+            <p class="faq-answer">Use our contact form below or email us at contact@autismsupport.com.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">What is the cost of services?</h3>
+            <p class="faq-answer">Costs vary based on the therapy type and frequency. Contact us for a personalized quote.</p>
+        </div>
+    </section>
 
-<footer>&copy; 2025 Autism Support Network. All rights reserved.</footer>
+    <!-- CONTACT -->
+    <section id="contact" class="container">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Reach out to our team for support or inquiries.</p>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required aria-required="true">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required aria-required="true">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p>Email: <a href="mailto:contact@autismsupport.com">contact@autismsupport.com</a></p>
+        <p>Phone: <a href="tel:+254700000000">+254 700 000 000</a></p>
+        <p>Address: Nairobi, Kenya</p>
+    </section>
 
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest updates and resources.</p>
+        <form onsubmit="handleNewsletterSubmit(event)">
+            <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Autism Support Network. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://facebook.com" aria-label="Facebook">Facebook</a>
+            <a href="https://twitter.com" aria-label="Twitter">Twitter</a>
+            <a href="https://instagram.com" aria-label="Instagram">Instagram</a>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+
+        // Contact Form Submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Newsletter Submission
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            event.target.reset();
+        }
+    </script>
 </body>
 </html>
