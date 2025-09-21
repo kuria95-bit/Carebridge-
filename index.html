@@ -1,163 +1,164 @@
-import React, { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Support Website</title>
 
-const testimonials = [
-  { name: "Jane W.", feedback: "CareBridge transformed my child's learning journey!" },
-  { name: "Mark K.", feedback: "Professional, reliable, and highly caring trainers." },
-  { name: "Lucy M.", feedback: "Our trainer was amazing and very patient with our child." },
-];
+    <!-- MAIN STYLES -->
+    <style>
+        :root {
+            --primary-color: #0055a5;
+            --secondary-color: #00a3e0;
+            --accent-color: #f9a825;
+            --background-color: #f9f9f9;
+            --text-color: #333333;
+        }
 
-export default function CareBridge() {
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-  const nextTestimonial = () => {
-    setTestimonialIndex((testimonialIndex + 1) % testimonials.length);
-  };
+        a { color: var(--primary-color); text-decoration: none; }
 
-  return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      {/* Header */}
-      <header className="flex justify-between items-center px-8 py-4 shadow bg-white sticky top-0 z-50">
-        <h1 className="text-2xl font-bold text-blue-600">CareBridge</h1>
-        <nav className="space-x-6 hidden md:flex">
-          <a href="#home" className="hover:text-blue-600">Home</a>
-          <a href="#about" className="hover:text-blue-600">About Us</a>
-          <a href="#services" className="hover:text-blue-600">Services</a>
-          <a href="#parents" className="hover:text-blue-600">For Parents</a>
-          <a href="#team" className="hover:text-blue-600">Join Our Team</a>
-          <a href="#impact" className="hover:text-blue-600">Impact</a>
-          <a href="#partners" className="hover:text-blue-600">Partner With Us</a>
-          <a href="#blog" className="hover:text-blue-600">Blog / Resources</a>
-          <a href="#contact" className="hover:text-blue-600">Contact</a>
-        </nav>
-        <Button className="bg-blue-600 text-white rounded-xl">Get Started</Button>
-      </header>
+        h1, h2, h3 { color: var(--primary-color); }
 
-      {/* Hero */}
-      <section id="home" className="px-8 py-20 bg-gradient-to-r from-blue-50 to-blue-100 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-blue-700 mb-4">
-          Building Bridges for Every Child with Autism
-        </h2>
-        <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-          We are a professional company connecting families with dedicated trainers and autism experts.
-        </p>
-        <div className="space-x-4">
-          <Button className="bg-blue-600 text-white">I’m a Parent</Button>
-          <Button variant="outline" className="border-blue-600 text-blue-600">Join Our Team</Button>
-        </div>
-      </section>
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px 0; }
 
-      {/* About Us */}
-      <section id="about" className="px-8 py-16 bg-white">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">About Us</h3>
-        <p className="max-w-3xl mx-auto text-gray-600 mb-4">
-          CareBridge is a professional autism support company. We employ trained and certified specialists to provide consistent, high-quality care for children.
-        </p>
-        <p className="max-w-3xl mx-auto text-gray-600">
-          Our mission is to empower families, develop our team of trainers, and build lasting partnerships with communities and organizations.
-        </p>
-      </section>
+        header { background-color: var(--primary-color); color: white; padding: 20px 0; text-align: center; }
+        header img { height: 60px; margin-bottom: 10px; }
 
-      {/* Services */}
-      <section id="services" className="px-8 py-16 bg-gray-50">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6 text-center">Services</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="shadow-md p-6 hover:scale-105 transition-transform duration-300">
-            <p className="text-xl font-bold text-blue-600">Speech Therapy</p>
-            <p className="mt-2 text-gray-600">Professional speech sessions tailored to each child’s needs.</p>
-            <Button className="mt-4 bg-blue-600 text-white">Request Service</Button>
-          </Card>
-          <Card className="shadow-md p-6 hover:scale-105 transition-transform duration-300">
-            <p className="text-xl font-bold text-blue-600">Occupational Therapy</p>
-            <p className="mt-2 text-gray-600">Helping children develop daily living and motor skills.</p>
-            <Button className="mt-4 bg-blue-600 text-white">Request Service</Button>
-          </Card>
-          <Card className="shadow-md p-6 hover:scale-105 transition-transform duration-300">
-            <p className="text-xl font-bold text-blue-600">Special Education</p>
-            <p className="mt-2 text-gray-600">Customized learning plans for children with autism.</p>
-            <Button className="mt-4 bg-blue-600 text-white">Request Service</Button>
-          </Card>
-        </div>
-      </section>
+        nav { background-color: var(--secondary-color); display: flex; justify-content: center; padding: 10px 0; }
+        nav a { margin: 0 15px; color: white; font-weight: bold; }
 
-      {/* For Parents */}
-      <section id="parents" className="px-8 py-16 bg-white">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">For Parents</h3>
-        <Card className="max-w-2xl mx-auto shadow-lg">
-          <CardContent className="space-y-4 p-6">
-            <Input placeholder="Parent’s Full Name" />
-            <Input placeholder="Phone Number" />
-            <Input placeholder="Email Address" />
-            <Input placeholder="Location (County/Town)" />
-            <Input placeholder="Child’s Name" />
-            <Input placeholder="Child’s Age" />
-            <Input placeholder="Diagnosis/Condition" />
-            <Input placeholder="Type of Support Needed" />
-            <Textarea placeholder="Additional Notes" />
-            <Button className="w-full bg-blue-600 text-white">Submit Request - We’ll Assign a Trainer</Button>
-          </CardContent>
-        </Card>
-      </section>
+        section { padding: 40px 0; }
+        .section-title { text-align: center; margin-bottom: 30px; }
 
-      {/* Join Our Team (Providers) */}
-      <section id="team" className="px-8 py-16 bg-gray-50">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">Join Our Team</h3>
-        <Card className="max-w-2xl mx-auto shadow-lg">
-          <CardContent className="space-y-4 p-6">
-            <Input placeholder="Full Name" />
-            <Input placeholder="Phone Number" />
-            <Input placeholder="Email Address" />
-            <Input placeholder="Location (County/Town)" />
-            <Input placeholder="Profession (Therapist, Educator, Caregiver)" />
-            <Input placeholder="Years of Experience" />
-            <Input placeholder="Highest Qualification" />
-            <Input type="file" placeholder="Upload CV/Resume" />
-            <Input type="file" placeholder="Upload Certification(s)" />
-            <Textarea placeholder="Why do you want to join CareBridge?" />
-            <Button className="w-full bg-blue-600 text-white">Apply to Join Our Team</Button>
-          </CardContent>
-        </Card>
-      </section>
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-card { background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; }
 
-      {/* Testimonials Slider */}
-      <section id="testimonials" className="px-8 py-16 bg-white text-center">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">What Parents Say</h3>
-        <Card className="max-w-xl mx-auto shadow-lg p-6">
-          <p className="text-gray-600 mb-4">"{testimonials[testimonialIndex].feedback}"</p>
-          <p className="font-semibold text-blue-600">- {testimonials[testimonialIndex].name}</p>
-          <Button className="mt-4 bg-blue-600 text-white" onClick={nextTestimonial}>Next Testimonial</Button>
-        </Card>
-      </section>
+        .team { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .team-card { background-color: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .team-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
 
-      {/* Partner With Us / Donation */}
-      <section id="partners" className="px-8 py-16 bg-gray-50 text-center">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">Partner With Us</h3>
-        <p className="max-w-2xl mx-auto text-gray-600 mb-6">
-          Collaborate with CareBridge to extend autism support into underserved communities and schools. CSR sponsorships, donations, and partnerships are welcome.
-        </p>
-        <Button className="bg-blue-600 text-white">Sponsor a Session / Donate</Button>
-      </section>
+        .testimonial { background-color: white; padding: 20px; border-left: 5px solid var(--accent-color); margin-bottom: 20px; border-radius: 5px; }
+        .faq-item { background-color: white; padding: 15px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 1px 5px rgba(0,0,0,0.1); }
 
-      {/* Blog / Resources */}
-      <section id="blog" className="px-8 py-16 bg-white text-center">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">Blog / Resources</h3>
-        <p className="max-w-2xl mx-auto text-gray-600 mb-4">Helpful guides, tips, and insights for parents and educators supporting children with autism.</p>
-        <Button className="bg-blue-600 text-white">Visit Blog</Button>
-      </section>
+        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 20px 0; }
+    </style>
+</head>
 
-      {/* Contact */}
-      <section id="contact" className="px-8 py-16 bg-gray-50 text-center">
-        <h3 className="text-3xl font-semibold text-blue-600 mb-6">Contact Us</h3>
-        <p>Email: info@carebridge.org | Phone: +254 700 000 000</p>
-      </section>
+<body>
+<header>
+    <img src="https://via.placeholder.com/150x60?text=Logo" alt="Autism Support Logo">
+    <h1>Autism Support Network</h1>
+    <p>Connecting Families, Children, and Experts</p>
+</header>
 
-      {/* Footer */}
-      <footer className="px-8 py-6 bg-gray-800 text-gray-300 text-center">
-        <p>© {new Date().getFullYear()} CareBridge. All rights reserved.</p>
-      </footer>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home" class="container">
+    <div class="section-title">
+        <h2>Welcome</h2>
+        <p>We help parents and children with autism find the right support and resources.</p>
     </div>
-  );
-}
+</section>
+
+<section id="about" class="container">
+    <div class="section-title">
+        <h2>About Us</h2>
+        <p>Our mission is to connect families with experienced autism support providers for therapy, guidance, and community programs.</p>
+    </div>
+</section>
+
+<section id="services" class="container">
+    <div class="section-title"><h2>Our Services</h2></div>
+    <div class="services">
+        <div class="service-card">
+            <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy">
+            <h3>Speech Therapy</h3>
+            <p>Professional speech therapy sessions for children aged 3-12.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy">
+            <h3>Behavioral Therapy</h3>
+            <p>Structured programs to support behavioral development in children.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy">
+            <h3>Occupational Therapy</h3>
+            <p>Helps children develop daily life skills in a structured way.</p>
+        </div>
+    </div>
+</section>
+
+<section id="team" class="container">
+    <div class="section-title"><h2>Our Team</h2></div>
+    <div class="team">
+        <div class="team-card">
+            <img src="https://source.unsplash.com/120x120/?woman,portrait" alt="Trainer 1">
+            <h3>Jane Doe</h3>
+            <p>Lead Speech Therapist</p>
+        </div>
+        <div class="team-card">
+            <img src="https://source.unsplash.com/120x120/?man,portrait" alt="Trainer 2">
+            <h3>John Smith</h3>
+            <p>Behavioral Specialist</p>
+        </div>
+        <div class="team-card">
+            <img src="https://source.unsplash.com/120x120/?woman,portrait,smile" alt="Trainer 3">
+            <h3>Mary Johnson</h3>
+            <p>Occupational Therapist</p>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="container">
+    <div class="section-title"><h2>Testimonials</h2></div>
+    <div class="testimonial">
+        <p>"This network has helped my child improve communication and social skills immensely!"</p>
+        <p>- Parent A</p>
+    </div>
+    <div class="testimonial">
+        <p>"The team is professional and caring. Highly recommended for parents seeking support."</p>
+        <p>- Parent B</p>
+    </div>
+</section>
+
+<section id="faq" class="container">
+    <div class="section-title"><h2>FAQ</h2></div>
+    <div class="faq-item">
+        <h3>Who can join the program?</h3>
+        <p>Children diagnosed with autism and their parents/caregivers.</p>
+    </div>
+    <div class="faq-item">
+        <h3>How do I contact a trainer?</h3>
+        <p>You can use the contact form or email us directly at contact@autismsupport.com.</p>
+    </div>
+</section>
+
+<section id="contact" class="container">
+    <div class="section-title"><h2>Contact Us</h2></div>
+    <p>Email: contact@autismsupport.com</p>
+    <p>Phone: +254 700 000 000</p>
+    <p>Address: Nairobi, Kenya</p>
+</section>
+
+<footer>&copy; 2025 Autism Support Network. All rights reserved.</footer>
+</body>
+</html>
