@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Autism Support Network connects families with autism support services, including speech, behavioral, and occupational therapy in Nairobi, Kenya.">
-    <meta name="keywords" content="autism support, therapy, Nairobi, Kenya, autism resources, speech therapy, behavioral therapy">
-    <meta name="author" content="Autism Support Network">
+    <meta name="description" content="Cambridge connects families with specialized support services for children with autism and other developmental needs in Nairobi, Kenya.">
+    <meta name="keywords" content="autism support, developmental therapy, Nairobi, Kenya, child services, speech therapy, behavioral therapy, ADHD support">
+    <meta name="author" content="Cambridge">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Autism Support Network</title>
+    <title>Cambridge - Child Development Support</title>
 
     <!-- MAIN STYLES -->
     <style>
@@ -47,11 +47,11 @@
             background-attachment: fixed;
             color: var(--white);
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
             animation: fadeIn 2s ease-in;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.3rem; margin-bottom: 25px; }
         .cta-button {
             display: inline-block;
             background-color: var(--accent-color);
@@ -59,10 +59,11 @@
             padding: 15px 30px;
             border-radius: 5px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .cta-button:hover {
             background-color: var(--secondary-color);
+            transform: scale(1.05);
             text-decoration: none;
         }
 
@@ -263,6 +264,27 @@
             padding: 10px 20px;
         }
 
+        /* PRICING SECTION */
+        .pricing {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .pricing-card {
+            background-color: var(--background-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .pricing-card h3 {
+            margin-bottom: 10px;
+        }
+        .pricing-card p {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
         /* NEWSLETTER */
         .newsletter {
             background-color: var(--primary-color);
@@ -319,8 +341,8 @@
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
             nav { flex-wrap: wrap; }
             nav a { margin: 5px; }
         }
@@ -330,16 +352,16 @@
 <body>
     <!-- HERO BANNER -->
     <section class="hero" role="banner">
-        <h1>Welcome to Autism Support Network</h1>
-        <p>Empowering families and children with autism through expert therapy and community support.</p>
-        <a href="#applications" class="cta-button">Apply Now</a>
+        <h1>Welcome to Cambridge</h1>
+        <p>Providing specialized support for children with autism and other developmental needs, connecting families with vetted experts.</p>
+        <a href="#applications" class="cta-button">Get Started</a>
     </section>
 
     <!-- HEADER -->
     <header>
-        <img src="https://via.placeholder.com/150x60?text=Logo" alt="Autism Support Network Logo">
-        <h1>Autism Support Network</h1>
-        <p>Connecting Families, Children, and Experts</p>
+        <img src="https://via.placeholder.com/150x60?text=Logo" alt="Cambridge Logo">
+        <h1>Cambridge</h1>
+        <p>Empowering Children and Families Through Specialized Support</p>
     </header>
 
     <!-- NAVIGATION -->
@@ -349,6 +371,7 @@
         <a href="#services">Services</a>
         <a href="#team">Team</a>
         <a href="#resources">Resources</a>
+        <a href="#pricing">Pricing</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
         <a href="#applications">Applications</a>
@@ -358,8 +381,8 @@
     <!-- HOME -->
     <section id="home" class="container" role="main">
         <div class="section-title">
-            <h2>Welcome</h2>
-            <p>We provide comprehensive support for children with autism and their families through tailored therapy and community programs.</p>
+            <h2>Welcome to Cambridge</h2>
+            <p>We specialize in supporting children with autism, ADHD, learning disabilities, and other developmental areas through tailored therapies and community programs.</p>
             <a href="#applications" class="cta-button">Apply Now</a>
         </div>
     </section>
@@ -368,7 +391,7 @@
     <section id="about" class="container">
         <div class="section-title">
             <h2>About Us</h2>
-            <p>Our mission is to empower families by connecting them with experienced autism support providers in Nairobi, Kenya, and beyond.</p>
+            <p>Cambridge is dedicated to bridging families with vetted service providers for comprehensive child development support in Nairobi, Kenya, and beyond. Our rigorous vetting process ensures high-quality care.</p>
         </div>
     </section>
 
@@ -376,23 +399,33 @@
     <section id="services" class="container">
         <div class="section-title">
             <h2>Our Services</h2>
-            <p>Discover our range of professional therapy services designed for children with autism.</p>
+            <p>Explore our expanded range of therapies for autism and other developmental needs.</p>
         </div>
         <div class="services">
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy" loading="lazy">
                 <h3>Speech Therapy</h3>
-                <p>Personalized sessions to enhance communication skills for children aged 3-12.</p>
+                <p>Enhance communication skills for children with autism and speech delays.</p>
             </div>
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy" loading="lazy">
                 <h3>Behavioral Therapy</h3>
-                <p>Structured programs to support behavioral development and social skills.</p>
+                <p>Support for behavioral development, including ABA for autism and ADHD.</p>
             </div>
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy" loading="lazy">
                 <h3>Occupational Therapy</h3>
-                <p>Helps children develop daily life skills in a supportive environment.</p>
+                <p>Develop daily life skills for various developmental challenges.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?adhd" alt="ADHD Support" loading="lazy">
+                <h3>ADHD Support</h3>
+                <p>Strategies and therapies to manage attention and hyperactivity.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?learning" alt="Learning Disability Aid" loading="lazy">
+                <h3>Learning Disability Aid</h3>
+                <p>Tailored educational support for dyslexia and other learning needs.</p>
             </div>
         </div>
     </section>
@@ -400,8 +433,8 @@
     <!-- TEAM -->
     <section id="team" class="container">
         <div class="section-title">
-            <h2>Our Team</h2>
-            <p>Meet our dedicated professionals committed to supporting your family.</p>
+            <h2>Our Vetted Team</h2>
+            <p>Meet our experts who have undergone rigorous vetting for quality assurance.</p>
         </div>
         <div class="team">
             <div class="team-card">
@@ -427,23 +460,64 @@
         <div class="container">
             <div class="section-title">
                 <h2>Resources</h2>
-                <p>Explore our guides and articles to support your journey with autism.</p>
+                <p>Access guides, articles, and tools for child development support.</p>
             </div>
             <div class="services">
                 <div class="resource-card">
-                    <h3>Parent Guide</h3>
-                    <p>A comprehensive guide for parents navigating autism support.</p>
+                    <h3>Parent Guide to Autism</h3>
+                    <p>Comprehensive tips for navigating autism support.</p>
                     <a href="#">Download Now</a>
                 </div>
                 <div class="resource-card">
-                    <h3>Blog: Understanding Autism</h3>
-                    <p>Read our latest article on autism awareness and support strategies.</p>
+                    <h3>ADHD Management Blog</h3>
+                    <p>Latest strategies for ADHD in children.</p>
                     <a href="#">Read More</a>
                 </div>
                 <div class="resource-card">
-                    <h3>Community Events</h3>
-                    <p>Join our upcoming workshops and support groups in Nairobi.</p>
+                    <h3>Community Workshops</h3>
+                    <p>Join events for families and providers.</p>
                     <a href="#">View Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing Plans</h2>
+                <p>Affordable options for families and providers to access our network.</p>
+            </div>
+            <div class="services">
+                <div class="pricing-card">
+                    <h3>Basic Family Plan</h3>
+                    <p>$50/month</p>
+                    <ul>
+                        <li>Access to vetted providers</li>
+                        <li>Basic resources</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Sign Up</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium Family Plan</h3>
+                    <p>$100/month</p>
+                    <ul>
+                        <li>Priority matching</li>
+                        <li>Exclusive workshops</li>
+                        <li>Personalized consultations</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Sign Up</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Provider Membership</h3>
+                    <p>$20/month</p>
+                    <ul>
+                        <li>Client referrals</li>
+                        <li>Training resources</li>
+                        <li>Networking events</li>
+                    </ul>
+                    <a href="#applications" class="cta-button">Join Now</a>
                 </div>
             </div>
         </div>
@@ -454,15 +528,15 @@
         <div class="container">
             <div class="section-title">
                 <h2>Testimonials</h2>
-                <p>Hear from families who have benefited from our services.</p>
+                <p>Hear from families and providers in our network.</p>
             </div>
             <div class="testimonial">
-                <p>"The speech therapy sessions transformed my child's ability to communicate!"</p>
+                <p>"Cambridge connected us with amazing therapists for our child's autism needs!"</p>
                 <p>- Parent A</p>
             </div>
             <div class="testimonial">
-                <p>"The team’s dedication and professionalism gave us hope and support."</p>
-                <p>- Parent B</p>
+                <p>"As a provider, the vetting process was thorough, and the referrals are top-notch."</p>
+                <p>- Provider B</p>
             </div>
         </div>
     </section>
@@ -471,19 +545,19 @@
     <section id="faq" class="container">
         <div class="section-title">
             <h2>FAQ</h2>
-            <p>Find answers to common questions about our programs and services.</p>
+            <p>Answers to common questions about our services and applications.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">Who can join the program?</h3>
-            <p class="faq-answer">Children diagnosed with autism and their parents/caregivers are welcome to join our programs.</p>
+            <h3 onclick="toggleFAQ(this)">What areas do you support?</h3>
+            <p class="faq-answer">We support autism, ADHD, learning disabilities, and more.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">How do I contact a therapist?</h3>
-            <p class="faq-answer">Use our contact form below or email us at contact@autismsupport.com.</p>
+            <h3 onclick="toggleFAQ(this)">How are providers vetted?</h3>
+            <p class="faq-answer">Through background checks, credential verification, and interviews.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">What is the cost of services?</h3>
-            <p class="faq-answer">Costs vary based on the therapy type and frequency. Contact us for a personalized quote.</p>
+            <h3 onclick="toggleFAQ(this)">What is the cost?</h3>
+            <p class="faq-answer">See our pricing section for details on plans.</p>
         </div>
     </section>
 
@@ -492,17 +566,17 @@
         <div class="container">
             <div class="section-title">
                 <h2>Apply Now</h2>
-                <p>Whether you're a parent seeking support for your child or a service provider looking to join our network, start your application today.</p>
+                <p>Join as a family or provider to access our vetted network.</p>
             </div>
             <div class="application-options">
                 <div class="application-card">
-                    <h3>Parent Application</h3>
-                    <p>As a parent or caregiver, apply to connect with tailored therapy services for your child. We'll guide you through matching with the right experts and programs to support your family's needs.</p>
-                    <a href="parent-application.html" class="cta-button">Apply as Parent</a>
+                    <h3>Family Application</h3>
+                    <p>Apply for support services for your child with autism or other needs. We'll match you with vetted providers.</p>
+                    <a href="family-application.html" class="cta-button">Apply as Family</a>
                 </div>
                 <div class="application-card">
-                    <h3>Service Provider Application</h3>
-                    <p>Join our network as a therapist or specialist. Share your expertise in autism support and help families thrive. Upload your credentials and let's build a stronger community together.</p>
+                    <h3>Provider Application</h3>
+                    <p>Submit your CV and credentials to join our vetted network and receive referrals.</p>
                     <a href="provider-application.html" class="cta-button">Apply as Provider</a>
                 </div>
             </div>
@@ -513,7 +587,7 @@
     <section id="contact" class="container">
         <div class="section-title">
             <h2>Contact Us</h2>
-            <p>Reach out to our team for support or inquiries.</p>
+            <p>Get in touch for more information or partnerships.</p>
         </div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
             <label for="name">Name:</label>
@@ -524,15 +598,15 @@
             <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p>Email: <a href="mailto:contact@autismsupport.com">contact@autismsupport.com</a></p>
+        <p>Email: <a href="mailto:contact@cambridge.com">contact@cambridge.com</a></p>
         <p>Phone: <a href="tel:+254700000000">+254 700 000 000</a></p>
         <p>Address: Nairobi, Kenya</p>
     </section>
 
     <!-- NEWSLETTER -->
     <section class="newsletter">
-        <h2>Stay Updated</h2>
-        <p>Subscribe to our newsletter for the latest updates and resources.</p>
+        <h2>Stay Informed</h2>
+        <p>Subscribe for updates on child development resources and events.</p>
         <form onsubmit="handleNewsletterSubmit(event)">
             <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
             <button type="submit">Subscribe</button>
@@ -541,7 +615,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 Autism Support Network. All rights reserved.</p>
+        <p>&copy; 2025 Cambridge. All rights reserved.</p>
         <div class="social-links">
             <a href="https://facebook.com" aria-label="Facebook">Facebook</a>
             <a href="https://twitter.com" aria-label="Twitter">Twitter</a>
@@ -560,14 +634,14 @@
         // Contact Form Submission
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you for your message! We will respond soon.');
             event.target.reset();
         }
 
         // Newsletter Submission
         function handleNewsletterSubmit(event) {
             event.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
+            alert('Thank you for subscribing!');
             event.target.reset();
         }
     </script>
