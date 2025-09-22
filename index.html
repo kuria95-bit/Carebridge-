@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CareBridge connects families with specialized support services for children with autism and other developmental needs in Nairobi, Kenya.">
-    <meta name="keywords" content="autism support, developmental therapy, Nairobi, Kenya, child services, speech therapy, behavioral therapy, ADHD support">
+    <meta name="description" content="CareBridge connects families with expert professionals for specialized support services in autism spectrum disorders and other developmental needs in Nairobi, Kenya.">
+    <meta name="keywords" content="autism support, developmental therapy, Nairobi, Kenya, child services, speech therapy, behavioral therapy, ADHD support, occupational therapy">
     <meta name="author" content="CareBridge">
     <meta name="robots" content="index, follow">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <title>CareBridge - Empowering Child Development</title>
+    <title>CareBridge - Empowering Families Through Expert Care</title>
 
     <!-- MAIN STYLES -->
     <style>
@@ -105,29 +105,87 @@
         }
         header img { height: 50px; margin-bottom: 10px; }
 
-        /* NAVIGATION */
+        /* NAVIGATION - Updated to dropdown menu for creativity and better fit */
         nav {
             background-color: var(--white);
-            display: flex;
-            justify-content: center;
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px var(--shadow-color);
         }
-        nav a {
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap; /* Ensure no overlap on smaller screens */
+        }
+        nav li {
+            position: relative;
             margin: 0 20px;
+        }
+        nav a {
             color: var(--primary-color);
             font-weight: 600;
             padding: 10px 15px;
             transition: color 0.3s, background-color 0.3s;
             border-radius: 5px;
+            display: block;
         }
         nav a:hover, nav a:focus {
             color: var(--secondary-color);
             background-color: rgba(0, 163, 224, 0.1);
             outline: none;
+        }
+        /* Dropdown styles */
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 8px var(--shadow-color);
+            min-width: 200px;
+            z-index: 1;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        nav li:hover > ul {
+            display: flex;
+        }
+        nav ul ul li {
+            margin: 0;
+            width: 100%;
+        }
+        /* Hamburger for mobile - creative toggle */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            padding: 10px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            nav li {
+                margin: 10px 0;
+            }
+            nav ul ul {
+                position: static;
+                box-shadow: none;
+            }
         }
 
         section { padding: 80px 0; }
@@ -135,7 +193,7 @@
         .section-title h2 { font-size: 2.8rem; margin-bottom: 15px; }
         .section-title p { font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto; }
 
-        /* SERVICES GRID */
+        /* SERVICES GRID - Updated with dropdown for more services */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -163,6 +221,33 @@
         }
         .service-card h3 { font-size: 1.6rem; margin-bottom: 10px; }
         .service-card p { color: #666; }
+        /* More Services Dropdown */
+        .more-services {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .more-services button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .more-services button:hover {
+            background-color: var(--secondary-color);
+        }
+        .additional-services {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .additional-services.active {
+            display: grid;
+        }
 
         /* RESOURCES SECTION */
         .resources {
@@ -275,14 +360,14 @@
             box-shadow: 0 4px 15px var(--shadow-color);
         }
         .contact-form label { font-weight: 600; }
-        .contact-form input, .contact-form textarea {
+        .contact-form input, .contact-form textarea, .contact-form select {
             padding: 15px;
             border: 1px solid var(--primary-color);
             border-radius: 10px;
             font-size: 1rem;
             transition: border-color 0.3s;
         }
-        .contact-form input:focus, .contact-form textarea:focus {
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
             border-color: var(--secondary-color);
             outline: none;
         }
@@ -410,7 +495,6 @@
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.2rem; }
             .cta-buttons { flex-direction: column; gap: 15px; }
-            nav { flex-wrap: wrap; justify-content: center; }
             nav a { margin: 10px; }
             .application-options { gap: 30px; }
         }
@@ -420,74 +504,121 @@
 </head>
 
 <body>
-    <!-- HERO BANNER -->
+    <!-- HERO BANNER - Removed CTAs to move them after content -->
     <section class="hero" role="banner">
         <h1>Welcome to CareBridge</h1>
-        <p>Bridging families and experts for compassionate, specialized support in autism and child development.</p>
-        <div class="cta-buttons">
-            <a href="parent-application.html" class="cta-button"><i class="fas fa-user"></i> Are You a Parent?</a>
-            <a href="provider-application.html" class="cta-button"><i class="fas fa-stethoscope"></i> Are You a Provider?</a>
-        </div>
+        <p>Connecting families with expert professionals for compassionate, evidence-based support in autism spectrum disorders and other developmental needs.</p>
     </section>
 
     <!-- HEADER -->
     <header>
         <img src="https://via.placeholder.com/150x60?text=Logo" alt="CareBridge Logo">
         <h1>CareBridge</h1>
-        <p>Connecting Care, Building Futures</p>
+        <p>Empowering Families, Building Futures with Expert Care</p>
     </header>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION - Updated to creative dropdown structure -->
     <nav role="navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#resources">Resources</a>
-        <a href="#community">Community</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#faq">FAQ</a>
-        <a href="#applications">Applications</a>
-        <a href="#contact">Contact</a>
+        <div class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
+        <ul id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li>
+                <a href="#about">About</a>
+                <ul>
+                    <a href="#about">About Us</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#faq">FAQ</a>
+                </ul>
+            </li>
+            <li><a href="#services">Services</a></li>
+            <li>
+                <a href="#resources">Resources</a>
+                <ul>
+                    <a href="#resources">Resources</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="events.html">Events</a>
+                </ul>
+            </li>
+            <li>
+                <a href="#community">Community</a>
+                <ul>
+                    <a href="initiatives.html">Initiatives</a>
+                    <a href="partnership-application.html">Partnerships</a>
+                </ul>
+            </li>
+            <li><a href="#applications">Join Us</a></li>
+            <a href="#contact">Contact</a>
+        </ul>
     </nav>
 
     <!-- HOME -->
     <section id="home" class="container" role="main">
         <div class="section-title">
             <h2>Discover CareBridge</h2>
-            <p>We provide expert-led support for children with autism and developmental needs, ensuring every family finds the right path forward.</p>
+            <p>We partner with families and expert professionals to deliver personalized, evidence-based support for children with autism and developmental needs, helping every child reach their full potential.</p>
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT - Updated professional wording -->
     <section id="about" class="container">
         <div class="section-title">
             <h2>About CareBridge</h2>
-            <p>Founded with a mission to empower families and communities, CareBridge connects you with vetted professionals for comprehensive child development support in Nairobi, Kenya, and beyond.</p>
+            <p>CareBridge is committed to empowering families by linking them with highly qualified expert professionals in autism spectrum disorders and developmental therapies. Headquartered in Nairobi, Kenya, we offer comprehensive, evidence-based services designed to enhance child development, promote independence, and support family well-being through a network of vetted specialists.</p>
         </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES - Updated with dropdown for additional services -->
     <section id="services" class="container">
         <div class="section-title">
             <h2>Our Services</h2>
-            <p>Comprehensive, evidence-based therapies designed to nurture growth and independence.</p>
+            <p>Our expert-led, evidence-based therapies are tailored to nurture growth, independence, and family harmony.</p>
         </div>
         <div class="services">
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy" loading="lazy">
                 <h3>Speech Therapy</h3>
-                <p>Unlock communication potential with personalized sessions.</p>
+                <p>Personalized sessions to enhance communication skills and expression.</p>
             </div>
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy" loading="lazy">
-                <h3>Behavioral Therapy</h3>
-                <p>Build positive behaviors through structured support.</p>
+                <h3>Applied Behavior Analysis (ABA)</h3>
+                <p>Structured approaches to foster positive behaviors and reduce challenges.</p>
             </div>
             <div class="service-card">
                 <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy" loading="lazy">
                 <h3>Occupational Therapy</h3>
-                <p>Enhance daily skills for greater independence.</p>
+                <p>Building daily living skills for greater autonomy and confidence.</p>
             </div>
+        </div>
+        <div class="more-services">
+            <button onclick="toggleMoreServices()">Explore More Services</button>
+        </div>
+        <div class="additional-services" id="additional-services">
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?physical,therapy" alt="Physical Therapy" loading="lazy">
+                <h3>Physical Therapy</h3>
+                <p>Improving motor skills and physical coordination through targeted exercises.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?sensory" alt="Sensory Integration Therapy" loading="lazy">
+                <h3>Sensory Integration Therapy</h3>
+                <p>Helping children process sensory information for better focus and calm.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?social,skills" alt="Social Skills Training" loading="lazy">
+                <h3>Social Skills Training</h3>
+                <p>Developing interpersonal skills for meaningful connections and interactions.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://source.unsplash.com/400x300/?music,therapy" alt="Music Therapy" loading="lazy">
+                <h3>Music Therapy</h3>
+                <p>Using music to support emotional expression and cognitive development.</p>
+            </div>
+        </div>
+        <!-- CTAs moved here after services for better flow -->
+        <div class="cta-buttons" style="margin-top: 60px;">
+            <a href="parent-application.html" class="cta-button"><i class="fas fa-user"></i> Are You a Parent?</a>
+            <a href="provider-application.html" class="cta-button"><i class="fas fa-stethoscope"></i> Are You a Provider?</a>
         </div>
     </section>
 
@@ -496,44 +627,44 @@
         <div class="container">
             <div class="section-title">
                 <h2>Resources</h2>
-                <p>Empower yourself with knowledge and tools for your journey.</p>
+                <p>Access valuable tools and information curated by our expert professionals to support your family's journey.</p>
             </div>
             <div class="services">
                 <div class="resource-card">
                     <h3>Parent Guide</h3>
-                    <p>Essential tips for navigating autism support.</p>
+                    <p>Comprehensive advice for navigating developmental support.</p>
                     <a href="parent-guide.pdf" class="cta-button" download>Download</a>
                 </div>
                 <div class="resource-card">
                     <h3>Blog Insights</h3>
-                    <p>Latest articles on child development.</p>
+                    <p>Expert articles on child development and therapies.</p>
                     <a href="blog.html" class="cta-button">Read More</a>
                 </div>
                 <div class="resource-card">
                     <h3>Events</h3>
-                    <p>Upcoming workshops and webinars.</p>
+                    <p>Workshops, webinars, and community gatherings.</p>
                     <a href="events.html" class="cta-button">View Calendar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COMMUNITY EMPOWERMENT -->
+    <!-- COMMUNITY EMPOWERMENT - Updated wording -->
     <section id="community" class="community">
         <div class="container">
             <div class="section-title">
                 <h2>Community Empowerment</h2>
-                <p>At CareBridge, we are committed to a community-based approach that empowers families, children, and local organizations. By fostering collaborations and partnerships, we build a stronger, more inclusive support network for autism and developmental needs.</p>
+                <p>At CareBridge, we foster a collaborative ecosystem that empowers families, children, and expert professionals. Through strategic partnerships and initiatives, we create inclusive networks to advance autism and developmental support.</p>
             </div>
             <div class="community-options">
                 <div class="community-card">
                     <h3>Empowerment Initiatives</h3>
-                    <p>We organize community workshops, support groups, and awareness campaigns to empower families and promote understanding. Our programs equip communities with tools to support children with autism and other needs, creating lasting positive change.</p>
+                    <p>Our programs include expert-led workshops, family support groups, and awareness campaigns designed to equip communities with essential tools for supporting children with developmental needs.</p>
                     <a href="initiatives.html" class="cta-button">Join an Initiative</a>
                 </div>
                 <div class="community-card">
                     <h3>Partnerships & Collaborations</h3>
-                    <p>We partner with NGOs, businesses, schools, and healthcare providers to expand our reach. Whether through sponsorships, joint events, or resource sharing, collaborations help us deliver better support. Let's work together to empower more communities.</p>
+                    <p>We collaborate with NGOs, educational institutions, healthcare providers, and businesses to expand access to high-quality services. Join us in building a stronger support framework.</p>
                     <a href="partnership-application.html" class="cta-button">Become a Partner</a>
                 </div>
             </div>
@@ -544,16 +675,16 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>What Families Say</h2>
-                <p>Real stories from our community.</p>
+                <h2>What Families and Professionals Say</h2>
+                <p>Insights from our community of families and expert professionals.</p>
             </div>
             <div class="testimonial">
-                <p>CareBridge transformed our child's communication skills. The support is unparalleled!</p>
-                <p>- Grateful Parent</p>
+                <p>CareBridge has been instrumental in enhancing our child's development through expert guidance and support.</p>
+                <p>- Dedicated Parent</p>
             </div>
             <div class="testimonial">
-                <p>As a provider, joining CareBridge has been rewarding—great network and impactful work.</p>
-                <p>- Dedicated Therapist</p>
+                <p>As an expert professional, partnering with CareBridge allows me to make a meaningful impact in a supportive network.</p>
+                <p>- Experienced Therapist</p>
             </div>
         </div>
     </section>
@@ -562,34 +693,34 @@
     <section id="faq" class="container">
         <div class="section-title">
             <h2>Frequently Asked Questions</h2>
-            <p>Find quick answers to common queries.</p>
+            <p>Answers to common inquiries from families and professionals.</p>
         </div>
         <div class="faq-item">
             <h3 onclick="toggleFAQ(this)">How do I get started?</h3>
-            <p class="faq-answer">Click 'Are You a Parent?' or 'Are You a Provider?' to apply.</p>
+            <p class="faq-answer">Select 'Are You a Parent?' or 'Are You a Provider?' in the services section to apply.</p>
         </div>
         <div class="faq-item">
             <h3 onclick="toggleFAQ(this)">What services do you offer?</h3>
-            <p class="faq-answer">Speech, behavioral, and occupational therapies, among others.</p>
+            <p class="faq-answer">We provide speech therapy, ABA, occupational therapy, and more—explore our services section for details.</p>
         </div>
     </section>
 
-    <!-- APPLICATIONS -->
+    <!-- APPLICATIONS - Kept for reference, but main CTAs moved to after services -->
     <section id="applications" class="applications">
         <div class="container">
             <div class="section-title">
                 <h2>Join Our Community</h2>
-                <p>Whether you're seeking support or offering expertise, start here.</p>
+                <p>Connect with us as a family seeking support or as an expert professional offering expertise.</p>
             </div>
             <div class="application-options">
                 <div class="application-card">
                     <h3>Are You a Parent?</h3>
-                    <p>Apply to connect with tailored support for your child(ren)'s needs, including age, condition, and more.</p>
+                    <p>Apply to access tailored support based on your child's age, condition, and unique needs.</p>
                     <a href="parent-application.html" class="cta-button">Apply Now</a>
                 </div>
                 <div class="application-card">
                     <h3>Are You a Provider?</h3>
-                    <p>Join our vetted network by submitting your credentials and expertise.</p>
+                    <p>Submit your credentials to join our network of expert professionals.</p>
                     <a href="provider-application.html" class="cta-button">Apply Now</a>
                 </div>
             </div>
@@ -600,7 +731,7 @@
     <section id="contact" class="container">
         <div class="section-title">
             <h2>Contact Us</h2>
-            <p>We're here to help—reach out today.</p>
+            <p>Our team is ready to assist families and professionals—reach out today.</p>
         </div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
             <label for="name">Name:</label>
@@ -619,7 +750,7 @@
     <!-- NEWSLETTER -->
     <section class="newsletter">
         <h2>Stay Connected</h2>
-        <p>Subscribe for updates, tips, and exclusive resources.</p>
+        <p>Subscribe for expert insights, updates, and resources tailored for families and professionals.</p>
         <form onsubmit="handleNewsletterSubmit(event)">
             <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
             <button type="submit">Subscribe</button>
@@ -636,7 +767,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT - Updated with new functions -->
     <script>
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
@@ -653,6 +784,16 @@
             event.preventDefault();
             alert('Subscribed! Thank you.');
             event.target.reset();
+        }
+
+        function toggleMoreServices() {
+            const additional = document.getElementById('additional-services');
+            additional.classList.toggle('active');
+        }
+
+        function toggleNav() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
         }
     </script>
 </body>
