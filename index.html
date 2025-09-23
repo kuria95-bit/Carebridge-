@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Unlimited Possibilities Africa, through its CareBridge program, connects families with expert professionals for specialized support in autism spectrum disorders and developmental needs in Nairobi, Kenya.">
-    <meta name="keywords" content="autism support, developmental therapy, Nairobi, Kenya, child services, speech therapy, behavioral therapy, ADHD support, occupational therapy">
+    <meta name="description" content="Unlimited Possibilities Africa connects families worldwide with leading experts for transformative support in autism spectrum disorders and developmental needs.">
+    <meta name="keywords" content="autism support, developmental therapy, global child services, speech therapy, behavioral analysis, ADHD support, occupational therapy">
     <meta name="author" content="Unlimited Possibilities Africa">
     <meta name="robots" content="index, follow">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <title>Unlimited Possibilities Africa - CareBridge</title>
+    <title>Unlimited Possibilities Africa - Transforming Lives Globally</title>
 
-    <!-- MAIN STYLES -->
+    <!-- Enhanced Styles for Professional, Amazing Look -->
     <style>
         :root {
-            --primary-color: #0055a5;   /* Deep Blue for Trust */
-            --secondary-color: #00a3e0; /* Vibrant Blue for Energy */
-            --accent-color: #f9a825;    /* Warm Yellow for Positivity */
-            --background-color: #f9f9f9;/* Soft Gray for Calm */
-            --text-color: #333333;      /* Dark Text for Readability */
+            --primary-color: #0055a5;   /* Deep Blue for Trust and Professionalism */
+            --secondary-color: #00a3e0; /* Vibrant Blue for Innovation */
+            --accent-color: #f9a825;    /* Golden Yellow for Optimism and Growth */
+            --background-color: #f9f9f9;/* Soft Neutral for Elegance */
+            --text-color: #333333;      /* Crisp Text for Clarity */
             --white: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -35,85 +35,79 @@
             font-family: 'Poppins', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
             scroll-behavior: smooth;
         }
 
-        a { color: var(--primary-color); text-decoration: none; transition: color 0.3s; }
-        a:hover { color: var(--secondary-color); }
-        h1, h2, h3 { color: var(--primary-color); font-weight: 700; }
-        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px 0; }
+        a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease, transform 0.3s ease; }
+        a:hover { color: var(--secondary-color); transform: scale(1.05); }
+        h1, h2, h3 { color: var(--primary-color); font-weight: 700; letter-spacing: 0.5px; }
+        .container { width: 90%; max-width: 1300px; margin: auto; padding: 30px 0; }
 
-        /* HERO BANNER */
+        /* Hero Banner - Parallax Effect for Amazing Visuals */
         .hero {
-            background: linear-gradient(rgba(0, 85, 165, 0.85), rgba(0, 85, 165, 0.85)), url('https://source.unsplash.com/1600x900/?children,support,happy');
+            background: linear-gradient(rgba(0, 85, 165, 0.8), rgba(0, 85, 165, 0.8)), url('https://images.unsplash.com/photo-1516627145497-ae6968895ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--white);
             text-align: center;
-            padding: 150px 20px;
-            animation: fadeIn 1.5s ease-in;
+            padding: 180px 20px;
             position: relative;
+            animation: fadeInHero 2s ease-in-out;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: var(--background-color);
-            clip-path: polygon(0 0, 100% 100%, 100% 0, 0 100%);
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 0 3px 6px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.6rem; max-width: 900px; margin: 0 auto 40px; }
+        @keyframes fadeInHero {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        .hero p { font-size: 1.4rem; margin-bottom: 30px; max-width: 800px; margin: 0 auto 30px; }
+
         .cta-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
         }
         .cta-button {
             display: inline-flex;
             align-items: center;
             background-color: var(--accent-color);
             color: var(--white);
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             font-weight: 600;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px var(--shadow-color);
+            transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 5px 10px var(--shadow-color);
         }
         .cta-button:hover {
             background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px var(--shadow-color);
-            text-decoration: none;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 16px var(--shadow-color);
         }
-        .cta-button i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
+        .cta-button i { margin-right: 12px; font-size: 1.3rem; }
 
-        /* HEADER */
+        /* Header */
         header {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 15px 0;
+            padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 4px var(--shadow-color);
+            box-shadow: 0 3px 6px var(--shadow-color);
         }
-        header img { height: 50px; margin-bottom: 10px; }
+        header img { height: 60px; margin-bottom: 15px; transition: transform 0.3s ease; }
+        header img:hover { transform: rotate(360deg); }
 
-        /* NAVIGATION */
+        /* Navigation - Sleek Dropdown with Smooth Transitions */
         nav {
             background-color: var(--white);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px var(--shadow-color);
+            box-shadow: 0 3px 6px var(--shadow-color);
+            transition: background-color 0.3s ease;
         }
+        nav:hover { background-color: rgba(255,255,255,0.95); }
         nav ul {
             display: flex;
             justify-content: center;
@@ -122,377 +116,352 @@
         }
         nav li {
             position: relative;
-            margin: 0 20px;
+            margin: 0 25px;
         }
         nav a {
             color: var(--primary-color);
             font-weight: 600;
-            padding: 10px 15px;
-            transition: color 0.3s, background-color 0.3s;
-            border-radius: 5px;
+            padding: 12px 18px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 8px;
             display: block;
         }
-        nav a:hover, nav a:focus {
-            color: var(--secondary-color);
-            background-color: rgba(0, 163, 224, 0.1);
-            outline: none;
-        }
+        nav a:hover { color: var(--white); background-color: var(--secondary-color); }
         nav ul ul {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
             background-color: var(--white);
-            box-shadow: 0 4px 8px var(--shadow-color);
-            min-width: 200px;
+            box-shadow: 0 5px 10px var(--shadow-color);
+            min-width: 220px;
             z-index: 1;
             flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
         }
         nav li:hover > ul {
             display: flex;
+            animation: dropdownFade 0.3s ease;
         }
-        nav ul ul li {
-            margin: 0;
-            width: 100%;
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        nav ul ul li { margin: 0; width: 100%; }
         .hamburger {
             display: none;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary-color);
-            padding: 10px;
+            padding: 12px;
         }
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-            }
-            nav ul.active {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-                position: absolute;
-                right: 20px;
-                top: 15px;
-            }
-            nav li {
-                margin: 10px 0;
-            }
-            nav ul ul {
-                position: static;
-                box-shadow: none;
-            }
+            nav ul { display: none; flex-direction: column; }
+            nav ul.active { display: flex; }
+            .hamburger { display: block; position: absolute; right: 25px; top: 18px; }
+            nav li { margin: 12px 0; }
+            nav ul ul { position: static; box-shadow: none; }
         }
 
-        section { padding: 80px 0; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.8rem; margin-bottom: 15px; }
-        .section-title p { font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto; }
+        section { padding: 100px 0; transition: background-color 0.3s ease; }
+        section:hover { background-color: #f0f8ff; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 3rem; margin-bottom: 20px; }
+        .section-title p { font-size: 1.3rem; color: #555; max-width: 900px; margin: 0 auto; }
 
-        /* SERVICES GRID */
+        /* Services Grid - Card Flip Animation for Interactivity */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
         }
         .service-card {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             text-align: center;
+            position: relative;
+            perspective: 1000px;
         }
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px var(--shadow-color);
+            transform: translateY(-12px) rotateY(10deg);
+            box-shadow: 0 10px 25px var(--shadow-color);
         }
         .service-card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
             loading: lazy;
+            transition: transform 0.4s ease;
         }
-        .service-card h3 { font-size: 1.6rem; margin-bottom: 10px; }
-        .service-card p { color: #666; }
+        .service-card:hover img { transform: scale(1.05); }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .service-card p { color: #666; font-size: 1.1rem; }
         .more-services {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         .more-services button {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 15px 30px;
+            padding: 18px 35px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .more-services button:hover {
             background-color: var(--secondary-color);
+            transform: scale(1.05);
         }
         .additional-services {
             display: none;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 35px;
+            animation: fadeInSection 1s ease;
         }
-        .additional-services.active {
-            display: grid;
+        .additional-services.active { display: grid; }
+        @keyframes fadeInSection {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* RESOURCES SECTION */
+        /* Resources Section - Modern Grid */
         .resources {
             background-color: #e8f4f8;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         .resource-card {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
-        .resource-card:hover {
-            transform: translateY(-5px);
-        }
-        .resource-card h3 { font-size: 1.6rem; margin-bottom: 10px; }
-        .resource-card a {
-            color: var(--primary-color);
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
-        }
+        .resource-card:hover { transform: translateY(-8px); }
+        .resource-card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .resource-card a { color: var(--primary-color); font-weight: 600; display: inline-block; margin-top: 15px; transition: color 0.3s ease; }
+        .resource-card a:hover { color: var(--secondary-color); }
 
-        /* COMMUNITY EMPOWERMENT SECTION */
+        /* Community Section - Gradient Background */
         .community {
             background: linear-gradient(to bottom, #f5f5f5, var(--background-color));
-            padding: 80px 0;
+            padding: 100px 0;
         }
         .community-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
         .community-card {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             text-align: center;
         }
         .community-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px var(--shadow-color);
+            transform: translateY(-12px);
+            box-shadow: 0 10px 25px var(--shadow-color);
         }
-        .community-card h3 { font-size: 1.6rem; margin-bottom: 15px; }
-        .community-card p { color: #666; margin-bottom: 20px; }
-        .community-card .cta-button {
-            padding: 12px 25px;
-            border-radius: 50px;
-        }
+        .community-card h3 { font-size: 1.8rem; margin-bottom: 20px; }
+        .community-card p { color: #666; margin-bottom: 25px; font-size: 1.1rem; }
+        .community-card .cta-button { padding: 14px 30px; border-radius: 50px; }
 
-        /* TESTIMONIALS */
+        /* Testimonials - Carousel-like Style */
         .testimonials {
             background-color: #f5f5f5;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         .testimonial {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            margin-bottom: 30px;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin-bottom: 35px;
             font-style: italic;
             position: relative;
+            transition: transform 0.3s ease;
         }
+        .testimonial:hover { transform: scale(1.03); }
         .testimonial::before {
             content: '"';
-            font-size: 4rem;
+            font-size: 5rem;
             color: var(--accent-color);
             position: absolute;
-            top: -20px;
-            left: 20px;
+            top: -25px;
+            left: 25px;
         }
         .testimonial p:last-child {
             text-align: right;
             font-weight: 600;
             color: var(--primary-color);
+            font-size: 1.1rem;
         }
 
-        /* FAQ */
+        /* FAQ - Accordion with Smooth Toggle */
         .faq-item {
             background-color: var(--white);
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px var(--shadow-color);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px var(--shadow-color);
             cursor: pointer;
-            transition: box-shadow 0.3s;
+            transition: box-shadow 0.3s ease;
         }
-        .faq-item:hover {
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
-        .faq-item h3 { margin-bottom: 10px; font-size: 1.4rem; }
-        .faq-answer { display: none; color: #666; }
-        .faq-answer.active { display: block; animation: slideDown 0.3s ease; }
+        .faq-item:hover { box-shadow: 0 5px 18px var(--shadow-color); }
+        .faq-item h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .faq-answer { display: none; color: #666; font-size: 1.1rem; }
+        .faq-answer.active { display: block; animation: slideDown 0.4s ease; }
 
-        /* CONTACT FORM */
+        /* Contact Form - Clean, Modern Design */
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            gap: 25px;
+            max-width: 700px;
+            margin: 0 auto 50px;
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
         }
-        .contact-form label { font-weight: 600; }
-        .contact-form input, .contact-form textarea, .contact-form select {
-            padding: 15px;
+        .contact-form label { font-weight: 600; font-size: 1.1rem; }
+        .contact-form input, .contact-form textarea {
+            padding: 18px;
             border: 1px solid var(--primary-color);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+        .contact-form input:focus, .contact-form textarea:focus {
             border-color: var(--secondary-color);
-            outline: none;
+            box-shadow: 0 0 8px rgba(0, 163, 224, 0.3);
         }
         .contact-form button {
             background-color: var(--accent-color);
             color: var(--white);
-            padding: 15px;
+            padding: 18px;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .contact-form button:hover {
             background-color: var(--secondary-color);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
-        /* APPLICATION SECTION */
+        /* Applications Section */
         .applications {
             background: linear-gradient(to bottom, #f5f5f5, var(--background-color));
-            padding: 80px 0;
+            padding: 100px 0;
         }
         .application-options {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
         }
         .application-card {
             background-color: var(--white);
-            padding: 40px;
-            border-radius: 20px;
+            padding: 45px;
+            border-radius: 25px;
             box-shadow: 0 6px 20px var(--shadow-color);
             text-align: center;
-            max-width: 400px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 450px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         .application-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px var(--shadow-color);
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px var(--shadow-color);
         }
-        .application-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        .application-card p {
-            color: #666;
-            margin-bottom: 25px;
-        }
-        .application-card .cta-button {
-            padding: 15px 40px;
-            border-radius: 50px;
-        }
+        .application-card h3 { font-size: 2rem; margin-bottom: 20px; }
+        .application-card p { color: #666; margin-bottom: 30px; font-size: 1.1rem; }
+        .application-card .cta-button { padding: 18px 45px; border-radius: 50px; }
 
-        /* NEWSLETTER */
+        /* Newsletter - Engaging Call to Action */
         .newsletter {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
         }
-        .newsletter h2 { color: var(--white); }
+        .newsletter h2 { color: var(--white); font-size: 2.5rem; }
         .newsletter form {
             display: flex;
-            gap: 15px;
-            max-width: 600px;
-            margin: 25px auto;
+            gap: 20px;
+            max-width: 700px;
+            margin: 30px auto;
         }
         .newsletter input {
             flex: 1;
-            padding: 15px;
+            padding: 18px;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
         }
         .newsletter button {
             background-color: var(--accent-color);
             color: var(--white);
-            padding: 15px 30px;
+            padding: 18px 35px;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
         .newsletter button:hover {
             background-color: var(--white);
             color: var(--primary-color);
         }
 
-        /* FOOTER */
+        /* Footer - Clean and Professional */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
+            padding: 40px 0;
+            font-size: 1rem;
         }
         .social-links {
-            margin-top: 10px;
+            margin-top: 15px;
         }
         .social-links a {
             color: var(--white);
-            margin: 0 15px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            margin: 0 20px;
+            font-size: 1.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
         .social-links a:hover {
             color: var(--accent-color);
+            transform: scale(1.2);
         }
 
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Animations for Seamless Interaction */
         @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
+            from { opacity: 0; transform: translateY(-15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVE DESIGN */
+        /* Responsive Design for Seamless Experience */
         @media (max-width: 768px) {
-            .hero { padding: 100px 20px; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.2rem; }
-            .cta-buttons { flex-direction: column; gap: 15px; }
-            nav a { margin: 10px; }
-            .application-options { gap: 30px; }
+            .hero { padding: 120px 25px; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.3rem; }
+            .cta-buttons { flex-direction: column; gap: 20px; }
+            nav a { margin: 12px; }
+            .application-options { gap: 40px; }
+            section { padding: 80px 0; }
         }
     </style>
     <!-- Font Awesome for Icons -->
@@ -500,20 +469,20 @@
 </head>
 
 <body>
-    <!-- HERO BANNER - Updated with new opening statement -->
+    <!-- Hero Banner -->
     <section class="hero" role="banner">
-        <h1>Focusing on Understanding and Transforming Behavior</h1>
-        <p>At Unlimited Possibilities Africa, through our CareBridge program, we empower families with tailored, evidence-based support delivered by expert professionals to unlock every child’s boundless potential in autism and developmental care.</p>
+        <h1>Unlocking Boundless Potential Worldwide</h1>
+        <p>At Unlimited Possibilities Africa, we unite families and leading experts globally for innovative, evidence-based support in autism and developmental excellence, driving transformation and independence.</p>
     </section>
 
-    <!-- HEADER - Updated with new organization name -->
+    <!-- Header -->
     <header>
-        <img src="https://via.placeholder.com/150x60?text=Logo" alt="Unlimited Possibilities Africa Logo">
+        <img src="https://png.pngtree.com/png-clipart/20230830/original/pngtree-community-logo-vector-picture-image_8587020.png" alt="Unlimited Possibilities Africa Logo">
         <h1>Unlimited Possibilities Africa</h1>
-        <p>CareBridge: Empowering Families, Building Futures</p>
+        <p>Revolutionizing Global Developmental Excellence</p>
     </header>
 
-    <!-- NAVIGATION -->
+    <!-- Navigation -->
     <nav role="navigation">
         <div class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
         <ul id="nav-menu">
@@ -521,174 +490,174 @@
             <li>
                 <a href="#about">About</a>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#about">Our Vision</a></li>
+                    <li><a href="#testimonials">Client Insights</a></li>
+                    <li><a href="#faq">Key Questions</a></li>
                 </ul>
             </li>
             <li><a href="#services">Services</a></li>
             <li>
                 <a href="#resources">Resources</a>
                 <ul>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="events.html">Events</a></li>
+                    <li><a href="#resources">Tools & Guides</a></li>
+                    <li><a href="blog.html">Insights Blog</a></li>
+                    <li><a href="events.html">Global Events</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#community">Community</a>
+                <a href="#community">Global Network</a>
                 <ul>
-                    <li><a href="initiatives.html">Initiatives</a></li>
-                    <li><a href="partnership-application.html">Partnerships</a></li>
+                    <li><a href="initiatives.html">Strategic Initiatives</a></li>
+                    <li><a href="partnership-application.html">Collaborative Partnerships</a></li>
                 </ul>
             </li>
-            <li><a href="#applications">Join Us</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#applications">Engage With Us</a></li>
+            <li><a href="#contact">Connect</a></li>
         </ul>
     </nav>
 
-    <!-- HOME -->
+    <!-- Home -->
     <section id="home" class="container" role="main">
         <div class="section-title">
-            <h2>Discover CareBridge</h2>
-            <p>Under Unlimited Possibilities Africa, CareBridge partners with families and expert professionals to deliver personalized support for children with autism and developmental needs, fostering growth and independence.</p>
+            <h2>Explore Our Global Vision</h2>
+            <p>We deliver cutting-edge, evidence-based solutions for children with developmental needs, linking families with elite professionals for exceptional outcomes worldwide.</p>
         </div>
     </section>
 
-    <!-- ABOUT - Updated with provided outcomes -->
+    <!-- About -->
     <section id="about" class="container">
         <div class="section-title">
             <h2>About Unlimited Possibilities Africa</h2>
-            <p>Through our CareBridge program, we are dedicated to empowering families by connecting them with highly qualified professionals specializing in autism spectrum disorders and developmental therapies. Based in Nairobi, Kenya, we provide comprehensive, evidence-based services to enhance child development and family well-being. We ensure our individuals are able to:</p>
-            <ul style="max-width: 800px; margin: 20px auto; text-align: left; color: #666;">
-                <li>Increase communication and language skills</li>
-                <li>Improve social skills by mastering social cues, sharing, and turn-taking</li>
-                <li>Enhance attention, focus, and memory</li>
-                <li>Develop self-care and everyday life skills</li>
-                <li>Decrease harmful or disruptive behaviors by adopting healthier coping mechanisms</li>
-                <li>Prepare for independence by building skills to thrive in society</li>
+            <p>A premier international entity dedicated to advancing developmental excellence through our flagship program. Headquartered in Africa with a global footprint, we provide superior, evidence-based services to empower families and children. We ensure individuals achieve:</p>
+            <ul style="max-width: 900px; margin: 25px auto; text-align: left; color: #555; font-size: 1.1rem; list-style-type: disc; padding-left: 40px;">
+                <li>Enhanced communication and linguistic capabilities</li>
+                <li>Superior social competencies through mastery of cues, collaboration, and reciprocity</li>
+                <li>Optimized attention, concentration, and cognitive retention</li>
+                <li>Advanced self-management and daily living proficiencies</li>
+                <li>Reduction in adverse behaviors via adaptive strategies and alternatives</li>
+                <li>Preparation for autonomy with societal integration skills</li>
             </ul>
         </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- Services -->
     <section id="services" class="container">
         <div class="section-title">
-            <h2>Our Services</h2>
-            <p>Our expert-led therapies are designed to nurture growth, independence, and family harmony.</p>
+            <h2>Our Premium Services</h2>
+            <p>Customized, world-class interventions crafted to unleash potential and foster self-reliance.</p>
         </div>
         <div class="services">
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?therapy" alt="Speech Therapy" loading="lazy">
-                <h3>Speech Therapy</h3>
-                <p>Personalized sessions to enhance communication and expression.</p>
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Speech Therapy Session" loading="lazy">
+                <h3>Speech and Language Enhancement</h3>
+                <p>Bespoke programs to elevate communication and expressive abilities.</p>
             </div>
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?child,therapy" alt="Behavioral Therapy" loading="lazy">
-                <h3>Applied Behavior Analysis (ABA)</h3>
-                <p>Structured approaches to foster positive behaviors.</p>
+                <img src="https://images.unsplash.com/photo-1570545887595-5e9df19ecc6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Behavioral Analysis Therapy" loading="lazy">
+                <h3>Applied Behavioral Analysis (ABA)</h3>
+                <p>Strategic methodologies to cultivate positive conduct and mitigate challenges.</p>
             </div>
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?children,education" alt="Occupational Therapy" loading="lazy">
-                <h3>Occupational Therapy</h3>
-                <p>Building daily living skills for greater autonomy.</p>
+                <img src="https://images.unsplash.com/photo-1570545908620-4ee8a9489c66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Occupational Therapy Activities" loading="lazy">
+                <h3>Occupational Development Therapy</h3>
+                <p>Building essential skills for enhanced autonomy and confidence in daily activities.</p>
             </div>
         </div>
         <div class="more-services">
-            <button onclick="toggleMoreServices()">Explore More Services</button>
+            <button onclick="toggleMoreServices()">Discover Additional Services</button>
         </div>
         <div class="additional-services" id="additional-services">
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?physical,therapy" alt="Physical Therapy" loading="lazy">
-                <h3>Physical Therapy</h3>
-                <p>Improving motor skills and coordination through targeted exercises.</p>
+                <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Physical Therapy Exercise" loading="lazy">
+                <h3>Physical Mobility Therapy</h3>
+                <p>Targeted regimens to boost motor coordination and physical prowess.</p>
             </div>
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?sensory" alt="Sensory Integration Therapy" loading="lazy">
-                <h3>Sensory Integration Therapy</h3>
-                <p>Helping children process sensory information for better focus.</p>
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sensory Integration Session" loading="lazy">
+                <h3>Sensory Processing Integration</h3>
+                <p>Techniques to refine sensory interpretation for improved focus and composure.</p>
             </div>
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?social,skills" alt="Social Skills Training" loading="lazy">
-                <h3>Social Skills Training</h3>
-                <p>Developing interpersonal skills for meaningful connections.</p>
+                <img src="https://images.unsplash.com/photo-1521737600394-4f6e3d4a48b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Skills Group" loading="lazy">
+                <h3>Social Competence Training</h3>
+                <p>Programs to develop meaningful interpersonal dynamics and connections.</p>
             </div>
             <div class="service-card">
-                <img src="https://source.unsplash.com/400x300/?music,therapy" alt="Music Therapy" loading="lazy">
-                <h3>Music Therapy</h3>
-                <p>Using music to support emotional and cognitive development.</p>
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Music Therapy Activity" loading="lazy">
+                <h3>Music-Based Therapeutic Interventions</h3>
+                <p>Leveraging music to enhance emotional articulation and cognitive advancement.</p>
             </div>
         </div>
-        <!-- CTAs after services -->
-        <div class="cta-buttons" style="margin-top: 60px;">
-            <a href="parent-application.html" class="cta-button"><i class="fas fa-user"></i> Are You a Parent?</a>
-            <a href="provider-application.html" class="cta-button"><i class="fas fa-stethoscope"></i> Are You a Provider?</a>
+        <!-- CTAs After Services for Informed Decisions -->
+        <div class="cta-buttons" style="margin-top: 70px;">
+            <a href="parent-application.html" class="cta-button"><i class="fas fa-user"></i> Family Engagement</a>
+            <a href="provider-application.html" class="cta-button"><i class="fas fa-stethoscope"></i> Expert Partnership</a>
         </div>
     </section>
 
-    <!-- RESOURCES -->
+    <!-- Resources -->
     <section id="resources" class="resources">
         <div class="container">
             <div class="section-title">
-                <h2>Resources</h2>
-                <p>Access expert-curated tools and insights for your family’s journey.</p>
+                <h2>Exclusive Resources</h2>
+                <p>Access curated insights and tools from global experts to advance your journey.</p>
             </div>
             <div class="services">
                 <div class="resource-card">
-                    <h3>Parent Guide</h3>
-                    <p>Comprehensive advice for navigating developmental support.</p>
-                    <a href="parent-guide.pdf" class="cta-button" download>Download</a>
+                    <h3>Family Empowerment Guide</h3>
+                    <p>Strategic insights for navigating developmental excellence.</p>
+                    <a href="family-guide.pdf" class="cta-button" download>Download Now</a>
                 </div>
                 <div class="resource-card">
-                    <h3>Blog Insights</h3>
-                    <p>Expert articles on child development and therapies.</p>
-                    <a href="blog.html" class="cta-button">Read More</a>
+                    <h3>Expert Insights Blog</h3>
+                    <p>Leading perspectives on developmental innovations.</p>
+                    <a href="blog.html" class="cta-button">Explore More</a>
                 </div>
                 <div class="resource-card">
-                    <h3>Events</h3>
-                    <p>Workshops, webinars, and community gatherings.</p>
-                    <a href="events.html" class="cta-button">View Calendar</a>
+                    <h3>International Events</h3>
+                    <p>Seminars, webinars, and global forums.</p>
+                    <a href="events.html" class="cta-button">View Schedule</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COMMUNITY EMPOWERMENT -->
+    <!-- Community Empowerment -->
     <section id="community" class="community">
         <div class="container">
             <div class="section-title">
-                <h2>Community Empowerment</h2>
-                <p>Unlimited Possibilities Africa fosters inclusive networks, uniting families and professionals through impactful initiatives and partnerships.</p>
+                <h2>Global Empowerment Network</h2>
+                <p>We cultivate strategic alliances to create inclusive ecosystems, empowering communities worldwide through innovative initiatives and collaborations.</p>
             </div>
             <div class="community-options">
                 <div class="community-card">
-                    <h3>Empowerment Initiatives</h3>
-                    <p>Our expert-led workshops and support groups equip communities with tools to support children with developmental needs.</p>
-                    <a href="initiatives.html" class="cta-button">Join an Initiative</a>
+                    <h3>Strategic Empowerment Programs</h3>
+                    <p>Expert-facilitated seminars, advisory groups, and awareness campaigns to equip global communities with advanced tools for developmental support.</p>
+                    <a href="programs.html" class="cta-button">Engage in a Program</a>
                 </div>
                 <div class="community-card">
-                    <h3>Partnerships & Collaborations</h3>
-                    <p>We partner with NGOs, schools, and healthcare providers to expand access to quality services.</p>
-                    <a href="partnership-application.html" class="cta-button">Become a Partner</a>
+                    <h3>Alliances & Strategic Partnerships</h3>
+                    <p>We forge partnerships with international NGOs, institutions, and enterprises to amplify access to premium services and drive sustainable impact.</p>
+                    <a href="alliance-application.html" class="cta-button">Form an Alliance</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>What Our Community Says</h2>
-                <p>Stories from families and expert professionals.</p>
+                <h2>Insights from Our Global Community</h2>
+                <p>Perspectives from families and leading professionals worldwide.</p>
             </div>
             <div class="testimonial">
-                <p>CareBridge’s expert support has transformed our child’s development, giving us hope and practical tools.</p>
-                <p>- Dedicated Parent</p>
+                <p>Unlimited Possibilities Africa has revolutionized our approach to developmental support, delivering exceptional results through expert guidance.</p>
+                <p>- Empowered Family Leader</p>
             </div>
             <div class="testimonial">
-                <p>Joining Unlimited Possibilities Africa has allowed me to make a meaningful impact in a collaborative network.</p>
-                <p>- Experienced Therapist</p>
+                <p>Partnering with this international powerhouse has enabled profound impact within a dynamic, collaborative framework.</p>
+                <p>- Renowned Specialist</p>
             </div>
         </div>
     </section>
@@ -696,82 +665,83 @@
     <!-- FAQ -->
     <section id="faq" class="container">
         <div class="section-title">
-            <h2>Frequently Asked Questions</h2>
-            <p>Answers to common inquiries from families and professionals.</p>
+            <h2>Essential Inquiries</h2>
+            <p>Clarifications for families and professionals engaging globally.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">How do I get started?</h3>
-            <p class="faq-answer">Select 'Are You a Parent?' or 'Are You a Provider?' in the services section to apply.</p>
+            <h3 onclick="toggleFAQ(this)">How to Initiate Engagement?</h3>
+            <p class="faq-answer">Select 'Family Engagement' or 'Expert Partnership' within the services overview to commence your application.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleFAQ(this)">What services do you offer?</h3>
-            <p class="faq-answer">We provide speech therapy, ABA, occupational therapy, and more—explore our services section for details.</p>
+            <h3 onclick="toggleFAQ(this)">What Interventions Are Available?</h3>
+            <p class="faq-answer">We offer speech enhancement, ABA, occupational development, and beyond—review our services for comprehensive details.</p>
         </div>
     </section>
 
-    <!-- APPLICATIONS -->
+    <!-- Applications -->
     <section id="applications" class="applications">
         <div class="container">
             <div class="section-title">
-                <h2>Join Our Community</h2>
-                <p>Connect with us as a family seeking support or as an expert professional offering expertise.</p>
+                <h2>Engage with Our Global Network</h2>
+                <p>Whether seeking premium support or contributing expertise, begin your journey here.</p>
             </div>
             <div class="application-options">
                 <div class="application-card">
-                    <h3>Are You a Parent?</h3>
-                    <p>Apply to access tailored support for your child’s unique needs.</p>
-                    <a href="parent-application.html" class="cta-button">Apply Now</a>
+                    <h3>Family Engagement</h3>
+                    <p>Apply for customized global support tailored to your child's developmental requirements.</p>
+                    <a href="parent-application.html" class="cta-button">Initiate Application</a>
                 </div>
                 <div class="application-card">
-                    <h3>Are You a Provider?</h3>
-                    <p>Join our network of expert professionals by submitting your credentials.</p>
-                    <a href="provider-application.html" class="cta-button">Apply Now</a>
+                    <h3>Expert Partnership</h3>
+                    <p>Submit credentials to join our elite international network of specialists.</p>
+                    <a href="provider-application.html" class="cta-button">Initiate Application</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- Contact -->
     <section id="contact" class="container">
         <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Our team is here to support families and professionals—reach out today.</p>
+            <h2>Connect with Us</h2>
+            <p>Our international team is prepared to assist families and professionals—initiate contact today.</p>
         </div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
-            <label for="name">Name:</label>
+            <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required aria-required="true">
-            <label for="email">Email:</label>
+            <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required aria-required="true">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-            <button type="submit">Send Message</button>
+            <label for="message">Your Inquiry:</label>
+            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+            <button type="submit">Submit Inquiry</button>
         </form>
-        <p>Email: <a href="mailto:contact@up-africa.org">contact@up-africa.org</a></p>
-        <p>Phone: <a href="tel:+254700000000">+254 700 000 000</a></p>
-        <p>Address: Nairobi, Kenya</p>
+        <p>Email: <a href="mailto:info@upa-global.org">info@upa-global.org</a></p>
+        <p>Phone: <a href="tel:+254700000000">+254 700 000 000 (Africa HQ)</a></p>
+        <p>Address: Nairobi, Kenya – Global Operations</p>
     </section>
 
-    <!-- NEWSLETTER -->
+    <!-- Newsletter -->
     <section class="newsletter">
-        <h2>Stay Connected</h2>
-        <p>Subscribe for expert insights and resources for families and professionals.</p>
+        <h2>Remain Informed</h2>
+        <p>Subscribe for exclusive global insights, innovations, and resources.</p>
         <form onsubmit="handleNewsletterSubmit(event)">
-            <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
-            <button type="submit">Subscribe</button>
+            <input type="email" placeholder="Enter your email address" required aria-label="Email for newsletter">
+            <button type="submit">Subscribe Now</button>
         </form>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Unlimited Possibilities Africa. All rights reserved.</p>
+        <p>&copy; 2025 Unlimited Possibilities Africa. All Rights Reserved.</p>
         <div class="social-links">
             <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript for Interactivity -->
     <script>
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
@@ -780,13 +750,13 @@
 
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Message sent! We’ll respond soon.');
+            alert('Inquiry submitted! Our team will respond promptly.');
             event.target.reset();
         }
 
         function handleNewsletterSubmit(event) {
             event.preventDefault();
-            alert('Subscribed! Thank you.');
+            alert('Subscription confirmed! Thank you for joining.');
             event.target.reset();
         }
 
