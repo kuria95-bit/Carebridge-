@@ -1,592 +1,519 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Unlimited Possibilities Africa: Easy way for parents to find trusted experts for their child's autism support. Join as a professional to help families worldwide.">
-    <meta name="keywords" content="autism support for parents, find therapy experts, child developmental help, vetted professionals, global autism platform">
-    <meta name="author" content="Unlimited Possibilities Africa">
-    <meta name="robots" content="index, follow">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <title>Unlimited Possibilities Africa - Helping Your Child Thrive</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unlimited Possibilities Africa — Helping Families & Experts Connect</title>
+  <meta name="description" content="Find trusted autism experts or join as one—Unlimited Possibilities Africa supports families worldwide." />
+  <meta property="og:title" content="Unlimited Possibilities Africa" />
+  <meta property="og:description" content="Find trusted autism experts or join as one—Unlimited Possibilities Africa supports families worldwide." />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" />
 
-    <!-- Updated Design: Softer Colors, Parent-Friendly Layout -->
-    <style>
-        :root {
-            --primary-color: #007bff;  /* Friendly Blue */
-            --secondary-color: #6f42c1; /* Soft Purple for Calm */
-            --accent-color: #fd7e14;   /* Warm Orange for Energy */
-            --trust-green: #198754;    /* Green for Reliability */
-            --background-color: #f8f9fa; /* Light Background */
-            --text-color: #343a40;     /* Easy-to-Read Dark */
-            --white: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-        }
+  <!-- Fonts + CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    :root {
+      --color-primary: #4A90E2;
+      --color-accent: #FF7E47;
+      --color-secondary: #7B61FF;
+      --color-background: #F5F7FA;
+      --color-text: #2D3436;
+      --color-white: #ffffff;
+      --shadow: rgba(0,0,0,0.1);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--color-secondary);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--color-white);
+      box-shadow: 0 2px 10px var(--shadow);
+      z-index: 1000;
+    }
+    nav .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      padding: 8px 12px;
+      font-weight: 500;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+    .nav-links a:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    .btn-cta {
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: var(--color-white);
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-white);
+      color: var(--color-white);
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(74,144,226,0.8), rgba(123,97,255,0.8)),
+                  url('https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg') center/cover no-repeat;
+      color: var(--color-white);
+      text-align: center;
+      padding: 140px 20px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .hero .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-        a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
-        a:hover { color: var(--secondary-color); }
-        h1, h2, h3 { color: var(--primary-color); font-weight: 600; }
-        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; }
+    /* Stats Animated Section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      max-width: 800px;
+      margin: 60px auto;
+    }
+    .stat-item {
+      background-color: var(--color-white);
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 20px var(--shadow);
+      text-align: center;
+      flex: 1;
+    }
+    .stat-item h3 {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    .stat-item p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 8px;
+    }
 
-        /* Hero - Welcoming for Parents */
-        .hero {
-            background: linear-gradient(rgba(0, 123, 255, 0.6), rgba(0, 123, 255, 0.6)), url('https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            text-align: center;
-            padding: 150px 20px;
-            border-radius: 0 0 20px 20px;
-        }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 30px; }
+    .services {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .services-grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .service-card {
+      background: var(--color-white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px var(--shadow);
+    }
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .service-card .card-content {
+      padding: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-top: 0;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 10px;
+    }
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .cta-button {
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 5px var(--shadow-color);
-        }
-        .cta-button:hover {
-            background-color: var(--secondary-color);
-        }
+    .why-us, .testimonials, .faq, .contact, .applications { padding: 60px 20px; }
 
-        /* Navigation - Simple for Easy Use */
-        nav {
-            background-color: var(--white);
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px var(--shadow-color);
-        }
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        nav li { margin: 0 15px; }
-        nav a { font-weight: 500; padding: 8px 12px; border-radius: 5px; transition: background-color 0.3s ease; }
-        nav a:hover { background-color: rgba(0, 123, 255, 0.1); }
-        .hamburger { display: none; font-size: 1.4rem; cursor: pointer; position: absolute; right: 20px; top: 12px; }
+    .why-us .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .why-us .list-item svg.icon {
+      width: 24px;
+      height: 24px;
+      fill: var(--color-primary);
+      margin-top: 4px;
+    }
 
-        @media (max-width: 768px) {
-            nav ul { display: none; flex-direction: column; }
-            nav ul.active { display: flex; }
-            .hamburger { display: block; }
-            nav li { margin: 10px 0; text-align: center; }
-        }
+    .testimonials-slider {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial {
+      background: var(--color-white);
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px var(--shadow);
+      margin: 0 10px;
+    }
+    /* ... styles for slider controls go here ... */
 
-        section { padding: 60px 0; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
-        .section-title p { font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto; }
+    .faq .faq-item {
+      background: var(--color-white);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 20px var(--shadow);
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    .faq .faq-item h3 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+    .faq .answer {
+      display: none;
+      margin-top: 10px;
+      color: #555;
+    }
+    .faq .faq-item.active .answer {
+      display: block;
+    }
 
-        /* About Us - Simple Language for Parents */
-        .about-stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .stat {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-            padding: 20px;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-        }
-        .stat h3 { font-size: 2rem; color: var(--trust-green); }
-        .stat p { font-size: 1rem; color: #666; }
+    .footer {
+      background: var(--color-text);
+      color: var(--color-white);
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .footer a {
+      color: var(--color-white);
+      margin: 0 10px;
+    }
 
-        /* Services - Appealing Images */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .service-item {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .service-item:hover { transform: translateY(-5px); }
-        .service-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-        .service-item h3 { font-size: 1.4rem; margin-bottom: 10px; }
-        .service-item p { font-size: 1rem; color: #666; }
-
-        /* Why Trust Us - Sellable Points */
-        .trust-list {
-            list-style: none;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .trust-list li { margin-bottom: 15px; font-size: 1.1rem; color: #666; position: relative; padding-left: 25px; }
-        .trust-list li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; color: var(--trust-green); position: absolute; left: 0; font-weight: 900; }
-
-        /* Community - Engaging Images */
-        .community-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .community-item {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            text-align: center;
-        }
-        .community-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-        .community-item h3 { font-size: 1.4rem; margin-bottom: 10px; }
-        .community-item p { font-size: 1rem; color: #666; }
-
-        /* Testimonials - Relatable Stories */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .testimonial-item {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            font-style: italic;
-        }
-        .testimonial-item p { margin-bottom: 10px; }
-        .testimonial-item span { display: block; text-align: right; font-weight: 500; color: var(--primary-color); }
-
-        /* FAQ - Easy Answers */
-        .faq-item {
-            margin-bottom: 20px;
-            background-color: var(--white);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            cursor: pointer;
-        }
-        .faq-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
-        .faq-answer { display: none; color: #666; }
-        .faq-answer.active { display: block; }
-
-        /* Applications - Clear Calls */
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .application-item {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            text-align: center;
-        }
-        .application-item h3 { font-size: 1.4rem; margin-bottom: 10px; }
-        .application-item p { font-size: 1rem; color: #666; margin-bottom: 15px; }
-        .application-item a { background-color: var(--accent-color); color: var(--white); padding: 10px 20px; border-radius: 20px; font-weight: 500; }
-
-        /* Contact - Simple Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-        }
-        .contact-form label { display: block; margin-bottom: 5px; font-weight: 500; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .contact-form button { background-color: var(--accent-color); color: var(--white); padding: 10px; border: none; border-radius: 5px; font-weight: 500; cursor: pointer; }
-
-        /* Newsletter - Gentle Call */
-        .newsletter { background-color: var(--primary-color); color: var(--white); padding: 40px 20px; text-align: center; }
-        .newsletter h2 { font-size: 1.8rem; margin-bottom: 10px; }
-        .newsletter p { font-size: 1rem; margin-bottom: 20px; }
-        .newsletter form { max-width: 400px; margin: 0 auto; }
-        .newsletter input { width: 70%; padding: 10px; border: none; border-radius: 5px 0 0 5px; }
-        .newsletter button { background-color: var(--accent-color); color: var(--white); padding: 10px 20px; border: none; border-radius: 0 5px 5px 0; cursor: pointer; }
-
-        /* Footer - Clean */
-        footer { background-color: var(--primary-color); color: var(--white); padding: 20px; text-align: center; font-size: 0.9rem; }
-        .social-links a { color: var(--white); margin: 0 10px; font-size: 1.2rem; }
-
-        @media (max-width: 768px) {
-            .hero { padding: 100px 20px; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
-            .services-grid, .about-stats, .trust-list, .community-grid, .testimonials-grid, .applications-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-
-<body>
-    <!-- Hero Section: Sell to Parents -->
-    <section class="hero">
-        <h1>Find the Right Help for Your Child, Easily and Quickly</h1>
-        <p>As a parent, you want the best for your child. Our platform connects you with trusted experts who understand autism and can help your child grow and succeed. No more endless searches—just simple, safe matches.</p>
-        <div class="cta-buttons">
-            <a href="parent-application.html" class="cta-button">Get Started as a Parent</a>
-            <a href="provider-application.html" class="cta-button">Join as an Expert</a>
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
-        <ul id="nav-menu">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#trust">Why Choose Us</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="#testimonials">What Parents Say</a></li>
-            <li><a href="#faq">Common Questions</a></li>
-            <li><a href="#applications">Apply Now</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
-
-    <!-- About Us: Simple, Sellable -->
-    <section id="about" class="container">
-        <div class="section-title">
-            <h2>About Our Platform</h2>
-            <p>We make it easy for parents like you to find kind, experienced experts who can help your child with autism. Our team checks every expert to make sure they are the best. We've helped thousands of families, and we're here to help yours too.</p>
-        </div>
-        <div class="about-stats">
-            <div class="stat">
-                <h3>10,000+</h3>
-                <p>Families Helped</p>
-            </div>
-            <div class="stat">
-                <h3>5,000+</h3>
-                <p>Experts Trusted</p>
-            </div>
-            <div class="stat">
-                <h3>95%</h3>
-                <p>Happy Parents</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services: Appealing to Parents -->
-    <section id="services" class="container">
-        <div class="section-title">
-            <h2>Help Your Child Can Get</h2>
-            <p>Our experts offer gentle, fun ways to help your child learn and grow. See some of the ways we can support your family.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-item">
-                <img src="https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg" alt="Kind expert helping child with speech">
-                <h3>Speech and Language Help</h3>
-                <p>Fun sessions to help your child talk and share feelings better.</p>
-            </div>
-            <div class="service-item">
-                <img src="https://images.pexels.com/photos/3938023/pexels-photo-3938023.jpeg" alt="Expert playing with child in behavior therapy">
-                <h3>Behavior Support (ABA)</h3>
-                <p>Gentle ways to encourage good habits and make daily life easier.</p>
-            </div>
-            <div class="service-item">
-                <img src="https://images.pexels.com/photos/3938024/pexels-photo-3938024.jpeg" alt="Child doing activities with occupational therapist">
-                <h3>Daily Skills Therapy</h3>
-                <p>Play-based help for dressing, eating, and playing on their own.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Trust Us: Convincing for Parents -->
-    <section id="trust" class="container">
-        <div class="section-title">
-            <h2>Why Parents Love Our Platform</h2>
-            <p>We take care of the hard part so you can focus on your child. Here's why families feel safe with us.</p>
-        </div>
-        <ul class="trust-list">
-            <li>We check every expert's background and skills so you get only the best help for your child.</li>
-            <li>Simple steps to find the right person—no confusing searches or waiting forever.</li>
-            <li>Thousands of happy families have seen real improvements in their children's lives.</li>
-            <li>Safe and private: Your information stays secure with us.</li>
-            <li>Support anytime: Our team is here if you need help along the way.</li>
-        </ul>
-    </section>
-
-    <!-- Community: Inviting -->
-    <section id="community" class="container">
-        <div class="section-title">
-            <h2>Join Our Supportive Community</h2>
-            <p>Connect with other parents and experts through fun workshops and groups. We're all in this together.</p>
-        </div>
-        <div class="community-grid">
-            <div class="community-item">
-                <img src="https://images.pexels.com/photos/3938025/pexels-photo-3938025.jpeg" alt="Parents and kids in a friendly workshop">
-                <h3>Family Workshops</h3>
-                <p>Learn new ways to help your child in a welcoming group setting.</p>
-            </div>
-            <div class="community-item">
-                <img src="https://images.pexels.com/photos/3938026/pexels-photo-3938026.jpeg" alt="Group talking and sharing stories">
-                <h3>Support Groups</h3>
-                <p>Share experiences and get tips from other parents like you.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials: Relatable -->
-    <section id="testimonials" class="container">
-        <div class="section-title">
-            <h2>What Other Parents Say</h2>
-            <p>Hear from families who found the help they needed through our platform.</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-item">
-                <p>"It was so easy to find a kind expert who really understands my child. We're seeing big changes already!"</p>
-                <span>- Sarah, Mom of 6-year-old</span>
-            </div>
-            <div class="testimonial-item">
-                <p>"No more stress searching for help. The platform matched us perfectly, and the support is wonderful."</p>
-                <span>- John, Dad of 8-year-old</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ: Easy to Read -->
-    <section id="faq" class="container">
-        <div class="section-title">
-            <h2>Questions Parents Often Ask</h2>
-            <p>Click to see simple answers to common questions.</p>
-        </div>
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            <h3>How do I find help for my child?</h3>
-            <p class="faq-answer">Just fill out a short form about your child, and we'll connect you with trusted experts right away.</p>
-        </div>
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            <h3>Are the experts checked?</h3>
-            <p class="faq-answer">Yes, we carefully check every expert's skills and background to make sure they're the best for your family.</p>
-        </div>
-    </section>
-
-    <!-- Applications: Clear Choices -->
-    <section id="applications" class="container">
-        <div class="section-title">
-            <h2>Ready to Get Started?</h2>
-            <p>Choose if you're a parent looking for help or an expert wanting to join.</p>
-        </div>
-        <div class="applications-grid">
-            <div class="application-item">
-                <h3>I'm a Parent</h3>
-                <p>Find caring experts to help your child grow and be happy.</p>
-                <a href="parent-application.html" class="cta-button">Start Now</a>
-            </div>
-            <div class="application-item">
-                <h3>I'm an Expert</h3>
-                <p>Join our platform to connect with families who need your skills and make a real difference.</p>
-                <a href="provider-application.html" class="cta-button">Join Us</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container">
-        <div class="section-title">
-            <h2>Talk to Us</h2>
-            <p>Have questions? Send us a message—we're here to help.</p>
-        </div>
-        <form class="contact-form">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" required>
-            <label for="email">Your Email</label>
-            <input type="email" id="email" required>
-            <label for="message">Your Message</label>
-            <textarea id="message" rows="4" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <h2>Get Helpful Tips</h2>
-        <p>Sign up for emails with easy ideas and updates for your family.</p>
-        <form>
-            <input type="email" placeholder="Your Email" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Unlimited Possibilities Africa. Helping families one step at a time.</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-
-    <script>
-        function toggleFAQ(element) {
-            const answer = element.querySelector('.faq-answer');
-            answer.classList.toggle('active');
-        }
-
-        function toggleNav() {
-            document.getElementById('nav-menu').classList.toggle('active');
-        }
-
-        // Form submit placeholders
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you! We'll get back to you soon.');
-                form.reset();
-            });
-        });
-    </script>
-</body>
-</html>
-```
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parent Application - Unlimited Possibilities Africa</title>
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6f42c1;
-            --accent-color: #fd7e14;
-            --trust-green: #198754;
-            --background-color: #f8f9fa;
-            --text-color: #343a40;
-            --white: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-        }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--background-color); color: var(--text-color); padding: 20px; }
-        .form-container { background-color: var(--white); padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px var(--shadow-color); max-width: 500px; margin: 20px auto; }
-        .form-container h2 { text-align: center; color: var(--primary-color); margin-bottom: 20px; }
-        .form-container label { display: block; margin-bottom: 5px; font-weight: 500; }
-        .form-container input, .form-container textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .form-container button { background-color: var(--accent-color); color: var(--white); padding: 10px; border: none; border-radius: 5px; font-weight: 500; cursor: pointer; width: 100%; }
-    </style>
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .stats {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="form-container">
-        <h2>Tell Us About Your Child</h2>
-        <p>Fill this in, and we'll find the best expert for you.</p>
-        <form onsubmit="handleSubmit(event)">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" required>
-            <label for="email">Your Email</label>
-            <input type="email" id="email" required>
-            <label for="phone">Your Phone</label>
-            <input type="tel" id="phone" required>
-            <label for="child_name">Child's Name</label>
-            <input type="text" id="child_name" required>
-            <label for="child_age">Child's Age</label>
-            <input type="number" id="child_age" required>
-            <label for="needs">What Help Does Your Child Need?</label>
-            <textarea id="needs" rows="4" required></textarea>
-            <button type="submit">Send and Find Help</button>
-        </form>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">Unlimited Possibilities Africa</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#trust">Why Us</a>
+        <a href="#community">Community</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#applications">Join</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div><a href="parent-application.html" class="btn-cta btn-primary">Get Help</a></div>
     </div>
-    <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('Thanks! We'll match you with an expert soon.');
-            e.target.reset();
-        }
-    </script>
-</body>
-</html>
-```
+  </header>
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Application - Unlimited Possibilities Africa</title>
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6f42c1;
-            --accent-color: #fd7e14;
-            --trust-green: #198754;
-            --background-color: #f8f9fa;
-            --text-color: #343a40;
-            --white: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-        }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--background-color); color: var(--text-color); padding: 20px; }
-        .form-container { background-color: var(--white); padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px var(--shadow-color); max-width: 500px; margin: 20px auto; }
-        .form-container h2 { text-align: center; color: var(--primary-color); margin-bottom: 20px; }
-        .form-container label { display: block; margin-bottom: 5px; font-weight: 500; }
-        .form-container input, .form-container textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .form-container button { background-color: var(--accent-color); color: var(--white); padding: 10px; border: none; border-radius: 5px; font-weight: 500; cursor: pointer; width: 100%; }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Join Our Platform as an Expert</h2>
-        <p>Share your skills to help families on our trusted matching platform.</p>
-        <form onsubmit="handleSubmit(event)">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" required>
-            <label for="email">Your Email</label>
-            <input type="email" id="email" required>
-            <label for="phone">Your Phone</label>
-            <input type="tel" id="phone" required>
-            <label for="expertise">Your Expertise</label>
-            <input type="text" id="expertise" required>
-            <label for="experience">Years Helping Children</label>
-            <input type="number" id="experience" required>
-            <label for="bio">About You</label>
-            <textarea id="bio" rows="4" required></textarea>
-            <button type="submit">Apply to Join</button>
-        </form>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Helping Families. Connecting Experts.</h1>
+      <p>Your child deserves the best. We make finding trusted autism support easy and empowering.</p>
+      <div class="cta-group">
+        <a href="parent-application.html" class="btn-cta btn-primary">I’m a Parent</a>
+        <a href="provider-application.html" class="btn-cta btn-outline">I’m an Expert</a>
+      </div>
     </div>
-    <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('Thanks! We'll review your application and add you to our platform.');
-            e.target.reset();
+  </section>
+
+  <section class="stats">
+    <div class="stat-item">
+      <h3 class="counter" data-target="10000">0</h3>
+      <p>Families Helped</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="counter" data-target="5000">0</h3>
+      <p>Experts Trusted</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="counter" data-target="95">0</h3>
+      <p>% Parent Satisfaction</p>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg" alt="Speech therapy session" />
+        <div class="card-content">
+          <h3>Speech & Language Therapy</h3>
+          <p>Fun, expressive sessions to boost communication skills and understanding.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3938023/pexels-photo-3938023.jpeg" alt="Behavior support activities" />
+        <div class="card-content">
+          <h3>Behavior & ABA Support</h3>
+          <p>Evidence-based behavioral approaches tailored to your child’s growth.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3938024/pexels-photo-3938024.jpeg" alt="Occupational therapy session" />
+        <div class="card-content">
+          <h3>Daily & Occupational Skills</h3>
+          <p>Soft, playful therapy for daily life skills and independence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" class="why-us">
+    <div class="section-title">
+      <h2>Why Families Trust Us</h2>
+      <p>We believe in transparency, kindness, and expert-led support for every child. These values guide everything we do.</p>
+    </div>
+    <div class="max-width">
+      <div class="list-item">
+        <svg class="icon" viewBox="0 0 24 24"><!-- check icon path --></svg>
+        <p>All experts vetted and verified</p>
+      </div>
+      <div class="list-item">
+        <svg class="icon" viewBox="0 0 24 24"></svg>
+        <p>Quick matching to needs & preferences</p>
+      </div>
+      <div class="list-item">
+        <svg class="icon" viewBox="0 0 24 24"></svg>
+        <p>Proven results for thousands of families</p>
+      </div>
+      <div class="list-item">
+        <svg class="icon" viewBox="0 0 24 24"></svg>
+        <p>Privacy & safety first</p>
+      </div>
+      <div class="list-item">
+        <svg class="icon" viewBox="0 0 24 24"></svg>
+        <p>Support every step of your journey</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="community" class="services">
+    <div class="section-title">
+      <h2>Our Community in Action</h2>
+      <p>Workshops, peer groups, and support circles: real parents and experts coming together.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3938025/pexels-photo-3938025.jpeg" alt="Family workshop" />
+        <div class="card-content">
+          <h3>Family Workshops</h3>
+          <p>Hands-on sessions with parents, caregivers, and professionals.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3938026/pexels-photo-3938026.jpeg" alt="Support group discussion" />
+        <div class="card-content">
+          <h3>Support & Peer Groups</h3>
+          <p>Real stories, shared journeys, and mutual empowerment.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <!-- Use Image 1 from the suggestions here -->
+        <img src="IMAGE1_URL" alt="Therapy group" />
+        <div class="card-content">
+          <h3>Group Therapy Sessions</h3>
+          <p>Fun, interactive group learning environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="section-title">
+      <h2>What Parents Say</h2>
+    </div>
+    <div class="testimonials-slider">
+      <div class="testimonial">
+        <p>"It was so easy to find a kind expert who really understands my child. We're seeing big changes already!"</p>
+        <span>– Sarah, Mom of 6-year-old</span>
+      </div>
+      <div class="testimonial">
+        <p>"No more stress searching for help. The platform matched us perfectly, and the support is wonderful."</p>
+        <span>– John, Dad of 8-year-old</span>
+      </div>
+      <!-- Could add more slides -->
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <h3>How do I find help for my child?</h3>
+        <div class="answer">Fill out a short form, tell us about your child's needs, and we'll match you with experts skilled in those areas.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <h3>Are these experts vetted?</h3>
+        <div class="answer">Absolutely. We verify background, experience, and track record before we onboard any professional.</div>
+      </div>
+      <!-- more FAQs -->
+    </div>
+  </section>
+
+  <section id="applications" class="applications">
+    <div class="section-title">
+      <h2>Ready to Join Us?</h2>
+      <p>Whether you're a parent looking for support or an expert who wants to help, we’re here for you.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>I’m a Parent</h3>
+        <p>Tell us about your child, so we can find the right expert match.</p>
+        <a href="parent-application.html" class="btn-cta btn-primary">Start Now</a>
+      </div>
+      <div class="service-card">
+        <h3>I’m an Expert</h3>
+        <p>Join our community and use your skills to make real impact.</p>
+        <a href="provider-application.html" class="btn-cta btn-primary">Join Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Questions? Ideas? We’d love to hear from you.</p>
+    </div>
+    <div class="form-card service-card"> <!-- reuse card styles -->
+      <form id="contact-form">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" name="name" required />
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" required />
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="4" required></textarea>
+        <button type="submit" class="btn-cta btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Unlimited Possibilities Africa — All Rights Reserved</p>
+    <div class="social">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Counters
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200; 
+        if(count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target + (counter.innerText.includes('.') ? '' : '');
         }
-    </script>
+      };
+      update();
+    });
+
+    // FAQ toggle
+    function toggleFAQ(element) {
+      element.classList.toggle('active');
+    }
+
+    // Contact form submit
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      // show a nice styled modal or inline success message
+      alert('Thank you! We’ll get back to you soon.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
