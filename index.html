@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Unlimited Possibilities Africa — Trusted Autism Support</title>
-  <meta name="description" content="Unlimited Possibilities Africa connects families with vetted autism experts, runs community programs, and partners with donors to support low-income families." />
+  <meta name="description" content="Unlimited Possibilities Africa connects parents with vetted autism clinicians and runs community support programs." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -21,14 +21,16 @@
     a{color:inherit}
     img{max-width:100%;display:block;border-radius:10px}
     .container{max-width:var(--maxW);margin:0 auto;padding:0 20px}
-    h1{font-size:clamp(1.6rem,4vw,2.6rem);margin:0}
-    h2{font-size:clamp(1.1rem,2.4vw,1.6rem);margin:0 0 10px}
+    h1{font-size:clamp(1.6rem,4vw,2.4rem);margin:0}
+    h2{font-size:clamp(1.1rem,2.4vw,1.6rem);margin:0 0 8px}
     p{margin:0 0 12px;color:var(--muted)}
     /* NAV */
     header{position:sticky;top:12px;z-index:1200;padding:12px 0}
     .nav-wrap{background:rgba(255,255,255,0.94);backdrop-filter:blur(6px);border-radius:12px;box-shadow:var(--shadow)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
-    .brand{font-weight:700;color:var(--primary);font-size:1.05rem}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{height:44px}
+    .brand h3{margin:0;font-size:1.05rem;color:var(--primary)}
     .nav-links{display:flex;gap:14px;align-items:center}
     .nav-links a{padding:8px 10px;border-radius:8px;font-weight:600}
     .menu-toggle{display:none;background:transparent;border:none;font-size:1.25rem}
@@ -36,10 +38,10 @@
     .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 8px 24px rgba(59,85,255,0.12)}
     .btn-ghost{background:transparent;border:2px solid rgba(20,30,50,0.06)}
 
-    /* HERO - therapy background */
+    /* HERO */
     .hero{
-      margin-top:18px;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 420px;gap:0;
-      background:
+      margin-top:18px;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 420px;
+      gap:0;background:
         linear-gradient(180deg, rgba(21,88,214,0.78), rgba(111,66,193,0.58)),
         url('https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg') center/cover no-repeat;
       color:#fff;
@@ -77,6 +79,11 @@
     .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
     .step{display:flex;gap:12px;align-items:flex-start}
     .step .icon{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;height:48px;width:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Profiles */
+    .profiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .profile-card{display:flex;gap:12px;align-items:center}
+    .profile-card img{width:88px;height:88px;object-fit:cover;border-radius:10px}
 
     /* TESTIMONIALS carousel */
     .testimonials{position:relative;overflow:hidden}
@@ -119,7 +126,24 @@
   <!-- NAV -->
   <header class="container nav-wrap" role="banner">
     <div class="nav">
-      <div class="brand">Unlimited <span style="color:var(--accent)">Possibilities</span> Africa</div>
+      <div class="brand">
+        <!-- Inline SVG logo placeholder (scalable). Replace with PNG if you prefer. -->
+        <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Unlimited Possibilities Africa logo">
+          <!-- Mark -->
+          <g transform="translate(8,4)">
+            <rect x="0" y="0" width="40" height="40" rx="8" fill="#1558d6" />
+            <path d="M10 28 C14 22, 24 22, 28 28" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="18" cy="12" r="4" fill="#fff"/>
+          </g>
+          <!-- Text -->
+          <g transform="translate(58,28)">
+            <text x="0" y="-6" font-family="Poppins, sans-serif" font-weight="700" font-size="18" fill="#13202b">Unlimited</text>
+            <text x="0" y="12" font-family="Poppins, sans-serif" font-weight="700" font-size="18" fill="#ff7e3d">Possibilities</text>
+            <text x="130" y="12" font-family="Poppins, sans-serif" font-weight="600" font-size="12" fill="#6f42c1">Africa</text>
+          </g>
+        </svg>
+        <h3 style="margin-left:6px">Unlimited Possibilities Africa</h3>
+      </div>
 
       <nav>
         <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
@@ -144,21 +168,21 @@
     <!-- HERO -->
     <section class="hero" aria-label="Welcome hero">
       <div class="hero-left">
-        <h1>Specialized autism support — expert therapists & caring communities</h1>
-        <p>We pair families with vetted clinicians, run local workshops and partner with donors to ensure every child gets a chance to thrive.</p>
+        <h1>We connect parents with vetted autism specialists — quickly & compassionately</h1>
+        <p>Unlimited Possibilities Africa is a trusted platform that matches families with experienced clinicians for speech, behavior, occupational and community-based supports.</p>
         <div class="hero-ctas">
-          <button class="btn btn-primary" onclick="scrollToId('#parentForm')">I’m a Parent</button>
+          <button class="btn btn-primary" onclick="scrollToId('#parentForm')">Find a Specialist</button>
           <button class="btn btn-ghost" onclick="openModal('moreServicesModal')">More services</button>
-          <button class="btn btn-ghost" onclick="openModal('donorModal')">Support us</button>
+          <button class="btn btn-ghost" onclick="openModal('donorModal')">Support our work</button>
         </div>
       </div>
 
       <aside class="hero-right" aria-hidden="false">
         <div class="hero-card" role="complementary" aria-label="Quick facts">
-          <h4>Why parents trust us</h4>
-          <p>All clinicians are vetted, trained in evidence-based methods and selected for empathy and local cultural fit.</p>
+          <h4>Trusted Matching</h4>
+          <p>We screen and verify clinicians' credentials, experience and fit before they join the platform.</p>
           <div style="margin-top:12px">
-            <button class="btn btn-primary" onclick="scrollToId('#apply')">Join as Expert</button>
+            <button class="btn btn-primary" onclick="scrollToId('#apply')">Are you a clinician?</button>
           </div>
         </div>
       </aside>
@@ -166,40 +190,120 @@
 
     <!-- STATS -->
     <section class="stats" aria-label="Key stats">
-      <div class="stat"><div class="stat"><div class="stat-card"><div class="num"><span class="counter" data-target="10000">0</span>+</div><p class="muted">Families Helped</p></div></div></div>
-      <div class="stat"><div class="stat-card"><div class="num"><span class="counter" data-target="5000">0</span>+</div><p class="muted">Experts Trusted</p></div></div>
+      <div class="stat"><div class="stat-card"><div class="num"><span class="counter" data-target="10000">0</span>+</div><p class="muted">Families Helped</p></div></div>
+      <div class="stat"><div class="stat-card"><div class="num"><span class="counter" data-target="5000">0</span>+</div><p class="muted">Clinicians in Network</p></div></div>
       <div class="stat"><div class="stat-card"><div class="num"><span class="counter" data-target="95">0</span>%</div><p class="muted">Parent Satisfaction</p></div></div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" aria-labelledby="aboutTitle">
       <div class="section-title">
-        <h2 id="aboutTitle">About Us</h2>
-        <p>Unlimited Possibilities Africa is a mission-driven organization delivering evidence-informed autism support to families across communities. We combine clinical excellence, family-centred care and community partnerships to create lasting impact.</p>
+        <h2 id="aboutTitle">About Our Platform</h2>
+        <p>We are a technology-driven, community-rooted platform that connects parents to vetted autism specialists. Our mission is to make quality, evidence-informed care accessible — regardless of income or location.</p>
       </div>
 
       <div class="about-grid">
         <div>
           <div class="card">
-            <h3>Who we are</h3>
-            <p class="muted">A team of clinicians, therapists and community coordinators working together to match families with the right care — whether teletherapy or local sessions.</p>
+            <h3>We are matchmakers</h3>
+            <p class="muted">We don't provide therapy directly. Our strength is matching families to the best local or remote clinicians based on needs, age, language and availability.</p>
           </div>
 
           <div style="margin-top:12px" class="card">
-            <h3>How we ensure quality</h3>
-            <p class="muted">Every expert is screened, credential-checked, and receives ongoing supervision. We use measurable goals and regular progress reviews.</p>
+            <h3>Quality & safety</h3>
+            <p class="muted">Clinicians undergo background checks, credential verification and reference checks before joining our network. Ongoing reviews keep quality high.</p>
           </div>
         </div>
 
         <div>
           <div class="card">
-            <h3>Why parents trust us</h3>
-            <p class="muted">Fast matching, clear reports, and a caring support team — many families report measurable improvements within months.</p>
+            <h3>Parent-centered approach</h3>
+            <p class="muted">We support caregivers with clear guidance, progress tracking and workshops so gains are sustainable at home and school.</p>
           </div>
 
           <div style="margin-top:12px" class="card">
-            <h3>Our commitment</h3>
-            <p class="muted">We prioritize low-income communities through subsidized therapy and donor partnerships — ensuring equity of access.</p>
+            <h3>Equity & community</h3>
+            <p class="muted">Through donor partnerships we subsidize therapy places for families in low-income communities and run community events and training.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (parents) -->
+    <section id="how" aria-labelledby="howTitle">
+      <div class="section-title">
+        <h2 id="howTitle">How it works — for parents</h2>
+        <p>Simple, transparent steps so you know exactly what to expect.</p>
+      </div>
+
+      <div class="how-grid">
+        <div class="card step">
+          <div class="icon">1</div>
+          <div>
+            <h3>Apply</h3>
+            <p class="muted">Fill a short form about your child's strengths, challenges and goals.</p>
+          </div>
+        </div>
+
+        <div class="card step">
+          <div class="icon">2</div>
+          <div>
+            <h3>Get matched</h3>
+            <p class="muted">We match you with vetted specialists who fit your needs and schedule.</p>
+          </div>
+        </div>
+
+        <div class="card step">
+          <div class="icon">3</div>
+          <div>
+            <h3>Start & support</h3>
+            <p class="muted">Care begins, and we provide coaching, progress checks and community resources to support outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLINICIAN PROFILES (3) -->
+    <section id="profiles" aria-labelledby="profilesTitle">
+      <div class="section-title">
+        <h2 id="profilesTitle">Meet a few of our vetted specialists</h2>
+        <p>Representative clinician profiles to show the caliber of professionals on the platform. Click to request a match with a similar clinician.</p>
+      </div>
+
+      <div class="profiles">
+        <div class="card profile-card">
+          <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="Dr James Otieno">
+          <div>
+            <h3>Dr. James Otieno</h3>
+            <p class="muted">Age 42 — Autism Specialist</p>
+            <p class="muted"><strong>15 years</strong> experience • Diagnosis, behavioural planning, family coaching</p>
+            <div style="margin-top:8px">
+              <button class="btn btn-primary" onclick="requestMatch('Dr. James Otieno')">Request similar specialist</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card profile-card">
+          <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg" alt="Dr Daniel Mwangi">
+          <div>
+            <h3>Dr. Daniel Mwangi</h3>
+            <p class="muted">Age 38 — Speech & Language Therapist</p>
+            <p class="muted"><strong>10 years</strong> experience • Early intervention, speech therapy & teletherapy</p>
+            <div style="margin-top:8px">
+              <button class="btn btn-primary" onclick="requestMatch('Dr. Daniel Mwangi')">Request similar specialist</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card profile-card">
+          <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg" alt="Dr Sarah Njeri">
+          <div>
+            <h3>Dr. Sarah Njeri</h3>
+            <p class="muted">Age 35 — Child Psychologist</p>
+            <p class="muted"><strong>12 years</strong> experience • Assessment, school integration, parental coaching</p>
+            <div style="margin-top:8px">
+              <button class="btn btn-primary" onclick="requestMatch('Dr. Sarah Njeri')">Request similar specialist</button>
+            </div>
           </div>
         </div>
       </div>
@@ -209,27 +313,13 @@
     <section id="services" aria-labelledby="servicesTitle">
       <div class="section-title">
         <h2 id="servicesTitle">Services</h2>
-        <p>Evidence-based supports delivered by trained professionals: speech, behavior therapy, occupational skills, and community integration.</p>
+        <p class="muted">We connect families to clinicians offering speech, behaviour, occupational, social groups and more — online or in-person.</p>
       </div>
 
       <div class="grid grid-3">
-        <article class="card" aria-labelledby="s1">
-          <img loading="lazy" src="https://images.pexels.com/photos/8613083/pexels-photo-8613083.jpeg" alt="Speech therapy session">
-          <h3 id="s1">Speech & Language Therapy</h3>
-          <p class="muted">Engaging sessions to develop communication and expressive language skills.</p>
-        </article>
-
-        <article class="card" aria-labelledby="s2">
-          <img loading="lazy" src="https://images.pexels.com/photos/8613055/pexels-photo-8613055.jpeg" alt="Behavior support">
-          <h3 id="s2">Behavioral Support (ABA)</h3>
-          <p class="muted">Gentle behavior strategies to teach new skills and reduce barriers.</p>
-        </article>
-
-        <article class="card" aria-labelledby="s3">
-          <img loading="lazy" src="https://images.pexels.com/photos/8612981/pexels-photo-8612981.jpeg" alt="Occupational therapy">
-          <h3 id="s3">Daily & Occupational Skills</h3>
-          <p class="muted">Functional therapy for independence in daily routines and play.</p>
-        </article>
+        <article class="card"><img loading="lazy" src="https://images.pexels.com/photos/8613083/pexels-photo-8613083.jpeg" alt="Speech therapy"><h3>Speech & Language</h3><p class="muted">Build communication & social skills.</p></article>
+        <article class="card"><img loading="lazy" src="https://images.pexels.com/photos/8613055/pexels-photo-8613055.jpeg" alt="Behaviour support"><h3>Behavioral Support (ABA)</h3><p class="muted">Skill-based, compassionate approaches.</p></article>
+        <article class="card"><img loading="lazy" src="https://images.pexels.com/photos/8612981/pexels-photo-8612981.jpeg" alt="Occupational"><h3>Daily & Occupational skills</h3><p class="muted">Independence in daily life.</p></article>
       </div>
 
       <div style="margin-top:12px;text-align:center">
@@ -237,59 +327,17 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS (parents) -->
-    <section id="how" aria-labelledby="howTitle">
-      <div class="section-title">
-        <h2 id="howTitle">How it works — for parents</h2>
-        <p>We keep the process simple: apply, match, start, and support — clear steps so you know what to expect.</p>
-      </div>
-
-      <div class="how-grid">
-        <div class="card step">
-          <div class="icon">1</div>
-          <div>
-            <h3>Apply</h3>
-            <p class="muted">Complete a short form telling us about your child's strengths, challenges and goals.</p>
-          </div>
-        </div>
-
-        <div class="card step">
-          <div class="icon">2</div>
-          <div>
-            <h3>Match</h3>
-            <p class="muted">Our team pairs you with vetted clinicians who fit your child's needs and availability.</p>
-          </div>
-        </div>
-
-        <div class="card step">
-          <div class="icon">3</div>
-          <div>
-            <h3>Start</h3>
-            <p class="muted">Begin therapy (in-person or online) with a structured plan and measurable goals.</p>
-          </div>
-        </div>
-
-        <div class="card step">
-          <div class="icon">4</div>
-          <div>
-            <h3>Support</h3>
-            <p class="muted">We provide caregiver coaching, progress reports and community workshops to sustain gains.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- COMMUNITY -->
     <section id="community" aria-labelledby="communityTitle">
       <div class="section-title">
         <h2 id="communityTitle">Community Impact</h2>
-        <p>Workshops, awareness days and donor-funded therapy help families in underserved areas access real support.</p>
+        <p class="muted">Workshops and outreach in partnership with donors and local organizations to scale support for families.</p>
       </div>
 
       <div class="grid grid-3">
-        <div class="card"><img loading="lazy" src="https://images.pexels.com/photos/8613072/pexels-photo-8613072.jpeg" alt="Family workshop"><h3>Family Workshops</h3><p class="muted">Hands-on caregiver training and child-led activities.</p></div>
-        <div class="card"><img loading="lazy" src="https://images.pexels.com/photos/8612999/pexels-photo-8612999.jpeg" alt="Community session"><h3>Outreach</h3><p class="muted">Therapy and support delivered in local centers and schools.</p></div>
-        <div class="card"><img loading="lazy" src="https://images.pexels.com/photos/8613080/pexels-photo-8613080.jpeg" alt="Donor support"><h3>Donor Partnerships</h3><p class="muted">Sponsoring therapy for children from low-income families.</p></div>
+        <div class="card"><img loading="lazy" src="https://images.pexels.com/photos/8613072/pexels-photo-8613072.jpeg" alt="Family workshop"><h3>Family Workshops</h3><p class="muted">Caregiver training and child activities.</p></div>
+        <div class="card"><img loading="lazy" src="https://images.pexels.com/photos/8612999/pexels-photo-8612999.jpeg" alt="Community session"><h3>Outreach</h3><p class="muted">Local sessions & school collaborations.</p></div>
+        <div class="card"><img loading="lazy" src="https://images.pexels.com/photos/8613080/pexels-photo-8613080.jpeg" alt="Donor support"><h3>Donor Partnerships</h3><p class="muted">Funded therapy seats & events for low-income families.</p></div>
       </div>
     </section>
 
@@ -297,53 +345,19 @@
     <section id="testimonials" aria-labelledby="testTitle">
       <div class="section-title">
         <h2 id="testTitle">What Parents Say</h2>
-        <p class="muted">Real families, real progress — short stories from parents we’ve helped.</p>
+        <p class="muted">Short stories from families we've helped.</p>
       </div>
 
       <div class="testimonials card" style="padding:12px;overflow:hidden">
         <div class="carousel" id="carousel">
-          <div class="testimonial">
-            <p class="testimonial-text">"It was so easy to find a kind expert who understood my child's needs. We're seeing big changes already."</p>
-            <p style="text-align:right;margin-top:10px;"><strong>- Sarah, Nairobi</strong></p>
-          </div>
-
-          <div class="testimonial">
-            <p class="testimonial-text">"The community workshop helped our whole family with practical strategies — we finally feel supported."</p>
-            <p style="text-align:right;margin-top:10px;"><strong>- John, Mombasa</strong></p>
-          </div>
-
-          <div class="testimonial">
-            <p class="testimonial-text">"Thanks to donor-supported sessions, our son now attends school and has a learning plan that works."</p>
-            <p style="text-align:right;margin-top:10px;"><strong>- Amina, Kisumu</strong></p>
-          </div>
+          <div class="testimonial"><p>"It was so easy to find a kind expert who understood my child's needs. We're seeing big changes already."</p><p style="text-align:right;margin-top:10px"><strong>- Sarah, Nairobi</strong></p></div>
+          <div class="testimonial"><p>"The community workshop helped our whole family with practical strategies — we finally feel supported."</p><p style="text-align:right;margin-top:10px"><strong>- John, Mombasa</strong></p></div>
+          <div class="testimonial"><p>"Thanks to donor-supported sessions, our son now attends school and has a learning plan that works."</p><p style="text-align:right;margin-top:10px"><strong>- Amina, Kisumu</strong></p></div>
         </div>
 
-        <div class="carousel-controls" aria-hidden="false" style="margin-top:12px;display:flex;justify-content:center">
-          <button class="control" onclick="prevSlide()" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="control" onclick="nextSlide()" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENTS & PARTNERS -->
-    <section id="events" aria-labelledby="eventsTitle">
-      <div class="section-title">
-        <h2 id="eventsTitle">Events & Partners</h2>
-        <p class="muted">We host awareness days and collaborate with local partners to scale impact.</p>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Inclusive Play Day</h3>
-          <p class="muted">An outreach day providing group play, caregiver coaching and referral to therapy.</p>
-        </div>
-        <div class="card">
-          <h3>Our Partners</h3>
-          <div class="logos" style="margin-top:10px">
-            <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg" alt="Partner logo">
-            <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg" alt="Partner logo">
-            <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg" alt="Partner logo">
-          </div>
+        <div class="carousel-controls" style="margin-top:12px;display:flex;justify-content:center">
+          <button class="control" onclick="prevSlide()" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="control" onclick="nextSlide()" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </div>
     </section>
@@ -352,7 +366,7 @@
     <section id="donor" aria-labelledby="donorTitle">
       <div class="section-title">
         <h2 id="donorTitle">Support Our Work</h2>
-        <p class="muted">Click to learn exactly how donations are used and read impact stories — we kept this page minimal to maintain clarity.</p>
+        <p class="muted">We keep this section minimal — click the button to open details about impact, transparency, and giving options.</p>
       </div>
 
       <div style="text-align:center">
@@ -363,8 +377,8 @@
     <!-- APPLY -->
     <section id="apply" aria-labelledby="applyTitle">
       <div class="section-title">
-        <h2 id="applyTitle">Apply — Parent or Expert</h2>
-        <p class="muted">Quick forms to request support or join our network of professionals.</p>
+        <h2 id="applyTitle">Apply — Parent or Clinician</h2>
+        <p class="muted">Quick forms to request support or join our vetted network.</p>
       </div>
 
       <div class="form-grid" style="display:grid;grid-template-columns:1fr 420px;gap:20px">
@@ -391,7 +405,7 @@
         </aside>
 
         <aside class="form-box" aria-labelledby="expertTitle">
-          <h3 id="expertTitle">Expert Application</h3>
+          <h3 id="expertTitle">Clinician Application</h3>
           <form id="expertForm" onsubmit="handleExpert(event)" enctype="multipart/form-data" novalidate>
             <label for="e_name">Full name</label><input id="e_name" name="expert_name" type="text" required>
             <label for="e_email">Email</label><input id="e_email" name="expert_email" type="email" required>
@@ -402,7 +416,7 @@
               <option>Speech & Language</option>
               <option>Behavior Specialist (ABA)</option>
               <option>Occupational Therapist</option>
-              <option>Clinical Psychologist</option>
+              <option>Child Psychologist</option>
               <option>Social Skills Facilitator</option>
             </select>
             <label for="yrs">Years experience</label><input id="yrs" name="years" type="number" min="0" max="60" required>
@@ -512,14 +526,14 @@
         <div class="card"><h4 style="margin-top:0">Direct Family Support</h4><p class="muted">Subsidies for therapy sessions and materials for families who cannot afford ongoing care.</p></div>
         <div class="card"><h4 style="margin-top:0">Community Programs</h4><p class="muted">Workshops, training and outreach in low-income neighborhoods.</p></div>
         <div class="card"><h4 style="margin-top:0">Training & Capacity</h4><p class="muted">Equipping local providers and caregivers with practical skills to sustain results.</p></div>
-        <div class="card"><h4 style="margin-top:0">Monitoring & Reporting</h4><p class="muted">Clear, regular reporting to donors so you see real outcomes.</p></div>
+        <div class="card"><h4 style="margin-top:0">Monitoring & Reporting</h4><p class="muted">Clear reporting to donors so you see real outcomes.</p></div>
       </div>
 
       <div style="margin-top:16px" class="impact">
         <img loading="lazy" src="https://images.pexels.com/photos/8613051/pexels-photo-8613051.jpeg" alt="Impact story image" style="border-radius:10px">
         <div>
           <h4>Impact Story — Brian’s Journey</h4>
-          <p class="muted">Donor-funded speech therapy helped Brian, age 7, progress from limited speech to joining class activities confidently. Donor funding made his weekly therapy possible.</p>
+          <p class="muted">Donor-funded speech therapy helped Brian, age 7, progress from limited speech to joining class activities confidently.</p>
           <div style="margin-top:12px">
             <button class="btn btn-primary" onclick="scrollToId('#contact')">Get Involved</button>
           </div>
@@ -573,8 +587,13 @@
     // Forms (placeholders)
     function notify(msg){ alert(msg); }
     function handleParent(e){ e.preventDefault(); notify('Thanks — we received your request. We will match you with experts soon.'); e.target.reset(); }
-    function handleExpert(e){ e.preventDefault(); notify('Thank you — your expert application was submitted. We will review and contact you.'); e.target.reset(); }
+    function handleExpert(e){ e.preventDefault(); notify('Thank you — your clinician application was submitted. We will review and contact you.'); e.target.reset(); }
     function handleContact(e){ e.preventDefault(); notify('Message sent. We will reply shortly.'); e.target.reset(); }
+
+    // Request match action (example)
+    function requestMatch(name){
+      if(confirm('Request a specialist similar to ' + name + '?')){ alert('Thanks — we will find matching clinicians and be in touch.'); }
+    }
 
     // Simple carousel
     let slideIndex = 0, slideCount = 0, carouselEl;
@@ -598,10 +617,7 @@
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') document.querySelectorAll('.modal-backdrop').forEach(m=>m.style.display='none'); });
 
     // FAQ toggle (if added)
-    document.addEventListener('click', function(e){
-      const f = e.target.closest('.faq-item');
-      if(f){ f.classList.toggle('active'); }
-    });
+    document.addEventListener('click', function(e){ const f = e.target.closest('.faq-item'); if(f){ f.classList.toggle('active'); }});
   </script>
 </body>
 </html>
