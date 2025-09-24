@@ -43,6 +43,12 @@
     .about {text-align:center;}
     .about p {max-width:800px; margin:auto; font-size:1.1rem;}
 
+    /* Services */
+    .services {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;}
+    .service {background:#f9f9f9; padding:20px; border-radius:10px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.05);}
+    .more-services {display:none; margin-top:20px;}
+    .show-more {display:block; margin:20px auto; padding:12px 25px; border:none; border-radius:6px; background:#0077cc; color:#fff; cursor:pointer;}
+
     /* How It Works */
     .steps {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;}
     .step {background:#f8f9fa; padding:20px; border-radius:10px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.05);}
@@ -56,6 +62,16 @@
     /* Community */
     .community {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
     .community div {background:#f0f0f0; border-radius:10px; padding:20px; text-align:center;}
+
+    /* Testimonials */
+    .testimonials {position:relative; background:#f9f9f9; padding:60px 20px; border-radius:10px;}
+    .testimonial-container {display:flex; overflow:hidden; max-width:900px; margin:auto;}
+    .testimonial {min-width:100%; transition:transform 0.5s ease; text-align:center; padding:20px;}
+    .testimonial p {font-style:italic; margin-bottom:15px;}
+    .testimonial h4 {font-weight:bold;}
+    .dots {text-align:center; margin-top:20px;}
+    .dot {height:12px; width:12px; margin:0 5px; background:#bbb; border-radius:50%; display:inline-block; cursor:pointer;}
+    .dot.active {background:#0077cc;}
 
     /* Donor */
     .donor {text-align:center;}
@@ -87,9 +103,11 @@
   <nav>
     <ul>
       <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#clinicians">Clinicians</a></li>
       <li><a href="#community">Community</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#donor">Support Us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -111,9 +129,9 @@
   </div>
   <div class="hero-content">
     <h1>Unlimited Possibilities Africa</h1>
-    <p>Supporting Families, Empowering Children</p>
-    <button class="btn btn-primary">Get Started</button>
-    <button class="btn btn-secondary">Learn More</button>
+    <p>Helping Parents Connect with Trusted Autism Professionals</p>
+    <button class="btn btn-primary">For Parents</button>
+    <button class="btn btn-secondary">For Experts</button>
   </div>
 </section>
 
@@ -121,9 +139,45 @@
 <section id="about" class="about">
   <h2>About Us</h2>
   <p>
-    At Unlimited Possibilities Africa, we assist parents in connecting with carefully vetted, trusted professionals who provide therapy and support for children with autism. 
-    Our mission is to ensure every family has access to the right care, resources, and community support for their child’s unique journey.
+    At Unlimited Possibilities Africa, we bridge the gap between families and trusted autism specialists.  
+    Parents can easily connect with carefully vetted therapists and clinicians who are committed to 
+    supporting children’s growth, learning, and independence.  
+    With community outreach and donor partnerships, we extend this care to low-income families as well.
   </p>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <h2>Services Provided</h2>
+  <div class="services">
+    <div class="service">
+      <h3>Speech Therapy</h3>
+      <p>Helping children improve communication skills through tailored sessions.</p>
+    </div>
+    <div class="service">
+      <h3>Occupational Therapy</h3>
+      <p>Building independence with skills for daily life and learning.</p>
+    </div>
+    <div class="service">
+      <h3>Behavioral Therapy</h3>
+      <p>ABA-based methods to support positive behaviors and social skills.</p>
+    </div>
+  </div>
+
+  <div class="more-services">
+    <div class="services">
+      <div class="service">
+        <h3>Parent Training</h3>
+        <p>Guiding parents to better support their child’s development.</p>
+      </div>
+      <div class="service">
+        <h3>Community Events</h3>
+        <p>Workshops and support programs for awareness and inclusion.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="show-more" onclick="toggleMore()">+ More Services</button>
 </section>
 
 <!-- How It Works -->
@@ -132,7 +186,7 @@
   <div class="steps">
     <div class="step">
       <h3>1. Apply</h3>
-      <p>Parents share their child’s needs through our platform.</p>
+      <p>Parents share their child’s needs on our platform.</p>
     </div>
     <div class="step">
       <h3>2. Get Matched</h3>
@@ -140,7 +194,7 @@
     </div>
     <div class="step">
       <h3>3. Start Therapy</h3>
-      <p>Begin sessions with trusted specialists and track progress.</p>
+      <p>Begin sessions and track your child’s progress with specialists.</p>
     </div>
   </div>
 </section>
@@ -195,6 +249,30 @@
   </div>
 </section>
 
+<!-- Testimonials -->
+<section id="testimonials" class="testimonials">
+  <h2>What Parents Say</h2>
+  <div class="testimonial-container" id="testimonial-container">
+    <div class="testimonial">
+      <p>"Thanks to Unlimited Possibilities Africa, we found a speech therapist who transformed our son's confidence. We feel supported every step of the way."</p>
+      <h4>- Mary A.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"As a single parent, I couldn’t afford therapy until donors stepped in through this platform. My daughter is now thriving."</p>
+      <h4>- Joseph K.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"This platform connected us with amazing professionals who truly care. It gave us hope and guidance when we felt lost."</p>
+      <h4>- Amina W.</h4>
+    </div>
+  </div>
+  <div class="dots">
+    <span class="dot active" onclick="showTestimonial(0)"></span>
+    <span class="dot" onclick="showTestimonial(1)"></span>
+    <span class="dot" onclick="showTestimonial(2)"></span>
+  </div>
+</section>
+
 <!-- Donor -->
 <section id="donor" class="donor">
   <h2>Support Our Mission</h2>
@@ -226,6 +304,29 @@
   const toggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector("nav ul");
   toggle.addEventListener("click", ()=> menu.classList.toggle("active"));
+
+  function toggleMore(){
+    const more = document.querySelector(".more-services");
+    more.style.display = more.style.display === "block" ? "none" : "block";
+  }
+
+  // Testimonials slider
+  let current = 0;
+  const testimonials = document.querySelectorAll(".testimonial");
+  const dots = document.querySelectorAll(".dot");
+
+  function showTestimonial(index){
+    current = index;
+    const container = document.getElementById("testimonial-container");
+    container.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(d => d.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  setInterval(()=>{
+    current = (current + 1) % testimonials.length;
+    showTestimonial(current);
+  }, 6000);
 </script>
 
 </body>
