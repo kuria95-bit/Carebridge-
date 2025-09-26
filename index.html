@@ -1,191 +1,623 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unlimited Possibilities Africa</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
+  <meta name="description" content="We connect parents with vetted autism professionals and run community outreach and donor-funded support." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon - replace /assets/images/logo.png with favicon.png if you provide one -->
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: background 0.3s, color 0.3s;
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --muted:#6b7280;
+      --primary:#1658d6; --accent:#ff7e3d; --secondary:#6f42c1; --success:#198754;
+      --dark-bg:#071022; --dark-card:#0d1722; --dark-text:#e6eef8;
+      --shadow: 0 14px 40px rgba(16,24,40,0.08);
+      --radius:14px; --maxW:1180px;
     }
-    .navbar {
-      background: #0077b6;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#102028;-webkit-font-smoothing:antialiased;}
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxW);margin:0 auto;padding:0 18px}
+
+    /* Header */
+    header{position:sticky;top:12px;z-index:1400;padding:12px 0}
+    .nav-wrap{background:rgba(255,255,255,0.98);backdrop-filter:blur(6px);border-radius:12px;box-shadow:var(--shadow);transition:background .2s}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-img{height:56px;width:auto;display:block}
+    .site-text{display:flex;flex-direction:column;line-height:1}
+    .site-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:var(--primary)}
+    .site-tag{font-size:12px;color:var(--muted)}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{font-weight:600;padding:8px 10px;border-radius:8px;color:#163047;text-decoration:none}
+    .nav-links a:hover{background:rgba(22,88,214,0.06)}
+    .menu-toggle{display:none;background:transparent;border:0;font-size:1.2rem}
+    .actions{display:flex;gap:8px;align-items:center}
+
+    /* Language / dark mode controls */
+    .lang-toggle, .mode-toggle {
+      display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:transparent;border:1px solid rgba(16,24,40,0.06);cursor:pointer;font-weight:700;font-family:'Poppins',sans-serif;
     }
-    .navbar-brand img {
-      height: 40px;
-      margin-right: 10px;
-    }
-    .hero-carousel img {
-      height: 80vh;
-      object-fit: cover;
-    }
-    .section-title {
-      margin: 50px 0 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .card img {
-      height: 200px;
-      object-fit: cover;
-    }
-    footer {
-      background: #0077b6;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 24px;
-      text-align: center;
-      z-index: 1000;
-    }
+    .lang-toggle span, .mode-toggle span {font-weight:700}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer;border:none}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 10px 28px rgba(59,85,255,0.12)}
+    .btn-ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);padding:8px 14px;border-radius:10px}
+    .btn-small{padding:8px 12px;font-size:.95rem}
+
+    /* Hero */
+    .hero{position:relative;height:68vh;min-height:420px;border-radius:14px;overflow:hidden;margin-top:18px}
+    .slides{position:absolute;inset:0;display:flex;transition:transform .9s cubic-bezier(.2,.9,.2,1)}
+    .slide{flex:0 0 100%;background-size:cover;background-position:center;position:relative}
+    .slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.32), rgba(2,6,23,0.55));}
+    .hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center;padding:36px;max-width:1200px;margin:0 auto;width:100%}
+    .hero-left h1{color:#fff;font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,4.2vw,2.6rem);margin:0 0 12px;line-height:1.02}
+    .hero-left p{color:rgba(255,255,255,0.95);margin-bottom:18px;font-size:1rem}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-card{background:rgba(255,255,255,0.06);padding:18px;border-radius:12px;color:#fff}
+
+    /* Sections */
+    section{padding:48px 0}
+    .section-title{text-align:center;margin-bottom:18px}
+    h2{margin:0 0 6px;color:var(--primary)}
+    .muted{color:var(--muted)}
+
+    /* Grid items */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .service{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;transition:transform .16s}
+    .service:hover{transform:translateY(-6px)}
+    .thumb{height:160px;width:100%;border-radius:10px;object-fit:cover}
+    .service h3{margin:0}
+    .service p{color:var(--muted);font-size:.98rem}
+
+    .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;align-items:start}
+    .step{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:center;transition:transform .16s}
+    .step:hover{transform:translateY(-6px)}
+    .step .icon{width:64px;height:64px;border-radius:12px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    .icon-1{background:linear-gradient(135deg,var(--primary),var(--secondary))}
+    .icon-2{background:linear-gradient(135deg,var(--secondary),var(--accent))}
+    .icon-3{background:linear-gradient(135deg,var(--accent),var(--primary))}
+
+    .profiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .profile{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);text-align:center}
+    .profile img{width:92px;height:92px;border-radius:12px;object-fit:cover;margin:0 auto 10px}
+
+    /* Modals */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(8,12,20,0.45);display:none;align-items:center;justify-content:center;z-index:1700;padding:18px}
+    .modal{background:var(--card);width:100%;max-width:760px;border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.35);position:relative;transform:translateY(20px);opacity:0;transition:all .25s ease}
+    .modal.open{transform:translateY(0);opacity:1}
+    .close-btn{position:absolute;right:12px;top:12px;background:transparent;border:0;font-size:1.2rem;cursor:pointer;color:var(--muted)}
+    .form-grid{display:grid;gap:12px}
+    input[type="text"],input[type="email"],input[type="tel"],input[type="number"],textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ee}
+    label{font-weight:600;font-size:.95rem;color:#26323a}
+    .file-input{padding:10px;border-radius:8px;border:1px dashed #dfe6f5;background:#fbfcff}
+    .radio-row{display:flex;gap:12px;align-items:center}
+
+    /* WhatsApp */
+    .whatsapp{position:fixed;right:14px;bottom:14px;z-index:1800}
+    .whatsapp a{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 14px;border-radius:999px;box-shadow:0 8px 28px rgba(37,211,102,0.14);text-decoration:none;font-weight:700}
+
+    /* Scroll to top */
+    .scroll-top{position:fixed;right:14px;bottom:84px;background:var(--primary);color:#fff;padding:10px;border-radius:999px;z-index:1800;display:none;cursor:pointer;box-shadow:0 8px 24px rgba(21,88,214,0.16)}
+
+    /* Footer */
+    footer{padding:28px 0;text-align:center;color:#fff;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:10px;margin:26px 18px}
+
+    /* Fade-in */
+    .fade-in{opacity:0;transform:translateY(12px);transition:all .6s ease}
+    .fade-in.visible{opacity:1;transform:none}
+
     /* Dark mode */
-    .dark-mode {
-      background: #121212;
-      color: #e0e0e0;
+    body.dark{background:var(--dark-bg);color:var(--dark-text)}
+    body.dark .nav-wrap{background:rgba(8,12,20,0.7)}
+    body.dark .service, body.dark .profile, body.dark .modal{background:var(--dark-card);color:var(--dark-text)}
+    body.dark .muted{color:#b8c7db}
+    body.dark footer{background:linear-gradient(90deg,#0b2a66,#4b2b66)}
+
+    /* Responsive */
+    @media(max-width:980px){
+      .hero-grid{grid-template-columns:1fr;padding:24px}
+      .nav-links{display:none;position:absolute;right:16px;top:76px;background:var(--card);padding:12px;border-radius:10px;box-shadow:var(--shadow);flex-direction:column}
+      .menu-toggle{display:inline-block}
     }
-    .dark-mode .navbar {
-      background: #222;
-    }
-    .dark-mode footer {
-      background: #222;
+    @media(max-width:640px){
+      .hero{height:60vh}
+      .logo-img{height:44px}
+      .site-title{font-size:.95rem}
+      .actions{flex-wrap:wrap;gap:8px}
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="your-logo.png" alt="Logo" />
-        <span>Unlimited Possibilities Africa</span>
-      </a>
-      <div>
-        <button class="btn btn-light btn-sm me-2" id="darkToggle">🌓</button>
-        <select class="form-select form-select-sm d-inline-block w-auto">
-          <option>EN</option>
-          <option>SW</option>
-          <option>FR</option>
-        </select>
+
+  <!-- NAV -->
+  <header>
+    <div class="container nav-wrap" role="banner" id="navWrap">
+      <div class="nav">
+        <div class="brand" aria-hidden="false">
+          <!-- Put your PNG at /assets/images/logo.png (recommended) -->
+          <img src="/assets/images/logo.png" alt="Unlimited Possibilities Africa logo" class="logo-img" onerror="this.style.display='none'">
+          <div class="site-text">
+            <div class="site-title" id="siteTitle">Unlimited Possibilities Africa</div>
+            <div class="site-tag" id="siteTag">Children • Community • Growth</div>
+          </div>
+        </div>
+
+        <nav aria-label="Primary navigation">
+          <button class="menu-toggle" aria-expanded="false" onclick="toggleNav()">☰</button>
+
+          <div class="nav-links" id="navLinks">
+            <a href="#about" data-key="nav_about">About</a>
+            <a href="#services" data-key="nav_services">Services</a>
+            <a href="#how" data-key="nav_how">How it works</a>
+            <a href="#clinicians" data-key="nav_clinicians">Clinicians</a>
+            <a href="#community" data-key="nav_community">Community</a>
+            <a href="#donor" data-key="nav_support">Support</a>
+            <a href="#contact" data-key="nav_contact">Contact</a>
+          </div>
+        </nav>
+
+        <div class="actions">
+          <!-- Language abbreviations (EN | SW | FR) -->
+          <div class="lang-toggle" id="langToggle" title="Language" aria-haspopup="true" aria-expanded="false">
+            <span id="langAbbr">EN</span>
+            <i class="fa-solid fa-caret-down" style="font-size:12px;margin-left:6px"></i>
+            <div id="langMenu" style="display:none;position:absolute;right:18px;top:64px;background:#fff;padding:8px;border-radius:8px;box-shadow:var(--shadow);">
+              <a href="#" data-lang="en" style="display:block;padding:8px">EN</a>
+              <a href="#" data-lang="sw" style="display:block;padding:8px">SW</a>
+              <a href="#" data-lang="fr" style="display:block;padding:8px">FR</a>
+            </div>
+          </div>
+
+          <!-- Dark / Light mode toggle (LM / DM) -->
+          <div class="mode-toggle" id="modeToggle" title="Toggle dark/light mode"><span id="modeAbbr">LM</span></div>
+
+          <!-- CTAs -->
+          <button class="btn btn-primary" onclick="openModal('parentModal')" id="parentCTA"><i class="fa-solid fa-user"></i> <span id="parentCTAText">Click here for Parents</span></button>
+          <button class="btn btn-primary" onclick="openModal('expertModal')" id="expertCTA"><i class="fa-solid fa-user-doctor"></i> <span id="expertCTAText">Click here to apply as Expert/Professional</span></button>
+        </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Carousel -->
-  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://images.unsplash.com/photo-1604881988573-3b49fa7db7ef" class="d-block w-100" alt="Therapy" />
+  <main class="container" style="padding-top:18px">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Welcome hero">
+      <div class="slides" id="slides">
+        <!-- DEMO images: using Unsplash/Pexels for preview.
+             Replace the URLs with /assets/images/hero-therapy.jpg (or similar) for production. -->
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1587613865768-46e1d1d8b0a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1588774067923-8a7e2f2a8d09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="slide" style="background-image:url('https://images.pexels.com/photos/4145195/pexels-photo-4145195.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
       </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1581092919535-7131f58eece1" class="d-block w-100" alt="Child Therapy" />
+
+      <div class="hero-inner">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <h1 id="heroTitle">We connect parents with vetted autism professionals</h1>
+            <p id="heroSub">Quick, safe matches to therapists and clinicians who use evidence-informed approaches — plus community outreach and donor-funded support for low-income families.</p>
+
+            <div class="hero-ctas">
+              <button class="btn btn-primary" onclick="openModal('parentModal')"><i class="fa-solid fa-hand-holding-heart"></i> <span id="ctaParent">Click here for Parents</span></button>
+              <button class="btn btn-primary" onclick="openModal('expertModal')"><i class="fa-solid fa-user-doctor"></i> <span id="ctaExpert">Click here to apply as Expert/Professional</span></button>
+              <button class="btn btn-small" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">View Services</button>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-hidden="true">
+            <h4 style="margin:0 0 8px;color:#fff">Trusted matches • Community support</h4>
+            <p style="margin:0;color:rgba(255,255,255,0.92)">Clinicians are verified through credentials, references and ongoing reviews to ensure safe, effective support.</p>
+          </aside>
+        </div>
       </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b5" class="d-block w-100" alt="Autism Support" />
+    </section>
+
+    <!-- Impact Stats -->
+    <section aria-label="Impact">
+      <div class="stats fade-in" style="display:flex;gap:14px;justify-content:center;margin:26px 0;flex-wrap:wrap">
+        <div class="stat"><div class="num">10,000+</div><p class="muted">+ Families Helped</p></div>
+        <div class="stat"><div class="num">5,000+</div><p class="muted">+ Vetted Professionals</p></div>
+        <div class="stat"><div class="num">95%</div><p class="muted">Parent Satisfaction</p></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="fade-in">
+      <div class="section-title">
+        <h2>About Our Platform</h2>
+        <p class="muted">We assist parents to find and connect with carefully vetted professionals — therapists and clinicians who provide speech, behavioral, occupational and psychosocial supports for children with autism.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px">
+        <div class="service" style="background:#fff">
+          <h3>Professional Matching</h3>
+          <p class="muted">Algorithm + clinician review ensures you get matches who fit your child's goals, culture and schedule.</p>
+        </div>
+        <div class="service" style="background:#fff">
+          <h3>Community & Donor Support</h3>
+          <p class="muted">We run workshops and partner with donors to subsidize care for low-income families.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="fade-in">
+      <div class="section-title">
+        <h2>Services Provided</h2>
+        <p class="muted">Clinicians on our platform offer a range of evidence-informed supports. Pick a service to learn more or request a match.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1587613865768-46e1d1d8b0a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Speech therapy">
+          <h3>Speech & Language Therapy</h3>
+          <p class="muted">Engaging, play-based sessions to improve communication and social interaction.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1588774067923-8a7e2f2a8d09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Group social skills">
+          <h3>Group Social Skills</h3>
+          <p class="muted">Small-group practice for peers to build interaction and play skills.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1594785200871-90a6b7b6d5b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Occupational therapy">
+          <h3>Occupational & Daily Skills</h3>
+          <p class="muted">Practical therapy for independence in dressing, eating and classroom routines.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.pexels.com/photos/4148862/pexels-photo-4148862.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Parent coaching">
+          <h3>Parent Coaching</h3>
+          <p class="muted">Short, practical coaching sessions for caregivers with home-based strategies.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.pexels.com/photos/4056523/pexels-photo-4056523.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Teletherapy">
+          <h3>Teletherapy</h3>
+          <p class="muted">Remote sessions for families in remote or underserved areas.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1551640134-8fb0b37f6f7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Donor support">
+          <h3>Donor-Supported Aid</h3>
+          <p class="muted">Donors sponsor materials, sessions and events for families who cannot otherwise afford therapy.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:14px">
+        <button class="btn btn-primary" onclick="toggleMoreServices()">+ More services</button>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="fade-in">
+      <div class="section-title">
+        <h2>How it Works — For Parents</h2>
+        <p class="muted">Three simple steps to get the right support for your child.</p>
+      </div>
+
+      <div class="how-grid" style="margin-top:12px">
+        <div class="step">
+          <div class="icon icon-1"><i class="fa-solid fa-file-lines" style="font-size:20px"></i></div>
+          <h3>1 — Complete the form</h3>
+          <p class="muted">Tell us about your child's needs and goals in a short form.</p>
+        </div>
+
+        <div class="step">
+          <div class="icon icon-2"><i class="fa-solid fa-handshake-angle" style="font-size:20px"></i></div>
+          <h3>2 — Get matched</h3>
+          <p class="muted">We connect you to vetted professionals who fit your child's profile.</p>
+        </div>
+
+        <div class="step">
+          <div class="icon icon-3"><i class="fa-solid fa-play-circle" style="font-size:20px"></i></div>
+          <h3>3 — Start & track progress</h3>
+          <p class="muted">Begin sessions, receive caregiver coaching and monitor improvements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community -->
+    <section id="community" class="fade-in">
+      <div class="section-title"><h2>Community Impact</h2><p class="muted">Workshops, outreach and donor-funded therapy for underserved families.</p></div>
+
+      <div class="services-grid" style="margin-top:12px">
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1543226980-1f2b21b7a8bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Workshop">
+          <h3>Family Workshops</h3>
+          <p class="muted">Practical caregiver training and community awareness sessions.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.pexels.com/photos/4145195/pexels-photo-4145195.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Outreach">
+          <h3>Local Outreach</h3>
+          <p class="muted">Therapy and assessments delivered in community centers and schools.</p>
+        </div>
+
+        <div class="service">
+          <img class="thumb" loading="lazy" src="https://images.pexels.com/photos/5905553/pexels-photo-5905553.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Donor receiving supplies">
+          <h3>Donor Partnerships</h3>
+          <p class="muted">Supporting materials and sessions for families in need.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donor CTA -->
+    <section id="donor" class="fade-in">
+      <div class="section-title"><h2>Support Our Mission</h2><p class="muted">Your gift helps families who cannot afford therapy.</p></div>
+      <div style="text-align:center"><button class="btn btn-primary" onclick="openModal('donorModal')">Support Our Mission</button></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+      <div class="section-title"><h2>Contact Us</h2><p class="muted">Questions, partnerships, or press — we'd love to hear from you.</p></div>
+      <form style="max-width:760px;margin:0 auto;display:grid;gap:12px" onsubmit="handleContact(event)">
+        <label><span style="font-weight:600">Name</span><input type="text" id="contact_name" required></label>
+        <label><span style="font-weight:600">Email</span><input type="email" id="contact_email" required></label>
+        <label><span style="font-weight:600">Message</span><textarea id="contact_message" rows="4" required></textarea></label>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <div class="muted">Or message us on WhatsApp</div>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p style="margin:0 0 8px"><strong>Unlimited Possibilities Africa</strong> — Helping families one step at a time.</p>
+      <div style="margin-bottom:6px">
+        <a href="#" style="color:#fff;margin-right:8px"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color:#fff;margin-right:8px"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff"><i class="fab fa-instagram"></i></a>
+      </div>
+      <small style="opacity:.95">&copy; 2025 Unlimited Possibilities Africa</small>
+    </div>
+  </footer>
+
+  <!-- Parent Modal -->
+  <div id="parentModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="parentTitle">
+      <button class="close-btn" onclick="closeModal('parentModal')" aria-label="Close">&times;</button>
+      <h3 id="parentTitle">Parent Request — Tell us about your child</h3>
+      <form class="form-grid" id="parentForm" onsubmit="submitParent(event)">
+        <label><span>Full name</span><input type="text" id="pf_name" required></label>
+        <label><span>Email</span><input type="email" id="pf_email" required></label>
+        <label><span>Phone</span><input type="tel" id="pf_phone" required></label>
+        <label><span>Child's name</span><input type="text" id="pf_child_name" required></label>
+        <label><span>Child's age</span><input type="number" id="pf_child_age" min="0" max="30" required></label>
+        <label style="grid-column:1/-1"><span>Primary needs / support required</span><textarea id="pf_needs" rows="3" required></textarea></label>
+
+        <div style="grid-column:1/-1">
+          <label style="display:block;margin-bottom:8px;font-weight:700">Has your child received prior interventions or therapy?</label>
+          <div class="radio-row">
+            <label><input type="radio" name="prior_intervention" value="no" checked onchange="togglePrior(false)"> No</label>
+            <label><input type="radio" name="prior_intervention" value="yes" onchange="togglePrior(true)"> Yes</label>
+          </div>
+          <div id="priorDetails" style="margin-top:10px;display:none">
+            <label><span>If yes, briefly describe (who, when, results)</span><textarea id="pf_prior_details" rows="3"></textarea></label>
+          </div>
+        </div>
+
+        <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end">
+          <button class="btn btn-ghost" type="button" onclick="closeModal('parentModal')">Cancel</button>
+          <button class="btn btn-primary" type="submit">Submit request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Expert Modal -->
+  <div id="expertModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="expertTitle">
+      <button class="close-btn" onclick="closeModal('expertModal')" aria-label="Close">&times;</button>
+      <h3 id="expertTitle">Expert Application — Join our network</h3>
+      <form class="form-grid" id="expertForm" onsubmit="submitExpert(event)" enctype="multipart/form-data">
+        <label><span>Full name</span><input type="text" id="ef_name" required></label>
+        <label><span>Email</span><input type="email" id="ef_email" required></label>
+        <label><span>Phone</span><input type="tel" id="ef_phone" required></label>
+        <label><span>Specialization area</span>
+          <select id="ef_expertise" required>
+            <option value="">Select</option>
+            <option>Speech & Language</option>
+            <option>Behavior Specialist (ABA)</option>
+            <option>Occupational Therapist</option>
+            <option>Child Psychologist</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label><span>Years of experience</span><input type="number" id="ef_years" min="0" max="60" required></label>
+        <label style="grid-column:1/-1"><span>Short bio / approach</span><textarea id="ef_bio" rows="3" required></textarea></label>
+        <label style="grid-column:1/-1"><span>Upload CV / Certificates (PDF, JPG, PNG)</span><input class="file-input" id="ef_files" type="file" accept=".pdf,.jpg,.png" multiple></label>
+
+        <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end">
+          <button class="btn btn-ghost" type="button" onclick="closeModal('expertModal')">Cancel</button>
+          <button class="btn btn-primary" type="submit">Apply to join</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Donor Modal -->
+  <div id="donorModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="donorTitle">
+      <button class="close-btn" onclick="closeModal('donorModal')" aria-label="Close">&times;</button>
+      <h3 id="donorTitle">How your support helps</h3>
+      <p class="muted">Donations fund subsidised therapy, workshops and clinician training. We provide clear reporting to donors about outcomes.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+        <div class="service"><h4>Direct family support</h4><p class="muted">Subsidies for therapy sessions and materials.</p></div>
+        <div class="service"><h4>Community programs</h4><p class="muted">Workshops and outreach in low-income areas.</p></div>
+      </div>
+      <div style="text-align:right;margin-top:12px">
+        <button class="btn btn-ghost" onclick="closeModal('donorModal')">Close</button>
+        <button class="btn btn-primary" onclick="scrollToSection('#contact');closeModal('donorModal')">Get involved</button>
       </div>
     </div>
   </div>
 
-  <!-- Services -->
-  <section class="container">
-    <h2 class="section-title">Our Services</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1604881988573-3b49fa7db7ef" class="card-img-top" alt="Speech Therapy" />
-          <div class="card-body">
-            <h5 class="card-title">Speech Therapy</h5>
-            <p class="card-text">Helping children improve communication and language skills.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1581092919535-7131f58eece1" class="card-img-top" alt="Occupational Therapy" />
-          <div class="card-body">
-            <h5 class="card-title">Occupational Therapy</h5>
-            <p class="card-text">Developing daily living skills and independence in children.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="card-img-top" alt="Group Social Skills" />
-          <div class="card-body">
-            <h5 class="card-title">Group Social Skills</h5>
-            <p class="card-text">Building confidence and interaction abilities in peer groups.</p>
-          </div>
-        </div>
-      </div>
+  <!-- Thank-you Modal -->
+  <div id="thankModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="close-btn" onclick="closeModal('thankModal')" aria-label="Close">&times;</button>
+      <h3>Thank you</h3>
+      <p>Your submission was received. Our team will contact you shortly to help with matching or to follow up on your application.</p>
+      <div style="text-align:right"><button class="btn btn-primary" onclick="closeModal('thankModal')">Close</button></div>
     </div>
-  </section>
+  </div>
 
-  <!-- Community -->
-  <section class="container">
-    <h2 class="section-title">Community Impact</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1593113598332-cd93d4ebdf8c" class="card-img-top" alt="Community Event" />
-          <div class="card-body">
-            <h5 class="card-title">Outreach Programs</h5>
-            <p class="card-text">Supporting children and families in low-income communities.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1601933470613-8a66c3bd57c6" class="card-img-top" alt="Donations" />
-          <div class="card-body">
-            <h5 class="card-title">Donor Support</h5>
-            <p class="card-text">Connecting donors and good Samaritans to provide learning materials.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1524492449090-5d4f0a8f3bdb" class="card-img-top" alt="Autism Awareness" />
-          <div class="card-body">
-            <h5 class="card-title">Awareness Events</h5>
-            <p class="card-text">Organizing autism worship and awareness events in society.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- WhatsApp -->
+  <div class="whatsapp" aria-hidden="false">
+    <a id="whatsappLink" href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa!%20I%20would%20like%20to%20learn%20more%20about%20your%20services." target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp" style="font-size:18px"></i><span style="display:none">WhatsApp</span>
+    </a>
+  </div>
 
-  <!-- Donor -->
-  <section class="container text-center">
-    <h2 class="section-title">Support Our Mission</h2>
-    <img src="https://images.unsplash.com/photo-1601933470613-8a66c3bd57c6" class="img-fluid rounded mb-3" alt="Donations" />
-    <a href="#" class="btn btn-primary">Become a Donor</a>
-  </section>
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" title="Back to top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Unlimited Possibilities Africa | All Rights Reserved</p>
-  </footer>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/2540715758964?text=Hello%20I%20would%20like%20to%20know%20more%20about%20Unlimited%20Possibilities%20Africa" class="whatsapp-float">
-    💬
-  </a>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Dark mode toggle
-    document.getElementById("darkToggle").addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
+    /* ---------------------------
+       i18n: EN, SW, FR (auto-detect)
+       --------------------------- */
+    const i18n = {
+      en: {
+        hero_title: "We connect parents with vetted autism professionals",
+        hero_sub: "Quick, safe matches to therapists and clinicians who use evidence-informed approaches — plus community outreach and donor-funded support for low-income families.",
+        parentCTA: "Click here for Parents",
+        expertCTA: "Click here to apply as Expert/Professional",
+        supportCTA: "Support Our Mission",
+        how_title: "How it Works — For Parents",
+        how_sub: "Three simple steps to get the right support for your child."
+      },
+      sw: {
+        hero_title: "Tunawaunganisha wazazi na wataalamu waliothibitishwa wa autism",
+        hero_sub: "Ulinganishaji haraka na salama na wataalamu wa tiba ambao wanatumia mbinu zilizo thabiti — pamoja na msaada wa jamii na ufadhili kwa familia zisizo na uwezo.",
+        parentCTA: "Bofya hapa kwa Wazazi",
+        expertCTA: "Bofya hapa kuomba kama Mtaalamu",
+        supportCTA: "Tusaidie",
+        how_title: "Jinsi Inavyofanya Kazi — Kwa Wazazi",
+        how_sub: "Hatua tatu rahisi ili kupata msaada unaofaa kwa mtoto wako."
+      },
+      fr: {
+        hero_title: "Nous mettons en relation les parents avec des professionnels de l'autisme vérifiés",
+        hero_sub: "Correspondances rapides et sûres avec des thérapeutes et cliniciens utilisant des approches fondées sur des preuves — plus des actions communautaires et un soutien financé par des donateurs pour les familles à faible revenu.",
+        parentCTA: "Cliquez ici pour les parents",
+        expertCTA: "Cliquez ici pour postuler en tant qu'expert",
+        supportCTA: "Soutenez notre mission",
+        how_title: "Comment ça marche — Pour les parents",
+        how_sub: "Trois étapes simples pour obtenir le bon soutien pour votre enfant."
+      }
+    };
+
+    function detectLang(){
+      const saved = localStorage.getItem('upa_lang');
+      if(saved) return saved;
+      const b = navigator.language || navigator.userLanguage || 'en';
+      const lc = b.toLowerCase();
+      if(lc.startsWith('sw') || lc.includes('-tz')) return 'sw';
+      if(lc.startsWith('fr') || lc.includes('-cd') || lc.includes('-cg')) return 'fr';
+      if(lc.includes('ke')) return 'en';
+      return 'en';
+    }
+
+    let LANG = detectLang();
+    applyLang(LANG);
+    document.getElementById('langAbbr').textContent = (LANG === 'sw' ? 'SW' : LANG === 'fr' ? 'FR' : 'EN');
+
+    // Language menu UI
+    document.getElementById('langToggle').addEventListener('click', ()=>{
+      const m = document.getElementById('langMenu');
+      m.style.display = m.style.display === 'block' ? 'none' : 'block';
     });
+    document.querySelectorAll('#langMenu a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const L = a.getAttribute('data-lang');
+        LANG = L; localStorage.setItem('upa_lang', L);
+        document.getElementById('langAbbr').textContent = (L==='sw' ? 'SW' : L==='fr' ? 'FR' : 'EN');
+        applyLang(L);
+        document.getElementById('langMenu').style.display='none';
+      });
+    });
+
+    function applyLang(L){
+      const d = i18n[L] || i18n.en;
+      document.getElementById('heroTitle').textContent = d.hero_title;
+      document.getElementById('heroSub').textContent = d.hero_sub;
+      document.getElementById('parentCTAText').textContent = d.parentCTA;
+      document.getElementById('expertCTAText').textContent = d.expertCTA;
+      document.getElementById('parentCTA').querySelector('span').textContent = d.parentCTA;
+      document.getElementById('expertCTA').querySelector('span').textContent = d.expertCTA;
+      // Additional labels (donor, how) can be localized similarly if needed
+    }
+
+    /* Dark/light mode */
+    const modeToggle = document.getElementById('modeToggle');
+    const modeAbbr = document.getElementById('modeAbbr');
+    function applyMode(pref){
+      if(pref === 'dark'){ document.body.classList.add('dark'); modeAbbr.textContent = 'DM'; }
+      else { document.body.classList.remove('dark'); modeAbbr.textContent = 'LM'; }
+      localStorage.setItem('upa_mode', pref);
+    }
+    const savedMode = localStorage.getItem('upa_mode') || 'light';
+    applyMode(savedMode);
+    modeToggle.addEventListener('click', ()=>{
+      const now = document.body.classList.contains('dark') ? 'light' : 'dark';
+      applyMode(now);
+    });
+
+    /* Carousel */
+    let slideIndex = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+    function showSlide(i){ slideIndex = (i + totalSlides) % totalSlides; slides.style.transform = 'translateX(-' + (slideIndex * 100) + '%)'; }
+    setInterval(()=> showSlide(slideIndex + 1), 5200);
+
+    /* More services (toggle placeholder) */
+    function toggleMoreServices(){ const el=document.getElementById('moreServices'); if(!el) return; el.style.display = el.style.display==='block' ? 'none' : 'block'; }
+
+    /* Nav toggle for mobile */
+    function toggleNav(){ const nav = document.getElementById('navLinks'); if(!nav) return; nav.classList.toggle('show'); document.querySelector('.menu-toggle').setAttribute('aria-expanded', nav.classList.contains('show')); }
+
+    /* Modals */
+    function openModal(id){ const m=document.getElementById(id); if(!m) return; m.style.display='flex'; const inner=m.querySelector('.modal'); setTimeout(()=> inner.classList.add('open'),10); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeModal(id){ const m=document.getElementById(id); if(!m) return; const inner=m.querySelector('.modal'); inner.classList.remove('open'); setTimeout(()=>{ m.style.display='none'; m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; },240); }
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ document.querySelectorAll('.modal-backdrop').forEach(m=>{ m.style.display='none'; m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; } });
+
+    /* Forms front-end */
+    function submitParent(e){ e.preventDefault(); closeModal('parentModal'); openModal('thankModal'); e.target.reset(); }
+    function submitExpert(e){ e.preventDefault(); closeModal('expertModal'); openModal('thankModal'); e.target.reset(); }
+    function handleContact(e){ e.preventDefault(); openModal('thankModal'); e.target.reset(); }
+
+    /* Prior intervention toggle */
+    function togglePrior(show){ const el=document.getElementById('priorDetails'); el.style.display = show ? 'block' : 'none'; }
+
+    /* Scroll to top */
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', ()=>{ if(window.scrollY > 300) scrollTopBtn.style.display = 'block'; else scrollTopBtn.style.display = 'none'; });
+    scrollTopBtn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+    /* Fade-in */
+    const observer = new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); }); },{threshold:0.12});
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* small cleanup: close lang menu on outside click */
+    document.addEventListener('click', (e)=>{ const langMenu = document.getElementById('langMenu'); if(langMenu && !document.getElementById('langToggle').contains(e.target)) langMenu.style.display='none'; });
   </script>
 </body>
 </html>
