@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Autism Support Platform</title>
+
+  <!-- Preload hero images for faster load -->
+  <link rel="preload" href="hero1.webp" as="image">
+  <link rel="preload" href="hero2.webp" as="image">
+  <link rel="preload" href="hero3.webp" as="image">
+
   <style>
     :root {
       --primary: #0055a5;
@@ -14,36 +20,64 @@
     body { margin:0; font-family:sans-serif; line-height:1.6; }
     nav { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:var(--primary); color:#fff; }
     nav ul { display:flex; gap:15px; list-style:none; margin:0; padding:0; }
-    nav a, nav button { color:#fff; text-decoration:none; border:none; cursor:pointer; font-weight:bold; background:none; }
+    nav a, nav button { color:#fff; text-decoration:none; background:none; border:none; cursor:pointer; font-weight:bold; }
     .btn { padding:8px 16px; border-radius:8px; cursor:pointer; }
     .btn-accent { background:var(--accent); color:#fff; }
 
     .hero { position:relative; height:60vh; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; }
     .hero img { position:absolute; width:100%; height:100%; object-fit:cover; z-index:-1; opacity:0; animation:fade 12s infinite; }
-    .hero img:nth-child(1){ animation-delay:0s; }
-    .hero img:nth-child(2){ animation-delay:4s; }
-    .hero img:nth-child(3){ animation-delay:8s; }
+    .hero img:nth-child(1) { animation-delay:0s; }
+    .hero img:nth-child(2) { animation-delay:4s; }
+    .hero img:nth-child(3) { animation-delay:8s; }
     .hero-content { color:#fff; background:rgba(0,0,0,0.5); padding:20px; border-radius:12px; z-index:1; }
-    @keyframes fade { 0%,10%{opacity:1;} 30%,100%{opacity:0;} }
+    @keyframes fade {
+      0%,10% {opacity:1;} 
+      30%,100% {opacity:0;}
+    }
 
     .services { display:grid; gap:1rem; padding:20px; }
-    @media(min-width:768px){ .services{grid-template-columns:repeat(2,1fr);} }
-    @media(min-width:1024px){ .services{grid-template-columns:repeat(3,1fr);} }
+    @media(min-width:768px) { .services { grid-template-columns:repeat(2,1fr); } }
+    @media(min-width:1024px) { .services { grid-template-columns:repeat(3,1fr); } }
     .service { background:var(--light); padding:15px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
 
     .lang-switch { margin-left:auto; }
-    .lang-switch button { border:1px solid #fff; border-radius:6px; margin-left:6px; padding:4px 8px; background:transparent; color:#fff; }
+    .lang-switch button { background:transparent; border:1px solid #fff; border-radius:6px; margin-left:6px; padding:4px 8px; color:#fff; }
 
     footer { background:var(--dark); color:#fff; padding:20px; text-align:center; margin-top:40px; }
 
-    .modal-backdrop{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999; }
-    .modal{ background:#fff; border-radius:12px; padding:20px; max-width:500px; width:90%; position:relative; }
-    .close-btn{ position:absolute; top:10px; right:15px; font-size:20px; background:none; border:none; cursor:pointer; }
-    .modal input, .modal textarea{ width:100%; padding:8px; margin-bottom:8px; border-radius:6px; border:1px solid #ccc; }
+    .modal-backdrop {
+      display:none;
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;align-items:center;
+      z-index:999;
+    }
+    .modal {
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      max-width:500px;
+      width:90%;
+      position:relative;
+    }
+    .close-btn {
+      position:absolute;
+      top:10px;right:15px;
+      font-size:20px;
+      background:none;
+      border:none;
+      cursor:pointer;
+    }
+    .modal label { display:block;margin:8px 0 4px; }
+    .modal input, .modal textarea {
+      width:100%;padding:8px;margin-bottom:8px;border-radius:6px;border:1px solid #ccc;
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
+
+  <!-- NAVBAR -->
   <nav>
     <div><strong id="navBrand">Autism Support</strong></div>
     <ul>
@@ -52,8 +86,8 @@
       <li><button id="expertBtn" class="btn btn-accent">Talk to an Expert</button></li>
     </ul>
     <div class="lang-switch">
-      <button onclick="setLang('en')">EN</button>
-      <button onclick="setLang('sw')">SW</button>
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('sw')">SW</button>
     </div>
   </nav>
 
@@ -73,24 +107,41 @@
   <section id="services">
     <h2 id="servicesTitle" style="text-align:center;margin-top:20px">Our Services</h2>
     <div class="services">
-      <div class="service"><h3 id="svc1Title">Therapy Sessions</h3><p id="svc1Desc">One-on-one support for children with autism</p></div>
-      <div class="service"><h3 id="svc2Title">Parental Guidance</h3><p id="svc2Desc">Helping parents understand and manage autism better</p></div>
-      <div class="service"><h3 id="svc3Title">Community Programs</h3><p id="svc3Desc">Workshops, training, and school inclusion programs</p></div>
+      <div class="service">
+        <h3 id="svc1Title">Therapy Sessions</h3>
+        <p id="svc1Desc">One-on-one support for children with autism</p>
+      </div>
+      <div class="service">
+        <h3 id="svc2Title">Parental Guidance</h3>
+        <p id="svc2Desc">Helping parents understand and manage autism better</p>
+      </div>
+      <div class="service">
+        <h3 id="svc3Title">Community Programs</h3>
+        <p id="svc3Desc">Workshops, training, and school inclusion programs</p>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer><p id="footerText">Together, we can make a difference.</p></footer>
+  <footer>
+    <p id="footerText">Together, we can make a difference.</p>
+  </footer>
 
   <!-- DONOR MODAL -->
-  <div id="donorModal" class="modal-backdrop">
-    <div class="modal">
-      <button class="close-btn" onclick="closeModal('donorModal')">&times;</button>
+  <div id="donorModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="donorTitle">
+      <button class="close-btn" onclick="closeModal('donorModal')" aria-label="Close">&times;</button>
       <h3 id="donorTitle">How your support helps</h3>
-      <p id="donorDesc">Donations fund subsidised therapy, workshops and clinician training.</p>
+      <p id="donorDesc">Donations fund subsidised therapy, workshops and clinician training. We provide clear reporting to donors about outcomes.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-        <div class="service"><h4 id="donorCard1Title">Direct family support</h4><p id="donorCard1Desc">Subsidies for therapy sessions and materials.</p></div>
-        <div class="service"><h4 id="donorCard2Title">Community programs</h4><p id="donorCard2Desc">Funding outreach workshops, caregiver training.</p></div>
+        <div class="service">
+          <h4 id="donorCard1Title">Direct family support</h4>
+          <p id="donorCard1Desc">Subsidies for therapy sessions and materials.</p>
+        </div>
+        <div class="service">
+          <h4 id="donorCard2Title">Community programs</h4>
+          <p id="donorCard2Desc">Funding outreach workshops, caregiver training and school inclusion projects.</p>
+        </div>
       </div>
       <div style="margin-top:18px;text-align:right">
         <button id="donorActionBtn" class="btn btn-accent">Donate Now</button>
@@ -98,45 +149,112 @@
     </div>
   </div>
 
-  <!-- JS -->
+  <!-- EXPERT MODAL -->
+  <div id="expertModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="expertTitle">
+      <button class="close-btn" onclick="closeModal('expertModal')" aria-label="Close">&times;</button>
+      <h3 id="expertTitle">Talk to an Expert</h3>
+      <p id="expertDesc">Fill out the form below and one of our autism specialists will reach out to you.</p>
+      <form>
+        <label id="expNameLbl">Your Name</label>
+        <input type="text">
+        <label id="expEmailLbl">Your Email</label>
+        <input type="email">
+        <label id="expMsgLbl">Message</label>
+        <textarea></textarea>
+        <button id="expSubmit" class="btn btn-accent" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
   <script>
-    const dict={
-      en:{
-        navBrand:"Autism Support",navServices:"Services",navAbout:"About",
-        heroTitle:"Supporting Families with Autism",heroSubtitle:"Connecting parents, children and expert caregivers",
-        servicesTitle:"Our Services",
-        svc1Title:"Therapy Sessions",svc1Desc:"One-on-one support for children with autism",
-        svc2Title:"Parental Guidance",svc2Desc:"Helping parents understand and manage autism better",
-        svc3Title:"Community Programs",svc3Desc:"Workshops, training, and school inclusion programs",
-        footerText:"Together, we can make a difference.",
-        donorTitle:"How your support helps",donorDesc:"Donations fund subsidised therapy, workshops and clinician training.",
-        donorCard1Title:"Direct family support",donorCard1Desc:"Subsidies for therapy sessions and materials.",
-        donorCard2Title:"Community programs",donorCard2Desc:"Funding outreach workshops, caregiver training."
+    // Language dictionary
+    const translations = {
+      en: {
+        navBrand: "Autism Support",
+        navServices: "Services",
+        navAbout: "About",
+        expertBtn: "Talk to an Expert",
+        heroTitle: "Supporting Families with Autism",
+        heroSubtitle: "Connecting parents, children and expert caregivers",
+        donateBtn: "Donate Now",
+        servicesTitle: "Our Services",
+        svc1Title: "Therapy Sessions",
+        svc1Desc: "One-on-one support for children with autism",
+        svc2Title: "Parental Guidance",
+        svc2Desc: "Helping parents understand and manage autism better",
+        svc3Title: "Community Programs",
+        svc3Desc: "Workshops, training, and school inclusion programs",
+        footerText: "Together, we can make a difference.",
+
+        donorTitle: "How your support helps",
+        donorDesc: "Donations fund subsidised therapy, workshops and clinician training. We provide clear reporting to donors about outcomes.",
+        donorCard1Title: "Direct family support",
+        donorCard1Desc: "Subsidies for therapy sessions and materials.",
+        donorCard2Title: "Community programs",
+        donorCard2Desc: "Funding outreach workshops, caregiver training and school inclusion projects.",
+        donorActionBtn: "Donate Now",
+
+        expertTitle: "Talk to an Expert",
+        expertDesc: "Fill out the form below and one of our autism specialists will reach out to you.",
+        expNameLbl: "Your Name",
+        expEmailLbl: "Your Email",
+        expMsgLbl: "Message",
+        expSubmit: "Submit"
       },
-      sw:{
-        navBrand:"Msaada wa Autismu",navServices:"Huduma",navAbout:"Kuhusu Sisi",
-        heroTitle:"Kusaidia Familia zilizo na Autismu",heroSubtitle:"Kuunganisha wazazi, watoto na wataalam",
-        servicesTitle:"Huduma Zetu",
-        svc1Title:"Vipindi vya Tiba",svc1Desc:"Msaada wa moja kwa moja kwa watoto wenye autismu",
-        svc2Title:"Mwongozo wa Wazazi",svc2Desc:"Kuwasaidia wazazi kuelewa na kudhibiti autismu vyema",
-        svc3Title:"Programu za Jamii",svc3Desc:"Warsha, mafunzo na programu za ujumuishaji shuleni",
-        footerText:"Pamoja, tunaweza kuleta mabadiliko.",
-        donorTitle:"Jinsi mchango wako unavyosaidia",donorDesc:"Michango inafadhili tiba, warsha na mafunzo ya wataalam.",
-        donorCard1Title:"Msaada wa familia moja kwa moja",donorCard1Desc:"Vifaa na msaada wa vipindi vya tiba.",
-        donorCard2Title:"Programu za jamii",donorCard2Desc:"Kufadhili warsha, mafunzo na ujumuishaji shuleni."
+      sw: {
+        navBrand: "Msaada wa Autismu",
+        navServices: "Huduma",
+        navAbout: "Kuhusu Sisi",
+        expertBtn: "Ongea na Mtaalamu",
+        heroTitle: "Kusaidia Familia zilizo na Watoto wa Autism",
+        heroSubtitle: "Kuunganisha wazazi, watoto na wataalamu",
+        donateBtn: "Changia Sasa",
+        servicesTitle: "Huduma Zetu",
+        svc1Title: "Vipindi vya Tiba",
+        svc1Desc: "Msaada wa ana kwa ana kwa watoto walio na autism",
+        svc2Title: "Mwongozo wa Wazazi",
+        svc2Desc: "Kuwasaidia wazazi kuelewa na kushughulikia autism vizuri",
+        svc3Title: "Programu za Jamii",
+        svc3Desc: "Warsha, mafunzo, na programu za ujumuishaji shuleni",
+        footerText: "Pamoja, tunaweza kuleta mabadiliko.",
+
+        donorTitle: "Jinsi mchango wako unavyosaidia",
+        donorDesc: "Michango hufadhili tiba kwa bei nafuu, warsha na mafunzo ya wataalamu. Tunatoa taarifa wazi kwa wafadhili kuhusu matokeo.",
+        donorCard1Title: "Msaada kwa familia moja kwa moja",
+        donorCard1Desc: "Vifutio vya gharama kwa vipindi vya tiba na vifaa.",
+        donorCard2Title: "Programu za Jamii",
+        donorCard2Desc: "Kufadhili warsha za jamii, mafunzo ya walezi na miradi ya ujumuishaji shuleni.",
+        donorActionBtn: "Changia Sasa",
+
+        expertTitle: "Ongea na Mtaalamu",
+        expertDesc: "Jaza fomu hapa chini na mmoja wa wataalamu wetu wa autism atawasiliana nawe.",
+        expNameLbl: "Jina Lako",
+        expEmailLbl: "Barua Pepe Yako",
+        expMsgLbl: "Ujumbe",
+        expSubmit: "Tuma"
       }
     };
 
-    function setLang(lang){
-      for(const id in dict[lang]){
-        const el=document.getElementById(id);
-        if(el) el.innerText=dict[lang][id];
-      }
+    function setLanguage(lang) {
+      Object.keys(translations[lang]).forEach(id => {
+        if (document.getElementById(id)) {
+          document.getElementById(id).innerText = translations[lang][id];
+        }
+      });
     }
 
-    document.getElementById("donateBtn").onclick=()=>{document.getElementById("donorModal").style.display="flex";}
-    document.getElementById("donorActionBtn").onclick=()=>{alert("Redirect to payment/donation platform");}
-    function closeModal(id){document.getElementById(id).style.display="none";}
+    // Modal controls
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    // Wire buttons
+    document.getElementById("donateBtn").onclick = () => openModal("donorModal");
+    document.getElementById("expertBtn").onclick = () => openModal("expertModal");
   </script>
 </body>
 </html>
