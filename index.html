@@ -43,15 +43,16 @@
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-    .cta-buttons button {
+    .cta-buttons a {
       margin: 0.5rem;
       padding: 0.8rem 1.5rem;
-      border: none;
       border-radius: 6px;
       font-size: 1rem;
       cursor: pointer;
       font-weight: bold;
       color: white;
+      text-decoration: none;
+      display: inline-block;
     }
     .cta-parents { background: #2563eb; }
     .cta-experts { background: #0d9488; }
@@ -102,6 +103,18 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
+    }
+    .expert-card button {
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .expert-card button:hover {
+      background: #16a34a;
     }
     .more-btn {
       display: block;
@@ -154,6 +167,13 @@
       height: 35px;
     }
   </style>
+  <script>
+    // Prefill profession when expert request button clicked
+    function requestExpert(profession) {
+      document.getElementById("parent-need").value = profession;
+      document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </head>
 <body>
 
@@ -173,9 +193,9 @@
     <h2>Families First. Experts Vetted. Possibilities Unlimited.</h2>
     <p>Starting in Kenya, growing across Africa — the trusted bridge between parents of children with autism and qualified professionals.</p>
     <div class="cta-buttons">
-      <button class="cta-parents">For Parents → Find an Expert</button>
-      <button class="cta-experts">For Experts → Join Now</button>
-      <button class="cta-donors">For Donors → Support Families</button>
+      <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
+      <a href="#experts" class="cta-experts">For Experts → Join Now</a>
+      <a href="#donors" class="cta-donors">For Donors → Support Families</a>
     </div>
   </section>
 
@@ -187,6 +207,9 @@
   <section id="parents">
     <h3>Parents: Find the Right Expert</h3>
     <form>
+      <input type="text" placeholder="Your Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="email" placeholder="Email Address" required>
       <input type="number" placeholder="Child's Age" required>
       <select>
         <option>Diagnosis Stage</option>
@@ -194,8 +217,21 @@
         <option>Mid Stage</option>
         <option>Advanced</option>
       </select>
-      <input type="text" placeholder="Specific Needs (e.g., speech therapy)" required>
-      <input type="text" placeholder="Location (City, Country)" required>
+      <select id="parent-need">
+        <option value="">Specific Needs</option>
+        <option>Speech Therapist</option>
+        <option>ABA Specialist</option>
+        <option>Occupational Therapist</option>
+        <option>Special Needs Teacher</option>
+      </select>
+      <select>
+        <option>Location</option>
+        <option>Nairobi - Kileleshwa</option>
+        <option>Nairobi - Westlands</option>
+        <option>Mombasa</option>
+        <option>Kisumu</option>
+        <option>Nakuru</option>
+      </select>
       <select>
         <option>Preferred Mode</option>
         <option>In-person</option>
@@ -214,7 +250,14 @@
       <input type="text" placeholder="Profession" required>
       <input type="number" placeholder="Years of Experience" required>
       <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required>
-      <input type="text" placeholder="Location" required>
+      <select>
+        <option>Location</option>
+        <option>Nairobi - Kileleshwa</option>
+        <option>Nairobi - Westlands</option>
+        <option>Mombasa</option>
+        <option>Kisumu</option>
+        <option>Nakuru</option>
+      </select>
       <select>
         <option>Service Availability</option>
         <option>In-person</option>
@@ -231,17 +274,17 @@
       <div class="expert-card">
         <h4>Dr. Jane Mwangi</h4>
         <p>Speech Therapist | 10 yrs experience | Nairobi</p>
-        <button disabled>Request via UPA</button>
+        <button onclick="requestExpert('Speech Therapist')">Request via UPA</button>
       </div>
       <div class="expert-card">
         <h4>Mr. John Otieno</h4>
         <p>ABA Specialist | 7 yrs experience | Kisumu</p>
-        <button disabled>Request via UPA</button>
+        <button onclick="requestExpert('ABA Specialist')">Request via UPA</button>
       </div>
       <div class="expert-card">
         <h4>Ms. Amina Hassan</h4>
         <p>Occupational Therapist | 8 yrs experience | Mombasa</p>
-        <button disabled>Request via UPA</button>
+        <button onclick="requestExpert('Occupational Therapist')">Request via UPA</button>
       </div>
     </div>
     <button class="more-btn">More +</button>
