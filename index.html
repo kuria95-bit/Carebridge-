@@ -1,198 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unlimited Possibilities Africa</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    header {
+      background: #0d9488;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #0d9488, #2563eb);
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-buttons button {
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+    }
+    .cta-parents { background: #2563eb; }
+    .cta-experts { background: #0d9488; }
+    .cta-donors { background: #f59e0b; }
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0d9488;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    form input, form textarea, form select {
+      padding: 0.8rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    form button {
+      background: #0d9488;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    form button:hover {
+      background: #2563eb;
+    }
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .expert-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .more-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    footer {
+      background: #0d9488;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 100;
+    }
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-b from-white to-gray-50 text-gray-800">
+<body>
 
-  <!-- Header -->
-  <header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-    <div class="flex items-center space-x-3">
-      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-400 flex items-center justify-center text-white font-bold">UPA</div>
-      <div>
-        <h1 class="text-lg font-semibold">Unlimited Possibilities Africa</h1>
-        <p class="text-xs text-gray-500">Families First · Experts Vetted</p>
-      </div>
-    </div>
-
-    <nav class="hidden md:flex items-center space-x-6 text-sm">
-      <a href="#" class="hover:underline">Home</a>
-      <a href="#parents" class="hover:underline">Parents</a>
-      <a href="#experts" class="hover:underline">Experts</a>
-      <a href="#donors" class="hover:underline">Donors</a>
-      <a href="#about" class="hover:underline">About Us</a>
-      <a href="#contact" class="hover:underline">Contact</a>
+  <header>
+    <h1>Unlimited Possibilities Africa</h1>
+    <nav>
+      <a href="#parents">Parents</a>
+      <a href="#experts">Experts</a>
+      <a href="#donors">Donors</a>
+      <a href="#partners">Partnerships</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="max-w-7xl mx-auto px-6 py-12 text-center">
-    <h2 class="text-4xl font-extrabold leading-tight text-teal-700">
-      Families First. Experts Vetted. Possibilities Unlimited.
-    </h2>
-    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-      The trusted platform connecting parents of children with autism to qualified professionals across Africa — with care, trust, and expertise.
-    </p>
-    <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <a href="#parents" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold">For Parents → Find an Expert</a>
-      <a href="#experts" class="px-6 py-3 bg-white border border-gray-200 rounded-lg hover:shadow">For Experts → Join UPA</a>
-      <a href="#donors" class="px-6 py-3 bg-white border border-gray-200 rounded-lg hover:shadow">For Donors → Support Families</a>
+  <section class="hero">
+    <h2>Families First. Experts Vetted. Possibilities Unlimited.</h2>
+    <p>Starting in Kenya, growing across Africa — the trusted bridge between parents of children with autism and qualified professionals.</p>
+    <div class="cta-buttons">
+      <button class="cta-parents">For Parents → Find an Expert</button>
+      <button class="cta-experts">For Experts → Join Now</button>
+      <button class="cta-donors">For Donors → Support Families</button>
     </div>
   </section>
 
-  <!-- Parents Intake Form -->
-  <section id="parents" class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
-    <div>
-      <h3 class="text-2xl font-bold">For Parents</h3>
-      <p class="mt-2 text-gray-600">Tell us about your child, and we’ll connect you with the right expert through UPA. Direct contacts are protected — ensuring trust and accountability.</p>
-    </div>
-    <form class="bg-white p-6 rounded-xl shadow-md space-y-4">
-      <div>
-        <label class="text-sm font-medium">Child's Age</label>
-        <input type="number" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Diagnosis Stage</label>
-        <select class="w-full mt-1 border-gray-300 rounded-md p-2">
-          <option>Suspected</option>
-          <option>Diagnosed</option>
-          <option>Ongoing assessment</option>
-        </select>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Needs</label>
-        <textarea class="w-full mt-1 border-gray-300 rounded-md p-2" placeholder="Speech therapy, behavioral support, education..."></textarea>
-      </div>
-      <div class="grid grid-cols-2 gap-2">
-        <input type="text" placeholder="Country" class="border-gray-300 rounded-md p-2">
-        <input type="text" placeholder="City" class="border-gray-300 rounded-md p-2">
-      </div>
-      <div>
-        <label class="text-sm font-medium">Preferred Mode</label>
-        <select class="w-full mt-1 border-gray-300 rounded-md p-2">
-          <option>Online</option>
-          <option>In-person</option>
-          <option>Hybrid</option>
-        </select>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Contact Email</label>
-        <input type="email" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <button class="w-full bg-teal-600 hover:bg-teal-700 text-white rounded-md py-2">Submit Request</button>
+  <section id="parents">
+    <h3>Parents: Find the Right Expert</h3>
+    <form>
+      <input type="number" placeholder="Child's Age" required>
+      <select>
+        <option>Diagnosis Stage</option>
+        <option>Early Stage</option>
+        <option>Mid Stage</option>
+        <option>Advanced</option>
+      </select>
+      <input type="text" placeholder="Specific Needs (e.g., speech therapy)" required>
+      <input type="text" placeholder="Location (City, Country)" required>
+      <select>
+        <option>Preferred Mode</option>
+        <option>In-person</option>
+        <option>Online</option>
+        <option>Hybrid</option>
+      </select>
+      <textarea placeholder="Additional Notes"></textarea>
+      <button type="submit">Submit Request</button>
     </form>
   </section>
 
-  <!-- Experts Section -->
-  <section id="experts" class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
-    <div>
-      <h3 class="text-2xl font-bold">For Experts</h3>
-      <p class="mt-2 text-gray-600">Join UPA to reach families in need of autism support. Submit your details and credentials — we’ll verify and list you as a trusted professional.</p>
+  <section id="experts">
+    <h3>Experts: Join Our Network</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Profession" required>
+      <input type="number" placeholder="Years of Experience" required>
+      <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required>
+      <input type="text" placeholder="Location" required>
+      <select>
+        <option>Service Availability</option>
+        <option>In-person</option>
+        <option>Online</option>
+        <option>Hybrid</option>
+      </select>
+      <input type="file" accept=".pdf,.doc,.docx" required>
+      <textarea placeholder="Short Biography"></textarea>
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <h3>Featured Experts</h3>
+    <div class="experts-grid">
+      <div class="expert-card">
+        <h4>Dr. Jane Mwangi</h4>
+        <p>Speech Therapist | 10 yrs experience | Nairobi</p>
+        <button disabled>Request via UPA</button>
+      </div>
+      <div class="expert-card">
+        <h4>Mr. John Otieno</h4>
+        <p>ABA Specialist | 7 yrs experience | Kisumu</p>
+        <button disabled>Request via UPA</button>
+      </div>
+      <div class="expert-card">
+        <h4>Ms. Amina Hassan</h4>
+        <p>Occupational Therapist | 8 yrs experience | Mombasa</p>
+        <button disabled>Request via UPA</button>
+      </div>
     </div>
-    <form class="bg-white p-6 rounded-xl shadow-md space-y-4">
-      <div>
-        <label class="text-sm font-medium">Full Name</label>
-        <input type="text" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Profession</label>
-        <input type="text" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Years of Experience</label>
-        <input type="number" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Area of Specialization</label>
-        <input type="text" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Location & Availability</label>
-        <input type="text" class="w-full mt-1 border-gray-300 rounded-md p-2" placeholder="e.g. Nairobi · Online/In-person/Hybrid"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Upload CV/Credentials</label>
-        <input type="file" class="w-full mt-1 border-gray-300 rounded-md p-2"/>
-      </div>
-      <div>
-        <label class="text-sm font-medium">Short Bio</label>
-        <textarea class="w-full mt-1 border-gray-300 rounded-md p-2"></textarea>
-      </div>
-      <button class="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-md py-2">Apply to Join</button>
+    <button class="more-btn">More +</button>
+  </section>
+
+  <section id="donors">
+    <h3>Donors: Support Families</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <select>
+        <option>Donation Type</option>
+        <option>One-time</option>
+        <option>Monthly</option>
+      </select>
+      <textarea placeholder="Message (optional)"></textarea>
+      <button type="submit">Submit</button>
     </form>
   </section>
 
-  <!-- Experts Directory (Locked) -->
-  <section class="max-w-7xl mx-auto px-6 py-12">
-    <h3 class="text-xl font-bold">Our Experts (Vetted by UPA)</h3>
-    <p class="mt-2 text-gray-600">Profiles are displayed, but all connections go through UPA to ensure trust and quality.</p>
-    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <article class="bg-white p-4 rounded-lg shadow-sm">
-        <h4 class="font-semibold">Dr. Amina Mwangi</h4>
-        <p class="text-sm text-gray-500">Speech Therapist · 8 yrs</p>
-        <p class="text-sm text-gray-500">Nairobi, Kenya</p>
-        <button class="mt-3 px-3 py-2 bg-teal-600 text-white rounded-md text-sm">Request via UPA</button>
-      </article>
-      <article class="bg-white p-4 rounded-lg shadow-sm">
-        <h4 class="font-semibold">Mr. John Otieno</h4>
-        <p class="text-sm text-gray-500">Occupational Therapist · 5 yrs</p>
-        <p class="text-sm text-gray-500">Kisumu, Kenya</p>
-        <button class="mt-3 px-3 py-2 bg-teal-600 text-white rounded-md text-sm">Request via UPA</button>
-      </article>
-    </div>
+  <section id="partners">
+    <h3>Partnership Opportunities</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Organization" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
   </section>
 
-  <!-- Donors -->
-  <section id="donors" class="max-w-7xl mx-auto px-6 py-12 text-center bg-gray-100 rounded-xl">
-    <h3 class="text-2xl font-bold">Support Families & Experts</h3>
-    <p class="mt-2 text-gray-600">Your donation helps families access the care they need, and supports our mission to bridge autism care gaps in Africa.</p>
-    <div class="mt-6 flex justify-center gap-4">
-      <button class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-md">Donate Once</button>
-      <button class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-md">Monthly Support</button>
-    </div>
+  <section id="about">
+    <h3>About Unlimited Possibilities Africa</h3>
+    <p>Unlimited Possibilities Africa (UPA) is a Kenya-based platform connecting families of children with autism to vetted professionals. We empower families, support experts, and partner with donors to create sustainable impact — starting in Kenya, and growing across Africa.</p>
   </section>
 
-  <!-- Footer -->
-  <footer class="mt-12 bg-white border-t py-8">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-6">
-      <div>
-        <h4 class="font-semibold">Unlimited Possibilities Africa</h4>
-        <p class="text-sm text-gray-500 mt-1">Helping families find trusted autism specialists across Africa.</p>
-        <p class="text-sm text-gray-500 mt-3">Contact: +254 715 758964</p>
-      </div>
-      <div class="grid grid-cols-2 gap-6">
-        <div>
-          <h5 class="text-sm font-semibold">Navigate</h5>
-          <ul class="mt-2 text-sm text-gray-600">
-            <li>Home</li>
-            <li>Parents</li>
-            <li>Experts</li>
-            <li>Donors</li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="text-sm font-semibold">Resources</h5>
-          <ul class="mt-2 text-sm text-gray-600">
-            <li>Blog</li>
-            <li>Newsletter</li>
-            <li>Privacy</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Call us: +254715758964</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Unlimited Possibilities Africa. All rights reserved.</p>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/254715758964?text=Hello%20UPA%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services."
-     target="_blank" class="fixed right-6 bottom-6 z-50">
-    <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-green-600 text-white">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2 17 17 0 0 1-7-2.5A17 17 0 0 1 6 9a2 2 0 0 1 2-2h.1a2 2 0 0 1 1.7 1l.7 2a2 2 0 0 1-.5 2.1L9 13c1.5 1.5 3.5 2.5 5.7 3A2 2 0 0 1 16 16v.1a2 2 0 0 1 2 2z" />
-      </svg>
-    </div>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa%2C%20I’d%20like%20to%20connect%20with%20an%20expert." 
+     class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
 </body>
