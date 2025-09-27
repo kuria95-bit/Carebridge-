@@ -20,6 +20,15 @@
       justify-content: space-between;
       align-items: center;
     }
+    header .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    header .logo-container img {
+      height: 50px;
+      margin-right: 1rem;
+      border-radius: 4px;
+    }
     header h1 {
       margin: 0;
       font-size: 1.5rem;
@@ -54,9 +63,15 @@
       text-decoration: none;
       display: inline-block;
     }
-    .cta-parents { background: #2563eb; }
-    .cta-experts { background: #0d9488; }
-    .cta-donors { background: #f59e0b; }
+    .cta-parents {
+      background: #2563eb;
+    }
+    .cta-experts {
+      background: #0d9488;
+    }
+    .cta-donors {
+      background: #f59e0b;
+    }
     section {
       padding: 3rem 2rem;
       max-width: 900px;
@@ -72,7 +87,9 @@
       gap: 1rem;
       margin-top: 1rem;
     }
-    form input, form textarea, form select {
+    form input,
+    form textarea,
+    form select {
       padding: 0.8rem;
       border: 1px solid #d1d5db;
       border-radius: 6px;
@@ -101,7 +118,7 @@
       background: white;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
     .expert-card button {
@@ -136,7 +153,7 @@
       background: white;
       padding: 1.2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
       margin-bottom: 1.5rem;
     }
     footer {
@@ -151,22 +168,20 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #25D366;
+      background: #25d366;
       border-radius: 50%;
       width: 60px;
       height: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       z-index: 100;
     }
     .whatsapp-float img {
       width: 35px;
       height: 35px;
-      object-fit: cover;
-      border-radius: 50%;
     }
     /* Success popup */
     .popup {
@@ -193,15 +208,22 @@
       event.preventDefault();
       const popup = document.getElementById("popup");
       popup.style.display = "block";
-      setTimeout(() => { popup.style.display = "none"; }, 5000);
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 5000);
       event.target.reset();
     }
   </script>
 </head>
 <body>
-
   <header>
-    <h1>CareBridge by UPA</h1>
+    <div class="logo-container">
+      <img
+        src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg"
+        alt="UPA Logo"
+      />
+      <h1>CareBridge by UPA</h1>
+    </div>
     <nav>
       <a href="#parents">Parents</a>
       <a href="#experts">Experts</a>
@@ -215,12 +237,14 @@
   <section class="hero">
     <h2>The easier way to find trusted experts for your child</h2>
     <p>
-      CareBridge connects parents to vetted specialists — from speech therapy to occupational therapy — 
+      CareBridge connects parents to vetted specialists — from speech therapy to occupational therapy —
       quickly, safely, and with less stress. Because your child deserves the right support without the struggle.
     </p>
     <div class="cta-buttons">
       <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
-      <a href="#experts" class="cta-experts">For Experts → Join Now</a>
+      <a href="#experts" class="cta-experts">For Experts → Join
+        Now</a
+      >
       <a href="#donors" class="cta-donors">For Donors → Support Families</a>
     </div>
   </section>
@@ -228,10 +252,11 @@
   <section id="about">
     <h3>About CareBridge</h3>
     <p>
-      CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>, built to make it easier 
-      for parents of children with autism to access trusted experts online — without the hustle. 
-      Starting in Kenya, we are building the bridge between families and professionals, 
-      ensuring every child gets the right care at the right time.
+      CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>,
+      built to make it easier for parents of children with autism to access trusted
+      experts online — without the hustle. Starting in Kenya, we are building the
+      bridge between families and professionals, ensuring every child gets the right
+      care at the right time.
     </p>
   </section>
 
@@ -280,7 +305,11 @@
       <input type="text" placeholder="Full Name" required />
       <input type="text" placeholder="Profession" required />
       <input type="number" placeholder="Years of Experience" required />
-      <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required />
+      <input
+        type="text"
+        placeholder="Specialization (e.g., ABA, speech therapy)"
+        required
+      />
       <select>
         <option>Location</option>
         <option>Nairobi - Kileleshwa</option>
@@ -305,17 +334,23 @@
       <div class="expert-card">
         <h4>Dr. Jane Mwangi</h4>
         <p>Speech Therapist | 10 yrs experience | Nairobi</p>
-        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
+        <button onclick="requestExpert('Speech Therapist')">
+          Request via CareBridge
+        </button>
       </div>
       <div class="expert-card">
         <h4>Mr. John Otieno</h4>
         <p>ABA Specialist | 7 yrs experience | Kisumu</p>
-        <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button>
+        <button onclick="requestExpert('ABA Specialist')">
+          Request via CareBridge
+        </button>
       </div>
       <div class="expert-card">
         <h4>Ms. Amina Hassan</h4>
         <p>Occupational Therapist | 8 yrs experience | Mombasa</p>
-        <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button>
+        <button onclick="requestExpert('Occupational Therapist')">
+          Request via CareBridge
+        </button>
       </div>
     </div>
     <button class="more-btn">More +</button>
@@ -324,22 +359,34 @@
   <section id="testimonials" class="testimonials">
     <h3>Stories of Impact</h3>
     <div class="testimonial-card">
-      <p>“Through CareBridge, I found a speech therapist for my son within a week. The progress he has made in just three months is beyond what I imagined.”</p>
+      <p>
+        “Through CareBridge, I found a speech therapist for my son within a week.
+        The progress he has made in just three months is beyond what I imagined.”
+      </p>
       <strong>- Mary, Parent (Nairobi)</strong>
     </div>
     <div class="testimonial-card">
-      <p>“Partnering with CareBridge allowed us to reach families in rural areas that we could never have accessed on our own.”</p>
+      <p>
+        “Partnering with CareBridge allowed us to reach families in rural areas
+        that we could never have accessed on our own.”
+      </p>
       <strong>- David, NGO Partner</strong>
     </div>
     <div class="testimonial-card">
-      <p>“Donating to CareBridge gave me peace of mind knowing my support directly funds therapy sessions for children in need.”</p>
+      <p>
+        “Donating to CareBridge gave me peace of mind knowing my support directly
+        funds therapy sessions for children in need.”
+      </p>
       <strong>- Sarah, Donor</strong>
     </div>
   </section>
 
   <section id="donors">
     <h3>Donors: Support Families</h3>
-    <p>Your support helps us subsidize therapy and interventions for families in low-income communities who cannot afford the services their children need.</p>
+    <p>
+      Your support helps us subsidize therapy and interventions for families in
+      low-income communities who cannot afford the services their children need.
+    </p>
     <form onsubmit="handleSubmit(event)">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email Address" required />
@@ -355,7 +402,11 @@
 
   <section id="partners">
     <h3>Partnership Opportunities</h3>
-    <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care — ensuring every child, regardless of background, can access the right support.</p>
+    <p>
+      We collaborate with organizations, NGOs, and corporate partners to expand
+      access to autism care — ensuring every child, regardless of background, can
+      access the right support.
+    </p>
     <form onsubmit="handleSubmit(event)">
       <input type="text" placeholder="Full Name" required />
       <input type="text" placeholder="Organization" required />
@@ -385,10 +436,15 @@
   <div id="popup" class="popup">Form submitted successfully!</div>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I’d%20like%20to%20connect." 
-     class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <img src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg" alt="WhatsApp" />
+  <a
+    href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I’d%20like%20to%20connect."
+    class="whatsapp-float"
+    target="_blank"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp"
+    />
   </a>
-
 </body>
 </html>
