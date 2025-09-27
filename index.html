@@ -1,133 +1,209 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
-<meta name="description" content="We assist parents to connect with vetted autism specialists. Community outreach and donor partnerships expand access to care." />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-  :root{
-    --bg:#f6f8fb; --card:#ffffff; --muted:#6b7280;
-    --primary:#1658d6; --accent:#ff7e3d; --secondary:#6f42c1; --success:#198754;
-    --shadow: 0 18px 40px rgba(16,24,40,0.06);
-    --radius:14px; --maxW:1180px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#102028;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .container{max-width:var(--maxW);margin:0 auto;padding:0 18px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
 
-  /* Header */
-  header{position:sticky;top:12px;z-index:1400;padding:12px 0}
-  .nav-wrap{background:rgba(255,255,255,0.98);backdrop-filter:blur(6px);border-radius:12px;box-shadow:var(--shadow)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand svg{height:44px;width:auto}
-  .site-title{font-size:1rem;font-weight:700;color:var(--primary)}
-  .nav-links{display:flex;gap:12px;align-items:center}
-  .nav-links a{font-weight:600;padding:8px 10px;border-radius:8px;color:#163047}
-  .nav-links a:hover{background:rgba(22,88,214,0.06)}
-  .menu-toggle{display:none;background:transparent;border:0;font-size:1.2rem}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer;border:none}
-  .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 8px 24px rgba(59,85,255,0.12)}
-  .btn-ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);padding:8px 14px;border-radius:10px}
+  <style>
+    /* === RESET & BASE === */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:Arial, sans-serif; line-height:1.6; }
+    img { max-width:100%; display:block; border-radius:8px; }
 
-  /* Hero */
-  .hero{position:relative;height:70vh;min-height:400px;border-radius:14px;overflow:hidden;margin-top:18px}
-  .slides{position:absolute;inset:0;display:flex;transition:transform .7s ease}
-  .slide{flex:0 0 100%;background-size:cover;background-position:center;position:relative}
-  .slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.40), rgba(2,6,23,0.55))}
-  .hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center}
-  .hero-grid{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:center;padding:36px;max-width:1200px;margin:0 auto;width:100%}
-  .hero-left h1{color:#fff;font-size:clamp(1.8rem,4.2vw,3rem);margin:0 0 12px;line-height:1.02}
-  .hero-left p{color:rgba(255,255,255,0.95);margin-bottom:18px;font-size:1rem}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-card{background:rgba(255,255,255,0.06);padding:18px;border-radius:12px;color:#fff}
+    /* === NAV === */
+    nav { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:#004aad; color:#fff; }
+    nav .nav-links { display:flex; gap:15px; align-items:center; }
+    nav a { color:#fff; text-decoration:none; }
+    nav select { padding:6px; border-radius:6px; border:none; }
 
-  /* Responsive */
-  @media(max-width:980px){
-    .hero-grid{grid-template-columns:1fr;padding:24px}
-    .nav-links{display:none;position:absolute;right:16px;top:76px;background:var(--card);padding:12px;border-radius:10px;box-shadow:var(--shadow);flex-direction:column}
-    .menu-toggle{display:inline-block}
-  }
-</style>
+    /* === HERO === */
+    .hero { text-align:center; padding:60px 20px; background:#eaf3ff; }
+    .hero h1 { font-size:2rem; margin-bottom:10px; }
+    .hero-ctas { display:flex; gap:10px; justify-content:center; margin-top:20px; }
+    .btn { padding:10px 20px; border:none; border-radius:8px; cursor:pointer; }
+    .btn-primary { background:#004aad; color:#fff; }
+    .btn:hover { opacity:0.9; }
+
+    /* === SECTIONS === */
+    section { padding:40px 20px; }
+    h2 { text-align:center; margin-bottom:20px; color:#004aad; }
+
+    /* === FORMS & MODALS === */
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; }
+    .modal-content { background:#fff; padding:20px; border-radius:8px; max-width:500px; width:90%; }
+    .modal-content h3 { margin-bottom:10px; }
+    .modal-content label { display:block; margin:10px 0 5px; }
+    .modal-content input, .modal-content textarea, .modal-content select { width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; }
+    .close { float:right; cursor:pointer; font-size:20px; }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<header>
-  <div class="container nav-wrap">
-    <div class="nav">
-      <div class="brand">
-        <svg viewBox="0 0 200 48"><g transform="translate(6,4)"><rect x="0" y="0" width="40" height="40" rx="8" fill="#1558d6" /><path d="M9 27 C13 22, 23 22, 27 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="18" cy="12" r="4" fill="#fff"/></g></svg>
-        <div class="site-title">Unlimited Possibilities Africa</div>
-      </div>
+  <!-- === NAVIGATION === -->
+  <nav>
+    <div class="logo" data-en="Unlimited Possibilities Africa" data-sw="Uwezo Usio na Kikomo Afrika">
+      Unlimited Possibilities Africa
+    </div>
+    <div class="nav-links">
+      <a href="#about" data-en="About" data-sw="Kuhusu">About</a>
+      <a href="#services" data-en="Services" data-sw="Huduma">Services</a>
+      <a href="#how" data-en="How it Works" data-sw="Jinsi Inavyofanya Kazi">How it Works</a>
+      <a href="#clinicians" data-en="Clinicians" data-sw="Wataalamu">Clinicians</a>
+      <a href="#community" data-en="Community" data-sw="Jumuiya">Community</a>
+      <a href="#testimonials" data-en="Testimonials" data-sw="Mashuhuda">Testimonials</a>
+      <a href="#donor" data-en="Support" data-sw="Msaada">Support</a>
+      <a href="#contact" data-en="Contact" data-sw="Wasiliana">Contact</a>
+      <select id="langSwitch" onchange="switchLang(this.value)">
+        <option value="en">English</option>
+        <option value="sw">Kiswahili</option>
+      </select>
+    </div>
+  </nav>
 
-      <nav>
-        <button class="menu-toggle" onclick="toggleNav()">☰</button>
-        <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#how">How it works</a>
-          <a href="#clinicians">Clinicians</a>
-          <a href="#community">Community</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#donor">Support</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+  <!-- === HERO === -->
+  <section class="hero">
+    <h1 data-en="We connect parents with vetted autism professionals" data-sw="Tunawaunganisha wazazi na wataalamu wa autism waliothibitishwa">
+      We connect parents with vetted autism professionals
+    </h1>
+    <p data-en="Join our community today and access quality care." data-sw="Jiunge na jumuiya yetu leo na upate huduma bora.">
+      Join our community today and access quality care.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="openModal('parentModal')" data-en="Apply as Parent" data-sw="Omba kama Mzazi">Apply as Parent</button>
+      <button class="btn btn-primary" onclick="openModal('expertModal')" data-en="Apply as Expert" data-sw="Omba kama Mtaalamu">Apply as Expert</button>
+      <button class="btn" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})" data-en="View Services" data-sw="Tazama Huduma">View Services</button>
+    </div>
+  </section>
 
-      <!-- Language Switch -->
-      <div>
-        <select id="langSwitch" onchange="switchLang()" style="padding:6px;border-radius:8px;border:1px solid #ccc">
-          <option value="en">English</option>
-          <option value="sw">Kiswahili</option>
-        </select>
-      </div>
+  <!-- === ABOUT === -->
+  <section id="about">
+    <h2 data-en="About Us" data-sw="Kuhusu Sisi">About Us</h2>
+    <p data-en="We are committed to supporting children with autism and their families." data-sw="Tumejitolea kusaidia watoto wenye autism na familia zao.">
+      We are committed to supporting children with autism and their families.
+    </p>
+  </section>
+
+  <!-- === SERVICES === -->
+  <section id="services">
+    <h2 data-en="Our Services" data-sw="Huduma Zetu">Our Services</h2>
+    <img src="https://tse2.mm.bing.net/th/id/OIP.nlj2DUMFjf9eM9Ujph8HcAHaFA?pid=Api" alt="Speech therapy" loading="lazy">
+    <p data-en="Speech therapy, occupational therapy, and more." data-sw="Tiba ya hotuba, tiba ya kazi, na mengineyo.">
+      Speech therapy, occupational therapy, and more.
+    </p>
+  </section>
+
+  <!-- === HOW IT WORKS === -->
+  <section id="how">
+    <h2 data-en="How It Works" data-sw="Jinsi Inavyofanya Kazi">How It Works</h2>
+    <p data-en="Parents apply, experts apply, we connect them safely." data-sw="Wazazi wanaomba, wataalamu wanaomba, tunawaunganisha kwa usalama.">
+      Parents apply, experts apply, we connect them safely.
+    </p>
+  </section>
+
+  <!-- === CLINICIANS === -->
+  <section id="clinicians">
+    <h2 data-en="Our Clinicians" data-sw="Wataalamu Wetu">Our Clinicians</h2>
+    <img src="https://via.placeholder.com/400" alt="Clinician" loading="lazy">
+    <p data-en="All our professionals are vetted and certified." data-sw="Wataalamu wetu wote wamehakikiwa na kuthibitishwa.">
+      All our professionals are vetted and certified.
+    </p>
+  </section>
+
+  <!-- === COMMUNITY === -->
+  <section id="community">
+    <h2 data-en="Community Support" data-sw="Msaada wa Jamii">Community Support</h2>
+    <p data-en="We build strong networks for families." data-sw="Tunajenga mitandao imara kwa familia.">
+      We build strong networks for families.
+    </p>
+  </section>
+
+  <!-- === TESTIMONIALS === -->
+  <section id="testimonials">
+    <h2 data-en="Testimonials" data-sw="Mashuhuda">Testimonials</h2>
+    <p data-en="See what parents and experts say about us." data-sw="Tazama wazazi na wataalamu wanasemaje kutuhusu.">
+      See what parents and experts say about us.
+    </p>
+  </section>
+
+  <!-- === DONOR === -->
+  <section id="donor">
+    <h2 data-en="Support Us" data-sw="Tusaidie">Support Us</h2>
+    <p data-en="Your donations help us expand our impact." data-sw="Mchango wako unatupa uwezo wa kupanua msaada wetu.">
+      Your donations help us expand our impact.
+    </p>
+  </section>
+
+  <!-- === CONTACT === -->
+  <section id="contact">
+    <h2 data-en="Contact Us" data-sw="Wasiliana Nasi">Contact Us</h2>
+    <p data-en="Get in touch with our team." data-sw="Wasiliana na timu yetu.">
+      Get in touch with our team.
+    </p>
+  </section>
+
+  <!-- === PARENT MODAL === -->
+  <div id="parentModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('parentModal')">&times;</span>
+      <h3 data-en="Parent Application Form" data-sw="Fomu ya Maombi ya Mzazi">Parent Application Form</h3>
+      <form>
+        <label data-en="Full Name" data-sw="Jina Kamili">Full Name</label>
+        <input type="text" required>
+
+        <label data-en="Child's Age" data-sw="Umri wa Mtoto">Child's Age</label>
+        <input type="number" required>
+
+        <label data-en="Any prior intervention administered?" data-sw="Je, mtoto amewahi kupokea msaada au tiba yoyote awali?">Any prior intervention administered?</label>
+        <textarea></textarea>
+
+        <label data-en="Contact Email" data-sw="Barua Pepe">Contact Email</label>
+        <input type="email" required>
+
+        <button class="btn btn-primary" type="submit" data-en="Submit" data-sw="Tuma">Submit</button>
+      </form>
     </div>
   </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="slides" id="slides">
-    <div class="slide" style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.nWNLDEVdiPIxZP6HZ3lq-QHaHa?pid=Api');"></div>
-    <div class="slide" style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.N7XqXe6G4B8toHivWn_QjwHaE8?pid=Api');"></div>
-  </div>
+  <!-- === EXPERT MODAL === -->
+  <div id="expertModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('expertModal')">&times;</span>
+      <h3 data-en="Expert Application Form" data-sw="Fomu ya Maombi ya Mtaalamu">Expert Application Form</h3>
+      <form>
+        <label data-en="Full Name" data-sw="Jina Kamili">Full Name</label>
+        <input type="text" required>
 
-  <div class="hero-inner">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <h1 data-en="We connect parents with vetted autism professionals" data-sw="Tunawaunganisha wazazi na wataalamu wa autism waliohakikiwa">We connect parents with vetted autism professionals</h1>
-        <p data-en="Quick, safe matches to therapists and clinicians..." data-sw="Kuwalinganisha haraka na salama na wataalamu na madaktari...">
-          Quick, safe matches to therapists and clinicians who use evidence-informed approaches — plus community outreach and donor-funded support.
-        </p>
+        <label data-en="Specialization" data-sw="Utaalamu">Specialization</label>
+        <input type="text" required>
 
-        <div class="hero-ctas">
-          <button class="btn btn-primary" onclick="openModal('parentModal')"><i class="fa-solid fa-user"></i> For Parents</button>
-          <button class="btn btn-primary" onclick="openModal('expertModal')"><i class="fa-solid fa-user-doctor"></i> For Experts</button>
-          <button class="btn btn-ghost" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">View Services</button>
-        </div>
-      </div>
-      <aside class="hero-card"><h4>Trusted Matches • Community Support</h4></aside>
+        <label data-en="Years of Experience" data-sw="Miaka ya Uzoefu">Years of Experience</label>
+        <input type="number" required>
+
+        <label data-en="Contact Email" data-sw="Barua Pepe">Contact Email</label>
+        <input type="email" required>
+
+        <button class="btn btn-primary" type="submit" data-en="Submit" data-sw="Tuma">Submit</button>
+      </form>
     </div>
   </div>
-</section>
 
-<script>
-function toggleNav(){
-  document.getElementById("navLinks").classList.toggle("open");
-}
-function switchLang(){
-  const lang = document.getElementById("langSwitch").value;
-  document.querySelectorAll("[data-en]").forEach(el=>{
-    el.innerText = el.getAttribute(`data-${lang}`);
-  });
-}
-</script>
+  <!-- === FOOTER === -->
+  <footer style="background:#004aad; color:#fff; text-align:center; padding:20px;">
+    <p data-en="© 2025 Unlimited Possibilities Africa. All rights reserved." data-sw="© 2025 Uwezo Usio na Kikomo Afrika. Haki zote zimehifadhiwa.">
+      © 2025 Unlimited Possibilities Africa. All rights reserved.
+    </p>
+  </footer>
 
+  <!-- === JS === -->
+  <script>
+    function openModal(id){ document.getElementById(id).style.display='flex'; }
+    function closeModal(id){ document.getElementById(id).style.display='none'; }
+    function switchLang(lang){
+      document.querySelectorAll('[data-en]').forEach(el=>{
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+    }
+  </script>
 </body>
 </html>
