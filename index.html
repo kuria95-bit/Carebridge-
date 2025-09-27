@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="htmlLang">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -35,6 +35,8 @@
   .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer;border:none}
   .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 8px 24px rgba(59,85,255,0.12)}
   .btn-ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);padding:8px 14px;border-radius:10px}
+  .language-toggle{display:flex;gap:8px}
+  .language-toggle button.active{background:var(--primary);color:#fff}
 
   /* Hero carousel */
   .hero{position:relative;height:78vh;min-height:420px;border-radius:14px;overflow:hidden;margin-top:18px}
@@ -103,6 +105,7 @@
   input[type="text"],input[type="email"],input[type="tel"],input[type="number"],textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ee}
   label{font-weight:600;font-size:.95rem;color:#26323a}
   .file-input{padding:10px;border-radius:8px;border:1px dashed #dfe6f5;background:#fbfcff}
+  .form-group label{display:block}
 
   /* WhatsApp */
   .whatsapp{position:fixed;right:14px;bottom:14px;z-index:1800}
@@ -119,6 +122,7 @@
   @media(max-width:980px){
     .hero-grid{grid-template-columns:1fr;padding:24px}
     .nav-links{display:none;position:absolute;right:16px;top:76px;background:var(--card);padding:12px;border-radius:10px;box-shadow:var(--shadow);flex-direction:column}
+    .language-toggle{margin-top:12px}
     .menu-toggle{display:inline-block}
   }
   @media(max-width:640px){
@@ -134,8 +138,6 @@
   <div class="container nav-wrap" role="banner">
     <div class="nav">
       <div class="brand" aria-hidden="false">
-        <!-- SVG logo placeholder — replace with PNG if you prefer:
-             <img src="assets/logo.png" alt="Unlimited Possibilities Africa"> -->
         <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" focusable="false">
           <g transform="translate(6,4)">
             <rect x="0" y="0" width="40" height="40" rx="8" fill="#1558d6" />
@@ -163,6 +165,10 @@
           <a href="#donor">Support</a>
           <a href="#contact">Contact</a>
         </div>
+        <div class="language-toggle">
+          <button class="btn btn-ghost active" onclick="toggleLanguage('en')">English</button>
+          <button class="btn btn-ghost" onclick="toggleLanguage('sw')">Kiswahili</button>
+        </div>
       </nav>
     </div>
   </div>
@@ -185,8 +191,8 @@
           <p>Quick, safe matches to therapists and clinicians who use evidence-informed approaches — plus community outreach and donor-funded support for low-income families.</p>
 
           <div class="hero-ctas">
-            <button class="btn btn-primary" onclick="openModal('parentModal')"><i class="fa-solid fa-user"></i> For Parents</button>
-            <button class="btn btn-ghost" onclick="openModal('expertModal')"><i class="fa-solid fa-user-doctor"></i> For Experts</button>
+            <button class="btn btn-primary" onclick="openModal('parentModal')"><i class="fa-solid fa-user"></i> Apply as a Parent Here</button>
+            <button class="btn btn-primary" onclick="openModal('expertModal')"><i class="fa-solid fa-user-doctor"></i> Apply as an Expert Here</button>
             <button class="btn" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">View Services</button>
           </div>
         </div>
@@ -435,7 +441,18 @@
         </select>
       </label>
       <label style="grid-column:1/-1"><span>Additional info (goals, availability)</span><textarea id="pf_notes" rows="3"></textarea></label>
-
+      <div class="form-group" style="grid-column:1/-1">
+        <label><span>Any prior intervention administered?</span></label>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <label><input type="radio" name="pf_prior_intervention" value="yes" required onclick="toggleInterventionDetails()"> Yes</label>
+          <label><input type="radio" name="pf_prior_intervention" value="no" onclick="toggleInterventionDetails()"> No</label>
+        </div>
+        <div id="interventionDetails" style="display:none;margin-top:12px">
+          <label><span>If yes, what type of intervention was administered? Describe:</span>
+            <textarea id="pf_intervention_details" rows="3" placeholder="E.g., Speech therapy, ABA, occupational therapy"></textarea>
+          </label>
+        </div>
+      </div>
       <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end">
         <button class="btn btn-ghost" type="button" onclick="closeModal('parentModal')">Cancel</button>
         <button class="btn btn-primary" type="submit">Submit request</button>
@@ -464,7 +481,6 @@
       <label><span>Years experience</span><input type="number" id="ef_years" min="0" max="60" required></label>
       <label style="grid-column:1/-1"><span>Short bio / approach</span><textarea id="ef_bio" rows="3" required></textarea></label>
       <label style="grid-column:1/-1"><span>Upload CV / Certificates (PDF, JPG, PNG)</span><input class="file-input" id="ef_files" type="file" accept=".pdf,.jpg,.png" multiple></label>
-
       <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end">
         <button class="btn btn-ghost" type="button" onclick="closeModal('expertModal')">Cancel</button>
         <button class="btn btn-primary" type="submit">Apply to join</button>
@@ -507,8 +523,66 @@
 
 <script>
 /* ----------------------
-  Carousel, testimonials, modals, forms, animations
+  Carousel, testimonials, modals, forms, animations, language toggle
 -----------------------*/
+
+// Translation data
+const translations = {
+  en: {
+    site_title: "Unlimited Possibilities Africa",
+    hero_title: "We connect parents with vetted autism professionals",
+    hero_subtitle: "Quick, safe matches to therapists and clinicians who use evidence-informed approaches — plus community outreach and donor-funded support for low-income families.",
+    parent_button: "Apply as a Parent Here",
+    expert_button: "Apply as an Expert Here",
+    services_title: "Services Provided",
+    services_subtitle: "Clinicians on our platform offer a range of evidence-informed supports. Pick a service to learn more or request a match.",
+    parent_form_title: "Request Support — Parent Form",
+    parent_form_name: "Name",
+    parent_form_email: "Email",
+    parent_form_phone: "Phone",
+    parent_form_child_name: "Child's name",
+    parent_form_child_age: "Child's age",
+    parent_form_needs: "Primary needs",
+    parent_form_notes: "Additional info (goals, availability)",
+    parent_form_prior_intervention: "Any prior intervention administered?",
+    parent_form_intervention_details: "If yes, what type of intervention was administered? Describe:",
+    nav_about: "About",
+    nav_services: "Services",
+    nav_how: "How it works",
+    nav_clinicians: "Clinicians",
+    nav_community: "Community",
+    nav_testimonials: "Testimonials",
+    nav_donor: "Support",
+    nav_contact: "Contact"
+  },
+  sw: {
+    site_title: "Uwezekano Usio na Kikomo Afrika",
+    hero_title: "Tunawaunganisha wazazi na wataalamu wa otizimu waliothibitishwa",
+    hero_subtitle: "Uchukuzi wa haraka, salama kwa wataalamu wa tiba na waganga wanaotumia mbinu za msingi wa ushahidi — pamoja na upanuzi wa jamii na msaada wa wafadhili kwa familia za kipato cha chini.",
+    parent_button: "Omba kama Mzazi Hapa",
+    expert_button: "Omba kama Mtaalamu Hapa",
+    services_title: "Huduma Zilizotolewa",
+    services_subtitle: "Wataalamu kwenye jukwaa letu hutoa anuwai ya msaada wa msingi wa ushahidi. Chagua huduma ili kujifunza zaidi au kuomba mechi.",
+    parent_form_title: "Omba Msaada — Fomu ya Mzazi",
+    parent_form_name: "Jina",
+    parent_form_email: "Barua Pepe",
+    parent_form_phone: "Simu",
+    parent_form_child_name: "Jina la Mtoto",
+    parent_form_child_age: "Umri wa Mtoto",
+    parent_form_needs: "Mahitaji ya Msingi",
+    parent_form_notes: "Maelezo ya Ziada (malengo, upatikanaji)",
+    parent_form_prior_intervention: "Je, kuna uingiliaji wowote wa awali uliotolewa?",
+    parent_form_intervention_details: "Ikiwa ndiyo, ni aina gani ya uingiliaji uliotolewa? Elezea:",
+    nav_about: "Kuhusu",
+    nav_services: "Huduma",
+    nav_how: "Jinsi Inavyofanya Kazi",
+    nav_clinicians: "Wataalamu",
+    nav_community: "Jamii",
+    nav_testimonials: "Ushuhuda",
+    nav_donor: "Msaada",
+    nav_contact: "Wasiliana Nasi"
+  }
+};
 
 /* Hero carousel */
 let slideIndex = 0;
@@ -572,22 +646,89 @@ function closeModal(id){
 }
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ document.querySelectorAll('.modal-backdrop').forEach(m=>{ m.style.display='none'; m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; } });
 
+/* Language toggle */
+let currentLanguage = 'en';
+function toggleLanguage(lang) {
+  document.getElementById('htmlLang').setAttribute('lang', lang);
+  currentLanguage = lang;
+  const buttons = document.querySelectorAll('.language-toggle button');
+  buttons.forEach(btn => btn.classList.toggle('active', btn.onclick.toString().includes(`'${lang}'`)));
+
+  document.querySelector('.site-title').textContent = translations[lang].site_title;
+  document.querySelector('.hero-left h1').textContent = translations[lang].hero_title;
+  document.querySelector('.hero-left p').textContent = translations[lang].hero_subtitle;
+  document.querySelector('.hero-ctas button:nth-child(1)').childNodes[2].textContent = translations[lang].parent_button;
+  document.querySelector('.hero-ctas button:nth-child(2)').childNodes[2].textContent = translations[lang].expert_button;
+  document.querySelector('#servicesTitle').textContent = translations[lang].services_title;
+  document.querySelector('#services .muted').textContent = translations[lang].services_subtitle;
+  document.querySelector('#parentTitle').textContent = translations[lang].parent_form_title;
+  document.querySelector('#parentForm label:nth-child(1) span').textContent = translations[lang].parent_form_name;
+  document.querySelector('#parentForm label:nth-child(2) span').textContent = translations[lang].parent_form_email;
+  document.querySelector('#parentForm label:nth-child(3) span').textContent = translations[lang].parent_form_phone;
+  document.querySelector('#parentForm label:nth-child(4) span').textContent = translations[lang].parent_form_child_name;
+  document.querySelector('#parentForm label:nth-child(5) span').textContent = translations[lang].parent_form_child_age;
+  document.querySelector('#parentForm label:nth-child(6) span').textContent = translations[lang].parent_form_needs;
+  document.querySelector('#parentForm label:nth-child(7) span').textContent = translations[lang].parent_form_notes;
+  document.querySelector('.form-group label span').textContent = translations[lang].parent_form_prior_intervention;
+  document.querySelector('#interventionDetails label span').textContent = translations[lang].parent_form_intervention_details;
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks[0].textContent = translations[lang].nav_about;
+  navLinks[1].textContent = translations[lang].nav_services;
+  navLinks[2].textContent = translations[lang].nav_how;
+  navLinks[3].textContent = translations[lang].nav_clinicians;
+  navLinks[4].textContent = translations[lang].nav_community;
+  navLinks[5].textContent = translations[lang].nav_testimonials;
+  navLinks[6].textContent = translations[lang].nav_donor;
+  navLinks[7].textContent = translations[lang].nav_contact;
+}
+toggleLanguage('en');
+
 /* Forms (front-end only) */
 function submitParent(e){
   e.preventDefault();
-  // simulate submit
-  closeModal('parentModal'); openModal('thankModal');
+  const formData = {
+    name: document.getElementById('pf_name').value,
+    email: document.getElementById('pf_email').value,
+    phone: document.getElementById('pf_phone').value,
+    child_name: document.getElementById('pf_child_name').value,
+    child_age: document.getElementById('pf_child_age').value,
+    needs: document.getElementById('pf_needs').value,
+    notes: document.getElementById('pf_notes').value,
+    prior_intervention: document.querySelector('input[name="pf_prior_intervention"]:checked')?.value,
+    intervention_details: document.getElementById('pf_intervention_details')?.value || ''
+  };
+  console.log('Parent Form Data:', formData);
+  closeModal('parentModal');
+  openModal('thankModal');
   e.target.reset();
+  toggleInterventionDetails();
 }
 function submitExpert(e){
   e.preventDefault();
-  closeModal('expertModal'); openModal('thankModal');
+  closeModal('expertModal');
+  openModal('thankModal');
   e.target.reset();
 }
 function handleContact(e){
   e.preventDefault();
   openModal('thankModal');
   e.target.reset();
+}
+
+/* Toggle intervention details */
+function toggleInterventionDetails() {
+  const yesRadio = document.querySelector('input[name="pf_prior_intervention"][value="yes"]');
+  const detailsDiv = document.getElementById('interventionDetails');
+  if (detailsDiv && yesRadio) {
+    detailsDiv.style.display = yesRadio.checked ? 'block' : 'none';
+    const textarea = document.getElementById('pf_intervention_details');
+    if (yesRadio.checked) {
+      textarea.setAttribute('required', 'required');
+    } else {
+      textarea.removeAttribute('required');
+    }
+  }
 }
 
 /* Request match quick CTA */
