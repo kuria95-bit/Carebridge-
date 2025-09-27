@@ -3,308 +3,357 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unlimited Possibilities Africa (UPA)</title>
+  <title>Unlimited Possibilities Africa</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f8fdfd;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, #4facfe, #43e97b);
+      background: #0d9488;
       color: white;
-      padding: 50px 20px;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #0d9488, #2563eb);
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-buttons a {
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cta-parents { background: #2563eb; }
+    .cta-experts { background: #0d9488; }
+    .cta-donors { background: #f59e0b; }
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0d9488;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    form input, form textarea, form select {
+      padding: 0.8rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    form button {
+      background: #0d9488;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    form button:hover {
+      background: #2563eb;
+    }
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .expert-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
     }
-    header h1 { font-size: 2.5rem; margin-bottom: 15px; }
-    header p { font-size: 1.2rem; margin-bottom: 25px; }
-    .cta-buttons button {
-      padding: 12px 20px; margin: 8px; border: none; border-radius: 8px;
-      cursor: pointer; font-size: 1rem;
-    }
-    .cta-parent { background: #007bff; color: white; }
-    .cta-expert { background: #28a745; color: white; }
-    .cta-donor { background: #ff9800; color: white; }
-    section { padding: 50px 20px; max-width: 900px; margin: auto; }
-    h2 { color: #2c6975; margin-bottom: 20px; }
-    form {
-      display: grid; gap: 15px; background: #fff; padding: 20px;
-      border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    input, select, textarea, button {
-      padding: 12px; border: 1px solid #ccc; border-radius: 6px;
-      font-size: 1rem; width: 100%;
-    }
-    button[type="submit"] {
-      background: #2c6975; color: white; font-weight: bold;
-      cursor: pointer; position: relative; display: inline-flex;
-      align-items: center; justify-content: center;
-    }
-    button[disabled] { opacity: 0.6; cursor: not-allowed; }
-    .spinner {
-      border: 2px solid #fff; border-top: 2px solid transparent;
-      border-radius: 50%; width: 16px; height: 16px; margin-right: 8px;
-      animation: spin 0.8s linear infinite; display: none;
-    }
-    @keyframes spin { 0%{transform:rotate(0)}100%{transform:rotate(360deg)} }
-    .success-msg { display:none; color:green; font-weight:bold; }
-    .expert-card {
-      background: #f9f9f9; padding: 15px; border-radius: 10px;
-      margin-bottom: 15px; border: 1px solid #e0e0e0;
-    }
-    .expert-card h4 { margin: 0 0 5px; }
     .expert-card button {
-      background: #28a745; color: white; border: none;
-      padding: 8px 12px; border-radius: 6px; cursor: pointer;
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
     }
+    .expert-card button:hover {
+      background: #16a34a;
+    }
+    .more-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .testimonials {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    footer {
+      background: #0d9488;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* WhatsApp Floating Button */
     .whatsapp-float {
-      position: fixed; bottom: 20px; right: 20px; background: #25D366;
-      border-radius: 50%; padding: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 100;
     }
-    .whatsapp-float img { width: 35px; height: 35px; }
-    #successPopup {
-      display:none; position:fixed; top:30%; left:50%;
-      transform:translate(-50%,-30%); background:white; border:2px solid #2c6975;
-      border-radius:10px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.3);
-      z-index:9999; text-align:center;
-    }
-    #successPopup button {
-      margin-top: 15px; padding: 8px 15px; border: none;
-      border-radius: 6px; background: #2c6975; color: white; cursor: pointer;
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
     }
   </style>
   <script>
-    function goToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
+    // Prefill profession when expert request button clicked
     function requestExpert(profession) {
-      goToSection('parent');
-      document.getElementById('prefilledProfession').value = profession;
-    }
-    function showSuccess(event) {
-      event.preventDefault(); 
-      const form = event.target;
-      const button = form.querySelector("button[type='submit']");
-      const spinner = button.querySelector(".spinner");
-      const btnText = button.querySelector(".btn-text");
-      const successMsg = form.querySelector(".success-msg");
-
-      button.disabled = true;
-      spinner.style.display = "inline-block";
-      btnText.textContent = "Sending...";
-
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        button.disabled = false;
-        spinner.style.display = "none";
-        btnText.textContent = "Submit";
-        if (response.ok) {
-          successMsg.style.display = "block"; // show inline success
-          document.getElementById("successPopup").style.display = "block";
-          form.reset();
-        } else {
-          alert("Oops! Something went wrong. Please try again.");
-        }
-      }).catch(() => {
-        button.disabled = false;
-        spinner.style.display = "none";
-        btnText.textContent = "Submit";
-        alert("Network error. Please try again later.");
-      });
-    }
-    function closePopup() {
-      document.getElementById("successPopup").style.display = "none";
+      document.getElementById("parent-need").value = profession;
+      document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </head>
 <body>
 
-  <!-- Hero -->
   <header>
-    <h1>Unlimited Possibilities Africa (UPA)</h1>
-    <p>Connecting Families with Autism Experts. Empowering Children. Building Communities.</p>
-    <div class="cta-buttons">
-      <button class="cta-parent" onclick="goToSection('parent')">For Parents → Find an Expert</button>
-      <button class="cta-expert" onclick="goToSection('expert')">For Experts → Apply Now</button>
-      <button class="cta-donor" onclick="goToSection('donor')">For Donors → Support Our Mission</button>
-    </div>
+    <h1>Unlimited Possibilities Africa</h1>
+    <nav>
+      <a href="#parents">Parents</a>
+      <a href="#experts">Experts</a>
+      <a href="#donors">Donors</a>
+      <a href="#partners">Partnerships</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About UPA</h2>
-    <p>
-      Unlimited Possibilities Africa (UPA) is a Kenya-based platform bridging the gap between families of children with autism and qualified professionals. 
-      We connect parents to trusted experts, empower specialists with visibility, and ensure no family is left behind — starting in Kenya, with a vision for Africa.
-    </p>
+  <section class="hero">
+    <h2>Families First. Experts Vetted. Possibilities Unlimited.</h2>
+    <p>Starting in Kenya, growing across Africa — the trusted bridge between parents of children with autism and qualified professionals.</p>
+    <div class="cta-buttons">
+      <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
+      <a href="#experts" class="cta-experts">For Experts → Join Now</a>
+      <a href="#donors" class="cta-donors">For Donors → Support Families</a>
+    </div>
   </section>
 
-  <!-- Parents -->
-  <section id="parent">
-    <h2>For Parents</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" onsubmit="showSuccess(event)">
-      <input type="hidden" name="_autoresponse" value="Thank you for contacting Unlimited Possibilities Africa. We will connect you with the right expert shortly.">
-      <input type="text" name="parentName" placeholder="Your Full Name" required>
-      <input type="tel" name="parentPhone" placeholder="Phone Number" required>
-      <input type="email" name="parentEmail" placeholder="Email Address" required>
-      <input type="number" name="childAge" placeholder="Child's Age" required>
-      <select name="diagnosisStage" required>
-        <option value="">Diagnosis Stage</option>
-        <option>Early Signs</option>
-        <option>Diagnosed</option>
-        <option>Looking for Support</option>
+  <section id="about">
+    <h3>About Unlimited Possibilities Africa</h3>
+    <p>Unlimited Possibilities Africa (UPA) is a Kenya-based platform bridging the gap between families of children with autism and qualified professionals. We connect parents to trusted experts, empower specialists with visibility, and ensure no family is left behind — starting in Kenya, with a vision to expand across Africa.</p>
+  </section>
+
+  <section id="parents">
+    <h3>Parents: Find the Right Expert</h3>
+    <form>
+      <input type="text" placeholder="Your Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="number" placeholder="Child's Age" required>
+      <select>
+        <option>Diagnosis Stage</option>
+        <option>Early Stage</option>
+        <option>Mid Stage</option>
+        <option>Advanced</option>
       </select>
-      <select name="need" required>
-        <option value="">Type of Support Needed</option>
-        <option>Speech Therapy</option>
-        <option>Occupational Therapy</option>
-        <option>Behavioral Support</option>
-        <option>Special Education</option>
+      <select id="parent-need">
+        <option value="">Specific Needs</option>
+        <option>Speech Therapist</option>
+        <option>ABA Specialist</option>
+        <option>Occupational Therapist</option>
+        <option>Special Needs Teacher</option>
       </select>
-      <select name="location" required>
-        <option value="">Select Location</option>
+      <select>
+        <option>Location</option>
         <option>Nairobi - Kileleshwa</option>
         <option>Nairobi - Westlands</option>
         <option>Mombasa</option>
         <option>Kisumu</option>
         <option>Nakuru</option>
-        <option>Eldoret</option>
       </select>
-      <input type="text" id="prefilledProfession" name="requestedExpert" placeholder="Requested Expert (optional)">
-      <textarea name="notes" placeholder="Additional notes (optional)"></textarea>
-      <button type="submit">
-        <span class="spinner"></span>
-        <span class="btn-text">Submit</span>
-      </button>
-      <p class="success-msg">✔ Success! We received your submission.</p>
+      <select>
+        <option>Preferred Mode</option>
+        <option>In-person</option>
+        <option>Online</option>
+        <option>Hybrid</option>
+      </select>
+      <textarea placeholder="Additional Notes"></textarea>
+      <button type="submit">Submit Request</button>
     </form>
   </section>
 
-  <!-- Experts -->
-  <section id="expert">
-    <h2>For Experts</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data" onsubmit="showSuccess(event)">
-      <input type="hidden" name="_autoresponse" value="Thank you for applying to join Unlimited Possibilities Africa. We will review your credentials.">
-      <input type="text" name="expertName" placeholder="Full Name" required>
-      <input type="email" name="expertEmail" placeholder="Email Address" required>
-      <input type="tel" name="expertPhone" placeholder="Phone Number" required>
-      <input type="text" name="profession" placeholder="Profession" required>
-      <input type="number" name="experience" placeholder="Years of Experience" required>
-      <select name="specialization" required>
-        <option value="">Area of Specialization</option>
-        <option>Speech Therapy</option>
-        <option>Occupational Therapy</option>
-        <option>ABA Therapy</option>
-        <option>Special Education</option>
-      </select>
-      <select name="location" required>
-        <option value="">Select Location</option>
-        <option>Nairobi</option>
+  <section id="experts">
+    <h3>Experts: Join Our Network</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Profession" required>
+      <input type="number" placeholder="Years of Experience" required>
+      <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required>
+      <select>
+        <option>Location</option>
+        <option>Nairobi - Kileleshwa</option>
+        <option>Nairobi - Westlands</option>
         <option>Mombasa</option>
         <option>Kisumu</option>
         <option>Nakuru</option>
-        <option>Eldoret</option>
       </select>
-      <textarea name="bio" placeholder="Short Biography"></textarea>
-      <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
-      <button type="submit">
-        <span class="spinner"></span>
-        <span class="btn-text">Submit</span>
-      </button>
-      <p class="success-msg">✔ Success! We received your submission.</p>
-    </form>
-  </section>
-
-  <!-- Expert Mini Profiles -->
-  <section>
-    <h2>Meet Some of Our Experts</h2>
-    <div class="expert-card">
-      <h4>Jane Mwangi</h4>
-      <p>Speech Therapist | 8 years | Nairobi</p>
-      <button onclick="requestExpert('Speech Therapist')">Request</button>
-    </div>
-    <div class="expert-card">
-      <h4>Dr. Peter Otieno</h4>
-      <p>Occupational Therapist | 12 years | Kisumu</p>
-      <button onclick="requestExpert('Occupational Therapist')">Request</button>
-    </div>
-  </section>
-
-  <!-- Donors -->
-  <section id="donor">
-    <h2>For Donors</h2>
-    <p>Your support helps subsidize therapy for low-income families.</p>
-    <form action="https://formspree.io/f/your-form-id" method="POST" onsubmit="showSuccess(event)">
-      <input type="hidden" name="_autoresponse" value="Thank you for supporting families through Unlimited Possibilities Africa. Your contribution makes a real difference.">
-      <input type="text" name="donorName" placeholder="Full Name / Organization" required>
-      <input type="email" name="donorEmail" placeholder="Email Address" required>
-      <input type="tel" name="donorPhone" placeholder="Phone Number" required>
-      <select name="donationType" required>
-        <option value="">Select Donation Type</option>
-        <option>One-time Donation</option>
-        <option>Monthly Donation</option>
-        <option>Corporate Partnership</option>
+      <select>
+        <option>Service Availability</option>
+        <option>In-person</option>
+        <option>Online</option>
+        <option>Hybrid</option>
       </select>
-      <textarea name="donorMessage" placeholder="Message (optional)"></textarea>
-      <button type="submit">
-        <span class="spinner"></span>
-        <span class="btn-text">Submit</span>
-      </button>
-      <p class="success-msg">✔ Success! We received your submission.</p>
+      <input type="file" accept=".pdf,.doc,.docx" required>
+      <textarea placeholder="Short Biography"></textarea>
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <h3>Featured Experts</h3>
+    <div class="experts-grid">
+      <div class="expert-card">
+        <h4>Dr. Jane Mwangi</h4>
+        <p>Speech Therapist | 10 yrs experience | Nairobi</p>
+        <button onclick="requestExpert('Speech Therapist')">Request via UPA</button>
+      </div>
+      <div class="expert-card">
+        <h4>Mr. John Otieno</h4>
+        <p>ABA Specialist | 7 yrs experience | Kisumu</p>
+        <button onclick="requestExpert('ABA Specialist')">Request via UPA</button>
+      </div>
+      <div class="expert-card">
+        <h4>Ms. Amina Hassan</h4>
+        <p>Occupational Therapist | 8 yrs experience | Mombasa</p>
+        <button onclick="requestExpert('Occupational Therapist')">Request via UPA</button>
+      </div>
+    </div>
+    <button class="more-btn">More +</button>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h3>Stories of Impact</h3>
+    <div class="testimonial-card">
+      <p>“Through UPA, I found a speech therapist for my son within a week. The progress he has made in just three months is beyond what I imagined.”</p>
+      <strong>- Mary, Parent (Nairobi)</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>“Partnering with UPA allowed us to reach families in rural areas that we could never have accessed on our own.”</p>
+      <strong>- David, NGO Partner</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>“Donating to UPA gave me peace of mind knowing my support directly funds therapy sessions for children in need.”</p>
+      <strong>- Sarah, Donor</strong>
+    </div>
+  </section>
+
+  <section id="donors">
+    <h3>Donors: Support Families</h3>
+    <p>Your support helps us subsidize therapy and interventions for families in low-income communities who cannot afford the services their children need.</p>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <select>
+        <option>Donation Type</option>
+        <option>One-time</option>
+        <option>Monthly</option>
+      </select>
+      <textarea placeholder="Message (optional)"></textarea>
+      <button type="submit">Submit</button>
     </form>
   </section>
 
-  <!-- Partnerships -->
-  <section id="partner">
-    <h2>For Partnerships</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" onsubmit="showSuccess(event)">
-      <input type="hidden" name="_autoresponse" value="Thank you for your interest in partnering with Unlimited Possibilities Africa. We’ll reach out to explore opportunities.">
-      <input type="text" name="partnerName" placeholder="Full Name" required>
-      <input type="text" name="organization" placeholder="Organization" required>
-      <input type="email" name="partnerEmail" placeholder="Email Address" required>
-      <input type="tel" name="partnerPhone" placeholder="Phone Number" required>
-      <textarea name="partnerMessage" placeholder="How do you want to partner with us?"></textarea>
-      <button type="submit">
-        <span class="spinner"></span>
-        <span class="btn-text">Submit</span>
-      </button>
-      <p class="success-msg">✔ Success! We received your submission.</p>
+  <section id="partners">
+    <h3>Partnership Opportunities</h3>
+    <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care — ensuring every child, regardless of background, can access the right support.</p>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Organization" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Submit</button>
     </form>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" onsubmit="showSuccess(event)">
-      <input type="hidden" name="_autoresponse" value="Thank you for reaching out to Unlimited Possibilities Africa. We’ll respond shortly.">
-      <input type="text" name="contactName" placeholder="Your Full Name" required>
-      <input type="email" name="contactEmail" placeholder="Your Email Address" required>
-      <textarea name="contactMessage" placeholder="Your Message" required></textarea>
-      <button type="submit">
-        <span class="spinner"></span>
-        <span class="btn-text">Send</span>
-      </button>
-      <p class="success-msg">✔ Success! We received your submission.</p>
+    <h3>Contact Us</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
     </form>
-    <p>Call us at: <strong>+254 715 758 964</strong></p>
+    <p>Call us: +254715758964</p>
   </section>
 
-  <!-- Success Popup -->
-  <div id="successPopup">
-    <p>✅ Thank you! Your submission was received.</p>
-    <button onclick="closePopup()">Close</button>
-  </div>
+  <footer>
+    <p>&copy; 2025 Unlimited Possibilities Africa. All rights reserved.</p>
+  </footer>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa,%20I’d%20like%20to%20connect%20with%20an%20expert." 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa%2C%20I’d%20like%20to%20connect%20with%20an%20expert." 
      class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
 </body>
