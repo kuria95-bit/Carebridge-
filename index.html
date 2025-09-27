@@ -168,7 +168,6 @@
     }
   </style>
   <script>
-    // Prefill profession when expert request button clicked
     function requestExpert(profession) {
       document.getElementById("parent-need").value = profession;
       document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
@@ -206,25 +205,25 @@
 
   <section id="parents">
     <h3>Parents: Find the Right Expert</h3>
-    <form>
-      <input type="text" placeholder="Your Full Name" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="number" placeholder="Child's Age" required>
-      <select>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="number" name="child_age" placeholder="Child's Age" required>
+      <select name="diagnosis">
         <option>Diagnosis Stage</option>
         <option>Early Stage</option>
         <option>Mid Stage</option>
         <option>Advanced</option>
       </select>
-      <select id="parent-need">
+      <select id="parent-need" name="need">
         <option value="">Specific Needs</option>
         <option>Speech Therapist</option>
         <option>ABA Specialist</option>
         <option>Occupational Therapist</option>
         <option>Special Needs Teacher</option>
       </select>
-      <select>
+      <select name="location">
         <option>Location</option>
         <option>Nairobi - Kileleshwa</option>
         <option>Nairobi - Westlands</option>
@@ -232,25 +231,25 @@
         <option>Kisumu</option>
         <option>Nakuru</option>
       </select>
-      <select>
+      <select name="mode">
         <option>Preferred Mode</option>
         <option>In-person</option>
         <option>Online</option>
         <option>Hybrid</option>
       </select>
-      <textarea placeholder="Additional Notes"></textarea>
+      <textarea name="notes" placeholder="Additional Notes"></textarea>
       <button type="submit">Submit Request</button>
     </form>
   </section>
 
   <section id="experts">
     <h3>Experts: Join Our Network</h3>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Profession" required>
-      <input type="number" placeholder="Years of Experience" required>
-      <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required>
-      <select>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="profession" placeholder="Profession" required>
+      <input type="number" name="experience" placeholder="Years of Experience" required>
+      <input type="text" name="specialization" placeholder="Specialization (e.g., ABA, speech therapy)" required>
+      <select name="location">
         <option>Location</option>
         <option>Nairobi - Kileleshwa</option>
         <option>Nairobi - Westlands</option>
@@ -258,14 +257,14 @@
         <option>Kisumu</option>
         <option>Nakuru</option>
       </select>
-      <select>
+      <select name="availability">
         <option>Service Availability</option>
         <option>In-person</option>
         <option>Online</option>
         <option>Hybrid</option>
       </select>
-      <input type="file" accept=".pdf,.doc,.docx" required>
-      <textarea placeholder="Short Biography"></textarea>
+      <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
+      <textarea name="bio" placeholder="Short Biography"></textarea>
       <button type="submit">Submit Application</button>
     </form>
 
@@ -309,15 +308,15 @@
   <section id="donors">
     <h3>Donors: Support Families</h3>
     <p>Your support helps us subsidize therapy and interventions for families in low-income communities who cannot afford the services their children need.</p>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <select>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <select name="donation_type">
         <option>Donation Type</option>
         <option>One-time</option>
         <option>Monthly</option>
       </select>
-      <textarea placeholder="Message (optional)"></textarea>
+      <textarea name="message" placeholder="Message (optional)"></textarea>
       <button type="submit">Submit</button>
     </form>
   </section>
@@ -325,22 +324,22 @@
   <section id="partners">
     <h3>Partnership Opportunities</h3>
     <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care — ensuring every child, regardless of background, can access the right support.</p>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Organization" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="tel" placeholder="Phone Number">
-      <textarea placeholder="Message"></textarea>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="organization" placeholder="Organization" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
+      <textarea name="message" placeholder="Message"></textarea>
       <button type="submit">Submit</button>
     </form>
   </section>
 
   <section id="contact">
     <h3>Contact Us</h3>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <textarea placeholder="Your Message"></textarea>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" placeholder="Your Message"></textarea>
       <button type="submit">Send</button>
     </form>
     <p>Call us: +254715758964</p>
