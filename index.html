@@ -1,622 +1,309 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
-<meta name="description" content="We assist parents to connect with vetted autism specialists. Community outreach and donor partnerships expand access to care." />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-  :root{
-    --bg:#f6f8fb; --card:#ffffff; --muted:#6b7280;
-    --primary:#1658d6; --accent:#ff7e3d; --secondary:#6f42c1; --success:#198754;
-    --shadow: 0 18px 40px rgba(16,24,40,0.06);
-    --radius:14px; --maxW:1180px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#102028;-webkit-font-smoothing:antialiased;}
-  a{color:inherit}
-  img{max-width:100%;display:block}
-  .container{max-width:var(--maxW);margin:0 auto;padding:0 18px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
+  <meta name="description" content="Connect parents of children with autism to vetted professionals. Donations, resources, and community support." />  <style>
+    :root{
+      --bg:#f6fbff; --card:#ffffff; --primary:#0b5fa5; --accent:#2aa879; --muted:#6b7280; --maxw:1100px;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#0f1724}
+    header{background:linear-gradient(90deg, rgba(11,95,165,0.08), rgba(42,168,121,0.04)); padding:20px 16px}
+    .container{max-width:var(--maxw); margin:0 auto}
 
-  /* Header */
-  header{position:sticky;top:12px;z-index:1400;padding:12px 0}
-  .nav-wrap{background:rgba(255,255,255,0.98);backdrop-filter:blur(6px);border-radius:12px;box-shadow:var(--shadow)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand svg{height:44px;width:auto}
-  .site-title{font-size:1rem;font-weight:700;color:var(--primary)}
-  .nav-links{display:flex;gap:12px;align-items:center}
-  .nav-links a{font-weight:600;padding:8px 10px;border-radius:8px;color:#163047;text-decoration:none}
-  .nav-links a:hover{background:rgba(22,88,214,0.06)}
-  .menu-toggle{display:none;background:transparent;border:0;font-size:1.2rem}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer;border:none}
-  .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 8px 24px rgba(59,85,255,0.12)}
-  .btn-ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);padding:8px 14px;border-radius:10px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--primary);text-decoration:none;font-weight:600}
 
-  /* Hero carousel */
-  .hero{position:relative;height:78vh;min-height:420px;border-radius:14px;overflow:hidden;margin-top:18px}
-  .slides{position:absolute;inset:0;display:flex;transition:transform .9s cubic-bezier(.2,.9,.2,1)}
-  .slide{flex:0 0 100%;background-size:cover;background-position:center;position:relative}
-  .slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.40), rgba(2,6,23,0.55));}
-  .hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center}
-  .hero-grid{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:center;padding:36px;max-width:1200px;margin:0 auto;width:100%}
-  .hero-left h1{color:#fff;font-size:clamp(1.8rem,4.2vw,3rem);margin:0 0 12px;line-height:1.02}
-  .hero-left p{color:rgba(255,255,255,0.95);margin-bottom:18px;font-size:1rem}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-card{background:rgba(255,255,255,0.06);padding:18px;border-radius:12px;color:#fff}
+    .hero{display:flex;gap:24px;align-items:center;padding:28px 0}
+    .hero-left{flex:1}
+    .hero-right{flex:1;display:flex;justify-content:center}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(10,20,40,0.06)}
 
-  /* Stats */
-  .stats{display:flex;gap:14px;justify-content:center;margin:26px 0;flex-wrap:wrap}
-  .stat{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);min-width:140px;text-align:center}
-  .stat .num{font-size:1.4rem;color:var(--success);font-weight:800}
-  .stat p{color:var(--muted);margin-top:6px}
+    h1{font-size:1.6rem;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 12px}
+    .cta-row{display:flex;gap:12px;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-ghost{background:transparent;color:var(--primary);border:1px solid rgba(11,95,165,0.12)}
 
-  /* Section base */
-  section{padding:48px 0}
-  .section-title{text-align:center;margin-bottom:18px}
-  h2{margin:0 0 6px;color:var(--primary)}
-  .muted{color:var(--muted)}
+    /* sections */
+    section{padding:22px 0}
+    .grid{display:grid;gap:14px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:1fr 1fr}
 
-  /* Services */
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .service{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;transition:transform .16s}
-  .service:hover{transform:translateY(-6px)}
-  .thumb{height:140px;width:100%;border-radius:10px;object-fit:cover}
-  .service h3{margin:0}
-  .service p{color:var(--muted);font-size:.98rem}
+    /* forms */
+    label{display:block;font-size:0.84rem;color:var(--muted);margin-bottom:6px}
+    input[type=text],input[type=email],select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef7;background:#fbfdff}
+    textarea{min-height:110px}
+    .small{font-size:0.85rem;color:var(--muted)}
 
-  .more-services{display:none}
+    footer{padding:20px 0;color:var(--muted);font-size:0.9rem}
 
-  /* How it works */
-  .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;align-items:start}
-  .step{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:center;transition:transform .16s}
-  .step:hover{transform:translateY(-6px)}
-  .step .icon{width:64px;height:64px;border-radius:12px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-  .icon-1{background:linear-gradient(135deg,var(--primary),var(--secondary))}
-  .icon-2{background:linear-gradient(135deg,var(--secondary),var(--accent))}
-  .icon-3{background:linear-gradient(135deg,var(--accent),var(--primary))}
-
-  /* Profiles */
-  .profiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-  .profile{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);text-align:center}
-  .profile img{width:92px;height:92px;border-radius:12px;object-fit:cover;margin:0 auto 10px}
-  .meta{color:var(--muted);font-size:.95rem}
-
-  /* Testimonials */
-  .testimonials{max-width:980px;margin:0 auto}
-  .test-track{display:flex;transition:transform .5s ease}
-  .testimonial{min-width:100%;padding:16px;background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;box-shadow:var(--shadow);margin:8px}
-  .testimonial p{font-style:italic}
-  .dots{text-align:center;margin-top:10px}
-  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#d6d9de;margin:0 6px;cursor:pointer}
-  .dot.active{background:var(--primary)}
-
-  /* Modals */
-  .modal-backdrop{position:fixed;inset:0;background:rgba(8,12,20,0.45);display:none;align-items:center;justify-content:center;z-index:1700;padding:18px}
-  .modal{background:var(--card);width:100%;max-width:760px;border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.35);position:relative;transform:translateY(20px);opacity:0;transition:all .25s ease}
-  .modal.open{transform:translateY(0);opacity:1}
-  .close-btn{position:absolute;right:12px;top:12px;background:transparent;border:0;font-size:1.2rem;cursor:pointer;color:var(--muted)}
-  .form-grid{display:grid;gap:12px}
-  input[type="text"],input[type="email"],input[type="tel"],input[type="number"],textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ee}
-  label{font-weight:600;font-size:.95rem;color:#26323a}
-  .file-input{padding:10px;border-radius:8px;border:1px dashed #dfe6f5;background:#fbfcff}
-
-  /* WhatsApp */
-  .whatsapp{position:fixed;right:14px;bottom:14px;z-index:1800}
-  .whatsapp a{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 14px;border-radius:999px;box-shadow:0 8px 28px rgba(37,211,102,0.14);text-decoration:none;font-weight:700}
-
-  /* Footer */
-  footer{padding:28px 0;text-align:center;color:#fff;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:10px;margin:26px 18px}
-
-  /* Animations on scroll */
-  .fade-in{opacity:0;transform:translateY(12px);transition:all .6s ease}
-  .fade-in.visible{opacity:1;transform:none}
-
-  /* Responsive */
-  @media(max-width:980px){
-    .hero-grid{grid-template-columns:1fr;padding:24px}
-    .nav-links{display:none;position:absolute;right:16px;top:76px;background:var(--card);padding:12px;border-radius:10px;box-shadow:var(--shadow);flex-direction:column}
-    .menu-toggle{display:inline-block}
-  }
-  @media(max-width:640px){
-    .hero{height:66vh}
-    .slides{transition:none}
-  }
-</style>
-</head>
+    /* responsive */
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .top{flex-direction:column;align-items:flex-start}
+      .hero{flex-direction:column}
+    }
+  </style></head>
 <body>
+  <header>
+    <div class="container top">
+      <div class="brand">
+        <div class="logo">UP</div>
+        <div>
+          <div style="font-weight:800">Unlimited Possibilities Africa</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Connect to vetted autism professionals</div>
+        </div>
+      </div><nav>
+    <a href="#parents">Parents</a>
+    <a href="#experts">Experts</a>
+    <a href="#donors">Donors</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
 
-<!-- NAV -->
-<header>
-  <div class="container nav-wrap" role="banner">
-    <div class="nav">
-      <div class="brand" aria-hidden="false">
-        <!-- SVG logo placeholder — replace with PNG if you prefer:
-             <img src="assets/logo.png" alt="Unlimited Possibilities Africa"> -->
-        <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" focusable="false">
-          <g transform="translate(6,4)">
-            <rect x="0" y="0" width="40" height="40" rx="8" fill="#1558d6" />
-            <path d="M9 27 C13 22, 23 22, 27 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="18" cy="12" r="4" fill="#fff"/>
-          </g>
-          <g transform="translate(58,28)">
-            <text x="0" y="-6" font-family="Poppins, sans-serif" font-weight="700" font-size="16" fill="#102028">Unlimited</text>
-            <text x="0" y="12" font-family="Poppins, sans-serif" font-weight="700" font-size="16" fill="#ff7e3d">Possibilities</text>
-            <text x="130" y="12" font-family="Poppins, sans-serif" font-weight="600" font-size="12" fill="#6f42c1">Africa</text>
-          </g>
-        </svg>
-        <div class="site-title">Unlimited Possibilities Africa</div>
+  </header>  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="card">
+          <h1>Simple matching. Trusted professionals. Better outcomes.</h1>
+          <p class="lead">We help parents of children with autism find vetted therapists, special educators, behavioural therapists, and other professionals — fast. Multilingual support (English & Kiswahili) and options for subsidised care through donor partnerships.</p><div class="cta-row">
+        <button class="btn btn-primary" onclick="document.getElementById('parent-signup').scrollIntoView({behavior:'smooth'})">Find an Expert</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('expert-apply').scrollIntoView({behavior:'smooth'})">Apply as Expert</button>
       </div>
 
-      <nav aria-label="Primary navigation">
-        <button class="menu-toggle" aria-expanded="false" onclick="toggleNav()">☰</button>
-        <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#how">How it works</a>
-          <a href="#clinicians">Clinicians</a>
-          <a href="#community">Community</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#donor">Support</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+      <div style="margin-top:12px;font-size:0.9rem;color:var(--muted)">Free to browse. Secure messaging. Verified credentials.</div>
     </div>
   </div>
-</header>
 
-<main class="container" style="padding-top:18px">
-
-  <!-- HERO -->
-  <section class="hero" aria-label="Welcome hero">
-    <div class="slides" id="slides">
-      <div class="slide" style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.nWNLDEVdiPIxZP6HZ3lq-QHaHa?pid=Api');"></div>
-      <div class="slide" style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.N7XqXe6G4B8toHivWn_QjwHaE8?pid=Api');"></div>
-      <div class="slide" style="background-image:url('https://tse2.mm.bing.net/th/id/OIP.TKPsjZzTTgZJ8GeW0CDniAHaE8?pid=Api');"></div>
+  <div class="hero-right">
+    <div class="card" style="width:340px; text-align:center">
+      <!-- IMAGE PLACEHOLDER: Replace src with a chosen autism-related image. -->
+      <img id="heroImg" src="https://source.unsplash.com/collection/9649399/600x400" alt="Parents and child illustration" style="width:100%;border-radius:10px;object-fit:cover;max-height:240px"/>
+      <div style="margin-top:10px;font-weight:700">Welcome parents — you're not alone.</div>
+      <div class="small">Find nearby experts, book sessions, and access support.</div>
     </div>
+  </div>
+</section>
 
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div class="hero-left">
-          <h1>We connect parents with vetted autism professionals</h1>
-          <p>Quick, safe matches to therapists and clinicians who use evidence-informed approaches — plus community outreach and donor-funded support for low-income families.</p>
+<!-- How it works -->
+<section>
+  <div class="card">
+    <h2 style="margin-top:0">How it works</h2>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div>
+        <h3 style="margin:0 0 6px">1. Quick sign-up</h3>
+        <p class="small">Parents create a short profile describing needs. Experts submit credentials and availability.</p>
+      </div>
+      <div>
+        <h3 style="margin:0 0 6px">2. Smart matching</h3>
+        <p class="small">Match by expertise, location, language, availability and family preferences. Option to request subsidised care.</p>
+      </div>
+      <div>
+        <h3 style="margin:0 0 6px">3. Connect & get help</h3>
+        <p class="small">Secure messaging, video sessions, session notes & follow-ups. Donors may sponsor families directly through the platform.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="hero-ctas">
-            <button class="btn btn-primary" onclick="openModal('parentModal')"><i class="fa-solid fa-user"></i> For Parents</button>
-            <button class="btn btn-ghost" onclick="openModal('expertModal')"><i class="fa-solid fa-user-doctor"></i> For Experts</button>
-            <button class="btn" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">View Services</button>
-          </div>
+<!-- Parent signup / matching form -->
+<section id="parents">
+  <div class="card" id="parent-signup">
+    <h2 style="margin-top:0">For Parents</h2>
+    <p class="small">Tell us a bit about your child and what kind of help you're looking for. We'll suggest the best matches.</p>
+
+    <form onsubmit="event.preventDefault();matchParent()">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>
+          <label>Parent / Guardian name</label>
+          <input type="text" id="p_name" placeholder="Jane Mwangi" required />
         </div>
-
-        <aside class="hero-card" aria-hidden="true">
-          <h4 style="margin:0 0 8px;color:#fff">Trusted Matches • Community Support</h4>
-          <p style="margin:0;color:rgba(255,255,255,0.92)">Clinicians are verified through credentials, references and ongoing reviews to ensure safe, effective support.</p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section aria-label="Impact">
-    <div class="stats fade-in">
-      <div class="stat"><div class="num">10,000+</div><p class="muted">Families Helped</p></div>
-      <div class="stat"><div class="num">5,000+</div><p class="muted">Vetted Professionals</p></div>
-      <div class="stat"><div class="num">95%</div><p class="muted">Parent Satisfaction</p></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" aria-labelledby="aboutTitle" class="fade-in">
-    <div class="section-title">
-      <h2 id="aboutTitle">About Our Platform</h2>
-      <p class="muted">We assist parents to find and connect with carefully vetted professionals — therapists and clinicians who provide speech, behavioral, occupational and psychosocial supports for children with autism.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px">
-      <div class="service" style="background:#fff">
-        <h3>Professional Matching</h3>
-        <p class="muted">Algorithm + clinician review ensures you get matches who fit your child's goals, culture and schedule.</p>
-      </div>
-      <div class="service" style="background:#fff">
-        <h3>Community & Donor Support</h3>
-        <p class="muted">We run workshops and partner with donors to subsidize care for low-income families.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" aria-labelledby="servicesTitle" class="fade-in">
-    <div class="section-title">
-      <h2 id="servicesTitle">Services Provided</h2>
-      <p class="muted">Clinicians on our platform offer a range of evidence-informed supports. Pick a service to learn more or request a match.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service">
-        <img class="thumb" src="https://tse2.mm.bing.net/th/id/OIP.nlj2DUMFjf9eM9Ujph8HcAHaFA?pid=Api" alt="Speech therapy">
-        <h3>Speech & Language Therapy</h3>
-        <p class="muted">Engaging, play-based sessions to improve communication and social interaction.</p>
-      </div>
-
-      <div class="service">
-        <img class="thumb" src="https://tse3.mm.bing.net/th/id/OIP.N7XqXe6G4B8toHivWn_QjwHaE8?pid=Api" alt="Group social skills">
-        <h3>Group Social Skills</h3>
-        <p class="muted">Small-group practice for peers to build interaction and play skills.</p>
-      </div>
-
-      <div class="service">
-        <img class="thumb" src="https://tse3.mm.bing.net/th/id/OIP.nWNLDEVdiPIxZP6HZ3lq-QHaHa?pid=Api" alt="Occupational therapy">
-        <h3>Occupational & Daily Skills</h3>
-        <p class="muted">Practical therapy for independence in dressing, eating and classroom routines.</p>
-      </div>
-    </div>
-
-    <div id="moreServices" class="more-services" aria-hidden="true">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
-        <div class="service">
-          <img class="thumb" src="https://tse3.mm.bing.net/th/id/OIP.N7XqXe6G4B8toHivWn_QjwHaE8?pid=Api" alt="parent coaching">
-          <h3>Parent Coaching</h3>
-          <p class="muted">Short, practical coaching sessions for caregivers with home-based strategies.</p>
-        </div>
-        <div class="service">
-          <img class="thumb" src="https://tse2.mm.bing.net/th/id/OIP.TKPsjZzTTgZJ8GeW0CDniAHaE8?pid=Api" alt="teletherapy">
-          <h3>Teletherapy</h3>
-          <p class="muted">Remote sessions for families in remote or underserved areas.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:14px">
-      <button class="btn btn-primary" onclick="toggleMoreServices()">+ More services</button>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" aria-labelledby="howTitle" class="fade-in">
-    <div class="section-title">
-      <h2 id="howTitle">How it Works — For Parents</h2>
-      <p class="muted">A clear, compassionate process — three simple steps from application to support.</p>
-    </div>
-
-    <div class="how-grid" style="margin-top:12px">
-      <div class="step">
-        <div class="icon icon-1"><i class="fa-solid fa-file-lines" style="font-size:20px"></i></div>
-        <h3>1 — Apply</h3>
-        <p class="muted">Fill a short form about your child's age, needs and goals.</p>
-      </div>
-
-      <div class="step">
-        <div class="icon icon-2"><i class="fa-solid fa-handshake-angle" style="font-size:20px"></i></div>
-        <h3>2 — Get Matched</h3>
-        <p class="muted">We match you with vetted clinicians who fit your child's profile.</p>
-      </div>
-
-      <div class="step">
-        <div class="icon icon-3"><i class="fa-solid fa-chart-line" style="font-size:20px"></i></div>
-        <h3>3 — Start & Track</h3>
-        <p class="muted">Begin sessions, receive caregiver coaching and track progress.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLINICIANS -->
-  <section id="clinicians" class="fade-in">
-    <div class="section-title"><h2>Sample Vetted Professionals</h2><p class="muted">Representative clinicians families can be matched to.</p></div>
-
-    <div class="profiles" style="margin-top:12px">
-      <article class="profile">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.TKPsjZzTTgZJ8GeW0CDniAHaE8?pid=Api" alt="Dr James Otieno">
-        <h3>Dr. James Otieno</h3>
-        <div class="meta">Age 42 • Autism Specialist • 15 years</div>
-        <div style="margin-top:10px"><button class="btn btn-primary" onclick="requestMatch('Dr. James Otieno')">Request similar specialist</button></div>
-      </article>
-
-      <article class="profile">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.nlj2DUMFjf9eM9Ujph8HcAHaFA?pid=Api" alt="Dr Daniel Mwangi">
-        <h3>Dr. Daniel Mwangi</h3>
-        <div class="meta">Age 38 • Speech & Language Therapist • 10 years</div>
-        <div style="margin-top:10px"><button class="btn btn-primary" onclick="requestMatch('Dr. Daniel Mwangi')">Request similar specialist</button></div>
-      </article>
-
-      <article class="profile">
-        <img src="https://tse3.mm.bing.net/th/id/OIP.nWNLDEVdiPIxZP6HZ3lq-QHaHa?pid=Api" alt="Dr Sarah Njeri">
-        <h3>Dr. Sarah Njeri</h3>
-        <div class="meta">Age 35 • Child Psychologist • 12 years</div>
-        <div style="margin-top:10px"><button class="btn btn-primary" onclick="requestMatch('Dr. Sarah Njeri')">Request similar specialist</button></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- COMMUNITY -->
-  <section id="community" class="fade-in">
-    <div class="section-title"><h2>Community Impact</h2><p class="muted">Workshops, outreach, and donor-funded therapy for underserved families.</p></div>
-
-    <div class="services-grid" style="margin-top:12px">
-      <div class="service">
-        <img class="thumb" src="https://tse3.mm.bing.net/th/id/OIP.N7XqXe6G4B8toHivWn_QjwHaE8?pid=Api" alt="Workshop">
-        <h3>Family Workshops</h3>
-        <p class="muted">Practical caregiver training to support children's development.</p>
-      </div>
-
-      <div class="service">
-        <img class="thumb" src="https://tse2.mm.bing.net/th/id/OIP.nlj2DUMFjf9eM9Ujph8HcAHaFA?pid=Api" alt="Outreach">
-        <h3>Local Outreach</h3>
-        <p class="muted">Therapy in community centers and schools.</p>
-      </div>
-
-      <div class="service">
-        <img class="thumb" src="https://tse2.mm.bing.net/th/id/OIP.TKPsjZzTTgZJ8GeW0CDniAHaE8?pid=Api" alt="Donor partnerships">
-        <h3>Donor Partnerships</h3>
-        <p class="muted">Sponsoring therapy seats and events for families in need.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="fade-in">
-    <div class="section-title"><h2>What Parents Say</h2><p class="muted">Short stories from families we've helped.</p></div>
-
-    <div class="testimonials" style="margin-top:12px">
-      <div class="test-track" id="testTrack">
-        <div class="testimonial">
-          <p>"Thanks to Unlimited Possibilities Africa, we found a speech therapist who transformed our son's confidence. We feel supported every step."</p>
-          <strong>- Mary A.</strong>
-        </div>
-        <div class="testimonial">
-          <p>"As a single parent, I couldn’t afford therapy until donors stepped in via this platform. My daughter is now thriving."</p>
-          <strong>- Joseph K.</strong>
-        </div>
-        <div class="testimonial">
-          <p>"The matching process was simple and the clinician was excellent — clear goals and friendly coaching for our family."</p>
-          <strong>- Amina W.</strong>
+        <div>
+          <label>Email</label>
+          <input type="email" id="p_email" placeholder="name@example.com" required />
         </div>
       </div>
 
-      <div class="dots" id="testDots" style="margin-top:12px;text-align:center"></div>
-    </div>
-  </section>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+        <div>
+          <label>Child's age</label>
+          <input type="text" id="child_age" placeholder="4" />
+        </div>
+        <div>
+          <label>Preferred language</label>
+          <select id="pref_lang"><option>English</option><option>Kiswahili</option></select>
+        </div>
+      </div>
 
-  <!-- DONOR -->
-  <section id="donor" class="fade-in">
-    <div class="section-title"><h2>Support Our Mission</h2><p class="muted">Your gift helps families who cannot afford therapy.</p></div>
-    <div style="text-align:center"><button class="btn btn-primary" onclick="openModal('donorModal')">Learn how your support helps</button></div>
-  </section>
+      <div style="margin-top:10px">
+        <label>What help do you need?</label>
+        <select id="need_type"><option>Assessment</option><option>Behaviour therapy</option><option>Speech therapy</option><option>Special education</option><option>Support group</option></select>
+      </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="fade-in">
-    <div class="section-title"><h2>Contact Us</h2><p class="muted">Questions, partnerships, or press — we'd love to hear from you.</p></div>
-    <form style="max-width:760px;margin:0 auto;display:grid;gap:12px" onsubmit="handleContact(event)">
-      <label><span style="font-weight:600">Name</span><input type="text" id="contact_name" required></label>
-      <label><span style="font-weight:600">Email</span><input type="email" id="contact_email" required></label>
-      <label><span style="font-weight:600">Message</span><textarea id="contact_message" rows="4" required></textarea></label>
-      <div style="display:flex;gap:12px;align-items:center">
-        <button class="btn btn-primary" type="submit">Send message</button>
-        <div class="muted">Or message us on WhatsApp</div>
+      <div style="margin-top:10px">
+        <label>Brief description</label>
+        <textarea id="desc" placeholder="Any important notes (sensory triggers, diagnoses, accessibility)" ></textarea>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+        <button class="btn btn-primary" type="submit">Find Matches</button>
+        <div class="small">Or <a href="#contact">contact us</a> for urgent help.</div>
       </div>
     </form>
-  </section>
 
-</main>
-
-<footer>
-  <div class="container">
-    <p style="margin:0 0 8px"><strong>Unlimited Possibilities Africa</strong> — Helping families one step at a time.</p>
-    <div style="margin-bottom:6px">
-      <a href="#" style="color:#fff;margin-right:8px"><i class="fab fa-facebook"></i></a>
-      <a href="#" style="color:#fff;margin-right:8px"><i class="fab fa-twitter"></i></a>
-      <a href="#" style="color:#fff"><i class="fab fa-instagram"></i></a>
-    </div>
-    <small style="opacity:.95">&copy; 2025 Unlimited Possibilities Africa</small>
+    <div id="matchResults" style="margin-top:14px"></div>
   </div>
-</footer>
+</section>
 
-<!-- Modals -->
-<div id="parentModal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="parentTitle">
-    <button class="close-btn" onclick="closeModal('parentModal')" aria-label="Close">&times;</button>
-    <h3 id="parentTitle">Request Support — Parent Form</h3>
-    <form class="form-grid" id="parentForm" onsubmit="submitParent(event)">
-      <label><span>Name</span><input type="text" id="pf_name" required></label>
-      <label><span>Email</span><input type="email" id="pf_email" required></label>
-      <label><span>Phone</span><input type="tel" id="pf_phone" required></label>
-      <label><span>Child's name</span><input type="text" id="pf_child_name" required></label>
-      <label><span>Child's age</span><input type="number" id="pf_child_age" min="0" max="30" required></label>
-      <label><span>Primary needs</span>
-        <select id="pf_needs" required>
-          <option value="">Select</option>
-          <option>Speech & Language</option>
-          <option>Behavioral Support (ABA)</option>
-          <option>Occupational / Daily Skills</option>
-          <option>Social Skills Groups</option>
-          <option>Assessment</option>
-        </select>
-      </label>
-      <label style="grid-column:1/-1"><span>Additional info (goals, availability)</span><textarea id="pf_notes" rows="3"></textarea></label>
+<!-- Experts apply -->
+<section id="experts">
+  <div class="card" id="expert-apply">
+    <h2 style="margin-top:0">For Experts & Professionals</h2>
+    <p class="small">Join our vetted network so families can find and book your services. We prioritise verified credentials and experience.</p>
 
-      <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end">
-        <button class="btn btn-ghost" type="button" onclick="closeModal('parentModal')">Cancel</button>
-        <button class="btn btn-primary" type="submit">Submit request</button>
+    <form onsubmit="event.preventDefault();applyExpert()">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>
+          <label>Full name</label>
+          <input type="text" id="e_name" placeholder="Dr. John Otieno" required />
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" id="e_email" placeholder="you@clinic.org" required />
+        </div>
+      </div>
+
+      <div style="margin-top:10px">
+        <label>Profession / Role</label>
+        <input type="text" id="e_role" placeholder="Speech therapist, Occupational therapist, Special educator" />
+      </div>
+
+      <div style="margin-top:10px">
+        <label>Brief bio & qualifications</label>
+        <textarea id="e_bio" placeholder="Degrees, certifications, years of experience"></textarea>
+      </div>
+
+      <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+        <button class="btn btn-primary" type="submit">Apply to Join</button>
+        <div class="small">We will review and verify submitted documents before publishing your profile.</div>
       </div>
     </form>
+
+    <div id="applyResult" style="margin-top:12px"></div>
   </div>
-</div>
+</section>
 
-<div id="expertModal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="expertTitle">
-    <button class="close-btn" onclick="closeModal('expertModal')" aria-label="Close">&times;</button>
-    <h3 id="expertTitle">Expert Application — Join our network</h3>
-    <form class="form-grid" id="expertForm" onsubmit="submitExpert(event)" enctype="multipart/form-data">
-      <label><span>Full name</span><input type="text" id="ef_name" required></label>
-      <label><span>Email</span><input type="email" id="ef_email" required></label>
-      <label><span>Phone</span><input type="tel" id="ef_phone" required></label>
-      <label><span>Primary expertise</span>
-        <select id="ef_expertise" required>
-          <option value="">Select</option>
-          <option>Speech & Language</option>
-          <option>Behavior Specialist (ABA)</option>
-          <option>Occupational Therapist</option>
-          <option>Child Psychologist</option>
-        </select>
-      </label>
-      <label><span>Years experience</span><input type="number" id="ef_years" min="0" max="60" required></label>
-      <label style="grid-column:1/-1"><span>Short bio / approach</span><textarea id="ef_bio" rows="3" required></textarea></label>
-      <label style="grid-column:1/-1"><span>Upload CV / Certificates (PDF, JPG, PNG)</span><input class="file-input" id="ef_files" type="file" accept=".pdf,.jpg,.png" multiple></label>
+<!-- Donors -->
+<section id="donors">
+  <div class="card">
+    <h2 style="margin-top:0">Donors & Partners</h2>
+    <p class="small">Support families who cannot afford services. Donations go directly to verified subsidies and transparent projects.</p>
 
-      <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end">
-        <button class="btn btn-ghost" type="button" onclick="closeModal('expertModal')">Cancel</button>
-        <button class="btn btn-primary" type="submit">Apply to join</button>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div>
+        <h3 style="margin:0 0 6px">Sponsor a family</h3>
+        <p class="small">Choose a one-time or recurring sponsorship. See impact reports and stories from families helped.</p>
+        <button class="btn btn-primary" onclick="alert('Demo: Payment flow not implemented in starter HTML')">Donate now</button>
       </div>
+      <div>
+        <h3 style="margin:0 0 6px">Corporate partnerships</h3>
+        <p class="small">Partner with us for outreach, training, and subsidised sessions. We provide CSR reporting and recognition.</p>
+        <button class="btn btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Partner with us</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resources & testimonials -->
+<section id="resources">
+  <div class="card">
+    <h2 style="margin-top:0">Resources & Community</h2>
+    <p class="small">Articles, guides, and events to support families and professionals. We welcome community contributions.</p>
+
+    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:220px">
+        <img src="https://source.unsplash.com/collection/9649399/400x260" alt="resource" style="width:100%;border-radius:10px;object-fit:cover;max-height:160px" />
+        <div style="font-weight:700;margin-top:8px">Understanding sensory needs</div>
+        <div class="small">A short guide for parents to reduce overwhelm during therapy sessions.</div>
+      </div>
+
+      <div style="flex:1;min-width:220px">
+        <img src="https://source.unsplash.com/collection/9649399/401x260" alt="resource" style="width:100%;border-radius:10px;object-fit:cover;max-height:160px" />
+        <div style="font-weight:700;margin-top:8px">Choosing the right therapist</div>
+        <div class="small">Questions to ask during your first consultation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact / footer -->
+<section id="contact">
+  <div class="card">
+    <h2 style="margin-top:0">Contact & Support</h2>
+    <p class="small">Questions? Need urgent support? Reach out and we'll connect you to local resources.</p>
+
+    <form onsubmit="event.preventDefault();contactUs()" style="display:grid;gap:10px;max-width:640px">
+      <input type="text" id="c_name" placeholder="Your name" />
+      <input type="email" id="c_email" placeholder="Email" />
+      <textarea id="c_msg" placeholder="How can we help?"></textarea>
+      <div style="display:flex;gap:10px"><button class="btn btn-primary" type="submit">Send message</button><div class="small">Or call our support line: +254 700 000 000 (demo)</div></div>
     </form>
   </div>
-</div>
+</section>
 
-<div id="donorModal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="donorTitle">
-    <button class="close-btn" onclick="closeModal('donorModal')" aria-label="Close">&times;</button>
-    <h3 id="donorTitle">How your support helps</h3>
-    <p class="muted">Donations fund subsidised therapy, workshops and clinician training. We provide clear reporting to donors about outcomes.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-      <div class="service"><h4>Direct family support</h4><p class="muted">Subsidies for therapy sessions and materials.</p></div>
-      <div class="service"><h4>Community programs</h4><p class="muted">Workshops and outreach in low-income areas.</p></div>
+  </main>  <footer>
+    <div class="container card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div>
+        <strong>Unlimited Possibilities Africa</strong>
+        <div class="small">Connecting families to trusted autism professionals.</div>
+      </div>
+      <div class="small">© <span id="year"></span> All rights reserved</div>
     </div>
-    <div style="text-align:right;margin-top:12px">
-      <button class="btn btn-ghost" onclick="closeModal('donorModal')">Close</button>
-      <button class="btn btn-primary" onclick="scrollToSection('#contact');closeModal('donorModal')">Get involved</button>
-    </div>
-  </div>
-</div>
+  </footer>  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
 
-<div id="thankModal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true">
-    <button class="close-btn" onclick="closeModal('thankModal')" aria-label="Close">&times;</button>
-    <h3>Thank you</h3>
-    <p>Your submission was received. Our team will contact you shortly to help with matching or to follow up.</p>
-    <div style="text-align:right"><button class="btn btn-primary" onclick="closeModal('thankModal')">Close</button></div>
-  </div>
-</div>
+    // Simple demo matching — replace with backend API calls.
+    function matchParent(){
+      const name = document.getElementById('p_name').value || 'Parent';
+      const need = document.getElementById('need_type').value;
+      const html = '<div style="padding:12px;border-radius:10px;background:#f0f8ff;border:1px solid rgba(11,95,165,0.06)"><strong>Matches for '+name+':</strong><ul><li>Dr. Amina — Behavioural therapist (3.2km) — Available Mon/Wed</li><li>Mr. Kamau — Speech therapist (online) — New parents special</li></ul><div style="margin-top:8px"><button class="btn btn-primary" onclick="alert(\'Demo: booking flow\')">Request session</button></div></div>';
+      document.getElementById('matchResults').innerHTML = html;
+      // Smoothly scroll to results
+      document.getElementById('matchResults').scrollIntoView({behavior:'smooth'});
+    }
 
-<!-- WhatsApp -->
-<div class="whatsapp" aria-hidden="false">
-  <a href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa!%20I%20need%20help%20finding%20autism%20support%20for%20my%20child." target="_blank" rel="noopener">
-    <i class="fa-brands fa-whatsapp" style="font-size:18px"></i><span style="display:none">WhatsApp</span>
-  </a>
-</div>
+    function applyExpert(){
+      const name = document.getElementById('e_name').value || 'Applicant';
+      document.getElementById('applyResult').innerHTML = '<div style="padding:10px;border-radius:8px;background:#effff6;border:1px solid rgba(42,168,121,0.08)">Thank you, '+name+'. Your application has been received for review.</div>';
+    }
 
-<script>
-/* ----------------------
-  Carousel, testimonials, modals, forms, animations
------------------------*/
+    function contactUs(){
+      const name = document.getElementById('c_name').value || 'Friend';
+      alert('Thanks, '+name+' — we will reach out to you shortly (demo).');
+    }
 
-/* Hero carousel */
-let slideIndex = 0;
-const slides = document.getElementById('slides');
-const totalSlides = slides.children.length;
-function showSlide(i){
-  slideIndex = (i + totalSlides) % totalSlides;
-  slides.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
-}
-setInterval(()=> showSlide(slideIndex + 1), 5200);
-
-/* Testimonials */
-const testTrack = document.getElementById('testTrack');
-const testCount = testTrack.children.length;
-const testDots = document.getElementById('testDots');
-let tIndex = 0;
-for(let i=0;i<testCount;i++){
-  const d = document.createElement('span'); d.className='dot' + (i===0?' active':''); d.onclick = (()=>{ return function(){ showTest(i); } })();
-  testDots.appendChild(d);
-}
-function showTest(i){
-  tIndex = i;
-  testTrack.style.transform = 'translateX(-' + (i * 100) + '%)';
-  [...testDots.children].forEach((dd,idx)=> dd.classList.toggle('active', idx===i));
-}
-setInterval(()=> showTest((tIndex + 1) % testCount), 6000);
-
-/* More services */
-function toggleMoreServices(){
-  const el = document.getElementById('moreServices');
-  if(!el) return;
-  const shown = el.style.display === 'block';
-  el.style.display = shown ? 'none' : 'block';
-  document.querySelector('.btn.btn-primary').blur();
-}
-
-/* Navigation toggle */
-function toggleNav(){
-  const nav = document.getElementById('navLinks');
-  if(!nav) return;
-  nav.classList.toggle('show');
-  document.querySelector('.menu-toggle').setAttribute('aria-expanded', nav.classList.contains('show'));
-}
-
-/* Modals open/close */
-function openModal(id){
-  const m = document.getElementById(id);
-  if(!m) return;
-  m.style.display = 'flex';
-  const inner = m.querySelector('.modal');
-  setTimeout(()=> inner.classList.add('open'), 10);
-  m.setAttribute('aria-hidden','false');
-  document.body.style.overflow='hidden';
-}
-function closeModal(id){
-  const m = document.getElementById(id);
-  if(!m) return;
-  const inner = m.querySelector('.modal');
-  inner.classList.remove('open');
-  setTimeout(()=>{ m.style.display='none'; m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }, 220);
-}
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ document.querySelectorAll('.modal-backdrop').forEach(m=>{ m.style.display='none'; m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; } });
-
-/* Forms (front-end only) */
-function submitParent(e){
-  e.preventDefault();
-  // simulate submit
-  closeModal('parentModal'); openModal('thankModal');
-  e.target.reset();
-}
-function submitExpert(e){
-  e.preventDefault();
-  closeModal('expertModal'); openModal('thankModal');
-  e.target.reset();
-}
-function handleContact(e){
-  e.preventDefault();
-  openModal('thankModal');
-  e.target.reset();
-}
-
-/* Request match quick CTA */
-function requestMatch(name){
-  if(confirm('Request a specialist similar to ' + name + '?')){ alert('Thanks — we will find matching clinicians and be in touch.'); }
-}
-
-/* Smooth scroll helper */
-function scrollToSection(sel){
-  const el = document.querySelector(sel);
-  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-/* Fade-in on scroll */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-},{threshold:0.12});
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-/* Accessibility: ensure nav close on outside click */
-document.addEventListener('click', function(e){
-  const nav = document.getElementById('navLinks');
-  const btn = document.querySelector('.menu-toggle');
-  if(nav && btn && nav.classList.contains('show') && !nav.contains(e.target) && !btn.contains(e.target)){
-    nav.classList.remove('show'); btn.setAttribute('aria-expanded','false');
-  }
-});
-</script>
-</body>
+    // Accessibility improvements: keyboard focus state for buttons
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Tab') document.body.classList.add('show-focus');
+    });
+  </script>  <!--
+    NOTES for next steps / production:
+    - Replace placeholder images with curated, royalty-free autism-related photos or illustrations.
+    - Implement server-side API for secure signups, matching algorithm, payments, and document verification.
+    - Add translations for Kiswahili strings and toggle UI.
+    - Integrate a real payment gateway for donations and secure messaging (end-to-end where necessary).
+    - Implement admin dashboard to manage expert vetting, donations, and reports.
+  --></body>
 </html>
