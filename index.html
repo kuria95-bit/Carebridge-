@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CareBridge by UPA</title>
   <style>
     body {
@@ -19,16 +19,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    /* New wrapper to hold logo and title side-by-side */
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .logo-img {
-      height: 45px;
-      width: auto;
     }
     header h1 {
       margin: 0;
@@ -175,6 +165,8 @@
     .whatsapp-float img {
       width: 35px;
       height: 35px;
+      object-fit: cover;
+      border-radius: 50%;
     }
     /* Success popup */
     .popup {
@@ -209,10 +201,7 @@
 <body>
 
   <header>
-    <div class="header-left">
-      <img src="https://i.ibb.co/3TSYDN9/carebridge-logo.png" alt="CareBridge Logo" class="logo-img" />
-      <h1>CareBridge by UPA</h1>
-    </div>
+    <h1>CareBridge by UPA</h1>
     <nav>
       <a href="#parents">Parents</a>
       <a href="#experts">Experts</a>
@@ -398,7 +387,7 @@
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I’d%20like%20to%20connect." 
      class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <img src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg" alt="WhatsApp" />
   </a>
 
 </body>
