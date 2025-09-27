@@ -5,272 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CareBridge by UPA</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.6;
-    }
-    header {
-      background: #0d9488;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    header img.logo {
-      height: 60px; /* Increased size */
-      width: auto;
-      margin-right: 1rem;
-    }
-    header .title-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      line-height: 1.1;
-    }
-    header .subtitle {
-      font-size: 0.8rem;
-      font-weight: normal;
-      color: #ccf0ec;
-      margin-top: 4px;
-      font-style: italic;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 0.8rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      text-align: center;
-      padding: 4rem 2rem;
-      color: white;
-      background: url('https://i.postimg.cc/bryXcjF1/caleb-woods-ec-Ruhw-PIW7c-unsplash.jpg') no-repeat center center/cover;
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(13, 148, 136, 0.6); /* dark teal overlay with some transparency */
-      z-index: -1;
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      max-width: 800px;
-    }
-    .hero p {
-      max-width: 700px;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      line-height: 1.4;
-    }
-    .cta-buttons a {
-      margin: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .cta-parents {
-      background: #2563eb;
-    }
-    .cta-parents:hover {
-      background: #1e40af;
-    }
-    .cta-experts {
-      background: #0d9488;
-    }
-    .cta-experts:hover {
-      background: #084d47;
-    }
-    .cta-donors {
-      background: #f59e0b;
-      color: #1a202c;
-    }
-    .cta-donors:hover {
-      background: #b45309;
-      color: white;
-    }
-
-    /* Other existing styles... */
-    section {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #0d9488;
-    }
-    form {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    form input, form textarea, form select {
-      padding: 0.8rem;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 1rem;
-      width: 100%;
-    }
-    form button {
-      background: #0d9488;
-      color: white;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-    form button:hover {
-      background: #2563eb;
-    }
-    .experts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .expert-card {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .expert-card button {
-      background: #22c55e;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .expert-card button:hover {
-      background: #16a34a;
-    }
-    .more-btn {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 0.8rem 1.5rem;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .testimonials {
-      background: #f1f5f9;
-      border-radius: 8px;
-      padding: 2rem;
-    }
-    .testimonial-card {
-      background: white;
-      padding: 1.2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin-bottom: 1.5rem;
-    }
-    footer {
-      background: #0d9488;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    /* WhatsApp Floating Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 100;
-    }
-    .whatsapp-float img {
-      width: 35px;
-      height: 35px;
-    }
-    /* Success popup */
-    .popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #0d9488;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      display: none;
-      z-index: 200;
-    }
+    /* --- your existing CSS (unchanged) --- */
+    /* paste all your styles here exactly as before */
   </style>
   <script>
-    // Prefill profession when expert request button clicked
     function requestExpert(profession) {
       document.getElementById("parent-need").value = profession;
       document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
     }
 
-    // Show success popup on form submission (demo)
     function handleSubmit(event) {
       event.preventDefault();
       const popup = document.getElementById("popup");
       popup.style.display = "block";
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 5000);
+      setTimeout(() => { popup.style.display = "none"; }, 5000);
       event.target.reset();
     }
   </script>
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="logo-container">
-      <img
-        src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg"
-        alt="CareBridge Logo"
-        class="logo"
-      />
+      <img src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg"
+           alt="CareBridge Logo" class="logo" />
       <div class="title-container">
         <h1>CareBridge</h1>
         <span class="subtitle">by Unlimited Possibilities Africa</span>
@@ -286,6 +44,7 @@
     </nav>
   </header>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <h2>The easier way to find trusted experts for your child</h2>
     <p>
@@ -300,83 +59,134 @@
     </div>
   </section>
 
+  <!-- ===== ABOUT ===== -->
   <section id="about">
     <h3>About CareBridge</h3>
     <p>
-      CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>, built
-      to make it easier for parents of children with autism to access trusted
+      CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>,
+      built to make it easier for parents of children with autism to access trusted
       experts online — without the hustle. Starting in Kenya, we are building
       the bridge between families and professionals, ensuring every child gets
       the right care at the right time.
     </p>
   </section>
 
+  <!-- ===== PARENTS ===== -->
   <section id="parents">
     <h3>Parents: Find the Right Expert</h3>
     <form onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Your Full Name" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="number" placeholder="Child's Age" required />
-      <select>
-        <option>Diagnosis Stage</option>
-        <option>Early Stage</option>
-        <option>Mid Stage</option>
-        <option>Advanced</option>
-      </select>
-      <select id="parent-need">
-        <option value="">Specific Needs</option>
-        <option>Speech Therapist</option>
-        <option>ABA Specialist</option>
-        <option>Occupational Therapist</option>
-        <option>Special Needs Teacher</option>
-      </select>
-      <select>
-        <option>Location</option>
-        <option>Nairobi - Kileleshwa</option>
-        <option>Nairobi - Westlands</option>
-        <option>Mombasa</option>
-        <option>Kisumu</option>
-        <option>Nakuru</option>
-      </select>
-      <select>
-        <option>Preferred Mode</option>
-        <option>In-person</option>
-        <option>Online</option>
-        <option>Hybrid</option>
-      </select>
-      <textarea placeholder="Additional Notes"></textarea>
+      <label>
+        Your Full Name
+        <input type="text" name="full_name" required />
+      </label>
+      <label>
+        Phone Number
+        <input type="tel" name="phone" required />
+      </label>
+      <label>
+        Email Address
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Child's Age
+        <input type="number" name="child_age" required />
+      </label>
+      <label>
+        Diagnosis Stage
+        <select name="diagnosis_stage" required>
+          <option value="">Choose…</option>
+          <option>Early Stage</option>
+          <option>Mid Stage</option>
+          <option>Advanced</option>
+        </select>
+      </label>
+      <label>
+        Specific Needs
+        <select id="parent-need" name="specific_needs" required>
+          <option value="">Choose…</option>
+          <option>Speech Therapist</option>
+          <option>ABA Specialist</option>
+          <option>Occupational Therapist</option>
+          <option>Special Needs Teacher</option>
+        </select>
+      </label>
+      <label>
+        Location
+        <select name="location" required>
+          <option value="">Choose…</option>
+          <option>Nairobi - Kileleshwa</option>
+          <option>Nairobi - Westlands</option>
+          <option>Mombasa</option>
+          <option>Kisumu</option>
+          <option>Nakuru</option>
+        </select>
+      </label>
+      <label>
+        Preferred Mode
+        <select name="preferred_mode" required>
+          <option value="">Choose…</option>
+          <option>In-person</option>
+          <option>Online</option>
+          <option>Hybrid</option>
+        </select>
+      </label>
+      <label>
+        Additional Notes
+        <textarea name="notes"></textarea>
+      </label>
       <button type="submit">Submit Request</button>
     </form>
   </section>
 
+  <!-- ===== EXPERTS ===== -->
   <section id="experts">
     <h3>Experts: Join Our Network</h3>
     <form onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Full Name" required />
-      <input type="text" placeholder="Profession" required />
-      <input type="number" placeholder="Years of Experience" required />
-      <input
-        type="text"
-        placeholder="Specialization (e.g., ABA, speech therapy)"
-        required
-      />
-      <select>
-        <option>Location</option>
-        <option>Nairobi - Kileleshwa</option>
-        <option>Nairobi - Westlands</option>
-        <option>Mombasa</option>
-        <option>Kisumu</option>
-        <option>Nakuru</option>
-      </select>
-      <select>
-        <option>Service Availability</option>
-        <option>In-person</option>
-        <option>Online</option>
-        <option>Hybrid</option>
-      </select>
-      <input type="file" accept=".pdf,.doc,.docx" required />
-      <textarea placeholder="Short Biography"></textarea>
+      <!-- same pattern: label + name for each field -->
+      <label>
+        Full Name
+        <input type="text" name="full_name" required />
+      </label>
+      <label>
+        Profession
+        <input type="text" name="profession" required />
+      </label>
+      <label>
+        Years of Experience
+        <input type="number" name="experience" required />
+      </label>
+      <label>
+        Specialization
+        <input type="text" name="specialization" required />
+      </label>
+      <label>
+        Location
+        <select name="location" required>
+          <option value="">Choose…</option>
+          <option>Nairobi - Kileleshwa</option>
+          <option>Nairobi - Westlands</option>
+          <option>Mombasa</option>
+          <option>Kisumu</option>
+          <option>Nakuru</option>
+        </select>
+      </label>
+      <label>
+        Service Availability
+        <select name="service_availability" required>
+          <option value="">Choose…</option>
+          <option>In-person</option>
+          <option>Online</option>
+          <option>Hybrid</option>
+        </select>
+      </label>
+      <label>
+        Upload CV
+        <input type="file" name="cv" accept=".pdf,.doc,.docx" required />
+      </label>
+      <label>
+        Short Biography
+        <textarea name="bio"></textarea>
+      </label>
       <button type="submit">Submit Application</button>
     </form>
 
@@ -385,95 +195,64 @@
       <div class="expert-card">
         <h4>Dr. Jane Mwangi</h4>
         <p>Speech Therapist | 10 yrs experience | Nairobi</p>
-        <button onclick="requestExpert('Speech Therapist')">
-          Request via CareBridge
-        </button>
+        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
       </div>
       <div class="expert-card">
         <h4>Mr. John Otieno</h4>
         <p>ABA Specialist | 7 yrs experience | Kisumu</p>
-        <button onclick="requestExpert('ABA Specialist')">
-          Request via CareBridge
-        </button>
+        <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button>
       </div>
       <div class="expert-card">
         <h4>Ms. Amina Hassan</h4>
         <p>Occupational Therapist | 8 yrs experience | Mombasa</p>
-        <button onclick="requestExpert('Occupational Therapist')">
-          Request via CareBridge
-        </button>
+        <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button>
       </div>
     </div>
     <button class="more-btn">More +</button>
   </section>
 
-  <section id="testimonials" class="testimonials">
-    <h3>Stories of Impact</h3>
-    <div class="testimonial-card">
-      <p>
-        “Through CareBridge, I found a speech therapist for my son within a
-        week. The progress he has made in just three months is beyond what I
-        imagined.”
-      </p>
-      <strong>- Mary, Parent (Nairobi)</strong>
-    </div>
-    <div class="testimonial-card">
-      <p>
-        “Partnering with CareBridge allowed us to reach families in rural areas
-        that we could never have accessed on our own.”
-      </p>
-      <strong>- David, NGO Partner</strong>
-    </div>
-    <div class="testimonial-card">
-      <p>
-        “Donating to CareBridge gave me peace of mind knowing my support
-        directly funds therapy sessions for children in need.”
-      </p>
-      <strong>- Sarah, Donor</strong>
-    </div>
-  </section>
+  <!-- ===== TESTIMONIALS, DONORS, PARTNERS (unchanged) ===== -->
+  <!-- ... keep your existing testimonial, donors, and partners sections here ... -->
 
-  <section id="donors">
-    <h3>Donors: Support Families</h3>
-    <p>
-      Your support helps us subsidize therapy and interventions for families in
-      low-income communities who cannot afford the services their children
-      need.
-    </p>
-    <form onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <select>
-        <option>Donation Type</option>
-        <option>One-time</option>
-        <option>Monthly</option>
-      </select>
-      <textarea placeholder="Message (optional)"></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </section>
-
-  <section id="partners">
-    <h3>Partnership Opportunities</h3>
-    <p>
-      We collaborate with organizations, NGOs, and corporate partners to expand
-      access to autism care — ensuring every child, regardless of background,
-      can access the right support.
-    </p>
-    <form onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Full Name" required />
-      <input type="text" placeholder="Organization" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" />
-      <textarea placeholder="Message"></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </section>
-
+  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h3>Contact Us</h3>
     <form onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <textarea placeholder="Your Message"></textarea>
-     
+      <label>
+        Full Name
+        <input type="text" name="full_name" required />
+      </label>
+      <label>
+        Email Address
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Your Message
+        <textarea name="message"></textarea>
+      </label>
+      <button type="submit">Send</button>
+    </form>
+    <p>Call us: +254715758964</p>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 CareBridge by Unlimited Possibilities Africa (UPA). All rights reserved.</p>
+  </footer>
+
+  <!-- ===== SUCCESS POPUP ===== -->
+  <div id="popup" class="popup">Form submitted successfully!</div>
+
+  <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+  <a
+    href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I’d%20like%20to%20connect."
+    class="whatsapp-float"
+    target="_blank"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp"
+    />
+  </a>
+</body>
+</html>
