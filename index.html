@@ -1,214 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
-  <meta name="description" content="A trusted platform connecting parents to vetted therapists, special educators, behaviour analysts and support services across Africa." />
-  <!-- Tailwind Play CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlimited Possibilities Africa</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .sr-only:not(:focus):not(:active) { position: absolute; left: -9999px; }
-    /* Drawer transition */
-    #drawerPanel {
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-    }
-    #mobileDrawer.open #drawerPanel {
-      transform: translateX(0);
-    }
-  </style>
 </head>
-<body class="antialiased bg-gray-50 text-slate-800">
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">UP</div>
-          <div>
-            <div class="text-lg font-semibold">Unlimited Possibilities Africa</div>
-            <div class="text-xs text-slate-500">Connecting parents, experts & donors</div>
-          </div>
-        </div>
+<body class="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-800">
 
-        <!-- Desktop Nav -->
-        <nav id="mainNav" class="hidden md:flex items-center gap-6" aria-label="Primary">
-          <a href="#how" class="text-sm hover:text-blue-600">How it works</a>
-          <a href="#experts" class="text-sm hover:text-blue-600">Experts</a>
-          <a href="#donors" class="text-sm hover:text-blue-600">Partners</a>
-
-          <button id="langBtn" class="text-sm px-3 py-1 rounded-md border">EN</button>
-          <button id="forParentsBtn" class="ml-2 px-4 py-2 bg-blue-600 text-white rounded-md shadow text-sm">For Parents</button>
-          <button id="forExpertsBtn" class="ml-2 px-4 py-2 bg-white border border-blue-600 text-blue-600 rounded-md text-sm">For Experts</button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div class="md:hidden flex items-center gap-2">
-          <button id="mobileMenuBtn" aria-label="Open menu" class="p-2 rounded-md border">
-            ☰
-          </button>
-        </div>
+  <!-- Header / Nav -->
+  <header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-400 flex items-center justify-center text-white font-bold">UP</div>
+      <div>
+        <h1 class="text-lg font-semibold">Unlimited Possibilities Africa</h1>
+        <p class="text-xs text-gray-500">Connecting families · Empowering experts</p>
       </div>
+    </div>
+
+    <nav class="hidden md:flex items-center space-x-6 text-sm">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#parents" class="hover:underline">Parents</a>
+      <a href="#experts" class="hover:underline">Experts</a>
+      <a href="#donors" class="hover:underline">Donors</a>
+      <a href="#about" class="hover:underline">About Us</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+
+    <div class="flex items-center space-x-3">
+      <a href="#donors" class="hidden sm:inline-block bg-amber-400 hover:bg-amber-300 text-white px-4 py-2 rounded-lg text-sm font-medium">Support Our Mission</a>
+      <a href="#parents" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm">Find an Expert</a>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div id="mobileDrawer" class="fixed inset-0 z-50 hidden">
-    <!-- Backdrop -->
-    <div id="drawerBackdrop" class="absolute inset-0 bg-black/40"></div>
-    <!-- Panel -->
-    <div id="drawerPanel" class="absolute top-0 right-0 w-64 h-full bg-white shadow-lg flex flex-col p-6 gap-4">
-      <div class="flex items-center justify-between mb-4">
-        <span class="font-semibold">Menu</span>
-        <button id="drawerClose" aria-label="Close menu" class="text-slate-500">✕</button>
-      </div>
-      <a href="#how" class="text-sm hover:text-blue-600" data-i18n="how">How it works</a>
-      <a href="#experts" class="text-sm hover:text-blue-600" data-i18n="experts">Experts</a>
-      <a href="#donors" class="text-sm hover:text-blue-600" data-i18n="donors">Partners</a>
-      <hr />
-      <button id="mobileLangBtn" class="text-sm px-3 py-1 rounded-md border w-fit">EN</button>
-      <button id="mobileParentsBtn" class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm" data-i18n="findExpert"></button>
-      <button id="mobileExpertsBtn" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-md text-sm" data-i18n="joinExpert"></button>
-      <button id="mobileDonateBtn" class="px-4 py-2 bg-amber-500 text-white rounded-md text-sm" data-i18n="supportWork"></button>
-    </div>
-  </div>
+  <!-- Hero -->
+  <main class="max-w-7xl mx-auto px-6 py-12 grid gap-12 md:grid-cols-2 items-center">
+    <section>
+      <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">Connecting Families, Empowering Experts, Creating Unlimited Possibilities.</h2>
+      <p class="mt-4 text-gray-600">Find vetted therapists and specialists across Africa — online or in person. Quick intake, intelligent matches, and direct contact via WhatsApp or email.</p>
 
-  <!-- Main Hero -->
-  <main class="py-12">
-    <!-- ... keep your existing hero, search, how it works, experts, donors, footer, modal ... -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#parents" class="px-5 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold">For Parents → Find an Expert</a>
+        <a href="#experts" class="px-5 py-3 bg-white border border-gray-200 rounded-lg hover:shadow">For Experts → Apply Now</a>
+        <a href="#donors" class="px-5 py-3 bg-white border border-gray-200 rounded-lg hover:shadow">For Donors → Support Our Mission</a>
+      </div>
+
+      <div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <div class="text-2xl font-bold">120+</div>
+          <div class="text-gray-500 mt-1">Families helped</div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <div class="text-2xl font-bold">45</div>
+          <div class="text-gray-500 mt-1">Vetted experts</div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <div class="text-2xl font-bold">5</div>
+          <div class="text-gray-500 mt-1">Countries served</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Parent Intake Form -->
+    <aside class="bg-white p-6 rounded-2xl shadow-md" id="parents">
+      <h3 class="text-lg font-semibold">Quick intake</h3>
+      <p class="text-sm text-gray-500 mt-1">Answer a few questions and we'll suggest experts tailored to your child.</p>
+
+      <form class="mt-4 space-y-3">
+        <div>
+          <label class="text-xs font-medium">Child's age</label>
+          <input type="text" placeholder="e.g. 4" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2">
+        </div>
+
+        <div>
+          <label class="text-xs font-medium">Diagnosis stage</label>
+          <select class="mt-1 block w-full rounded-md border-gray-200 p-2">
+            <option>Suspected</option>
+            <option>Diagnosed</option>
+            <option>Ongoing assessment</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-xs font-medium">Needs</label>
+          <div class="mt-1 grid grid-cols-2 gap-2 text-sm">
+            <button type="button" class="px-2 py-1 rounded-md border border-gray-200 bg-white">Speech therapy</button>
+            <button type="button" class="px-2 py-1 rounded-md border border-gray-200 bg-white">Occupational therapy</button>
+            <button type="button" class="px-2 py-1 rounded-md border border-gray-200 bg-white">ABA therapy</button>
+            <button type="button" class="px-2 py-1 rounded-md border border-gray-200 bg-white">Behavioral support</button>
+            <button type="button" class="px-2 py-1 rounded-md border border-gray-200 bg-white">Education support</button>
+            <button type="button" class="px-2 py-1 rounded-md border border-gray-200 bg-white">Sensory integration</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <input type="text" placeholder="Country" class="rounded-md border-gray-200 p-2">
+          <input type="text" placeholder="City" class="rounded-md border-gray-200 p-2">
+        </div>
+
+        <div>
+          <label class="text-xs font-medium">Preferred mode</label>
+          <select class="mt-1 block w-full rounded-md border-gray-200 p-2">
+            <option>Online</option>
+            <option>In-person</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-xs font-medium">Contact email</label>
+          <input type="email" placeholder="you@example.com" class="mt-1 block w-full rounded-md border-gray-200 p-2">
+        </div>
+
+        <button type="submit" class="w-full px-4 py-2 bg-teal-600 text-white rounded-md">Get Matches</button>
+      </form>
+    </aside>
   </main>
 
+  <!-- Suggested Experts -->
+  <section class="max-w-7xl mx-auto px-6 py-6">
+    <h3 class="text-xl font-semibold">Suggested Experts</h3>
+    <p class="text-sm text-gray-500 mt-1">Based on your intake results. You can contact experts directly via WhatsApp or view full profile.</p>
+
+    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="bg-white p-4 rounded-lg shadow-sm">
+        <h4 class="font-semibold">Dr. Amina Mwangi</h4>
+        <p class="text-sm text-gray-500">Speech therapy · 8 yrs</p>
+        <p class="text-sm text-gray-500">Nairobi, Kenya</p>
+        <a href="https://wa.me/254715758964?text=Hello%20I%20would%20like%20to%20connect%20with%20Dr.%20Amina%20Mwangi" target="_blank" class="inline-block mt-3 px-3 py-2 bg-green-600 text-white rounded-md text-sm">WhatsApp</a>
+      </article>
+
+      <article class="bg-white p-4 rounded-lg shadow-sm">
+        <h4 class="font-semibold">Mr. John Otieno</h4>
+        <p class="text-sm text-gray-500">Occupational therapy · 5 yrs</p>
+        <p class="text-sm text-gray-500">Kisumu, Kenya</p>
+        <a href="https://wa.me/254715758964?text=Hello%20I%20would%20like%20to%20connect%20with%20Mr.%20John%20Otieno" target="_blank" class="inline-block mt-3 px-3 py-2 bg-green-600 text-white rounded-md text-sm">WhatsApp</a>
+      </article>
+
+      <article class="bg-white p-4 rounded-lg shadow-sm">
+        <h4 class="font-semibold">Ms. Grace N.</h4>
+        <p class="text-sm text-gray-500">ABA therapy · 6 yrs</p>
+        <p class="text-sm text-gray-500">Remote</p>
+        <a href="https://wa.me/254715758964?text=Hello%20I%20would%20like%20to%20connect%20with%20Ms.%20Grace%20N." target="_blank" class="inline-block mt-3 px-3 py-2 bg-green-600 text-white rounded-md text-sm">WhatsApp</a>
+      </article>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="bg-white border-t">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between gap-6">
+  <footer class="mt-12 bg-white border-t py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-6">
       <div>
-        <div class="font-semibold">Unlimited Possibilities Africa</div>
-        <div class="text-sm text-slate-600 mt-2">Building accessible autism support across Africa.</div>
+        <h4 class="font-semibold">Unlimited Possibilities Africa</h4>
+        <p class="text-sm text-gray-500 mt-1">Helping families find trusted autism specialists across Africa.</p>
+        <p class="text-sm text-gray-500 mt-3">Contact: +254 715 758964</p>
       </div>
-      <div class="flex gap-6 text-sm">
-        <a href="#" class="hover:text-blue-600">Privacy</a>
-        <a href="#" class="hover:text-blue-600">Terms</a>
-        <a href="#" class="hover:text-blue-600">Contact</a>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <h5 class="text-sm font-semibold">Navigate</h5>
+          <ul class="mt-2 text-sm text-gray-600">
+            <li>Home</li>
+            <li>Parents</li>
+            <li>Experts</li>
+            <li>Donors</li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-sm font-semibold">Resources</h5>
+          <ul class="mt-2 text-sm text-gray-600">
+            <li>Blog</li>
+            <li>Newsletter</li>
+            <li>Privacy</li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Modal (same as before) -->
-  <div id="modalLayer" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-    <div id="modalBackdrop" class="absolute inset-0 bg-black/40"></div>
-    <div id="modalWindow" class="relative bg-white rounded-lg shadow max-w-xl w-full p-6" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="flex items-start justify-between">
-        <h3 id="modalTitle" class="text-lg font-semibold">Modal</h3>
-        <button id="modalClose" aria-label="Close" class="text-slate-500">✕</button>
-      </div>
-      <div id="modalContent" class="mt-4"></div>
+  <!-- Floating WhatsApp Icon -->
+  <a aria-label="Chat on WhatsApp" href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa%2C%20I%E2%80%99d%20like%20to%20connect%20with%20an%20expert." target="_blank" class="fixed right-6 bottom-6 z-50">
+    <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-green-600 text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2 17 17 0 0 1-7-2.5A17 17 0 0 1 6 9a2 2 0 0 1 2-2h.1a2 2 0 0 1 1.7 1l.7 2a2 2 0 0 1-.5 2.1L9 13c1.5 1.5 3.5 2.5 5.7 3A2 2 0 0 1 16 16v.1a2 2 0 0 1 2 2z" />
+      </svg>
     </div>
-  </div>
+  </a>
 
-  <!-- Scripts -->
-  <script>
-    const translations = {
-      en: {
-        heroTitle: 'Unlimited Possibilities for Children with Autism',
-        heroDesc: 'A trusted platform connecting parents to vetted therapists, special educators, behaviour analysts and support services across Africa.',
-        findExpert: 'Find an expert',
-        joinExpert: 'Join as an expert',
-        supportWork: 'Support our work',
-        donate: 'Donate',
-        how: 'How it works',
-        experts: 'Vetted Experts',
-        donors: 'Partners & Donors',
-        modalParentTitle: 'Parent signup',
-        modalExpertTitle: 'Expert registration',
-        modalDonateTitle: 'Donate',
-        createAccount: 'Create account',
-        submitVerification: 'Submit for verification',
-        cancel: 'Cancel',
-        verifiedNote: 'Our team verifies qualifications within 48-72 hours.'
-      },
-      sw: {
-        heroTitle: 'Fursa Isiyo na Mipaka kwa Watoto wenye Autism',
-        heroDesc: 'Jukwaa lenye kuaminika linalowaleta wazazi pamoja na wataalamu walioidhinishwa: wanasaikolojia, walimu maalum, wataalamu wa tabia na huduma za msaada Afrika nzima.',
-        findExpert: 'Tafuta mtaalamu',
-        joinExpert: 'Jiunge kama mtaalamu',
-        supportWork: 'Tusaidie',
-        donate: 'Changia',
-        how: 'Jinsi inavyofanya kazi',
-        experts: 'Wataalamu walioidhinishwa',
-        donors: 'Wadau & Wadhamini',
-        modalParentTitle: 'Usajili wa mzazi',
-        modalExpertTitle: 'Usajili wa mtaalamu',
-        modalDonateTitle: 'Changia',
-        createAccount: 'Unda akaunti',
-        submitVerification: 'Tuma kwa uhakiki',
-        cancel: 'Ghairi',
-        verifiedNote: 'Timu yetu inathibitisha vyeti ndani ya masaa 48-72.'
-      }
-    };
-
-    let lang = 'en';
-
-    // Elements
-    const langBtn = document.getElementById('langBtn');
-    const heroTitle = document.getElementById('heroTitle');
-    const heroDesc = document.getElementById('heroDesc');
-    const findExpertBtn = document.getElementById('findExpertBtn');
-    const joinExpertBtn = document.getElementById('joinExpertBtn');
-    const supportBtn = document.getElementById('supportBtn');
-    const donateTop = document.getElementById('donateTop');
-    const becomeExpert = document.getElementById('becomeExpert');
-    const modalLayer = document.getElementById('modalLayer');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalContent = document.getElementById('modalContent');
-    const modalClose = document.getElementById('modalClose');
-    const modalBackdrop = document.getElementById('modalBackdrop');
-
-    // Drawer elements
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-    const drawerClose = document.getElementById('drawerClose');
-    const mobileLangBtn = document.getElementById('mobileLangBtn');
-
-    // Sync language button labels
-    function syncLangBtns() {
-      const label = (lang === 'en') ? 'EN' : 'SW';
-      langBtn.textContent = label;
-      mobileLangBtn.textContent = label;
-    }
-
-    function applyLang() {
-      const t = translations[lang];
-      if (heroTitle) heroTitle.textContent = t.heroTitle;
-      if (heroDesc) heroDesc.textContent = t.heroDesc;
-      if (findExpertBtn) findExpertBtn.textContent = t.findExpert;
-      if (joinExpertBtn) joinExpertBtn.textContent = t.joinExpert;
-      if (supportBtn) supportBtn.textContent = t.supportWork;
-      syncLangBtns();
-      document.querySelectorAll('nav a')[0].textContent = t.how;
-      document.querySelectorAll('nav a')[1].textContent = t.experts;
-      document.querySelectorAll('nav a')[2].textContent = t.donors;
-      document.querySelectorAll('#mobileDrawer [data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) el.textContent = translations[lang][key];
-      });
-    }
-
-    // Lang toggle
-    langBtn.addEventListener('click', () => { lang = (lang === 'en') ? 'sw' : 'en'; applyLang(); });
-    mobileLangBtn.addEventListener('click', () => { lang = (lang === 'en') ? 'sw' : 'en'; applyLang(); });
-
-    // Drawer open/close
-    function openDrawer() { mobileDrawer.classList.remove('hidden'); setTimeout(()=>mobileDrawer.classList.add('open'),10); }
-    function closeDrawer() { mobileDrawer.classList.remove('open'); setTimeout(()=>mobileDrawer.classList.add('hidden'),300); }
-    mobileMenuBtn.addEventListener('click', openDrawer);
-    drawerBackdrop.addEventListener('click', closeDrawer);
-    drawerClose.addEventListener('click', closeDrawer);
-
-    // Initialize language
-    applyLang();
-  </script>
 </body>
 </html>
