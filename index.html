@@ -1,149 +1,131 @@
-.<!doctype html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unlimited Possibilities Africa — Connect to Vetted Autism Professionals</title>
-  <meta name="description" content="Connect parents of children with autism to vetted professionals. Donations, resources, and community support." />
-
   <style>
-    :root{
-      --bg:#f6fbff; --card:#ffffff; --primary:#0b5fa5; --accent:#2aa879; --muted:#6b7280; --maxw:1100px;
-      --radius:14px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
     }
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#0f1724}
-    header{background:linear-gradient(90deg, rgba(11,95,165,0.08), rgba(42,168,121,0.04)); padding:20px 16px}
-    .container{max-width:var(--maxw); margin:0 auto}
-
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:var(--primary);text-decoration:none;font-weight:600}
-
-    .hero{display:flex;gap:24px;align-items:center;padding:28px 0}
-    .hero-left{flex:1}
-    .hero-right{flex:1;display:flex;justify-content:center}
-    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(10,20,40,0.06)}
-
-    h1{font-size:1.6rem;margin:0 0 8px}
-    p.lead{color:var(--muted);margin:0 0 12px}
-    .cta-row{display:flex;gap:12px;margin-top:12px}
-    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
-    .btn-primary{background:var(--primary);color:#fff}
-    .btn-ghost{background:transparent;color:var(--primary);border:1px solid rgba(11,95,165,0.12)}
-
-    /* sections */
-    section{padding:22px 0}
-    .grid{display:grid;gap:14px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:1fr 1fr}
-
-    /* forms */
-    label{display:block;font-size:0.84rem;color:var(--muted);margin-bottom:6px}
-    input[type=text],input[type=email],select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef7;background:#fbfdff}
-    textarea{min-height:110px}
-    .small{font-size:0.85rem;color:var(--muted)}
-
-    footer{padding:20px 0;color:var(--muted);font-size:0.9rem}
-
-    /* responsive */
-    @media (max-width:900px){
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .top{flex-direction:column;align-items:flex-start}
-      .hero{flex-direction:column}
+    header {
+      background-color: #0056b3;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #003d80;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: #e6f0ff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      color: #0056b3;
+    }
+    section {
+      padding: 2rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #003d80;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    button, .btn {
+      background: #0056b3;
+      color: #fff;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .btn:hover {
+      background: #004494;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container top">
-      <div class="brand">
-        <div class="logo">UP</div>
-        <div>
-          <div style="font-weight:800">Unlimited Possibilities Africa</div>
-          <div style="font-size:0.85rem;color:var(--muted)">Connect to vetted autism professionals</div>
-        </div>
-      </div>
-
-      <nav>
-        <a href="#parents">Parents</a>
-        <a href="#experts">Experts</a>
-        <a href="#donors">Donors</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <h1>Unlimited Possibilities Africa</h1>
+    <p>Connecting Parents of Children with Autism to Experts and Professionals</p>
+  </header>  <nav>
+    <a href="#parents">For Parents</a>
+    <a href="#experts">For Experts</a>
+    <a href="#donors">For Donors</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>  <div class="hero">
+    <h1>Empowering Families, Connecting Experts, Transforming Lives</h1>
+    <p>We make it simple for parents to find the right autism professionals, and for experts to reach families who need them most.</p>
+    <a href="#parents" class="btn">Get Started</a>
+  </div>  <section id="parents">
+    <h2>For Parents</h2>
+    <div class="card">
+      <p>Answer a few simple questions and get matched with vetted autism specialists near you or online. Our process is designed to be stress-free and supportive.</p>
+      <button>Find an Expert</button>
     </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div class="hero-left">
-        <div class="card">
-          <h1>Simple matching. Trusted professionals. Better outcomes.</h1>
-          <p class="lead">We help parents of children with autism find vetted therapists, special educators, behavioural therapists, and other professionals — fast. Multilingual support (English & Kiswahili) and options for subsidised care through donor partnerships.</p>
-
-          <div class="cta-row">
-            <button class="btn btn-primary" onclick="document.getElementById('parent-signup').scrollIntoView({behavior:'smooth'})">Find an Expert</button>
-            <button class="btn btn-ghost" onclick="document.getElementById('expert-apply').scrollIntoView({behavior:'smooth'})">Apply as Expert</button>
-          </div>
-
-          <div style="margin-top:12px;font-size:0.9rem;color:var(--muted)">Free to browse. Secure messaging. Verified credentials.</div>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="card" style="width:340px; text-align:center">
-          <!-- Confirmed working Unsplash autism support image -->
-          <img id="heroImg" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXV0aXNtJTIwc3VwcG9ydHxlbnwwfHwwfHx8MA%3D%3D&w=600&q=80" alt="Parent with child support" style="width:100%;border-radius:10px;object-fit:cover;max-height:240px"/>
-          <div style="margin-top:10px;font-weight:700">Welcome parents — you're not alone.</div>
-          <div class="small">Find nearby experts, book sessions, and access support.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resources & testimonials -->
-    <section id="resources">
-      <div class="card">
-        <h2 style="margin-top:0">Resources & Community</h2>
-        <p class="small">Articles, guides, and events to support families and professionals. We welcome community contributions.</p>
-
-        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-          <div style="flex:1;min-width:220px">
-            <!-- Confirmed working Pexels autism image -->
-            <img src="https://images.pexels.com/photos/3770586/pexels-photo-3770586.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Father holding children" style="width:100%;border-radius:10px;object-fit:cover;max-height:160px" />
-            <div style="font-weight:700;margin-top:8px">Support & Play</div>
-            <div class="small">Meaningful moments between parents and children.</div>
-          </div>
-
-          <div style="flex:1;min-width:220px">
-            <!-- Confirmed working Unsplash family image -->
-            <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGQlMjBhbmQlMjBwYXJlbnR8ZW58MHx8MHx8&w=400&q=80" alt="Family walk" style="width:100%;border-radius:10px;object-fit:cover;max-height:160px" />
-            <div style="font-weight:700;margin-top:8px">Community & Nature</div>
-            <div class="small">Reflections and calm for families.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Other sections remain unchanged -->
-
-  </main>
-
-  <footer>
-    <div class="container card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-      <div>
-        <strong>Unlimited Possibilities Africa</strong>
-        <div class="small">Connecting families to trusted autism professionals.</div>
-      </div>
-      <div class="small">© <span id="year"></span> All rights reserved</div>
+  </section>  <section id="experts">
+    <h2>For Experts</h2>
+    <div class="card">
+      <p>Are you a trained autism professional? Apply to join our network and help families who need your expertise.</p>
+      <button>Apply as Expert</button>
     </div>
-  </footer>
+  </section>  <section id="donors">
+    <h2>For Donors & Partners</h2>
+    <div class="card">
+      <p>Help expand access to autism care for less fortunate families. Partner with us or make a donation to transform lives.</p>
+      <button>Donate / Partner</button>
+    </div>
+  </section>  <section id="resources">
+    <h2>Resources</h2>
+    <div class="card">
+      <p>Access helpful articles, guides, and community stories about autism support in Africa and beyond.</p>
+    </div>
+  </section>  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="card">
+      <p>Email: info@unlimitedpossibilitiesafrica.org</p>
+      <p>Phone: +254-700-000-000</p>
+    </div>
+  </section>  <footer>
+    <p>&copy; 2025 Unlimited Possibilities Africa. All rights reserved.</p>
+  </footer>  <script>
+    // Placeholder for matching system logic
+    function matchParentToExpert() {
+      alert("Matching process started. In production, this will connect parents to suitable experts.");
+    }
 
-  <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-  </script>
-</body>
+    function applyAsExpert() {
+      alert("Application form coming soon.");
+    }
+
+    function donateNow() {
+      alert("Redirecting to secure donation page.");
+    }
+  </script></body>
 </html>
