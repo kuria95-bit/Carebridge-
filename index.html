@@ -26,23 +26,25 @@
       gap: 1rem;
     }
     header .logo-container img {
-      height: 70px; /* bigger logo */
+      height: 100px; /* bigger logo */
+      width: auto;
       border-radius: 6px;
       object-fit: contain;
     }
     header .title-text h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.5rem; /* bigger */
       font-weight: 700;
       line-height: 1;
       color: white;
+      margin-bottom: 0.1rem;
     }
     header .title-text small {
       display: block;
-      font-size: 0.85rem;
+      font-size: 1rem; /* bigger but still smaller */
       font-weight: 400;
-      color: #d1f2ee; /* lighter shade for subtlety */
-      margin-top: 3px;
+      color: #d1f2ee;
+      margin-top: 0;
       font-style: italic;
     }
     nav a {
@@ -201,13 +203,10 @@
     }
   </style>
   <script>
-    // Prefill profession when expert request button clicked
     function requestExpert(profession) {
       document.getElementById("parent-need").value = profession;
       document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
     }
-
-    // Show success popup on form submission (demo)
     function handleSubmit(event) {
       event.preventDefault();
       const popup = document.getElementById("popup");
@@ -236,6 +235,8 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
+  <!-- The rest of the page remains the same as before -->
 
   <section class="hero">
     <h2>The easier way to find trusted experts for your child</h2>
