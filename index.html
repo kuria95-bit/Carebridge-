@@ -1,4 +1,6 @@
+
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -92,86 +94,69 @@
       <button onclick="showForm('expertsForm')">Experts</button>
       <button onclick="showForm('donorsForm')">Donors</button>
     </nav>
-  </header>
-
-  <!-- Parents Form -->
-  <div id="parentsForm" class="form-container">
+  </header>  <!-- Parents Form -->  <div id="parentsForm" class="form-container">
     <h2>Parents Information</h2>
     <form>
       <label for="parentName">Full Name</label>
-      <input type="text" id="parentName" name="parentName" required>
+      <input type="text" id="parentName" name="parentName" required><label for="parentEmail">Email</label>
+  <input type="email" id="parentEmail" name="parentEmail" required>
 
-      <label for="parentEmail">Email</label>
-      <input type="email" id="parentEmail" name="parentEmail" required>
+  <label for="parentChild">Child's Age & Condition</label>
+  <textarea id="parentChild" name="parentChild" rows="3" required></textarea>
 
-      <label for="parentChild">Child's Age & Condition</label>
-      <textarea id="parentChild" name="parentChild" rows="3" required></textarea>
+  <label for="parentContact">Phone Number</label>
+  <input type="tel" id="parentContact" name="parentContact" required>
 
-      <label for="parentContact">Phone Number</label>
-      <input type="tel" id="parentContact" name="parentContact" required>
+  <button type="submit">Submit</button>
+</form>
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <!-- Experts Form -->
-  <div id="expertsForm" class="form-container">
+  </div>  <!-- Experts Form -->  <div id="expertsForm" class="form-container">
     <h2>Expert Registration</h2>
     <form>
       <label for="expertName">Full Name</label>
-      <input type="text" id="expertName" name="expertName" required>
+      <input type="text" id="expertName" name="expertName" required><label for="expertEmail">Email</label>
+  <input type="email" id="expertEmail" name="expertEmail" required>
 
-      <label for="expertEmail">Email</label>
-      <input type="email" id="expertEmail" name="expertEmail" required>
+  <label for="expertLocation">Location</label>
+  <input type="text" id="expertLocation" name="expertLocation" required>
 
-      <label for="expertLocation">Location</label>
-      <input type="text" id="expertLocation" name="expertLocation" required>
+  <label for="expertContact">Contact</label>
+  <input type="tel" id="expertContact" name="expertContact" required>
 
-      <label for="expertContact">Contact</label>
-      <input type="tel" id="expertContact" name="expertContact" required>
+  <label for="expertExperience">Years of Experience</label>
+  <input type="number" id="expertExperience" name="expertExperience" required>
 
-      <label for="expertExperience">Years of Experience</label>
-      <input type="number" id="expertExperience" name="expertExperience" required>
+  <button type="submit">Register</button>
+</form>
+<p style="margin-top:1rem;">
+  <a href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa%2C%20I%20am%20an%20expert%20interested%20in%20joining%20your%20platform." 
+     target="_blank" 
+     style="display:inline-block;background:#25D366;color:white;padding:0.7rem 1.2rem;border-radius:5px;text-decoration:none;">
+    📲 Contact via WhatsApp
+  </a>
+</p>
 
-      <button type="submit">Register</button>
-    </form>
-    <p style="margin-top:1rem;">
-      <a href="https://wa.me/254715758964?text=Hello%20Unlimited%20Possibilities%20Africa%2C%20I%20am%20an%20expert%20interested%20in%20joining%20your%20platform." 
-         target="_blank" 
-         style="display:inline-block;background:#25D366;color:white;padding:0.7rem 1.2rem;border-radius:5px;text-decoration:none;">
-        📲 Contact via WhatsApp
-      </a>
-    </p>
-  </div>
-
-  <!-- Donors Form -->
-  <div id="donorsForm" class="form-container">
+  </div>  <!-- Donors Form -->  <div id="donorsForm" class="form-container">
     <h2>Donors / Partners</h2>
     <form>
       <label for="donorName">Full Name / Organization</label>
-      <input type="text" id="donorName" name="donorName" required>
+      <input type="text" id="donorName" name="donorName" required><label for="donorEmail">Email</label>
+  <input type="email" id="donorEmail" name="donorEmail" required>
 
-      <label for="donorEmail">Email</label>
-      <input type="email" id="donorEmail" name="donorEmail" required>
+  <label for="donorMessage">Message</label>
+  <textarea id="donorMessage" name="donorMessage" rows="3" required></textarea>
 
-      <label for="donorMessage">Message</label>
-      <textarea id="donorMessage" name="donorMessage" rows="3" required></textarea>
+  <button type="submit">Submit</button>
+</form>
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <footer>
+  </div>  <footer>
     <p>© 2025 Unlimited Possibilities Africa. All rights reserved.</p>
-  </footer>
-
-  <script>
+  </footer>  <script>
     function showForm(formId) {
       document.querySelectorAll('.form-container').forEach(form => {
         form.style.display = 'none';
       });
       document.getElementById(formId).style.display = 'block';
     }
-  </script>
-</body>
+  </script></body>
 </html>
