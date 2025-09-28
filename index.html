@@ -54,7 +54,7 @@
     }
     nav a:hover { text-decoration: underline; }
 
-    /* === Hero Section with improved readability === */
+    /* === Hero Section === */
     .hero {
       position: relative;
       text-align: center;
@@ -67,7 +67,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.45); /* dark overlay for better contrast */
+      background: rgba(0,0,0,0.45);
       z-index: 0;
     }
     .hero h2,
@@ -164,18 +164,38 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+    /* === Testimonials Section with new background === */
     .testimonials {
-      background: #f1f5f9;
+      position: relative;
+      background: url('https://i.postimg.cc/0yz7tbxf/Frame-1-1.png')
+                  no-repeat center center / cover;
       border-radius: 8px;
       padding: 2rem;
+      color: white;
+    }
+    .testimonials::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      border-radius: 8px;
+      z-index: 0;
+    }
+    .testimonials h3,
+    .testimonial-card {
+      position: relative;
+      z-index: 1;
     }
     .testimonial-card {
-      background: white;
+      background: rgba(255,255,255,0.8);
+      color: #111;
       padding: 1.2rem;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       margin-bottom: 1.5rem;
     }
+
     footer {
       background: #0d9488;
       color: white;
@@ -266,13 +286,8 @@
       Starting in Kenya, we are building the bridge between families and professionals,
       ensuring every child gets the right care at the right time.
     </p>
-    <!-- Added About Image -->
-    <img src="https://i.postimg.cc/760CF2Qm/16829762242122.webp"
-         alt="Therapist with child - African family"
-         style="width:100%;max-width:600px;border-radius:8px;display:block;margin:2rem auto;">
   </section>
 
-  <!-- The rest of your sections remain unchanged -->
   <section id="parents">
     <h3>Parents: Find the Right Expert</h3>
     <form onsubmit="handleSubmit(event)">
