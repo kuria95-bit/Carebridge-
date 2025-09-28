@@ -126,6 +126,7 @@
     }
     form button:hover { background: #2563eb; }
 
+    /* Experts carousel grid (horizontal sliding cards) */
     .experts-grid {
       display: flex;
       overflow-x: auto;
@@ -266,6 +267,7 @@
       z-index: 200;
     }
 
+    /* About-image used in About section (keeps a centered, limited width) */
     .about-image {
       width: 100%;
       max-width: 600px;
@@ -273,7 +275,23 @@
       margin: 1.5rem auto;
       border-radius: 8px;
       object-fit: cover;
+      height: auto;
     }
+
+    /* Parent image: stretches horizontally but does not become vertically large.
+       Uses responsive clamp for height so it stays proportional and never grows too tall. */
+    .parent-image {
+      width: 100%;
+      height: clamp(180px, 22vh, 320px); /* responsive height cap */
+      display: block;
+      margin: 1.5rem auto;
+      border-radius: 8px;
+      object-fit: cover; /* crop if needed, no distortion */
+    }
+
+    /* small accessibility/responsive tweak for horizontal scrolling on experts grid */
+    .experts-grid::-webkit-scrollbar { height: 8px; }
+    .experts-grid::-webkit-scrollbar-thumb { background: rgba(13,148,136,0.6); border-radius: 4px; }
   </style>
 
   <script>
@@ -299,6 +317,23 @@
           index = (index + 1) % slides.length;
           slides[index].classList.add('active');
         }, 6000);
+      }
+
+      /* Optional: update carousel indicator visuals as user scrolls the experts grid.
+         This just highlights dot based on which card is most visible. */
+      const grid = document.querySelector('.experts-grid');
+      const indicators = document.querySelectorAll('.carousel-indicators span');
+      if (grid && indicators.length) {
+        const cards = Array.from(grid.querySelectorAll('.expert-card'));
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const idx = cards.indexOf(entry.target);
+              indicators.forEach((dot,i) => dot.classList.toggle('active', i === idx));
+            }
+          });
+        }, { root: grid, threshold: 0.6 });
+        cards.forEach(c => observer.observe(c));
       }
     });
   </script>
@@ -342,9 +377,9 @@
 
 <section id="parents">
   <h3>Parents: Find the Right Expert</h3>
-  <!-- Updated parent image -->
-  <img src="https://i.postimg.cc/HnWWsZtz/premium-photo-1661284821300-44f13458a886.jpg" 
-       alt="African parent and child" class="about-image">
+  <!-- parent image: stretches horizontally, capped height to avoid vertical stretching -->
+  <img src="https://i.postimg.cc/HnWWsZtz/premium-photo-1661284821300-44f13458a886.jpg"
+       alt="African parent and child" class="parent-image">
   <form onsubmit="handleSubmit(event)">
     <input type="text" placeholder="Your Full Name" required />
     <input type="tel" placeholder="Phone Number" required />
@@ -375,7 +410,6 @@
   </form>
 </section>
 
-<!-- Experts section remains unchanged -->
 <section id="experts">
   <h3>Experts: Join Our Network</h3>
   <form onsubmit="handleSubmit(event)">
@@ -396,7 +430,7 @@
   </form>
 
   <h3>Featured Experts</h3>
-  <div class="experts-grid">
+  <div class="experts-grid" aria-label="Featured experts carousel">
     <div class="expert-card"><h4>Ephraim Maina</h4><p>ABA | 3 yrs | Nakuru</p>
       <button onclick="requestExpert('ABA')">Request via CareBridge</button></div>
     <div class="expert-card"><h4>Jane Mwangi</h4><p>Speech Therapist | 10 yrs | Nairobi</p>
@@ -406,11 +440,11 @@
     <div class="expert-card"><h4>Amina Hassan</h4><p>Occupational Therapist | 8 yrs | Mombasa</p>
       <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button></div>
   </div>
-  <div class="carousel-indicators">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="carousel-indicators" aria-hidden="false">
+    <span class="active" aria-label="slide 1"></span>
+    <span aria-label="slide 2"></span>
+    <span aria-label="slide 3"></span>
+    <span aria-label="slide 4"></span>
   </div>
 </section>
 
@@ -479,9 +513,7 @@
 <div id="popup" class="popup">Form submitted successfully!</div>
 
 <a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I%20need%20assistance."
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="Chat on WhatsApp">
+   class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
