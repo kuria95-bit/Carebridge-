@@ -102,33 +102,14 @@
       color: #0d9488;
     }
 
-    .about-image {
+    /* shared image style for parent & expert application */
+    .section-image {
       width: 100%;
-      max-width: 600px;
+      max-width: 650px;       /* limit size on large screens */
       display: block;
       margin: 1.5rem auto;
       border-radius: 8px;
       object-fit: cover;
-      height: auto;
-    }
-
-    .parent-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    /* Experts Application section image style */
-    .expert-app-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      display: block;
     }
 
     form {
@@ -155,21 +136,25 @@
     }
     form button:hover { background: #2563eb; }
 
-    .experts-grid {
+    /* Experts carousel */
+    .experts-carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .experts-track {
       display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1rem;
-      padding-bottom: 1rem;
+      transition: transform 0.5s ease-in-out;
     }
     .expert-card {
+      flex: 0 0 250px;
       background: white;
+      margin: 0 0.5rem;
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
-      flex: 0 0 250px;
-      scroll-snap-align: start;
     }
     .expert-card button {
       background: #22c55e;
@@ -182,32 +167,21 @@
     }
     .expert-card button:hover { background: #16a34a; }
 
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
+    .carousel-dots {
+      text-align: center;
       margin-top: 1rem;
-      gap: 0.4rem;
     }
-    .carousel-indicators span {
-      width: 8px;
-      height: 8px;
-      background: #ccc;
-      border-radius: 50%;
+    .carousel-dots span {
       display: inline-block;
-      transition: background 0.3s;
-    }
-    .carousel-indicators span.active { background: #0d9488; }
-
-    .more-btn {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 0.8rem 1.5rem;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: #d1d5db;
+      border-radius: 50%;
       cursor: pointer;
-      font-weight: bold;
+    }
+    .carousel-dots span.active {
+      background: #0d9488;
     }
 
     .testimonials {
@@ -309,6 +283,8 @@
       setTimeout(() => { popup.style.display = "none"; }, 5000);
       event.target.reset();
     }
+
+    // testimonial carousel
     document.addEventListener("DOMContentLoaded", () => {
       const slides = document.querySelectorAll('.testimonial-slide');
       let index = 0;
@@ -320,6 +296,19 @@
           slides[index].classList.add('active');
         }, 6000);
       }
+    });
+
+    // experts carousel dots
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector('.experts-track');
+      const dots = document.querySelectorAll('.carousel-dots span');
+      let current = 0;
+      function updateCarousel(i){
+        current = i;
+        track.style.transform = `translateX(-${i * 260}px)`;
+        dots.forEach((d,idx)=> d.classList.toggle('active', idx===i));
+      }
+      dots.forEach((dot,i)=> dot.addEventListener('click', ()=>updateCarousel(i)));
     });
   </script>
 </head>
@@ -349,20 +338,20 @@
   <div class="cta-buttons">
     <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
     <a href="#experts" class="cta-experts">For Experts → Join Now</a>
-    <a href="#donors" class="cta-donors">For Donorship Support</a>
+    <a href="#donors" class="cta-donors">For Donors → Support Families</a>
   </div>
 </section>
 
 <section id="about">
   <h3>About CareBridge</h3>
-  <img src="https://i.postimg.cc/760CF2Qm/16829762242122.webp" alt="Therapist supporting an African child" class="about-image">
+  <img src="https://i.postimg.cc/760CF2Qm/16829762242122.webp" alt="Therapist supporting an African child" class="section-image">
   <p>CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>, built to make it easier
      for parents of children with autism to access trusted experts online — without the hustle.</p>
 </section>
 
 <section id="parents">
   <h3>Parents: Find the Right Expert</h3>
-  <img src="https://i.postimg.cc/HnWWsZtz/premium-photo-1661284821300-44f13458a886.jpg" alt="African parent and child" class="parent-image">
+  <img src="https://i.postimg.cc/HnWWsZtz/premium-photo-1661284821300-44f13458a886.jpg" alt="Parent and child therapy session" class="section-image">
   <form onsubmit="handleSubmit(event)">
     <input type="text" placeholder="Your Full Name" required />
     <input type="tel" placeholder="Phone Number" required />
@@ -395,10 +384,7 @@
 
 <section id="experts">
   <h3>Experts: Join Our Network</h3>
-  <!-- Added image to Expert Application Section -->
-  <img src="https://i.postimg.cc/d0VQRSCx/photo-1587614227447-2697e25730a9.avif"
-       alt="Professional workspace" class="expert-app-image">
-
+  <img src="https://i.postimg.cc/d0VQRSCx/photo-1587614227447-2697e25730a9.avif" alt="Professional applying" class="section-image">
   <form onsubmit="handleSubmit(event)">
     <input type="text" placeholder="Full Name" required />
     <input type="text" placeholder="Profession" required />
@@ -417,21 +403,20 @@
   </form>
 
   <h3>Featured Experts</h3>
-  <div class="experts-grid">
-    <div class="expert-card"><h4>Ephraim Maina</h4><p>ABA | 3 yrs | Nakuru</p>
-      <button onclick="requestExpert('ABA')">Request via CareBridge</button></div>
-    <div class="expert-card"><h4>Jane Mwangi</h4><p>Speech Therapist | 10 yrs | Nairobi</p>
-      <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button></div>
-    <div class="expert-card"><h4>John Otieno</h4><p>ABA Specialist | 7 yrs | Kisumu</p>
-      <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button></div>
-    <div class="expert-card"><h4>Amina Hassan</h4><p>Occupational Therapist | 8 yrs | Mombasa</p>
-      <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button></div>
-  </div>
-  <div class="carousel-indicators">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="experts-carousel">
+    <div class="experts-track">
+      <div class="expert-card"><h4>Ephraim Maina</h4><p>ABA Specialist | 3 yrs experience | Nakuru</p><button onclick="requestExpert('ABA Specialist')">Request</button></div>
+      <div class="expert-card"><h4>Dr. Jane Mwangi</h4><p>Speech Therapist | 10 yrs | Nairobi</p><button onclick="requestExpert('Speech Therapist')">Request</button></div>
+      <div class="expert-card"><h4>Mr. John Otieno</h4><p>ABA Specialist | 7 yrs | Kisumu</p><button onclick="requestExpert('ABA Specialist')">Request</button></div>
+      <div class="expert-card"><h4>Ms. Amina Hassan</h4><p>Occupational Therapist | 8 yrs | Mombasa</p><button onclick="requestExpert('Occupational Therapist')">Request</button></div>
+      <!-- add more cards as needed -->
+    </div>
+    <div class="carousel-dots">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </section>
 
@@ -478,7 +463,7 @@
     <input type="email" placeholder="Email Address" required />
     <input type="tel" placeholder="Phone Number" />
     <textarea placeholder="Message"></textarea>
-    <button type="submit">Submit Application</button>
+    <button type="submit">Submit</button>
   </form>
 </section>
 
@@ -487,22 +472,20 @@
   <form onsubmit="handleSubmit(event)">
     <input type="text" placeholder="Full Name" required />
     <input type="email" placeholder="Email Address" required />
-    <textarea placeholder="Your Message"></textarea>
-    <button type="submit">Send</button>
+    <textarea placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
   </form>
-  <p>Call us: +254715758964</p>
 </section>
 
 <footer>
-  <p>&copy; 2025 CareBridge by Unlimited Possibilities Africa (UPA). All rights reserved.</p>
+  <p>&copy; 2025 CareBridge by Unlimited Possibilities Africa</p>
 </footer>
 
-<div id="popup" class="popup">Form submitted successfully!</div>
-
-<a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I%20need%20assistance."
-   class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+<a class="whatsapp-float" href="https://wa.me/254700000000" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<div class="popup" id="popup">Form submitted successfully!</div>
 
 </body>
 </html>
