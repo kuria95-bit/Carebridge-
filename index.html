@@ -353,7 +353,7 @@
   </form>
 </section>
 
-<!-- ===== UPDATED Experts SECTION: grid -> carousel (only this block changed) ===== -->
+<!-- ===== UPDATED Experts SECTION: carousel + dots (only this section changed) ===== -->
 <section id="experts">
   <h3>Experts: Join Our Network</h3>
   <form onsubmit="handleSubmit(event)">
@@ -376,10 +376,25 @@
 
   <h3>Featured Experts</h3>
 
-  <!-- Carousel wrapper — inline styles used so main stylesheet remains unchanged -->
+  <!-- Local styles for carousel dots (kept inside section so global head styles unchanged) -->
+  <style>
+    .carousel-dots { text-align: center; margin-top: 10px; }
+    .carousel-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      margin: 0 5px;
+      background: #d1d5db;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+    }
+    .carousel-dot.active { background: #0d9488; transform: scale(1.05); }
+  </style>
+
   <div class="experts-carousel" style="position:relative; max-width:900px; margin:auto;">
 
-    <!-- Prev button (inline style to avoid editing global CSS) -->
+    <!-- Prev button -->
     <button
       class="carousel-prev"
       aria-label="Previous experts"
@@ -388,11 +403,11 @@
       ‹
     </button>
 
-    <!-- Scrollable track -->
+    <!-- scrollable track -->
     <div
       class="carousel-track"
       style="display:flex; gap:1.5rem; overflow-x:auto; scroll-behavior:smooth; scroll-snap-type:x mandatory; padding:1rem 4rem;">
-      <!-- Each card uses the existing .expert-card class; add inline flex basis and snap -->
+      <!-- 10 expert cards (no profile pics per request) -->
       <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
         <h4>Ephraim Maina</h4>
         <p>ABA Specialist | 3 yrs experience | Nakuru</p>
@@ -424,33 +439,33 @@
       </div>
 
       <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
-        <h4>Peter Kamau</h4>
+        <h4>Paul Mwangi</h4>
+        <p>Occupational Therapist | 5 yrs experience | Nakuru</p>
+        <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Anne Cherono</h4>
         <p>Speech Therapist | 4 yrs experience | Eldoret</p>
         <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
       </div>
 
       <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
-        <h4>Fatuma Ali</h4>
-        <p>Occupational Therapist | 6 yrs experience | Garissa</p>
-        <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button>
-      </div>
-
-      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
-        <h4>Brian Ochieng</h4>
-        <p>ABA Specialist | 2 yrs experience | Kisumu</p>
+        <h4>Samuel Kariuki</h4>
+        <p>ABA Specialist | 6 yrs experience | Thika</p>
         <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button>
       </div>
 
       <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
-        <h4>Lucy Njeri</h4>
-        <p>Speech Therapist | 9 yrs experience | Nyeri</p>
-        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
+        <h4>Linda Njeri</h4>
+        <p>Special Needs Teacher | 5 yrs experience | Machakos</p>
+        <button onclick="requestExpert('Special Needs Teacher')">Request via CareBridge</button>
       </div>
 
       <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
-        <h4>Samuel Kibet</h4>
-        <p>Special Needs Teacher | 7 yrs experience | Nakuru</p>
-        <button onclick="requestExpert('Special Needs Teacher')">Request via CareBridge</button>
+        <h4>Michael Ouma</h4>
+        <p>Speech Therapist | 9 yrs experience | Kisii</p>
+        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
       </div>
     </div>
 
@@ -462,65 +477,132 @@
              background:rgba(0,0,0,0.45); color:#fff; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;">
       ›
     </button>
+
+    <!-- indicator dots -->
+    <div class="carousel-dots" aria-hidden="false" role="tablist"></div>
   </div>
 
-  <!-- Small inline script to power the carousel arrows & keyboard navigation.
-       (Placed here to avoid changing the head script block.) -->
+  <!-- carousel script: arrows, dots, swipe, resize handling -->
   <script>
     (function(){
-      const track = document.querySelector('.carousel-track');
-      const prevBtn = document.querySelector('.carousel-prev');
-      const nextBtn = document.querySelector('.carousel-next');
+      // run after a tick so the layout is ready
+      function initCarousel() {
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        const dotsBox = document.querySelector('.carousel-dots');
+        const cards = track ? Array.from(track.querySelectorAll('.expert-card')) : [];
 
-      if (!track || !prevBtn || !nextBtn) return;
+        if (!track || !prevBtn || !nextBtn || !cards.length) return;
 
-      // compute card width (fallback to 260)
-      const card = track.querySelector('.expert-card');
-      function getCardOffset() {
-        if (!card) return 280;
-        const cardRect = card.getBoundingClientRect();
-        // approximate gap: read left offset difference between first two cards if exists
-        const style = window.getComputedStyle(track);
-        const gap = parseFloat(style.columnGap || style.gap) || 24;
-        return Math.round(cardRect.width + gap);
+        // Helper to compute pages based on visible width
+        function computePages() {
+          const pageWidth = track.clientWidth;
+          const totalWidth = track.scrollWidth;
+          const pages = Math.max(1, Math.ceil(totalWidth / pageWidth));
+          return { pageWidth, pages };
+        }
+
+        // create/update dots
+        function renderDots() {
+          dotsBox.innerHTML = '';
+          const { pages } = computePages();
+          for (let i = 0; i < pages; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to page ' + (i+1));
+            dot.addEventListener('click', () => {
+              const { pageWidth } = computePages();
+              track.scrollTo({ left: i * pageWidth, behavior: 'smooth' });
+            });
+            dotsBox.appendChild(dot);
+          }
+        }
+
+        // update active dot based on scroll
+        function updateActiveDot() {
+          const { pageWidth, pages } = computePages();
+          const idx = Math.round(track.scrollLeft / pageWidth);
+          const dots = dotsBox.querySelectorAll('.carousel-dot');
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+
+        // Arrow handlers
+        prevBtn.addEventListener('click', () => {
+          const { pageWidth } = computePages();
+          track.scrollBy({ left: -pageWidth, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          const { pageWidth } = computePages();
+          track.scrollBy({ left: pageWidth, behavior: 'smooth' });
+        });
+
+        // Keyboard left/right
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') prevBtn.click();
+          if (e.key === 'ArrowRight') nextBtn.click();
+        });
+
+        // update dots on scroll (throttle via rAF)
+        let rafId = null;
+        track.addEventListener('scroll', () => {
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => {
+            updateActiveDot();
+            rafId = null;
+          });
+        });
+
+        // swipe / drag support
+        let isDown = false, startX = 0, scrollLeft = 0;
+        track.addEventListener('pointerdown', (e) => {
+          isDown = true;
+          track.style.scrollBehavior = 'auto';
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+          track.setPointerCapture(e.pointerId);
+        });
+        track.addEventListener('pointerup', (e) => {
+          isDown = false;
+          track.style.scrollBehavior = 'smooth';
+          track.releasePointerCapture && track.releasePointerCapture(e.pointerId);
+        });
+        track.addEventListener('pointercancel', () => {
+          isDown = false;
+          track.style.scrollBehavior = 'smooth';
+        });
+        track.addEventListener('pointermove', (e) => {
+          if (!isDown) return;
+          const x = e.pageX - track.offsetLeft;
+          const walk = x - startX;
+          track.scrollLeft = scrollLeft - walk;
+        });
+
+        // Recalc on resize (debounced)
+        let resizeTimeout = null;
+        function onResize() {
+          if (resizeTimeout) clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            renderDots();
+            updateActiveDot();
+          }, 120);
+        }
+        window.addEventListener('resize', onResize);
+
+        // Initial render
+        renderDots();
+        updateActiveDot();
       }
 
-      prevBtn.addEventListener('click', () => {
-        const offset = getCardOffset();
-        track.scrollBy({ left: -offset, behavior: 'smooth' });
-      });
-      nextBtn.addEventListener('click', () => {
-        const offset = getCardOffset();
-        track.scrollBy({ left: offset, behavior: 'smooth' });
-      });
-
-      // keyboard support: left/right arrows
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prevBtn.click();
-        if (e.key === 'ArrowRight') nextBtn.click();
-      });
-
-      // improve mobile UX: allow small snap after touchend
-      let isDown = false, startX = 0, scrollLeft = 0;
-      track.addEventListener('pointerdown', (e) => {
-        isDown = true;
-        track.style.scrollBehavior = 'auto';
-        startX = e.pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
-      });
-      track.addEventListener('pointerup', () => {
-        isDown = false;
-        track.style.scrollBehavior = 'smooth';
-      });
-      track.addEventListener('pointermove', (e) => {
-        if (!isDown) return;
-        const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX);
-        track.scrollLeft = scrollLeft - walk;
-      });
+      // init after DOM ready (this block is inside body, but be safe)
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousel);
+      } else {
+        initCarousel();
+      }
     })();
   </script>
-
 </section>
 <!-- ===== END UPDATED Experts SECTION ===== -->
 
