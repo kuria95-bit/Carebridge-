@@ -1,67 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CareBridge by UPA</title>
-<style>
-  body{margin:0;font-family:Arial,sans-serif;background:#f9fafb;color:#111827;line-height:1.6;}
-  header{background:#0d9488;color:white;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
-  header .logo-container{display:flex;align-items:center;gap:1rem;}
-  header .logo-container img{height:100px;width:auto;border-radius:6px;object-fit:contain;}
-  header .title-text h1{margin:0;font-size:2.5rem;font-weight:700;line-height:1;color:white;}
-  header .title-text small{display:block;font-size:1rem;font-weight:400;color:#d1f2ee;font-style:italic;}
-  nav a{color:white;text-decoration:none;margin:0 0.8rem;font-weight:bold;}
-  nav a:hover{text-decoration:underline;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareBridge by UPA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    header {
+      background: #0d9488;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header .logo-container img {
+      height: 100px;
+      width: auto;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+    header .title-text h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: white;
+    }
+    header .title-text small {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #d1f2ee;
+      font-style: italic;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
 
-  .hero{position:relative;text-align:center;padding:4rem 2rem;color:white;
-        background:url('https://i.postimg.cc/bryXcjF1/caleb-woods-ec-Ruhw-PIW7c-unsplash.jpg') no-repeat center/cover;}
-  .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:0;}
-  .hero h2,.hero p,.hero .cta-buttons{position:relative;z-index:1;text-shadow:0 2px 4px rgba(0,0,0,0.6);}
-  .hero h2{font-size:2rem;margin-bottom:1rem;}
-  .cta-buttons a{margin:0.5rem;padding:0.8rem 1.5rem;border-radius:6px;font-size:1rem;cursor:pointer;font-weight:bold;color:white;text-decoration:none;display:inline-block;}
-  .cta-parents{background:#2563eb;} .cta-experts{background:#0d9488;} .cta-donors{background:#f59e0b;}
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: white;
+      background: url('https://i.postimg.cc/bryXcjF1/caleb-woods-ec-Ruhw-PIW7c-unsplash.jpg') no-repeat center center / cover;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+    }
+    .hero h2,
+    .hero p,
+    .hero .cta-buttons {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .cta-buttons a {
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cta-parents { background: #2563eb; }
+    .cta-experts { background: #0d9488; }
+    .cta-donors  { background: #f59e0b; }
 
-  section{padding:3rem 2rem;max-width:900px;margin:auto;}
-  section h3{font-size:1.5rem;margin-bottom:1rem;color:#0d9488;}
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0d9488;
+    }
 
-  form{display:grid;gap:1rem;margin-top:1rem;}
-  form input,form textarea,form select{padding:0.8rem;border:1px solid #d1d5db;border-radius:6px;font-size:1rem;width:100%;}
-  form button{background:#0d9488;color:white;padding:0.8rem;border:none;border-radius:6px;cursor:pointer;font-size:1rem;font-weight:bold;}
-  form button:hover{background:#2563eb;}
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    form input, form textarea, form select {
+      padding: 0.8rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    form button {
+      background: #0d9488;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    form button:hover { background: #2563eb; }
 
-  /* Expert carousel */
-  .experts-carousel-wrapper{position:relative;overflow:hidden;margin-top:1.5rem;}
-  .experts-track{display:flex;transition:transform 0.4s ease;}
-  .expert-card{flex:0 0 280px;background:white;margin-right:1rem;padding:1rem;border-radius:8px;
-               box-shadow:0 2px 5px rgba(0,0,0,0.1);text-align:center;}
-  .expert-card h4{margin:0 0 0.3rem;font-size:1.1rem;color:#0d9488;}
-  .expert-card p{margin:0 0 0.8rem;}
-  .expert-card button{background:#22c55e;color:white;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;}
-  .expert-card button:hover{background:#16a34a;}
-  .carousel-btn{position:absolute;top:40%;background:#0d9488;color:white;border:none;padding:0.5rem;
-                border-radius:50%;cursor:pointer;z-index:5;}
-  .carousel-btn.left{left:-10px;} .carousel-btn.right{right:-10px;}
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .expert-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .expert-card button {
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .expert-card button:hover { background: #16a34a; }
 
-  .testimonials{position:relative;background:url('https://i.postimg.cc/KzLvHhst/Occupational-Therapy-for-Autism-How-Occupational-Therapist-can-help-your-autistic-child-958411156.jpg') no-repeat center/cover;
-                border-radius:8px;padding:2rem;color:white;margin:2rem auto;text-align:center;}
-  .testimonials::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.35);border-radius:8px;z-index:0;}
-  .testimonials h3{position:relative;z-index:1;margin-bottom:1.5rem;}
-  .carousel{position:relative;max-width:700px;margin:auto;overflow:hidden;height:200px;}
-  .testimonial-slide{position:absolute;top:0;left:0;width:100%;opacity:0;transition:opacity 1s ease-in-out;color:#fff;padding:0 1rem;box-sizing:border-box;}
-  .testimonial-slide.active{opacity:1;}
-  .testimonial-slide p,.testimonial-slide strong{position:relative;z-index:1;text-shadow:0 2px 4px rgba(0,0,0,0.6);}
+    .more-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-  footer{background:#0d9488;color:white;text-align:center;padding:1rem;margin-top:2rem;}
+    .testimonials {
+      position: relative;
+      background: url('https://i.postimg.cc/KzLvHhst/Occupational-Therapy-for-Autism-How-Occupational-Therapist-can-help-your-autistic-child-958411156.jpg')
+                  no-repeat center center / cover;
+      border-radius: 8px;
+      padding: 2rem;
+      color: white;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .testimonials::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      border-radius: 8px;
+      z-index: 0;
+    }
+    .testimonials h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+    .carousel {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+      overflow: hidden;
+      height: 200px;
+    }
+    .testimonial-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      color: #fff;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+    .testimonial-slide.active { opacity: 1; }
+    .testimonial-slide p,
+    .testimonial-slide strong {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
 
-  .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;border-radius:50%;width:48px;height:48px;
-                  display:flex;justify-content:center;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.3);cursor:pointer;z-index:100;}
-  .whatsapp-float img{width:28px;height:28px;}
+    footer {
+      background: #0d9488;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
 
-  .popup{position:fixed;top:20px;right:20px;background:#0d9488;color:white;padding:1rem 1.5rem;border-radius:6px;display:none;z-index:200;}
-  .about-image{width:100%;max-width:600px;display:block;margin:1.5rem auto;border-radius:8px;object-fit:cover;}
-</style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 100;
+    }
+    .whatsapp-float img { width: 28px; height: 28px; }
 
-<script>
-function requestExpert(profession){
-  co
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0d9488;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      display: none;
+      z-index: 200;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 1.5rem auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  </style>
+
+  <script>
+    function requestExpert(profession) {
+      const parentNeed = document.getElementById("parent-need");
+      if (parentNeed) parentNeed.value = profession;
+      document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
+    }
+    function handleSubmit(event) {
+      event.preventDefault();
+      const popup = document.getElementById("popup");
+      popup.style.display = "block";
+      setTimeout(() => { popup.style.display = "none"; }, 5000);
+      event.target.reset();
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      let index = 0;
+      if (slides.length) {
+        slides[0].classList.add('active');
+        setInterval(() => {
+          slides[index].classList.remove('active');
+          index = (index + 1) % slides.length;
+          slides[index].classList.add('active');
+        }, 6000);
+      }
+    });
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg" alt="UPA Logo" />
+    <div class="title-text">
+      <h1>CareBridge</h1>
+      <small>by Unlimited Possibilities Africa</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#parents">Parents</a>
+    <a href="#experts">Experts</a>
+    <a href="#donors">Donors</a>
+    <a href="#partners">Partnerships</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>The easier way to find trusted experts for your child</h2>
+  <p>CareBridge connects parents to vetted specialists quickly, safely, and with less stress.</p>
+  <div class="cta-buttons">
+    <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
+    <a href="#experts" class="cta-experts">For Experts → Join Now</a>
+    <a href="#donors" class="cta-donors">For Donors → Support Families</a>
+  </div>
+</section>
+
+<section id="about">
+  <h3>About CareBridge</h3>
+  <img src="https://i.postimg.cc/760CF2Qm/16829762242122.webp" alt="Therapist supporting an African child" class="about-image">
+  <p>CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>, built to make it easier
+     for parents of children with autism to access trusted experts online — without the hustle.</p>
+</section>
+
+<section id="parents">
+  <h3>Parents: Find the Right Expert</h3>
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Your Full Name" required />
+    <input type="tel" placeholder="Phone Number" required />
+    <input type="email" placeholder="Email Address" required />
+    <input type="number" placeholder="Child's Age" required />
+    <select>
+      <option>Diagnosis Stage</option>
+      <option>Early Stage</option>
+      <option>Mid Stage</option>
+      <option>Advanced</option>
+    </select>
+    <select id="parent-need">
+      <option value="">Specific Needs</option>
+      <option>Speech Therapist</option>
+      <option>ABA Specialist</option>
+      <option>Occupational Therapist</option>
+      <option>Special Needs Teacher</option>
+    </select>
+    <!-- Location now free text with example -->
+    <input type="text" placeholder="Location (e.g. Nairobi or Nakuru Town)" required />
+    <select>
+      <option>Preferred Mode</option>
+      <option>In-person</option>
+      <option>Online</option>
+      <option>Hybrid</option>
+    </select>
+    <textarea placeholder="Additional Notes"></textarea>
+    <button type="submit">Submit Request</button>
+  </form>
+</section>
+
+<!-- ===== UPDATED Experts SECTION: grid -> carousel (only this block changed) ===== -->
+<section id="experts">
+  <h3>Experts: Join Our Network</h3>
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Full Name" required />
+    <input type="text" placeholder="Profession" required />
+    <input type="number" placeholder="Years of Experience" required />
+    <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required />
+    <!-- Location as free text input -->
+    <input type="text" placeholder="Your Location (e.g. Nairobi, Kisumu)" required />
+    <select>
+      <option>Service Availability</option>
+      <option>In-person</option>
+      <option>Online</option>
+      <option>Hybrid</option>
+    </select>
+    <input type="file" accept=".pdf,.doc,.docx" required />
+    <textarea placeholder="Short Biography"></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <h3>Featured Experts</h3>
+
+  <!-- Carousel wrapper — inline styles used so main stylesheet remains unchanged -->
+  <div class="experts-carousel" style="position:relative; max-width:900px; margin:auto;">
+
+    <!-- Prev button (inline style to avoid editing global CSS) -->
+    <button
+      class="carousel-prev"
+      aria-label="Previous experts"
+      style="position:absolute; left:8px; top:50%; transform:translateY(-50%); z-index:10;
+             background:rgba(0,0,0,0.45); color:#fff; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;">
+      ‹
+    </button>
+
+    <!-- Scrollable track -->
+    <div
+      class="carousel-track"
+      style="display:flex; gap:1.5rem; overflow-x:auto; scroll-behavior:smooth; scroll-snap-type:x mandatory; padding:1rem 4rem;">
+      <!-- Each card uses the existing .expert-card class; add inline flex basis and snap -->
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Ephraim Maina</h4>
+        <p>ABA Specialist | 3 yrs experience | Nakuru</p>
+        <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Dr. Jane Mwangi</h4>
+        <p>Speech Therapist | 10 yrs experience | Nairobi</p>
+        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Mr. John Otieno</h4>
+        <p>ABA Specialist | 7 yrs experience | Kisumu</p>
+        <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Ms. Amina Hassan</h4>
+        <p>Occupational Therapist | 8 yrs experience | Mombasa</p>
+        <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Grace Wambui</h4>
+        <p>Special Needs Teacher | 6 yrs experience | Nairobi</p>
+        <button onclick="requestExpert('Special Needs Teacher')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Peter Kamau</h4>
+        <p>Speech Therapist | 4 yrs experience | Eldoret</p>
+        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Fatuma Ali</h4>
+        <p>Occupational Therapist | 6 yrs experience | Garissa</p>
+        <button onclick="requestExpert('Occupational Therapist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Brian Ochieng</h4>
+        <p>ABA Specialist | 2 yrs experience | Kisumu</p>
+        <button onclick="requestExpert('ABA Specialist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Lucy Njeri</h4>
+        <p>Speech Therapist | 9 yrs experience | Nyeri</p>
+        <button onclick="requestExpert('Speech Therapist')">Request via CareBridge</button>
+      </div>
+
+      <div class="expert-card" style="flex:0 0 260px; scroll-snap-align:start;">
+        <h4>Samuel Kibet</h4>
+        <p>Special Needs Teacher | 7 yrs experience | Nakuru</p>
+        <button onclick="requestExpert('Special Needs Teacher')">Request via CareBridge</button>
+      </div>
+    </div>
+
+    <!-- Next button -->
+    <button
+      class="carousel-next"
+      aria-label="Next experts"
+      style="position:absolute; right:8px; top:50%; transform:translateY(-50%); z-index:10;
+             background:rgba(0,0,0,0.45); color:#fff; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;">
+      ›
+    </button>
+  </div>
+
+  <!-- Small inline script to power the carousel arrows & keyboard navigation.
+       (Placed here to avoid changing the head script block.) -->
+  <script>
+    (function(){
+      const track = document.querySelector('.carousel-track');
+      const prevBtn = document.querySelector('.carousel-prev');
+      const nextBtn = document.querySelector('.carousel-next');
+
+      if (!track || !prevBtn || !nextBtn) return;
+
+      // compute card width (fallback to 260)
+      const card = track.querySelector('.expert-card');
+      function getCardOffset() {
+        if (!card) return 280;
+        const cardRect = card.getBoundingClientRect();
+        // approximate gap: read left offset difference between first two cards if exists
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap) || 24;
+        return Math.round(cardRect.width + gap);
+      }
+
+      prevBtn.addEventListener('click', () => {
+        const offset = getCardOffset();
+        track.scrollBy({ left: -offset, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        const offset = getCardOffset();
+        track.scrollBy({ left: offset, behavior: 'smooth' });
+      });
+
+      // keyboard support: left/right arrows
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevBtn.click();
+        if (e.key === 'ArrowRight') nextBtn.click();
+      });
+
+      // improve mobile UX: allow small snap after touchend
+      let isDown = false, startX = 0, scrollLeft = 0;
+      track.addEventListener('pointerdown', (e) => {
+        isDown = true;
+        track.style.scrollBehavior = 'auto';
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+      track.addEventListener('pointerup', () => {
+        isDown = false;
+        track.style.scrollBehavior = 'smooth';
+      });
+      track.addEventListener('pointermove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX);
+        track.scrollLeft = scrollLeft - walk;
+      });
+    })();
+  </script>
+
+</section>
+<!-- ===== END UPDATED Experts SECTION ===== -->
+
+<section id="testimonials" class="testimonials">
+  <h3>Stories of Impact</h3>
+  <div class="carousel">
+    <div class="testimonial-slide active">
+      <p>“Through CareBridge, I found a speech therapist for my son within a week. The progress he has made in just three months is beyond what I imagined.”</p>
+      <strong>- Mary, Parent (Nairobi)</strong>
+    </div>
+    <div class="testimonial-slide">
+      <p>“Partnering with CareBridge allowed us to reach families in rural areas that we could never have accessed on our own.”</p>
+      <strong>- David, NGO Partner</strong>
+    </div>
+    <div class="testimonial-slide">
+      <p>“Donating to CareBridge gave me peace of mind knowing my support directly funds therapy sessions for children in need.”</p>
+      <strong>- Sarah, Donor</strong>
+    </div>
+  </div>
+</section>
+
+<section id="donors">
+  <h3>Donors: Support Families</h3>
+  <p>Your support helps us subsidize therapy and interventions for families in low-income communities.</p>
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email Address" required />
+    <select>
+      <option>Donation Type</option>
+      <option>One-time</option>
+      <option>Monthly</option>
+    </select>
+    <textarea placeholder="Message (optional)"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<section id="partners">
+  <h3>Partnership Opportunities</h3>
+  <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care.</p>
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Full Name" required />
+    <input type="text" placeholder="Organization" required />
+    <input type="email" placeholder="Email Address" required />
+    <input type="tel" placeholder="Phone Number" />
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h3>Contact Us</h3>
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email Address" required />
+    <textarea placeholder="Your Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <p>Call us: +254715758964</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 CareBridge by Unlimited Possibilities Africa (UPA). All rights reserved.</p>
+</footer>
+
+<div id="popup" class="popup">Form submitted successfully!</div>
+
+<a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I%20need%20assistance."
+   class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+</body>
+</html>
