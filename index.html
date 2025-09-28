@@ -19,6 +19,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     header .logo-container {
       display: flex;
@@ -37,7 +38,6 @@
       font-weight: 700;
       line-height: 1;
       color: white;
-      margin-bottom: 0.1rem;
     }
     header .title-text small {
       display: block;
@@ -163,35 +163,55 @@
       font-weight: bold;
     }
 
-    /* Testimonials with your chosen background */
+    /* Testimonials Carousel */
     .testimonials {
       position: relative;
-      background: url('https://i.postimg.cc/KzLvHhst/Occupational-Therapy-for-Autism-How-Occupational-Therapist-can-help-your-autistic-child-958411156.jpg') no-repeat center center / cover;
+      background: url('https://i.postimg.cc/KzLvHhst/Occupational-Therapy-for-Autism-How-Occupational-Therapist-can-help-your-autistic-child-958411156.jpg')
+                  no-repeat center center / cover;
       border-radius: 8px;
       padding: 2rem;
       color: white;
       margin: 2rem auto;
+      text-align: center;
     }
     .testimonials::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.35); /* lighter overlay for visibility */
       border-radius: 8px;
       z-index: 0;
     }
-    .testimonials h3,
-    .testimonial-card {
+    .testimonials h3 {
       position: relative;
       z-index: 1;
-    }
-    .testimonial-card {
-      background: rgba(255,255,255,0.85);
-      color: #111827;
-      padding: 1.2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       margin-bottom: 1.5rem;
+    }
+    .carousel {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+      overflow: hidden;
+      height: 200px; /* compact height */
+    }
+    .testimonial-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      color: #fff;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+    .testimonial-slide.active {
+      opacity: 1;
+    }
+    .testimonial-slide p,
+    .testimonial-slide strong {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     }
 
     footer {
@@ -259,6 +279,20 @@
       }
       if (event.target && typeof event.target.reset === "function") event.target.reset();
     }
+
+    // Simple testimonial carousel
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      let index = 0;
+      if (slides.length) {
+        slides[0].classList.add('active');
+        setInterval(() => {
+          slides[index].classList.remove('active');
+          index = (index + 1) % slides.length;
+          slides[index].classList.add('active');
+        }, 6000);
+      }
+    });
   </script>
 </head>
 <body>
@@ -285,7 +319,7 @@
     <h2>The easier way to find trusted experts for your child</h2>
     <p>
       CareBridge connects parents to vetted specialists — from speech therapy to occupational therapy —
-      quickly, safely, and with less stress. Because your child deserves the right support without the struggle.
+      quickly, safely, and with less stress.
     </p>
     <div class="cta-buttons">
       <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
@@ -302,8 +336,6 @@
     <p>
       CareBridge is a product of <strong>Unlimited Possibilities Africa (UPA)</strong>, built to make it easier
       for parents of children with autism to access trusted experts online — without the hustle.
-      Starting in Kenya, we are building the bridge between families and professionals,
-      ensuring every child gets the right care at the right time.
     </p>
   </section>
 
@@ -393,25 +425,28 @@
     <button class="more-btn">More +</button>
   </section>
 
+  <!-- Auto-sliding Testimonials -->
   <section id="testimonials" class="testimonials">
     <h3>Stories of Impact</h3>
-    <div class="testimonial-card">
-      <p>“Through CareBridge, I found a speech therapist for my son within a week. The progress he has made in just three months is beyond what I imagined.”</p>
-      <strong>- Mary, Parent (Nairobi)</strong>
-    </div>
-    <div class="testimonial-card">
-      <p>“Partnering with CareBridge allowed us to reach families in rural areas that we could never have accessed on our own.”</p>
-      <strong>- David, NGO Partner</strong>
-    </div>
-    <div class="testimonial-card">
-      <p>“Donating to CareBridge gave me peace of mind knowing my support directly funds therapy sessions for children in need.”</p>
-      <strong>- Sarah, Donor</strong>
+    <div class="carousel">
+      <div class="testimonial-slide active">
+        <p>“Through CareBridge, I found a speech therapist for my son within a week. The progress he has made in just three months is beyond what I imagined.”</p>
+        <strong>- Mary, Parent (Nairobi)</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>“Partnering with CareBridge allowed us to reach families in rural areas that we could never have accessed on our own.”</p>
+        <strong>- David, NGO Partner</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>“Donating to CareBridge gave me peace of mind knowing my support directly funds therapy sessions for children in need.”</p>
+        <strong>- Sarah, Donor</strong>
+      </div>
     </div>
   </section>
 
   <section id="donors">
     <h3>Donors: Support Families</h3>
-    <p>Your support helps us subsidize therapy and interventions for families in low-income communities who cannot afford the services their children need.</p>
+    <p>Your support helps us subsidize therapy and interventions for families in low-income communities.</p>
     <form onsubmit="handleSubmit(event)">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email Address" required />
@@ -427,7 +462,7 @@
 
   <section id="partners">
     <h3>Partnership Opportunities</h3>
-    <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care — ensuring every child, regardless of background, can access the right support.</p>
+    <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care.</p>
     <form onsubmit="handleSubmit(event)">
       <input type="text" placeholder="Full Name" required />
       <input type="text" placeholder="Organization" required />
@@ -453,12 +488,15 @@
     <p>&copy; 2025 CareBridge by Unlimited Possibilities Africa (UPA). All rights reserved.</p>
   </footer>
 
+  <!-- Success Popup -->
   <div id="popup" class="popup">Form submitted successfully!</div>
 
-  <a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I’d%20like%20to%20connect."
-     class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254715758964?text=Hello%20CareBridge%20Team%2C%20I%20need%20assistance."
+     class="whatsapp-float"
+     target="_blank"
+     aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
-
 </body>
 </html>
