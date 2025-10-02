@@ -39,13 +39,6 @@
       line-height: 1;
       color: white;
     }
-    header .title-text small {
-      display: block;
-      font-size: 1rem;
-      font-weight: 400;
-      color: #d1f2ee;
-      font-style: italic;
-    }
     nav a {
       color: white;
       text-decoration: none;
@@ -240,6 +233,27 @@
       margin-top: 2rem;
     }
 
+    /* Social icons styling (added for footer icons) */
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      opacity: 0.95;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -319,7 +333,7 @@
     <img src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg" alt="UPA Logo" />
     <div class="title-text">
       <h1>Unlimited Possibilities Africa</h1>
-      <small>by Unlimited Possibilities Africa</small>
+      <!-- removed the "by Unlimited Possibilities Africa" line as requested -->
     </div>
   </div>
   <nav>
@@ -480,6 +494,19 @@
 
 <footer>
   <p>&copy; 2025 Unlimited Possibilities Africa — Email: <a style="color:#fff;" href="mailto:unlimitedpossibilitiesafrica@gmail.com">unlimitedpossibilitiesafrica@gmail.com</a></p>
+
+  <!-- Social icons: replace href="#" with your actual social page links -->
+  <div class="social-icons" aria-label="Follow us on social media">
+    <a href="#" title="Facebook (link later)" aria-label="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="#" title="Instagram (link later)" aria-label="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+    </a>
+    <a href="#" title="Twitter (link later)" aria-label="Twitter">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">
+    </a>
+  </div>
 </footer>
 
 <a class="whatsapp-float" href="https://wa.me/254700000000" target="_blank" rel="noopener">
