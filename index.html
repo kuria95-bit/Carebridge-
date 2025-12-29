@@ -1,519 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unlimited Possibilities Africa</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.6;
-    }
-    header {
-      background: #0d9488;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    header .logo-container img {
-      height: 100px;
-      width: auto;
-      border-radius: 6px;
-      object-fit: contain;
-    }
-    header .title-text h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1;
-      color: white;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 0.8rem;
-      font-weight: bold;
-    }
-    nav a:hover { text-decoration: underline; }
+<meta charset="UTF-8">
+<title>Home Ground Merchants</title>
 
-    .hero {
-      position: relative;
-      text-align: center;
-      padding: 4rem 2rem;
-      color: white;
-      background: url('https://i.postimg.cc/bryXcjF1/caleb-woods-ec-Ruhw-PIW7c-unsplash.jpg') no-repeat center center / cover;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 0;
-    }
-    .hero h2,
-    .hero p,
-    .hero .cta-buttons {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-    }
-    .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .cta-buttons a {
-      margin: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .cta-parents { background: #2563eb; }
-    .cta-experts { background: #0d9488; }
-    .cta-donors  { background: #f59e0b; }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f6fb;
+  color:#222;
+}
+header{
+  background:#2f3fa4;
+  color:#fff;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header h1{margin:0;font-size:20px;}
+nav a{
+  color:#fff;
+  margin-left:15px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    section {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #0d9488;
-    }
+section{padding:60px 20px;}
+.hero{
+  background:#fff;
+  text-align:center;
+}
+.hero h2{margin-bottom:10px;}
+.hero p{color:#555;}
+.hero a{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#f4c430;
+  color:#000;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+}
 
-    /* shared image style for parent & expert application */
-    .section-image {
-      width: 100%;
-      max-width: 650px;       /* limit size on large screens */
-      display: block;
-      margin: 1.5rem auto;
-      border-radius: 8px;
-      object-fit: cover;
-    }
+.about{
+  background:#fdfdfd;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+.about h3{margin-bottom:15px;}
+.about p{color:#555;line-height:1.6;}
 
-    form {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    form input, form textarea, form select {
-      padding: 0.8rem;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 1rem;
-      width: 100%;
-    }
-    form button {
-      background: #0d9488;
-      color: white;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-    form button:hover { background: #2563eb; }
+.filters{
+  text-align:center;
+  padding-bottom:20px;
+}
+.filters button{
+  margin:5px;
+  padding:10px 18px;
+  border:none;
+  background:#2f3fa4;
+  color:#fff;
+  border-radius:5px;
+  cursor:pointer;
+}
+.filters button:hover{background:#1f2d7a;}
 
-    /* Experts carousel */
-    .experts-carousel {
-      position: relative;
-      overflow: hidden;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .experts-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .expert-card {
-      flex: 0 0 250px;
-      background: white;
-      margin: 0 0.5rem;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .expert-card button {
-      background: #22c55e;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .expert-card button:hover { background: #16a34a; }
+.property-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
+}
+.property-card{
+  background:#fff;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 3px 8px rgba(0,0,0,.1);
+}
+.property-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.property-card div{padding:15px;}
+.property-card h3{margin:0 0 8px;}
+.property-card p{margin:4px 0;color:#555;}
 
-    .carousel-dots {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .carousel-dots span {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin: 0 4px;
-      background: #d1d5db;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    .carousel-dots span.active {
-      background: #0d9488;
-    }
+.load-more{text-align:center;padding-top:20px;}
+.load-more button{
+  padding:12px 20px;
+  border:none;
+  background:#f4c430;
+  font-weight:bold;
+  border-radius:5px;
+  cursor:pointer;
+}
 
-    .testimonials {
-      position: relative;
-      background: url('https://i.postimg.cc/KzLvHhst/Occupational-Therapy-for-Autism-How-Occupational-Therapist-can-help-your-autistic-child-958411156.jpg')
-                  no-repeat center center / cover;
-      border-radius: 8px;
-      padding: 2rem;
-      color: white;
-      margin: 2rem auto;
-      text-align: center;
-    }
-    .testimonials::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-      border-radius: 8px;
-      z-index: 0;
-    }
-    .testimonials h3 {
-      position: relative;
-      z-index: 1;
-      margin-bottom: 1.5rem;
-    }
-    .carousel {
-      position: relative;
-      max-width: 700px;
-      margin: auto;
-      overflow: hidden;
-      height: 200px;
-    }
-    .testimonial-slide {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      color: #fff;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
-    .testimonial-slide.active { opacity: 1; }
-    .testimonial-slide p,
-    .testimonial-slide strong {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-    }
+.contact{
+  background:#fff;
+  text-align:center;
+}
+.contact h3{margin-bottom:10px;}
+.contact p{color:#555;}
+.contact a{
+  display:block;
+  margin:8px 0;
+  color:#2f3fa4;
+  font-weight:bold;
+  text-decoration:none;
+}
 
-    footer {
-      background: #0d9488;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
+.socials{
+  margin-top:15px;
+}
+.socials a{
+  margin:0 10px;
+  color:#2f3fa4;
+  font-weight:bold;
+  text-decoration:none;
+}
 
-    /* Social icons styling (added for footer icons) */
-    .social-icons {
-      margin-top: 1rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .social-icons img {
-      width: 28px;
-      height: 28px;
-      vertical-align: middle;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      opacity: 0.95;
-    }
-    .social-icons a:hover img {
-      transform: scale(1.15);
-      opacity: 1;
-    }
+footer{
+  background:#2f3fa4;
+  color:#fff;
+  text-align:center;
+  padding:15px;
+}
 
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 100;
-    }
-    .whatsapp-float img { width: 28px; height: 28px; }
-
-    .popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #0d9488;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      display: none;
-      z-index: 200;
-    }
-  </style>
-
-  <script>
-    function requestExpert(profession) {
-      const parentNeed = document.getElementById("parent-need");
-      if (parentNeed) parentNeed.value = profession;
-      document.getElementById("parents").scrollIntoView({ behavior: "smooth" });
-    }
-    function handleSubmit(event) {
-      event.preventDefault();
-      const popup = document.getElementById("popup");
-      popup.style.display = "block";
-      setTimeout(() => { popup.style.display = "none"; }, 5000);
-      event.target.reset();
-    }
-
-    // testimonial carousel
-    document.addEventListener("DOMContentLoaded", () => {
-      const slides = document.querySelectorAll('.testimonial-slide');
-      let index = 0;
-      if (slides.length) {
-        slides[0].classList.add('active');
-        setInterval(() => {
-          slides[index].classList.remove('active');
-          index = (index + 1) % slides.length;
-          slides[index].classList.add('active');
-        }, 6000);
-      }
-    });
-
-    // experts carousel dots
-    document.addEventListener("DOMContentLoaded", () => {
-      const track = document.querySelector('.experts-track');
-      const dots = document.querySelectorAll('.carousel-dots span');
-      let current = 0;
-      function updateCarousel(i){
-        current = i;
-        track.style.transform = `translateX(-${i * 260}px)`;
-        dots.forEach((d,idx)=> d.classList.toggle('active', idx===i));
-      }
-      dots.forEach((dot,i)=> dot.addEventListener('click', ()=>updateCarousel(i)));
-    });
-  </script>
+/* WHATSAPP FLOAT */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  text-decoration:none;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo-container">
-    <img src="https://i.postimg.cc/d09XvfPB/60713b44-68b3-45f2-b6b0-7d383dedc2f4.jpg" alt="UPA Logo" />
-    <div class="title-text">
-      <h1>Unlimited Possibilities Africa</h1>
-      <!-- removed the "by Unlimited Possibilities Africa" line as requested -->
-    </div>
-  </div>
+  <h1>Home Ground Merchants</h1>
   <nav>
-    <a href="#parents">Parents</a>
-    <a href="#experts">Experts</a>
-    <a href="#donors">Donors</a>
-    <a href="#partners">Partnerships</a>
+    <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#properties">Properties</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>The easier way to find trusted experts for your child</h2>
-  <p>Unlimited Possibilities Africa connects parents to vetted specialists quickly, safely, and with less stress.</p>
-  <div class="cta-buttons">
-    <a href="#parents" class="cta-parents">For Parents → Find an Expert</a>
-    <a href="#experts" class="cta-experts">For Experts → Join Now</a>
-    <a href="#donors" class="cta-donors">For Donors → Support Families</a>
+<section id="home" class="hero">
+  <h2>Trusted Land & Property Dealers</h2>
+  <p>Plots • Apartments • Investment Properties</p>
+  <a href="#properties">Browse Properties</a>
+</section>
+
+<section id="about" class="about">
+  <h3>About Us</h3>
+  <p>
+    Home Ground Merchants is a trusted real estate company specializing in the
+    sale of genuine plots, apartments, and investment-ready properties.
+    We focus on prime locations, transparent transactions, and helping our
+    clients make informed property decisions with confidence.
+  </p>
+</section>
+
+<section id="properties">
+  <div class="filters">
+    <button onclick="filterProps('all')">All</button>
+    <button onclick="filterProps('apartment')">Apartments</button>
+    <button onclick="filterProps('plot')">Plots</button>
+  </div>
+
+  <div id="list" class="property-grid"></div>
+
+  <div class="load-more">
+    <button onclick="loadMore()">Load More</button>
   </div>
 </section>
 
-<section id="about">
-  <h3>About Unlimited Possibilities Africa</h3>
-  <img src="https://i.postimg.cc/760CF2Qm/16829762242122.webp" alt="Therapist supporting an African child" class="section-image">
-  <p><strong>Unlimited Possibilities Africa (UPA)</strong> is built to make it easier
-     for parents of children with autism to access trusted experts online — without the hustle.</p>
-</section>
-
-<section id="parents">
-  <h3>Parents: Find the Right Expert</h3>
-  <img src="https://i.postimg.cc/HnWWsZtz/premium-photo-1661284821300-44f13458a886.jpg" alt="Parent and child therapy session" class="section-image">
-  <form onsubmit="handleSubmit(event)">
-    <input type="text" placeholder="Your Full Name" required />
-    <input type="tel" placeholder="Phone Number" required />
-    <input type="email" placeholder="Email Address" required />
-    <input type="number" placeholder="Child's Age" required />
-    <select>
-      <option>Diagnosis Stage</option>
-      <option>Early Stage</option>
-      <option>Mid Stage</option>
-      <option>Advanced</option>
-    </select>
-    <select id="parent-need">
-      <option value="">Specific Needs</option>
-      <option>Speech Therapist</option>
-      <option>ABA Specialist</option>
-      <option>Occupational Therapist</option>
-      <option>Special Needs Teacher</option>
-    </select>
-    <input type="text" placeholder="Location (e.g. Nairobi or Nakuru Town)" required />
-    <select>
-      <option>Preferred Mode</option>
-      <option>In-person</option>
-      <option>Online</option>
-      <option>Hybrid</option>
-    </select>
-    <textarea placeholder="Additional Notes"></textarea>
-    <button type="submit">Submit Request</button>
-  </form>
-</section>
-
-<section id="experts">
-  <h3>Experts: Join Our Network</h3>
-  <img src="https://i.postimg.cc/d0VQRSCx/photo-1587614227447-2697e25730a9.avif" alt="Professional applying" class="section-image">
-  <form onsubmit="handleSubmit(event)">
-    <input type="text" placeholder="Full Name" required />
-    <input type="text" placeholder="Profession" required />
-    <input type="number" placeholder="Years of Experience" required />
-    <input type="text" placeholder="Specialization (e.g., ABA, speech therapy)" required />
-    <input type="text" placeholder="Your Location (e.g. Nairobi, Kisumu)" required />
-    <select>
-      <option>Service Availability</option>
-      <option>In-person</option>
-      <option>Online</option>
-      <option>Hybrid</option>
-    </select>
-    <input type="file" accept=".pdf,.doc,.docx" required />
-    <textarea placeholder="Short Biography"></textarea>
-    <button type="submit">Submit Application</button>
-  </form>
-
-  <h3>Featured Experts</h3>
-  <div class="experts-carousel">
-    <div class="experts-track">
-      <div class="expert-card"><h4>Ephraim Maina</h4><p>ABA Specialist | 3 yrs experience | Nakuru</p><button onclick="requestExpert('ABA Specialist')">Request</button></div>
-      <div class="expert-card"><h4>Dr. Jane Mwangi</h4><p>Speech Therapist | 10 yrs | Nairobi</p><button onclick="requestExpert('Speech Therapist')">Request</button></div>
-      <div class="expert-card"><h4>Mr. John Otieno</h4><p>ABA Specialist | 7 yrs | Kisumu</p><button onclick="requestExpert('ABA Specialist')">Request</button></div>
-      <div class="expert-card"><h4>Ms. Amina Hassan</h4><p>Occupational Therapist | 8 yrs | Mombasa</p><button onclick="requestExpert('Occupational Therapist')">Request</button></div>
-      <!-- add more cards as needed -->
-    </div>
-    <div class="carousel-dots">
-      <span class="active"></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials" class="testimonials">
-  <h3>Stories of Impact</h3>
-  <div class="carousel">
-    <div class="testimonial-slide active">
-      <p>“Through Unlimited Possibilities Africa, I found a speech therapist for my son within a week. The progress he has made in just three months is beyond what I imagined.”</p>
-      <strong>- Mary, Parent (Nairobi)</strong>
-    </div>
-    <div class="testimonial-slide">
-      <p>“Partnering with Unlimited Possibilities Africa allowed us to reach families in rural areas that we could never have accessed on our own.”</p>
-      <strong>- David, NGO Partner</strong>
-    </div>
-    <div class="testimonial-slide">
-      <p>“Donating to Unlimited Possibilities Africa gave me peace of mind knowing my support directly funds therapy sessions for children in need.”</p>
-      <strong>- Sarah, Donor</strong>
-    </div>
-  </div>
-</section>
-
-<section id="donors">
-  <h3>Donors: Support Families</h3>
-  <p>Your support helps us subsidize therapy and interventions for families in low-income communities.</p>
-  <form onsubmit="handleSubmit(event)">
-    <input type="text" placeholder="Full Name" required />
-    <input type="email" placeholder="Email Address" required />
-    <select>
-      <option>Donation Type</option>
-      <option>One-time</option>
-      <option>Monthly</option>
-    </select>
-    <textarea placeholder="Message (optional)"></textarea>
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<section id="partners">
-  <h3>Partnership Opportunities</h3>
-  <p>We collaborate with organizations, NGOs, and corporate partners to expand access to autism care.</p>
-  <form onsubmit="handleSubmit(event)">
-    <input type="text" placeholder="Full Name" required />
-    <input type="text" placeholder="Organization" required />
-    <input type="email" placeholder="Email Address" required />
-    <input type="tel" placeholder="Phone Number" />
-    <textarea placeholder="Message"></textarea>
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<section id="contact">
+<section id="contact" class="contact">
   <h3>Contact Us</h3>
-  <p>Email: <a href="mailto:unlimitedpossibilitiesafrica@gmail.com">unlimitedpossibilitiesafrica@gmail.com</a></p>
-  <form onsubmit="handleSubmit(event)">
-    <input type="text" placeholder="Full Name" required />
-    <input type="email" placeholder="Email Address" required />
-    <textarea placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+  <p>Get in touch for property details or site visits</p>
+
+  <a href="tel:+254724154316">📞 0724 154 316</a>
+  <a href="mailto:info@homegroundmerchants.com">✉️ info@homegroundmerchants.com</a>
+  <a href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you.">
+    💬 WhatsApp Us
+  </a>
+
+  <div class="socials">
+    <p>Follow Us</p>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+  </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 Unlimited Possibilities Africa — Email: <a style="color:#fff;" href="mailto:unlimitedpossibilitiesafrica@gmail.com">unlimitedpossibilitiesafrica@gmail.com</a></p>
-
-  <!-- Social icons: replace href="#" with your actual social page links -->
-  <div class="social-icons" aria-label="Follow us on social media">
-    <a href="#" title="Facebook (link later)" aria-label="Facebook">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-    </a>
-    <a href="#" title="Instagram (link later)" aria-label="Instagram">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
-    </a>
-    <a href="#" title="Twitter (link later)" aria-label="Twitter">
-      <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">
-    </a>
-  </div>
+  © 2025 Home Ground Merchants. All Rights Reserved.
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/254700000000" target="_blank" rel="noopener">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+<a class="whatsapp-float"
+href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you."
+target="_blank">💬</a>
 
-<div class="popup" id="popup">Form submitted successfully!</div>
+<script>
+const properties=[
+ {title:"Mihoko Kizito Apartments",location:"Mihoko Kizito",price:"KES 23.5M",type:"apartment"},
+ {title:"Ruiru Bypass Apartments",location:"Ruiru",price:"KES 32M",type:"apartment"},
+ {title:"Kikuyu Ondiri Apartments",location:"Kikuyu",price:"KES 18.8M",type:"apartment"},
+ {title:"Joska Modern Apartments",location:"Joska",price:"KES 27M",type:"apartment"},
+ {title:"Kasarani Seasons Apartments",location:"Kasarani",price:"KES 45M",type:"apartment"},
+ {title:"Kitengela Milimani Plot",location:"Kitengela",price:"KES 3.2M",type:"plot"},
+ {title:"Ruiru Kamakis Plot",location:"Kamakis",price:"KES 1.8M",type:"plot"},
+ {title:"Joska Kantafu Plot",location:"Kantafu",price:"KES 2.5M",type:"plot"},
+ {title:"Ngong Matasia Plot",location:"Matasia",price:"KES 6.5M",type:"plot"},
+ {title:"Thika Makongeni Plot",location:"Makongeni",price:"KES 2.2M",type:"plot"}
+];
+
+let visible=6;
+let current="all";
+
+function render(){
+ const list=document.getElementById("list");
+ list.innerHTML="";
+ properties
+  .filter(p=>current==="all"||p.type===current)
+  .slice(0,visible)
+  .forEach(p=>{
+    list.innerHTML+=`
+     <div class="property-card">
+       <img src="https://via.placeholder.com/400x300">
+       <div>
+         <h3>${p.title}</h3>
+         <p>${p.location}</p>
+         <strong>${p.price}</strong>
+       </div>
+     </div>`;
+  });
+}
+function filterProps(type){
+ current=type;
+ visible=6;
+ render();
+}
+function loadMore(){
+ visible+=4;
+ render();
+}
+render();
+</script>
 
 </body>
 </html>
