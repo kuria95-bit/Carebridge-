@@ -1,270 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Home Ground Merchants</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Ground Merchants | Plots & Apartments Nairobi</title>
+  <meta name="description" content="Genuine ready-title plots and apartments in Ruiru, Kitengela, Joska, Mlolongo, Ngong and more."/>
+  <style>
+    :root {
+      --primary: #1e40af;
+      --dark: #111827;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --green: #25d366;
+      --gold: #fbbf24;
+      --gold-light: #fcd34d;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.65;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f4f6fb;
-  color:#222;
-}
-header{
-  background:#2f3fa4;
-  color:#fff;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-header h1{margin:0;font-size:20px;}
-nav a{
-  color:#fff;
-  margin-left:15px;
-  text-decoration:none;
-  font-weight:bold;
-}
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 5%; }
+    header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .logo { font-size: clamp(1.35rem, 4vw, 1.55rem); font-weight: 700; }
+    nav { display: flex; gap: 1.2rem; }
+    nav a { color: white; text-decoration: none; font-weight: 500; font-size: clamp(0.9rem, 3vw, 1rem); }
 
-section{padding:60px 20px;}
-.hero{
-  background:#fff;
-  text-align:center;
-}
-.hero h2{margin-bottom:10px;}
-.hero p{color:#555;}
-.hero a{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 25px;
-  background:#f4c430;
-  color:#000;
-  text-decoration:none;
-  border-radius:5px;
-  font-weight:bold;
-}
+    section { padding: 60px 0; }
+    h1, h2 { color: var(--primary); text-align: center; margin-bottom: 1.3rem; }
+    h1 { font-size: clamp(2.1rem, 6vw, 2.8rem); font-weight: 800; }
+    h2 { font-size: clamp(1.7rem, 5vw, 2rem); font-weight: 600; }
 
-.about{
-  background:#fdfdfd;
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-}
-.about h3{margin-bottom:15px;}
-.about p{color:#555;line-height:1.6;}
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.78)),
+                  url('https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: clamp(100px, 20vw, 140px) 6% clamp(80px, 18vw, 110px);
+    }
+    .hero h1, .hero p { text-shadow: 0 3px 12px rgba(0,0,0,0.85); }
+    .hero p { font-size: clamp(1.05rem, 4vw, 1.25rem); max-width: 760px; margin: 0 auto 1.8rem; opacity: 0.97; }
 
-.filters{
-  text-align:center;
-  padding-bottom:20px;
-}
-.filters button{
-  margin:5px;
-  padding:10px 18px;
-  border:none;
-  background:#2f3fa4;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
-}
-.filters button:hover{background:#1f2d7a;}
+    .btn-primary {
+      display: inline-block;
+      background: white;
+      color: var(--primary);
+      padding: clamp(0.8rem, 3vw, 1rem) clamp(1.6rem, 5vw, 2.4rem);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1rem, 4vw, 1.15rem);
+      transition: all 0.25s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
-.property-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-  max-width:1100px;
-  margin:auto;
-}
-.property-card{
-  background:#fff;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow:0 3px 8px rgba(0,0,0,.1);
-}
-.property-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-.property-card div{padding:15px;}
-.property-card h3{margin:0 0 8px;}
-.property-card p{margin:4px 0;color:#555;}
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+    }
+    .feature-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      text-align: center;
+    }
 
-.load-more{text-align:center;padding-top:20px;}
-.load-more button{
-  padding:12px 20px;
-  border:none;
-  background:#f4c430;
-  font-weight:bold;
-  border-radius:5px;
-  cursor:pointer;
-}
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .property-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
+    }
+    .property-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+    .property-card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 1.2rem; text-align: center; }
+    .price { font-size: 1.35rem; font-weight: 700; color: var(--primary); margin: 0.5rem 0; }
+    .btn { 
+      display: inline-block; background: var(--primary); color: white; padding: 0.8rem 1.6rem;
+      border-radius: 6px; font-weight: 500; font-size: 1rem; cursor: pointer; transition: background 0.2s;
+    }
+    .btn:hover { background: #1e3a8a; }
 
-.contact{
-  background:#fff;
-  text-align:center;
-}
-.contact h3{margin-bottom:10px;}
-.contact p{color:#555;}
-.contact a{
-  display:block;
-  margin:8px 0;
-  color:#2f3fa4;
-  font-weight:bold;
-  text-decoration:none;
-}
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+    }
+    .review-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .review-card::before {
+      content: '“';
+      font-size: 4rem;
+      color: var(--primary);
+      opacity: 0.12;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
+    .stars {
+      display: flex;
+      gap: 0.3rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.5rem;
+      color: #d1d5db;
+      cursor: pointer;
+    }
+    .stars span {
+      transition: color 0.2s;
+    }
+    .stars span:hover, .stars span.active {
+      color: var(--gold);
+    }
+    .review-card p { margin: 1rem 0; font-style: italic; color: #374151; }
+    .review-author {
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
 
-.socials{
-  margin-top:15px;
-}
-.socials a{
-  margin:0 10px;
-  color:#2f3fa4;
-  font-weight:bold;
-  text-decoration:none;
-}
+    footer { background: var(--primary); color: white; text-align: center; padding: 3rem 6% 2rem; }
 
-footer{
-  background:#2f3fa4;
-  color:#fff;
-  text-align:center;
-  padding:15px;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:#fff;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  text-decoration:none;
-  box-shadow:0 4px 10px rgba(0,0,0,.3);
-}
-</style>
+    @media (max-width:768px) {
+      header { padding:0.9rem 5%; }
+      .hero { padding:90px 5% 70px; }
+      nav { gap:0.8rem; }
+      nav a { font-size:0.9rem; }
+      .property-grid, .reviews-grid { gap:20px; }
+      .stars { font-size: 1.3rem; }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Home Ground Merchants</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#properties">Properties</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="container">
+    <div class="logo">Home Ground Merchants</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#properties">Properties</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section id="home" class="hero">
-  <h2>Trusted Land & Property Dealers</h2>
-  <p>Plots • Apartments • Investment Properties</p>
-  <a href="#properties">Browse Properties</a>
+  <h1>Reliable Plots & Apartments in Nairobi Suburbs</h1>
+  <p>Genuine ready-title properties • Transparent deals since 2015</p>
+  <a href="#properties" class="btn-primary">View All Properties</a>
 </section>
 
 <section id="about" class="about">
-  <h3>About Us</h3>
-  <p>
-    Home Ground Merchants is a trusted real estate company specializing in the
-    sale of genuine plots, apartments, and investment-ready properties.
-    We focus on prime locations, transparent transactions, and helping our
-    clients make informed property decisions with confidence.
+  <h2>About Us</h2>
+  <p style="max-width:720px; margin:0 auto 2rem; text-align:center; font-size:1.1rem;">
+    Home Ground Merchants has been a trusted name in Nairobi's real estate market since 2015. 
+    With over 10 years of experience, we specialize in mid-range apartments and residential plots in fast-growing suburbs.
   </p>
+
+  <h2 style="margin-top:3rem;">Why Choose Us?</h2>
+  <div class="about-grid">
+    <div class="feature-card">
+      <h3>Ready Title Only</h3>
+      <p>We work exclusively with verified, ready-to-transfer documents</p>
+    </div>
+    <div class="feature-card">
+      <h3>Full Transparency</h3>
+      <p>No hidden fees — clear pricing from day one</p>
+    </div>
+    <div class="feature-card">
+      <h3>Local Expertise</h3>
+      <p>Deep knowledge of Ruiru, Kitengela, Joska & more</p>
+    </div>
+  </div>
 </section>
 
-<section id="properties">
-  <div class="filters">
-    <button onclick="filterProps('all')">All</button>
-    <button onclick="filterProps('apartment')">Apartments</button>
-    <button onclick="filterProps('plot')">Plots</button>
-  </div>
-
-  <div id="list" class="property-grid"></div>
-
-  <div class="load-more">
-    <button onclick="loadMore()">Load More</button>
+<section id="properties" style="background:#f1f5f9;">
+  <div class="container">
+    <h2>Our Properties</h2>
+    <div id="loading" style="text-align:center; padding:2rem; color:#666;">Loading properties...</div>
+    <div class="property-grid" id="propertyGrid" style="display:none;"></div>
   </div>
 </section>
 
-<section id="contact" class="contact">
-  <h3>Contact Us</h3>
-  <p>Get in touch for property details or site visits</p>
+<section id="contact" class="about">
+  <h2>Contact Us</h2>
+  <p style="text-align:center; margin-bottom:1.5rem; font-size:1.15rem;">
+    Call/WhatsApp: <strong>0724 154 316</strong><br>
+    Email: <a href="mailto:info@homegroundmerchants.com" style="color:var(--primary);">info@homegroundmerchants.com</a>
+  </p>
 
-  <a href="tel:+254724154316">📞 0724 154 316</a>
-  <a href="mailto:info@homegroundmerchants.com">✉️ info@homegroundmerchants.com</a>
-  <a href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you.">
-    💬 WhatsApp Us
-  </a>
+  <div style="text-align:center; margin-top:1.5rem;">
+    <p>Follow us</p>
+    <div style="margin-top:1rem;">
+      <a href="#" target="_blank" style="color:var(--primary); margin:0 1rem;">Facebook</a>
+      <a href="#" target="_blank" style="color:var(--primary); margin:0 1rem;">Instagram</a>
+    </div>
+  </div>
+</section>
 
-  <div class="socials">
-    <p>Follow Us</p>
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
+<!-- Reviews -->
+<section id="reviews" class="about" style="background:#f8f9fa;">
+  <h2>What Our Clients Say</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star active" data-value="4">★</span>
+        <span class="star active" data-value="5">★</span>
+      </div>
+      <p>"First time buyer here. The team guided me step-by-step to get my plot in Kitengela. Everything was clear and fast — no stress at all!"</p>
+      <div class="review-author">— Mary Wanjiku, First-time Buyer, Kitengela</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star active" data-value="3">★</span>
+        <span class="star active" data-value="4">★</span>
+        <span class="star active" data-value="5">★</span>
+      </div>
+      <p>"Invested in a 3-bedroom apartment in Ruiru. Great rental returns already and the process was very transparent. Highly professional team!"</p>
+      <div class="review-author">— James Kamau, Investor, Ruiru</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star active" data-value="2">★</span>
+        <span class="star active" data-value="3">★</span>
+        <span class="star active" data-value="4">★</span>
+        <span class="star active" data-value="5">★</span>
+      </div>
+      <p>"We bought our family home plot in Joska. Quick documentation, fair pricing, and excellent follow-up. Best decision we made!"</p>
+      <div class="review-author">— Grace Muthoni, Family Buyer, Joska</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star active" data-value="4">★</span>
+        <span class="star active" data-value="5">★</span>
+      </div>
+      <p>"Affordable plots with quick documentation. Best experience in the market so far."</p>
+      <div class="review-author">— Peter Omondi, Investor, Joska</div>
+    </div>
   </div>
 </section>
 
 <footer>
-  © 2025 Home Ground Merchants. All Rights Reserved.
+  <p>© December 2025 Home Ground Merchants<br>All rights reserved • Nairobi, Kenya</p>
 </footer>
 
-<a class="whatsapp-float"
-href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you."
-target="_blank">💬</a>
+<!-- Modal -->
+<div id="propertyModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <div class="modal-header">
+      <img id="modalImage" src="" alt="Property">
+    </div>
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <p class="price" id="modalPrice"></p>
+      <p id="modalLocation"></p>
+      <p id="modalExtra"></p>
+      <p id="modalDescription" style="margin-top:1.2rem;"></p>
+
+      <a id="whatsappCTA" href="#" class="whatsapp-btn" target="_blank">
+        Get More Details on WhatsApp →
+      </a>
+    </div>
+  </div>
+</div>
 
 <script>
-const properties=[
- {title:"Mihoko Kizito Apartments",location:"Mihoko Kizito",price:"KES 23.5M",type:"apartment"},
- {title:"Ruiru Bypass Apartments",location:"Ruiru",price:"KES 32M",type:"apartment"},
- {title:"Kikuyu Ondiri Apartments",location:"Kikuyu",price:"KES 18.8M",type:"apartment"},
- {title:"Joska Modern Apartments",location:"Joska",price:"KES 27M",type:"apartment"},
- {title:"Kasarani Seasons Apartments",location:"Kasarani",price:"KES 45M",type:"apartment"},
- {title:"Kitengela Milimani Plot",location:"Kitengela",price:"KES 3.2M",type:"plot"},
- {title:"Ruiru Kamakis Plot",location:"Kamakis",price:"KES 1.8M",type:"plot"},
- {title:"Joska Kantafu Plot",location:"Kantafu",price:"KES 2.5M",type:"plot"},
- {title:"Ngong Matasia Plot",location:"Matasia",price:"KES 6.5M",type:"plot"},
- {title:"Thika Makongeni Plot",location:"Makongeni",price:"KES 2.2M",type:"plot"}
+const properties = [
+  {
+    title: "Mihoko Kizito Apartments",
+    price: "KES 23.5M",
+    location: "Mwi(hoko) Kizito",
+    extra: "Income ~180K/month • Plot 40×60 ft",
+    description: "Well-maintained income-generating apartment block in a rapidly developing area. Strong rental income and excellent capital appreciation potential. Ready title, good condition.",
+    thumbnail: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1",
+    fullImage: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1"
+  },
+  {
+    title: "Ruiru Bypass Apartments",
+    price: "KES 32M",
+    location: "Ruiru",
+    extra: "3-4 bedroom units • Gated community",
+    description: "Modern apartments with strong rental demand and good accessibility. Ideal for family living or investment in a rapidly developing area.",
+    thumbnail: "https://brandedresi.com/wp-content/uploads/2025/06/Mirae-Residences-CityBlue-Nairobi.jpg",
+    fullImage: "https://brandedresi.com/wp-content/uploads/2025/06/Mirae-Residences-CityBlue-Nairobi.jpg"
+  },
+  {
+    title: "Joska Modern Apartments",
+    price: "KES 27M",
+    location: "Joska",
+    extra: "3 bedroom units • Ready title",
+    description: "Contemporary apartments in a fast-growing area with good amenities nearby. Excellent value for money and strong rental potential.",
+    thumbnail: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg",
+    fullImage: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg"
+  },
+  {
+    title: "Kasarani Seasons Apartments",
+    price: "KES 45M",
+    location: "Kasarani",
+    extra: "4 bedroom units • Spacious",
+    description: "Spacious family apartments in a popular location with good infrastructure and security. Ready for immediate occupation.",
+    thumbnail: "https://www.gazebohomes.com/wp-content/uploads/2025/09/Apartments-in-Nairobi.png",
+    fullImage: "https://www.gazebohomes.com/wp-content/uploads/2025/09/Apartments-in-Nairobi.png"
+  },
+  {
+    title: "Kitengela Milimani Plot",
+    price: "KES 3.2M",
+    location: "Kitengela",
+    extra: "1/4 Acre • Fully serviced • Gated",
+    description: "Secure residential plot in an upscale gated community. Water, electricity and access roads already in place. Ready for immediate development.",
+    thumbnail: "https://images.privatepropertykenya.com/large/fully-serviced-gated-community-18-acre-plots-for-sale-in-kikuyu-ondiri-HinuTvOvQRA5h7VYcmxx.jpg",
+    fullImage: "https://images.privatepropertykenya.com/large/fully-serviced-gated-community-18-acre-plots-for-sale-in-kikuyu-ondiri-HinuTvOvQRA5h7VYcmxx.jpg"
+  },
+  {
+    title: "Ruiru Kamakis Plot",
+    price: "KES 1.8M",
+    location: "Kamakis, Ruiru",
+    extra: "1/8 Acre • Ready title",
+    description: "Affordable residential plot in a well-connected area. Ideal for first-time buyers or small investors. Ready title.",
+    thumbnail: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg",
+    fullImage: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg"
+  },
+  {
+    title: "Ngong Matasia Plot",
+    price: "KES 6.5M",
+    location: "Matasia, Ngong",
+    extra: "1/2 Acre • Scenic views",
+    description: "Elevated plot with good views. Perfect for a private family home in a peaceful area. Ready title.",
+    thumbnail: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=9865084283599356",
+    fullImage: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=9865084283599356"
+  },
+  {
+    title: "Thika Makongeni Plot",
+    price: "KES 2.2M",
+    location: "Makongeni, Thika",
+    extra: "1/4 Acre • Serviced",
+    description: "Good-sized plot in a developing area with high growth potential. Water and electricity nearby. Ready for construction.",
+    thumbnail: "https://images.kenyapropertycentre.com/properties/images/53983/068dc918ebc9b5-ngong-14-acre-serviced-plots-residential-land-for-sale-ngong-kajiado.jpg",
+    fullImage: "https://images.kenyapropertycentre.com/properties/images/53983/068dc918ebc9b5-ngong-14-acre-serviced-plots-residential-land-for-sale-ngong-kajiado.jpg"
+  }
 ];
 
-let visible=6;
-let current="all";
+const grid = document.getElementById('propertyGrid');
+const loading = document.getElementById('loading');
 
-function render(){
- const list=document.getElementById("list");
- list.innerHTML="";
- properties
-  .filter(p=>current==="all"||p.type===current)
-  .slice(0,visible)
-  .forEach(p=>{
-    list.innerHTML+=`
-     <div class="property-card">
-       <img src="https://via.placeholder.com/400x300">
-       <div>
-         <h3>${p.title}</h3>
-         <p>${p.location}</p>
-         <strong>${p.price}</strong>
-       </div>
-     </div>`;
+loading.style.display = 'block';
+grid.style.display = 'none';
+
+// Simulate a tiny delay to show loading (optional - remove if not needed)
+setTimeout(() => {
+  properties.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'property-card';
+    card.innerHTML = `
+      <img src="${p.thumbnail}" alt="${p.title}" loading="lazy">
+      <div class="card-content">
+        <h3 style="font-size:1.25rem; margin-bottom:0.6rem;">${p.title}</h3>
+        <div class="price">${p.price}</div>
+        <button class="btn" onclick='openModal(${JSON.stringify(p)})'>View Details</button>
+      </div>
+    `;
+    grid.appendChild(card);
   });
-}
-function filterProps(type){
- current=type;
- visible=6;
- render();
-}
-function loadMore(){
- visible+=4;
- render();
-}
-render();
-</script>
 
+  loading.style.display = 'none';
+  grid.style.display = 'grid';
+}, 300); // small delay - remove setTimeout if you want instant
+
+function openModal(property) {
+  document.getElementById('modalImage').src = property.fullImage;
+  document.getElementById('modalTitle').textContent = property.title;
+  document.getElementById('modalPrice').textContent = property.price;
+  document.getElementById('modalLocation').textContent = property.location;
+  document.getElementById('modalExtra').textContent = property.extra;
+  document.getElementById('modalDescription').textContent = property.description;
+
+  const message = encodeURIComponent(
+    `Hello Home Ground Merchants,\n\n` +
+    `I'm interested in "${property.title}" located in ${property.location} (${property.price}).\n` +
+    `Could you kindly provide:\n` +
+    `• More recent photos/videos\n` +
+    `• Available payment plans\n` +
+    `• Next possible site visit dates\n` +
+    `• Any other important details\n\n` +
+    `Thank you in advance!`
+  );
+
+  document.getElementById('whatsappCTA').href = `https://wa.me/254724154316?text=${message}`;
+
+  document.getElementById('propertyModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('propertyModal').style.display = 'none';
+}
+
+document.getElementById('propertyModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+// Clickable stars
+document.querySelectorAll('.stars').forEach(starsContainer => {
+  const stars = starsContainer.querySelectorAll('.star');
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      const value = star.dataset.value;
+      stars.forEach(s => {
+        s.classList.toggle('active', s.dataset.value <= value);
+      });
+    });
+    star.addEventListener('mouseover', () => {
+      const value = star.dataset.value;
+      stars.forEach(s => {
+        s.style.color = s.dataset.value <= value ? var(--gold-light) : '#d1d5db';
+      });
+    });
+    star.addEventListener('mouseout', () => {
+      stars.forEach(s => {
+        s.style.color = s.classList.contains('active') ? var(--gold) : '#d1d5db';
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
