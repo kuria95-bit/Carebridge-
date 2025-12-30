@@ -12,8 +12,6 @@
       --light: #f9fafb;
       --gray: #6b7280;
       --green: #25d366;
-      --gold: #fbbf24;
-      --gold-light: #fcd34d;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -63,8 +61,9 @@
       font-weight: 700;
       font-size: clamp(1rem, 4vw, 1.15rem);
       transition: all 0.25s ease;
+      touch-action: manipulation;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .btn-primary:hover, .btn-primary:active { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
     .about-grid {
       display: grid;
@@ -116,48 +115,60 @@
       padding: 1.8rem;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      text-align: left;
       position: relative;
     }
     .review-card::before {
       content: '“';
       font-size: 4rem;
       color: var(--primary);
-      opacity: 0.12;
+      opacity: 0.15;
       position: absolute;
       top: -10px;
       left: 10px;
     }
-    .stars {
-      display: flex;
-      gap: 0.3rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.5rem;
-      color: #d1d5db;
-      cursor: pointer;
-    }
-    .stars span {
-      transition: color 0.2s;
-    }
-    .stars span:hover, .stars span.active {
-      color: var(--gold);
-    }
-    .review-card p { margin: 1rem 0; font-style: italic; color: #374151; }
+    .review-card p { margin: 1rem 0; font-style: italic; }
     .review-author {
       font-weight: 600;
       color: var(--primary);
       margin-top: 1rem;
-      font-size: 0.95rem;
     }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      align-items: center; justify-content: center; padding: 10px;
+    }
+    .modal-content {
+      background: white; max-width: 900px; width: 100%; border-radius: 12px;
+      overflow: hidden; max-height: 92vh; overflow-y: auto; position: relative;
+    }
+    .modal-header img { width: 100%; height: clamp(200px, 40vw, 280px); object-fit: cover; }
+    .modal-body { padding: 1.8rem; }
+    .close-btn {
+      position: absolute; top: 10px; right: 16px;
+      background: rgba(0,0,0,0.65); color: white; width: 36px; height: 36px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; cursor: pointer;
+    }
+    .whatsapp-btn {
+      display: block; background: var(--green); color: white; text-align: center;
+      padding: 14px; margin: 2rem auto 0; max-width: 340px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 1.1rem;
+    }
+    .whatsapp-btn:hover { background: #20b358; }
 
     footer { background: var(--primary); color: white; text-align: center; padding: 3rem 6% 2rem; }
 
-    @media (max-width:768px) {
-      header { padding:0.9rem 5%; }
-      .hero { padding:90px 5% 70px; }
-      nav { gap:0.8rem; }
-      nav a { font-size:0.9rem; }
-      .property-grid, .reviews-grid { gap:20px; }
-      .stars { font-size: 1.3rem; }
+    @media (max-width: 768px) {
+      header { padding: 0.9rem 5%; }
+      .hero { padding: 90px 5% 70px; }
+      nav { gap: 0.8rem; }
+      nav a { font-size: 0.9rem; }
+      .property-grid, .reviews-grid { gap: 20px; }
     }
   </style>
 </head>
@@ -208,7 +219,6 @@
 <section id="properties" style="background:#f1f5f9;">
   <div class="container">
     <h2>Our Properties</h2>
-    <div id="loading" style="text-align:center; padding:3rem 0; color:#666;">Loading properties...</div>
     <div class="property-grid" id="propertyGrid"></div>
   </div>
 </section>
@@ -229,53 +239,25 @@
   </div>
 </section>
 
-<!-- Reviews -->
+<!-- Reviews moved to the bottom -->
 <section id="reviews" class="about" style="background:#f8f9fa;">
   <h2>What Our Clients Say</h2>
   <div class="reviews-grid">
     <div class="review-card">
-      <div class="stars">
-        <span class="star" data-value="1">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star" data-value="3">★</span>
-        <span class="star active" data-value="4">★</span>
-        <span class="star active" data-value="5">★</span>
-      </div>
-      <p>"First time buyer here. The team guided me step-by-step to get my plot in Kitengela. Everything was clear and fast — no stress at all!"</p>
-      <div class="review-author">— Mary Wanjiku, First-time Buyer, Kitengela</div>
+      <p>"The team was very transparent and professional. We got our plot in Kitengela with ready title in less than 30 days. Highly recommended!"</p>
+      <div class="review-author">— Mary Wanjiku, Kitengela</div>
     </div>
     <div class="review-card">
-      <div class="stars">
-        <span class="star" data-value="1">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star active" data-value="3">★</span>
-        <span class="star active" data-value="4">★</span>
-        <span class="star active" data-value="5">★</span>
-      </div>
-      <p>"Invested in a 3-bedroom apartment in Ruiru. Great rental returns already and the process was very transparent. Highly professional team!"</p>
-      <div class="review-author">— James Kamau, Investor, Ruiru</div>
+      <p>"Bought my first apartment in Ruiru through Home Ground. Everything was smooth, no hidden costs. Great service!"</p>
+      <div class="review-author">— James Kamau, Ruiru</div>
     </div>
     <div class="review-card">
-      <div class="stars">
-        <span class="star" data-value="1">★</span>
-        <span class="star active" data-value="2">★</span>
-        <span class="star active" data-value="3">★</span>
-        <span class="star active" data-value="4">★</span>
-        <span class="star active" data-value="5">★</span>
-      </div>
-      <p>"We bought our family home plot in Joska. Quick documentation, fair pricing, and excellent follow-up. Best decision we made!"</p>
-      <div class="review-author">— Grace Muthoni, Family Buyer, Joska</div>
+      <p>"Very reliable. They helped us avoid many pitfalls. Got a good income-generating property in Mwi(hoko). Thank you!"</p>
+      <div class="review-author">— Grace Muthoni, Nairobi</div>
     </div>
     <div class="review-card">
-      <div class="stars">
-        <span class="star" data-value="1">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star" data-value="3">★</span>
-        <span class="star active" data-value="4">★</span>
-        <span class="star active" data-value="5">★</span>
-      </div>
       <p>"Affordable plots with quick documentation. Best experience in the market so far."</p>
-      <div class="review-author">— Peter Omondi, Investor, Joska</div>
+      <div class="review-author">— Peter Omondi, Joska</div>
     </div>
   </div>
 </section>
@@ -306,158 +288,128 @@
 </div>
 
 <script>
-  // Properties array (8 items)
-  const properties = [
-    {
-      title: "Mihoko Kizito Apartments",
-      price: "KES 23.5M",
-      location: "Mwi(hoko) Kizito",
-      extra: "Income ~180K/month • Plot 40×60 ft",
-      description: "Well-maintained income-generating apartment block in a rapidly developing area. Strong rental income and excellent capital appreciation potential. Ready title, good condition.",
-      thumbnail: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1",
-      fullImage: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1"
-    },
-    {
-      title: "Ruiru Bypass Apartments",
-      price: "KES 32M",
-      location: "Ruiru",
-      extra: "3-4 bedroom units • Gated community",
-      description: "Modern apartments with strong rental demand and good accessibility. Ideal for family living or investment in a rapidly developing area.",
-      thumbnail: "https://brandedresi.com/wp-content/uploads/2025/06/Mirae-Residences-CityBlue-Nairobi.jpg",
-      fullImage: "https://brandedresi.com/wp-content/uploads/2025/06/Mirae-Residences-CityBlue-Nairobi.jpg"
-    },
-    {
-      title: "Joska Modern Apartments",
-      price: "KES 27M",
-      location: "Joska",
-      extra: "3 bedroom units • Ready title",
-      description: "Contemporary apartments in a fast-growing area with good amenities nearby. Excellent value for money and strong rental potential.",
-      thumbnail: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg",
-      fullImage: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg"
-    },
-    {
-      title: "Kasarani Seasons Apartments",
-      price: "KES 45M",
-      location: "Kasarani",
-      extra: "4 bedroom units • Spacious",
-      description: "Spacious family apartments in a popular location with good infrastructure and security. Ready for immediate occupation.",
-      thumbnail: "https://www.gazebohomes.com/wp-content/uploads/2025/09/Apartments-in-Nairobi.png",
-      fullImage: "https://www.gazebohomes.com/wp-content/uploads/2025/09/Apartments-in-Nairobi.png"
-    },
-    {
-      title: "Kitengela Milimani Plot",
-      price: "KES 3.2M",
-      location: "Kitengela",
-      extra: "1/4 Acre • Fully serviced • Gated",
-      description: "Secure residential plot in an upscale gated community. Water, electricity and access roads already in place. Ready for immediate development.",
-      thumbnail: "https://images.privatepropertykenya.com/large/fully-serviced-gated-community-18-acre-plots-for-sale-in-kikuyu-ondiri-HinuTvOvQRA5h7VYcmxx.jpg",
-      fullImage: "https://images.privatepropertykenya.com/large/fully-serviced-gated-community-18-acre-plots-for-sale-in-kikuyu-ondiri-HinuTvOvQRA5h7VYcmxx.jpg"
-    },
-    {
-      title: "Ruiru Kamakis Plot",
-      price: "KES 1.8M",
-      location: "Kamakis, Ruiru",
-      extra: "1/8 Acre • Ready title",
-      description: "Affordable residential plot in a well-connected area. Ideal for first-time buyers or small investors. Ready title.",
-      thumbnail: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg",
-      fullImage: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg"
-    },
-    {
-      title: "Ngong Matasia Plot",
-      price: "KES 6.5M",
-      location: "Matasia, Ngong",
-      extra: "1/2 Acre • Scenic views",
-      description: "Elevated plot with good views. Perfect for a private family home in a peaceful area. Ready title.",
-      thumbnail: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=9865084283599356",
-      fullImage: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=9865084283599356"
-    },
-    {
-      title: "Thika Makongeni Plot",
-      price: "KES 2.2M",
-      location: "Makongeni, Thika",
-      extra: "1/4 Acre • Serviced",
-      description: "Good-sized plot in a developing area with high growth potential. Water and electricity nearby. Ready for construction.",
-      thumbnail: "https://images.kenyapropertycentre.com/properties/images/53983/068dc918ebc9b5-ngong-14-acre-serviced-plots-residential-land-for-sale-ngong-kajiado.jpg",
-      fullImage: "https://images.kenyapropertycentre.com/properties/images/53983/068dc918ebc9b5-ngong-14-acre-serviced-plots-residential-land-for-sale-ngong-kajiado.jpg"
-    }
-  ];
-
-  const grid = document.getElementById('propertyGrid');
-  const loading = document.getElementById('loading');
-
-  // Render properties
-  properties.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'property-card';
-    card.innerHTML = `
-      <img src="${p.thumbnail}" alt="${p.title}" loading="lazy">
-      <div class="card-content">
-        <h3 style="font-size:1.25rem; margin-bottom:0.6rem;">${p.title}</h3>
-        <div class="price">${p.price}</div>
-        <button class="btn" onclick='openModal(${JSON.stringify(p)})'>View Details</button>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-
-  loading.style.display = 'none';
-  grid.style.display = 'grid';
-
-  function openModal(property) {
-    document.getElementById('modalImage').src = property.fullImage;
-    document.getElementById('modalTitle').textContent = property.title;
-    document.getElementById('modalPrice').textContent = property.price;
-    document.getElementById('modalLocation').textContent = property.location;
-    document.getElementById('modalExtra').textContent = property.extra;
-    document.getElementById('modalDescription').textContent = property.description;
-
-    const message = encodeURIComponent(
-      `Hello Home Ground Merchants,\n\n` +
-      `I'm interested in "${property.title}" located in ${property.location} (${property.price}).\n` +
-      `Could you kindly provide:\n` +
-      `• More recent photos/videos\n` +
-      `• Available payment plans\n` +
-      `• Next possible site visit dates\n` +
-      `• Any other important details\n\n` +
-      `Thank you in advance!`
-    );
-
-    document.getElementById('whatsappCTA').href = `https://wa.me/254724154316?text=${message}`;
-
-    document.getElementById('propertyModal').style.display = 'flex';
+const properties = [
+  {
+    title: "Mihoko Kizito Apartments",
+    price: "KES 23.5M",
+    location: "Mwi(hoko) Kizito",
+    extra: "Income ~180K/month • Plot 40×60 ft",
+    description: "Well-maintained income-generating apartment block in a rapidly developing area. Strong rental income and excellent capital appreciation potential. Ready title, good condition.",
+    thumbnail: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1",
+    fullImage: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2025/07/Best-movers-in-Kahawa-Wendani-Best-estates-in-Kahawa-Wendani-Best-apartments-in-Kahawa-Wendani-House-prices-in-Kahawa-Wendani-Cost-of-living-in-Kahawa-Wendani-1.jpg?ssl=1"
+  },
+  {
+    title: "Ruiru Bypass Apartments",
+    price: "KES 32M",
+    location: "Ruiru",
+    extra: "3-4 bedroom units • Gated community",
+    description: "Modern apartments with strong rental demand and good accessibility. Ideal for family living or investment in a rapidly developing area.",
+    thumbnail: "https://brandedresi.com/wp-content/uploads/2025/06/Mirae-Residences-CityBlue-Nairobi.jpg",
+    fullImage: "https://brandedresi.com/wp-content/uploads/2025/06/Mirae-Residences-CityBlue-Nairobi.jpg"
+  },
+  {
+    title: "Joska Modern Apartments",
+    price: "KES 27M",
+    location: "Joska",
+    extra: "3 bedroom units • Ready title",
+    description: "Contemporary apartments in a fast-growing area with good amenities nearby. Excellent value for money and strong rental potential.",
+    thumbnail: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg",
+    fullImage: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg"
+  },
+  {
+    title: "Kasarani Seasons Apartments",
+    price: "KES 45M",
+    location: "Kasarani",
+    extra: "4 bedroom units • Spacious",
+    description: "Spacious family apartments in a popular location with good infrastructure and security. Ready for immediate occupation.",
+    thumbnail: "https://www.gazebohomes.com/wp-content/uploads/2025/09/Apartments-in-Nairobi.png",
+    fullImage: "https://www.gazebohomes.com/wp-content/uploads/2025/09/Apartments-in-Nairobi.png"
+  },
+  {
+    title: "Kitengela Milimani Plot",
+    price: "KES 3.2M",
+    location: "Kitengela",
+    extra: "1/4 Acre • Fully serviced • Gated",
+    description: "Secure residential plot in an upscale gated community. Water, electricity and access roads already in place. Ready for immediate development.",
+    thumbnail: "https://images.privatepropertykenya.com/large/fully-serviced-gated-community-18-acre-plots-for-sale-in-kikuyu-ondiri-HinuTvOvQRA5h7VYcmxx.jpg",
+    fullImage: "https://images.privatepropertykenya.com/large/fully-serviced-gated-community-18-acre-plots-for-sale-in-kikuyu-ondiri-HinuTvOvQRA5h7VYcmxx.jpg"
+  },
+  {
+    title: "Ruiru Kamakis Plot",
+    price: "KES 1.8M",
+    location: "Kamakis, Ruiru",
+    extra: "1/8 Acre • Ready title",
+    description: "Affordable residential plot in a well-connected area. Ideal for first-time buyers or small investors. Ready title.",
+    thumbnail: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg",
+    fullImage: "https://musti.co.ke/public/uploads/plots%20in%20ruiru%201.jpg"
+  },
+  {
+    title: "Ngong Matasia Plot",
+    price: "KES 6.5M",
+    location: "Matasia, Ngong",
+    extra: "1/2 Acre • Scenic views",
+    description: "Elevated plot with good views. Perfect for a private family home in a peaceful area. Ready title.",
+    thumbnail: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=9865084283599356",
+    fullImage: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=9865084283599356"
+  },
+  {
+    title: "Thika Makongeni Plot",
+    price: "KES 2.2M",
+    location: "Makongeni, Thika",
+    extra: "1/4 Acre • Serviced",
+    description: "Good-sized plot in a developing area with high growth potential. Water and electricity nearby. Ready for construction.",
+    thumbnail: "https://images.kenyapropertycentre.com/properties/images/53983/068dc918ebc9b5-ngong-14-acre-serviced-plots-residential-land-for-sale-ngong-kajiado.jpg",
+    fullImage: "https://images.kenyapropertycentre.com/properties/images/53983/068dc918ebc9b5-ngong-14-acre-serviced-plots-residential-land-for-sale-ngong-kajiado.jpg"
   }
+];
 
-  function closeModal() {
-    document.getElementById('propertyModal').style.display = 'none';
-  }
+const grid = document.getElementById('propertyGrid');
 
-  document.getElementById('propertyModal').addEventListener('click', e => {
-    if (e.target === e.currentTarget) closeModal();
-  });
+properties.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'property-card';
+  card.innerHTML = `
+    <img src="${p.thumbnail}" alt="${p.title}" loading="lazy">
+    <div class="card-content">
+      <h3 style="font-size:1.25rem; margin-bottom:0.6rem;">${p.title}</h3>
+      <div class="price">${p.price}</div>
+      <button class="btn" onclick='openModal(${JSON.stringify(p)})'>View Details</button>
+    </div>
+  `;
+  grid.appendChild(card);
+});
 
-  // Clickable stars functionality
-  document.querySelectorAll('.stars').forEach(starsContainer => {
-    const stars = starsContainer.querySelectorAll('.star');
-    stars.forEach(star => {
-      star.addEventListener('click', () => {
-        const value = star.dataset.value;
-        stars.forEach(s => {
-          s.classList.toggle('active', s.dataset.value <= value);
-        });
-      });
-      star.addEventListener('mouseover', () => {
-        const value = star.dataset.value;
-        stars.forEach(s => {
-          s.style.color = s.dataset.value <= value ? var(--gold-light) : '#d1d5db';
-        });
-      });
-      star.addEventListener('mouseout', () => {
-        stars.forEach(s => {
-          s.style.color = s.classList.contains('active') ? var(--gold) : '#d1d5db';
-        });
-      });
-    });
-  });
+function openModal(property) {
+  document.getElementById('modalImage').src = property.fullImage;
+  document.getElementById('modalTitle').textContent = property.title;
+  document.getElementById('modalPrice').textContent = property.price;
+  document.getElementById('modalLocation').textContent = property.location;
+  document.getElementById('modalExtra').textContent = property.extra;
+  document.getElementById('modalDescription').textContent = property.description;
+
+  const message = encodeURIComponent(
+    `Hello Home Ground Merchants,\n\n` +
+    `I'm interested in "${property.title}" located in ${property.location} (${property.price}).\n` +
+    `Could you kindly provide:\n` +
+    `• More recent photos/videos\n` +
+    `• Available payment plans\n` +
+    `• Next possible site visit dates\n` +
+    `• Any other important details\n\n` +
+    `Thank you in advance!`
+  );
+
+  document.getElementById('whatsappCTA').href = `https://wa.me/254724154316?text=${message}`;
+
+  document.getElementById('propertyModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('propertyModal').style.display = 'none';
+}
+
+document.getElementById('propertyModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
 </script>
 </body>
 </html>
