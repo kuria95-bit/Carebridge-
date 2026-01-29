@@ -1,0 +1,15 @@
+[
+  {
+    "id": "ruiru_apts",
+    "title": "Ruiru Bypass Apartments",
+    "type": "apartment",
+    "price": "KES 32M",
+    "location": "Ruiru",
+    "highlight": "3–4 bedroom • Gated",
+    "thumbnail": "images/ruiru-apts/cover.jpg",
+    "images": [
+      "images/ruiru-apts/cover.jpg"
+    ],
+    "description": "Modern apartments with strong rental demand and excellent accessibility."
+  }
+]
