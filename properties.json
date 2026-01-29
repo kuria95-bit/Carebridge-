@@ -12,4 +12,19 @@
     ],
     "description": "Modern apartments with strong rental demand and excellent accessibility."
   }
+  ,
+{
+  "id": "ruiru_kamiti",
+  "title": "Two Storey Building - Kamiti Road, Ruiru",
+  "type": "building",
+  "price": "KES 36M",
+  "location": "Ruiru, Kamiti Road",
+  "highlight": "Two storey building • Approval for 3 more floors • Rent 326K",
+  "thumbnail": "images/ruiru-kamiti/cover.jpg",
+  "images": [
+    "images/ruiru-kamiti/cover.jpg"
+  ],
+  "description": "Two storey building with approval of 3 additional floors. Approx 1.5km from Ruiru town. Excellent rental income potential."
+}
+
 ]
