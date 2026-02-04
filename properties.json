@@ -26,5 +26,19 @@
   ],
   "description": "Two storey building with approval of 3 additional floors. Approx 1.5km from Ruiru town. Excellent rental income potential."
 }
+  ,
+{
+  "id": "kahawa_wendani_flat",
+  "title": "Flat For Sale – Kahawa Wendani",
+  "type": "apartment",
+  "price": "KES 36M",
+  "location": "Kahawa Wendani (Touching Tarmac)",
+  "highlight": "Income KES 365K • Provision for 4 Shops @15K each",
+  "thumbnail": "images/kahawa-wendani-flat/cover.jpg",
+  "images": [
+    "images/kahawa-wendani-flat/cover.jpg"
+  ],
+  "description": "Flat located in Kahawa Wendani touching tarmac road. Currently generating rental income of KES 365,000 per month with additional provision to add 4 extra shops each earning approximately KES 15,000."
+}
 
 ]
